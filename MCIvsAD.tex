@@ -60,6 +60,7 @@
 \newcommand*{\defd}{\coloneqq}
 \newcommand*{\defs}{\eqqcolon}
 \newcommand*{\Land}{\bigwedge}
+\newcommand*{\zerob}[1]{\makebox[0pt][c]{#1}}
 
 
 
@@ -109,7 +110,7 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 \section{}
 [Luca \& Astri, draft]
 
-Patients with Mild Cognitive Impairment have an increased risk of Alzheimer's disease. Early identification of underlying neurodegenerative processes is essential to provide treatment before the disease is well established in the brain. Here we investigate the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about APOE status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database. 
+Patients with Mild Cognitive Impairment have an increased risk of Alzheimer's disease. Early identification of underlying neurodegenerative processes is essential to provide treatment before the disease is well established in the brain. \mynotez{maybe move this last part below, after ``the present work''?} Here we investigate the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about APOE status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database. 
 
 A personalized approach for prognosis and for treatment and prevention strategies requires, however, that the prognostic power of the predictors listed above be quantified and used in a specific way. It is not enough that prognoses be as best as they can be for each patient (that is an obvious requirement). Allowance must instead be made for several fundamental differences among patients:
 \begin{itemize}
@@ -119,12 +120,12 @@ A personalized approach for prognosis and for treatment and prevention strategie
 \item the advantages and disadvantages, gains and costs of the same kinds of treatment or prevention can be different; in particular, the patient has a major role in their quantification;
 \item finally, the initial evaluation by the clinician -- which often relies on too subtle clues (family history, regional history, previous case experience) to be considered as measurable data -- can be different.
 \end{itemize}
+The quantification framework that takes into account these fundamental differences is statistical decision theory, and Medicine has the distinction of having been one of the first fields to adopt it, as exemplified in brilliant old and new textbooks on clinical decision making.
 
-The quantification framework that takes into account these fundamental differences is statistical decision theory, and Medicine has the distinction of having been one of the first fields to adopt it, as exemplified in brilliant old and new textbooks on clinical decision making. The first requirement of clinical decision making is that the quantification of prognostic evidence on one side, and of gains and costs of treatments and prevention strategies on the other, be clearly separated. Two patients can have the same prognostic evidence, and yet very different prevention options. The second requirement is that the quantification of independent prognostic evidence be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication. For one patient we could have three kinds of predictor available; for another, we could have five.
+Two main requirements must be met for optimal clinical decision making. First, the quantification of prognostic evidence on one side, and of gains and costs of treatments and prevention strategies on the other, must be clearly separated. Two patients can have the same prognostic evidence, and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication. For one patient we could have three kinds of predictor available; for another, we could have five.
 
-The present work quantifies the prognostic power of the predictors listed above -- neuropsychological examinations, demographic data, Magnetic Resonance Imaging, genetic information -- precisely in the form of a combined likelihood for the onset of Alzheimer's disease.
+The present work meets the two requirements above by quantifying the prognostic power of the chosen predictors -- neuropsychological examinations, demographic data, Magnetic Resonance Imaging, genetic information -- in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties (possibly coming from other tests) of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these probabilities are changed by the predictors. \mynotez{Maybe we can also add two examples of different clinical decisions, coming from different gain/cost evaluations?}
 
-This quantification also indicates how strong these predictors can be. This work considers three hypothetical example patient cases where a clinician start with prognostic uncertainties (possibly coming from other tests) of 50\%/50\%, 25\%/75\%, 75\%/25\% ; it is then shown how these probabilities are changed by the predictors. \mynotez{Maybe we can also add two examples of different clinical decisions, coming from different gain/cost evaluations?}
 
 The mutual dependence and relative predictive strength of the mentioned predictors is also quantified. It is found that \mynotep{...}
 
