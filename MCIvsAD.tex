@@ -122,7 +122,7 @@ But more is needed for a personalized approach to prognosis, prevention, treatme
 \end{itemize}
 Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision making.
 
-Clinical decision making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of gains and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence, and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and gains of treatment or prevention, to arrive at the best course of action for that patient. The main result of statistical decision theory is that optimal and logically consistent decision making \emph{must} take this particular mathematical form.
+Clinical decision making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of gains and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence, and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and gains of treatment or prevention, to arrive at the best course of action for that patient. The main result underlying statistical decision theory is that decision making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
 
 The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about APOE status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
 
@@ -132,11 +132,11 @@ This quantification also allows us to rank the relative prognostic power of the 
 
 Several additional advantages of this quantification framework are also exemplified and discussed in the present work:
 \begin{itemize}
+\item missing data are automatically handled, and results having partial data are not discarded; this quantification therefore also accounts for patient-dependent availability of \emph{non-independent} predictors;
 \item no modelling assumptions (e.g.\ linearity, gaussianity, functional dependence) are made;
-\item missing data are automatically handled and results having partial data are not discarded;
 \item the prognostic power obtained is intrinsic to the predictors, that is, it is a bound for \emph{any} prognostic algorithm;
 \item variability ranges of the results owing to the finite size of the sample data is automatically quantified.
-\item the values obtained, being probabilities, are more easily interpretable than  p-values and scores of various kinds.
+\item the values obtained, being probabilities, are more easily interpretable than  scores of various kinds.
 \end{itemize}
 
 
