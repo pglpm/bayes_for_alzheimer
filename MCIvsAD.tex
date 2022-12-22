@@ -49,6 +49,15 @@
 \linenumbers
 
 \usepackage{mathtools}
+
+\usepackage[main=british]{babel}\selectlanguage{british}
+%\newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
+\newcommand{\langnohyph}[1]{\begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
+
+\usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
+\setquotestyle{american}
+\newcommand*{\defquote}[1]{`\,#1\,'}
+
 %% Macros
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\set{\{}{\}} %}
@@ -238,11 +247,16 @@ Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference t
 
 Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and see the similarities and difference between her and the other three:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results, age, and geographical origin, and very similar family histories. Ariel, however, is soon going to move to another country where a new preventive treatment is available; this option is not open to Olivia.
-\item Olivia and Bianca also have exactly identical clinical results and age, and the same preventive options. Bianca, however, comes from a different geographical region, having lower conversion rate, 30\%, from Mild Cognitive Impairment to Alzheimer. Moreover there is no history of Alzheimer in her family.
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They also have the same preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \cite{petersenetal1999} Moreover there is no history of Alzheimer in Ariel's family.
+\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. Bianca, however, is soon going to move to another country where a new preventive treatment is available; this option is not open to Olivia.
 \item Olivia and Curtis have different clinical results and age -- in particular, Olivia has the risky APOE4 allele whereas Curtis hasn't, and Curtis is more than 20 years younger. But they otherwise come from the same geographical region, have very similar family histories, and the same preventive options.
 \end{itemize}
-Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca; and those of Curtis.
+
+We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
+
+We will soon see that despite the many factors in common among these four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca -- \emph{each patient will be prescribed a treatment option different from the other three}.
+
+The difference in treatment originates from the difference in clinical factors\mynotew{}
 
 
 
