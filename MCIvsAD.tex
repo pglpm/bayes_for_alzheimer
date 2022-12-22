@@ -148,29 +148,112 @@ Several additional advantages of this quantification framework are also exemplif
 \end{itemize}
 
 
-
-
-\mynotez{Maybe we can also add two examples of different clinical decisions, coming from different benefit/cost evaluations?}
-
-
 %Alzheimer's disease (AD) is by far the most common type of dementia. The disease is characterized by an insidious onset caused by neurodegenerative processes, which lead to progressive loss of cognitive and functional abilities. Alongside the devastating personal consequences AD has on those affected and their caregivers, economical costs related to the disease are massive.
 % 
 % One of the difficulties for successful treatment of AD is the fact that its pathological hallmarks tend to be established in the brain decades prior to the time a person's cognitive and functional impairments are severe enough to get medical attention. Management of known risk factors for AD (e.g., high blood pressure and diabetes) is therefore emphasized. Recent studies point towards promising life-style interventions reducing AD-pathology and neurodegeneration and delaying symptom-onset. Much effort is therefore put into early identification and treatment of patients in the prodromal phase of the disease. Mild Cognitive Impairment (MCI) has become a diagnostic concept to describe this phase. Individuals falling within this diagnostic category show a cognitive decline greater than expected in normal cognitive aging, but still not with the severity of functional impairment characterizing those with dementia.
 
 
-\color{yellow}{\tiny For full guidelines regarding your manuscript please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines}{Author Guidelines}.
+% \color{yellow}{\tiny For full guidelines regarding your manuscript please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines}{Author Guidelines}.
 
-As a primary goal, the abstract should render the general significance and conceptual advance of the work clearly accessible to a broad readership. References should not be cited in the abstract. Leave the Abstract empty if your article does not require one, please see \href{http://www.frontiersin.org/about/AuthorGuidelines#SummaryTable}{Summary Table} for details according to article type.
+% As a primary goal, the abstract should render the general significance and conceptual advance of the work clearly accessible to a broad readership. References should not be cited in the abstract. Leave the Abstract empty if your article does not require one, please see \href{http://www.frontiersin.org/about/AuthorGuidelines#SummaryTable}{Summary Table} for details according to article type.
 
-} 
+% } 
 
 
 \tiny
  \keyFont{ \section{Keywords:} keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-\section{Introduction}
-[Luca, pieces of text]
+\section{Each patient is unique}
+
+%%%% EXAMPLE-PATIENT DATA %%%%
+% Olivia, Ariel, Bianca:
+% Apoe4_
+% 1
+% ANARTERR_neuro
+% 14
+% AVDEL30MIN_neuro
+% 3
+% AVDELTOT_neuro
+% 12
+% CATANIMSC_neuro
+% 18
+% GDTOTAL_gds
+% 0
+% RAVLT_immediate
+% 29
+% AGE
+% 83.4873
+% LRHHC_n_long
+% 0.00276752
+% TRAASCOR_neuro
+% 126.543
+% TRABSCOR_neuro
+% 117.003
+% Gender_num_
+% 1
+%
+%%%%%%%%%
+% Curtis:
+% Apoe4_
+% 0
+% ANARTERR_neuro
+% 6
+% AVDEL30MIN_neuro
+% 0
+% AVDELTOT_neuro
+% 2
+% CATANIMSC_neuro
+% 13
+% GDTOTAL_gds
+% 1
+% RAVLT_immediate
+% 16
+% AGE
+% 61.517
+% LRHHC_n_long
+% 0.00416919
+% TRAASCOR_neuro
+% 24.8009
+% TRABSCOR_neuro
+% 83.4148
+% Gender_num_
+% 0
+%
+%%%%%%%%
+% Prior prob. for Bianca: 0.3
+%%%%%%%%
+% Utility matrices Olivia, Bianca, Curtis:
+% 1  1.0  0.0
+% 2  0.6  0.7
+% 3  0.0  1.0
+%
+% Utility matrix Ariel:
+% 1  1.0  0.0
+% 2  0.7  0.5
+% 3  0.0  1.0
+% 4  0.5  0.8
+
+Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental} These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other demographic factors their clinician is assessing their risk of developing Alzheimer, and will then decide on possible preventive treatments together with the patients.
+
+Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and see the similarities and difference between her and the other three:
+\begin{itemize}
+\item Olivia and Ariel turn out to have exactly identical clinical results, age, and geographical origin, and very similar family histories. Ariel, however, is soon going to move to another country where a new preventive treatment is available; this option is not open to Olivia.
+\item Olivia and Bianca also have exactly identical clinical results and age, and the same preventive options. Bianca, however, comes from a different geographical region, having lower conversion rate, 30\%, from Mild Cognitive Impairment to Alzheimer. Moreover there is no history of Alzheimer in her family.
+\item Olivia and Curtis have different clinical results and age -- in particular, Olivia has the risky APOE4 allele whereas Curtis hasn't, and Curtis is more than 20 years younger. But they otherwise come from the same geographical region, have very similar family histories, and the same preventive options.
+\end{itemize}
+Figure*** summarizes the similarity and differences between Olivia and the other three patients. Table*** reports the clinical results and demographic data common to Olivia, Ariel, Bianca; and those of Curtis.
+
+
+
+
+
+
+\newpage
+\hrule
+\hrule
+
+--- Luca, old pieces of text ---
 
 Personalized diagnosis, prognosis, treatment, and prevention strategies must make allowance for several fundamental differences among patients:
 \begin{itemize}
