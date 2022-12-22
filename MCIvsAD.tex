@@ -230,33 +230,39 @@ Several additional advantages of this quantification framework are also exemplif
 % 0
 %
 %%%%%%%%
-% Prior prob. for Bianca: 0.3
+% Prior prob. for Ariel: 0.3
 %%%%%%%%
-% Utility matrices Olivia, Bianca, Curtis:
+% Posterior probabilities and optimal treatments
+% Olivia 60% - #3
+% Ariel 20% - #1
+% Bianca 60% - #2
+% Curtis 80% - #4
+%%%%%%%%
+% Utility matrices Olivia, Ariel, Curtis:
 % 1  1.0  0.0
-% 2  0.6  0.7
-% 3  0.0  1.0
-%
-% Utility matrix Ariel:
+% 2  0.8  0.5
+% 3  0.5  0.8
+% 4  0.0  1.0
+% Utility matrix Bianca:
 % 1  1.0  0.0
-% 2  0.7  0.5
-% 3  0.0  1.0
-% 4  0.5  0.8
+% 2  0.7  0.8
+% 3  0.4  0.9
+% 4  0.0  1.0
 
-Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental} These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other demographic factors their clinician is assessing their risk of developing Alzheimer, and will then decide on possible preventive treatments together with the patients.
+Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
+% names from Shakespeare's plays
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other demographic factors their clinician is assessing their risk of developing Alzheimer, and will then decide on possible preventive treatments together with the patients.
 
-Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and see the similarities and difference between her and the other three:
+Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They also have the same preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \cite{petersenetal1999} Moreover there is no history of Alzheimer in Ariel's family.
-\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. Bianca, however, is soon going to move to another country where a new preventive treatment is available; this option is not open to Olivia.
-\item Olivia and Curtis have different clinical results and age -- in particular, Olivia has the risky APOE4 allele whereas Curtis hasn't, and Curtis is more than 20 years younger. But they otherwise come from the same geographical region, have very similar family histories, and the same preventive options.
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \cite{petersenetal1999} Moreover there is no history of Alzheimer in Ariel's family.
+\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffer from several allergies that would render some of the preventive options less beneficial to her.
+\item Olivia and Curtis have different clinical results and age -- in particular, Olivia has the risky APOE4 allele whereas Curtis hasn't, and Curtis is more than 20 years younger. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options
 \end{itemize}
 
-We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
+We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
 
-We will soon see that despite the many factors in common among these four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca -- \emph{each patient will be prescribed a treatment option different from the other three}.
-
-The difference in treatment originates from the difference in clinical factors\mynotew{}
+We will soon see that despite the many factors in common among these four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical risk for Olivia and Bianca -- \emph{each patient has an optimal preventive option different from the other three}. The optimal treatments are different owing to the difference in clinical results, auxiliary information, or preventive benefits.
 
 
 
