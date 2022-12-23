@@ -102,15 +102,18 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\newcommand*{\vd}{{v.}}
 \newcommand*{\etal}{{et al.}}
 
+%\usepackage{fancybox}
+\usepackage{framed}
 
 
-%\usepackage[shortlabels,inline]{enumitem}
-%\SetEnumitemKey{para}{itemindent=\parindent,leftmargin=0pt,listparindent=\parindent,parsep=0pt,itemsep=\topsep}
-%\setlist{itemsep=0pt,topsep=\parsep}
-%\setlist[enumerate,2]{label=(\roman*)}
-%\setlist[enumerate]{label=(\alph*),leftmargin=1.5\parindent}
-%\setlist[itemize]{leftmargin=1.5\parindent}
-%\setlist[description]{leftmargin=1.5\parindent}
+% \newenvironment{description}{}{}
+% \usepackage[shortlabels,inline]{enumitem}
+% \SetEnumitemKey{para}{itemindent=\parindent,leftmargin=0pt,listparindent=\parindent,parsep=0pt,itemsep=\topsep}
+% \setlist{itemsep=0pt,topsep=\parsep}
+% \setlist[enumerate,2]{label=(\roman*)}
+% \setlist[enumerate]{label=(\alph*),leftmargin=1.5\parindent}
+% \setlist[itemize]{leftmargin=1.5\parindent}
+% \setlist[description]{leftmargin=1.5\parindent}
 
 
 \usepackage{mathtools}
@@ -351,18 +354,61 @@ Considering the similarities and differences among these patients, which treatme
 
 \medskip
 
-The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates such as those listed in table~\ref{tab:patients_data}. The solution method takes into account and integrates available clinical statistical data and each patient's unique combination of clinical results, auxiliary information, and preventive benefits. It is therefore the staple method for personalized prognosis, diagnosis, treatment.
+Our main purpose in the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates such as those listed in table~\ref{tab:patients_data}. The solution method takes into account and integrates available clinical statistical data and each patient's unique combination of clinical results, auxiliary information, and preventive benefits. It is therefore the staple method for personalized prognosis, diagnosis, treatment.
 
-In our example we shall find that despite the many factors in common among the four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences in clinical results, auxiliary information, or preventive benefits among patients.
+In our example we shall find that despite the many factors in common among our four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, or preventive benefits.
 
-The method used is none else than decision theory, the combination of probability theory and utility theory \citep{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,berger1980_r1985,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}, with old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} that explain and exemplify its application.
+The method used is none other than decision theory, the combination of probability theory and utility theory \citep{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,berger1980_r1985,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}, with old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} that explain and exemplify its application.
 
-Decision theory also constitutes the foundation for the construction of an Artificial Intelligence agent \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}.
+Decision theory is also the foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}. The present method can therefore be seen as the application of an \emph{ideal machine-learning algorithm}. \enquote{Ideal} in the sense of being free from approximations, special modelling assumptions, and limitations in its informational output; not in the sense of being impracticable. Another important point of the present work, indeed, is to show that \emph{for some kinds of dataset} such ideal machine-learning algorithm is a reality. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their output limitations. We discuss this matter further in \sect\mynotew{***}.
+
+\mynotep{Add other goals, results, and some synopsis}
+
+The inferential and decision-making steps are summarized in table~\ref{tab:inference_decision_steps}. Steps in \textbf{boldface} represent especially important patient-dependent, personalized steps.
+\begin{table}[!h]
+  \centering
+  \begin{framed}
+    \caption{Inferential and decision-making steps}
+
+    \vspace{1em}
+    
+    \begin{enumerate}\itemsep1em 
+    \item\label{item:learn} Infer the full-population frequencies of predictors and predictand, using available datasets.
+    \item\label{item:population} \textbf{Assess in respect of which variates the present patient can be considered as belonging to the same population underlying the learning dataset.}
+    \item\label{item:prior} \textbf{Assess the prior probability of the predictand for the present patient.} This step allows us (a) to consider additional clinical information outside of the dataset's variates, and available for the present patient only; (b) to correct for mismatches between the dataset's underlying population and the patient's one.
+      
+    \item\label{item:likelihood}Calculate the \emph{likelihood} -- as opposed to the probability -- of the predictand for a specific patient, given the patient's predictor values. Combine this likelihood with the prior from step~\ref{item:prior}, to obtain the final probability for the predictand, for the present patient.
+
+    \item\label{item:utilities} \textbf{Assess the clinical courses of action available for the present patient, together their benefits and costs.} This step is fundamentally patient-dependent and is the one open to most variability from patient to patient.
+
+    \item\label{item:expected_utility} Choose the course of action having maximal expected benefit for the present patient, given the benefits assessed in step~\ref{item:utilities} and the final probability assessed in step~\ref{item:likelihood}.  
+    \end{enumerate}
+  \end{framed}
+  \label{tab:inference_decision_steps}
+\end{table}
+
+\section{\protect\mynotep{Practical example}}
+\label{sec:example}
+
+\subsection{Learning}
+\label{sec:learning_step}
+
+\subsection{Population assessment}
+\label{sec:population_step}
+
+\subsection{Prior probability}
+\label{sec:prior_step}
+
+\subsection{Likelihood and posterior probability}
+\label{sec:posterior_step}
+
+\subsection{Benefit assessments}
+\label{sec:utilities_step}
+
+\subsection{Maximization of expected benefit}
+\label{sec:expected_utility_step}
 
 
-
-
-\medskip
 
 
 
