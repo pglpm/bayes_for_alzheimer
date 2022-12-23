@@ -38,6 +38,10 @@
 \newcommand{\mynotep}[1]{{\color{notecolour}\pencil\ #1}}
 \newcommand{\mynotez}[1]{{\color{notecolour}\puzzle\ #1}}
 
+\usepackage{wrapfig}
+
+
+
 \providecommand{\href}[2]{#2}
 \providecommand{\eprint}[2]{\texttt{\href{#1}{#2}}}
 \newcommand*{\amp}{\&}
@@ -131,7 +135,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \DeclarePairedDelimiter\set{\{}{\}} %}
 \newcommand*{\p}{\mathrm{p}}%probability
 \renewcommand*{\P}{\mathrm{P}}%probability
-%\newcommand*{\E}{\mathrm{E}}
+\newcommand*{\E}{\mathrm{E}}
 %% The "\:" space is chosen to correctly separate inner binary and external relationss
 \renewcommand*{\|}[1][]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
 \newcommand*{\defd}{\coloneqq}
@@ -419,6 +423,29 @@ The most we can do is therefore to assign a probability to each possible frequen
 \end{figure}%
 
 \mynotep{Some more intuition and details about the maths, principles, and relation to machine learning} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
+
+For readers with an interest in machine learning and artificial intelligence, in the next two subsections we briefly discuss the differences between our ideal algorithm and two popular algorithms: neural networks and random forests. These subsections can otherwise be skipped \mynotew{maybe move to appendices}.
+
+\subsubsection{Neural networks}
+\label{sec:neural_nets}
+
+Neural networks are based on the assumptions that there is a \emph{functional relationship} from the predictor
+\setlength{\intextsep}{0ex}% with wrapfigure
+\setlength{\columnsep}{0ex}% with wrapfigure
+\begin{wrapfigure}{r}{0.4\linewidth}% with wrapfigure
+\vspace{-3ex}%
+\includegraphics[width=\linewidth]{exampledistr_full_all.pdf}
+%\caption{caption}\label{fig:comparison_a5}
+\end{wrapfigure}%
+variables $X$ to the predictand variables $Y$, possibly contaminated by a little noise (typically further assumed of constant width). In other words, they try to infer functions, not frequency distributions. This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors, such as images. In the frequency distribution depicted on the right, for example, a neural network could be acceptable to represent the range $X < 15$, but would be hopeless for $X > 17$. Neural networks, moreover, typically output only the expected value of the predictand, $\E(Y \| X)$, not the full conditional probability $\p(Y \| X)$. \mynotep{Add references and generalizations.}
+
+We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delta[y-f(x)]$, where $\delta$ is a delta distribution.} The ideal machine-learning algorithm used in the present work will therefore always recover a functional relationship, if there is one, including its noise distribution. Additionally it gives us the probability distribution $\p(X)$ for the predictand.
+
+\subsubsection{Random forests}
+\label{sec:random_forests}
+
+
+
 
 
 \subsection{Population assessment}
