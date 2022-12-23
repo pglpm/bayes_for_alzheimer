@@ -78,7 +78,7 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Sample {et~al.}} %use et al only if is more than 1 author
-\def\Authors{P.G.L. Porta Mana\,$^{1,2,*}$, Ingrid Rye\,$^{3}$, Alexandra Vik\,$^{1,2}$, Marek Kocinski\,$^{2,4}$, Arvid Lundervold\,$^{2,4}$, Astri J. Lundervold\,$^{3}$, and Alexander S. Lundervold\,$^{1,2}$}
+\def\Authors{P.G.L. Porta Mana\,$^{1,2,*}$, I. Rye\,$^{3}$, A. Vik\,$^{1,2}$, M. Koci\'nski\,$^{2,4}$, A. Lundervold\,$^{2,4}$, A. J. Lundervold\,$^{3}$, A. S. Lundervold\,$^{1,2}$}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
 \def\Address{$^{1}$Department of Computer Science, Electrical Engineering and Mathematical Sciences, Western Norway University of Applied Sciences, Bergen, Norway \\
@@ -117,37 +117,30 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 %%% Leave the Abstract empty if your article does not require one, please see the Summary Table for full details.
 \section{}
-[Luca \& Astri, draft]
 
-Patients with Mild Cognitive Impairment (MCI) have an increased risk of a trajectory toward Alzheimer's disease (AD). Early identification of patients with a high risk of AD is
-%of underlying neurodegenerative processes 
-essential to provide  treatment before the disease is well-established in the brain. 
-It is, therefore, of %extreme interest 
-great importance to 
-study how well different kinds of predictors 
+Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease. Early identification of patients with a high risk of Alzheimer's Disease is essential to provide treatment before the disease is well-established in the brain. great importance to study how well different kinds of predictors
 %-- from neuropsychological examinations to advanced brain-imaging techniques -- 
-allow us to estimate %prognose 
-a trajectory from MCI towards AD in an individual patient.
+allow us to prognose a trajectory from Mild Cognitive Impairment towards Alzheimer's Disease in an individual patient.
 
 But more is needed for a personalized approach to prognosis, prevention, and treatment, than just the obvious requirement that prognoses be as best as they can be for each patient. Several situational elements that can be different from patient to patient must be accounted for:
 \begin{itemize}
 \item the \emph{kinds} of clinical data and evidence available for prognosis;
 \item the \emph{outcomes} of the same kind of clinical data and evidence;
-\item the kinds of treatment or prevention strategies available, owing to different attitudes toward life, different family networks and possibilities of familial support, different additional medical factors such as physical disabilities, and different economic means;
+\item the kinds of treatment or prevention strategies available, owing to different additional medical factors such as physical disabilities, different attitudes toward life, different family networks and possibilities of familial support, different economic means;
 \item the advantages and disadvantages, benefits and costs of the same kinds of treatment or prevention strategies; the patient has a major role in the quantification of such benefits and costs;
 \item finally, the initial evaluation by the clinician -- which often relies on too subtle clues (family history, regional history, previous case experience) to be considered as measurable data.
 \end{itemize}
-Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision-making. 
+Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision-making.
 
 Clinical decision-making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of benefits and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient, we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and benefits of treatment or prevention to arrive at the best course of action for that patient. The main result underlying statistical decision theory is that decision-making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
 
-The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
+The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
 
  (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
 
-The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors.
+The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors. \mynotew{update this}
 
-This quantification also allows us to rank the relative prognostic power of the predictors. It is found that several neuropsychological examinations have the highest prognostic power, much higher than the genetic and imaging-derived predictors included in the present set.
+\mynotew{rewrite following} This quantification also allows us to rank the relative prognostic power of the predictors. It is found that several neuropsychological examinations have the highest prognostic power, much higher than the genetic and imaging-derived predictors included in the present set.
 
 Several additional advantages of this quantification framework are also exemplified and discussed in the present work:
 \begin{itemize}
@@ -172,7 +165,7 @@ Several additional advantages of this quantification framework are also exemplif
 
 
 \tiny
- \keyFont{ \section{Keywords:} keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+ \keyFont{\section{Keywords:} Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 \section{Each patient is unique}
@@ -253,27 +246,27 @@ Several additional advantages of this quantification framework are also exemplif
 
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other demographic factors their clinician is assessing their risk of developing Alzheimer, and will then decide on possible preventive treatments together with the patients.
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other relevant information, their clinician will assess their risk of developing Alzheimer. Clinician and patients will then decide among a set of possible preventive treatments.
 
 Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \cite{petersenetal1999} Moreover there is no history of Alzheimer in Ariel's family.
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \citep{petersenetal1999} Moreover there is no history of Alzheimer's Disease in Ariel's family.
 \item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that would render some of the preventive options less beneficial to her.
-\item Olivia and Curtis have different clinical results and age -- in particular, Olivia has the risky APOE4 allele whereas Curtis hasn't, and Curtis is more than 20 years younger. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options.
+\item Olivia and Curtis have different clinical results -- in particular, Olivia has the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis hasn't -- and age, Olivia being more than 20 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options.
 \end{itemize}
 
 We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
 \begin{figure}[!h]% with figure
  \centering\includegraphics[width=0.33\linewidth]{OABC.png}\\
-\caption{\mynotep{draft}}\label{fig:OABC}
+\caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{figure}%
 \begin{table}[!h]
   \centering
   \caption{\mynotew{Clinical results \& demographic data}}
   \footnotesize
   \begin{tabular}{cccccccccccccc}
-    &&
-    Age&Sex&HC$\cdot10^{3}$&APOE&
+    Patient&&
+    Age&Sex&HC${}\cdot 10^{-3}$&APOE4&
     ANART&CFT&GDS&RAVLT-im&RAVLT-del&RAVLT-rec&TMTA&TMTB
     \\[1\jot]
     Olivia, Ariel, Bianca&&
@@ -285,6 +278,12 @@ We can categorize these differences as \enquote{difference in auxiliary informat
     6&13&1&16&2&0&24.8&83.4
   \end{tabular}
 \end{table}
+
+\medskip
+
+Considering the similarities and differences among these patients, which treatments will should prescribed to them?
+
+The purpose of the present work
 
 We will soon see that despite the many factors in common among these four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal preventive option for each patient is different from those for the other three}. This difference arises from the difference in clinical results, or auxiliary information, or preventive benefits.
 
