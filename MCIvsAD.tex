@@ -364,11 +364,11 @@ Decision theory is also the foundation for the construction of an Artificial Int
 
 \mynotep{Add other goals, results, and some synopsis}
 
-The inferential and decision-making steps are summarized in table~\ref{tab:inference_decision_steps}. Steps in \textbf{boldface} represent especially important patient-dependent, personalized steps.
-\begin{table}[!h]
+The inferential and decision-making steps are summarized in table~\ref{tab:inference_decision_steps}.
+\begin{table}[!h]  
   \centering
   \begin{framed}
-    \caption{Inferential and decision-making steps}
+    \caption{Inferential and decision-making steps. Steps in \textbf{boldface} represent patient-dependent, personalized steps that cannot be obtained from the learning dataset}\label{tab:inference_decision_steps}
 
     \vspace{1em}
     
@@ -377,14 +377,15 @@ The inferential and decision-making steps are summarized in table~\ref{tab:infer
     \item\label{item:population} \textbf{Assess in respect of which variates the present patient can be considered as belonging to the same population underlying the learning dataset.}
     \item\label{item:prior} \textbf{Assess the prior probability of the predictand for the present patient.} This step allows us (a) to consider additional clinical information outside of the dataset's variates, and available for the present patient only; (b) to correct for mismatches between the dataset's underlying population and the patient's one.
       
-    \item\label{item:likelihood}Calculate the \emph{likelihood} -- as opposed to the probability -- of the predictand for a specific patient, given the patient's predictor values. Combine this likelihood with the prior from step~\ref{item:prior}, to obtain the final probability for the predictand, for the present patient.
+    \item\label{item:likelihood}Calculate the \emph{likelihood}
+      % -- as opposed to the probability --
+      of the predictand for a specific patient, given the patient's predictor values. Combine this likelihood with the prior from step~\ref{item:prior}, to obtain the final probability for the predictand, for the present patient.
 
     \item\label{item:utilities} \textbf{Assess the clinical courses of action available for the present patient, together their benefits and costs.} This step is fundamentally patient-dependent and is the one open to most variability from patient to patient.
 
     \item\label{item:expected_utility} Choose the course of action having maximal expected benefit for the present patient, given the benefits assessed in step~\ref{item:utilities} and the final probability assessed in step~\ref{item:likelihood}.  
     \end{enumerate}
   \end{framed}
-  \label{tab:inference_decision_steps}
 \end{table}
 
 \section{\protect\mynotep{Practical example}}
@@ -392,6 +393,8 @@ The inferential and decision-making steps are summarized in table~\ref{tab:infer
 
 \subsection{Learning}
 \label{sec:learning_step}
+
+
 
 \subsection{Population assessment}
 \label{sec:population_step}
