@@ -38,6 +38,72 @@
 \newcommand{\mynotep}[1]{{\color{notecolour}\pencil\ #1}}
 \newcommand{\mynotez}[1]{{\color{notecolour}\puzzle\ #1}}
 
+\providecommand{\href}[2]{#2}
+\providecommand{\eprint}[2]{\texttt{\href{#1}{#2}}}
+\newcommand*{\amp}{\&}
+% \newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+% }
+\newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+}
+\newcommand*{\citebi}[2][]{\textcite[#1]{#2}%\addtocategory{extras}{#2}
+}
+\newcommand*{\subtitleproc}[1]{}
+\newcommand*{\chapb}{ch.}
+%
+%\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\def\myUrlOrds{\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}%
+\makeatletter
+%\g@addto@macro\UrlSpecials{\do={\newline}}
+\g@addto@macro{\UrlBreaks}{\myUrlOrds}
+\makeatother
+\newcommand*{\arxiveprint}[1]{%
+arXiv \doi{10.48550/arXiv.#1}%
+}
+\newcommand*{\mparceprint}[1]{%
+\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp\_arc:\allowbreak\nolinkurl{#1}}%
+}
+\newcommand*{\haleprint}[1]{%
+\href{https://hal.archives-ouvertes.fr/#1}{\textsc{hal}:\allowbreak\nolinkurl{#1}}%
+}
+\newcommand*{\philscieprint}[1]{%
+\href{http://philsci-archive.pitt.edu/archive/#1}{PhilSci:\allowbreak\nolinkurl{#1}}%
+}
+\newcommand*{\doi}[1]{%
+\href{https://doi.org/#1}{\textsc{doi}:\allowbreak\nolinkurl{#1}}%
+}
+\newcommand*{\biorxiveprint}[1]{%
+bioRxiv \doi{10.1101/#1}%
+}
+\newcommand*{\osfeprint}[1]{%
+Open Science Framework \doi{10.31219/osf.io/#1}%
+}
+\newcommand*{\mo}[1][=]{\mathord{\,#1\,}}
+%%
+\newcommand*{\sect}{\S}% Sect.~
+\newcommand*{\sects}{\S\S}% Sect.~
+\newcommand*{\chap}{ch.}%
+\newcommand*{\chaps}{chs}%
+\newcommand*{\bref}{ref.}%
+\newcommand*{\brefs}{refs}%
+%\newcommand*{\fn}{fn}%
+\newcommand*{\eqn}{eq.}%
+\newcommand*{\eqns}{eqs}%
+\newcommand*{\fig}{fig.}%
+\newcommand*{\figs}{figs}%
+\newcommand*{\vs}{{vs}}
+\newcommand*{\eg}{{e.g.}}
+\newcommand*{\etc}{{etc.}}
+\newcommand*{\ie}{{i.e.}}
+%\newcommand*{\ca}{{c.}}
+\newcommand*{\foll}{{ff.}}
+%\newcommand*{\viz}{{viz}}
+\newcommand*{\cf}{{cf.}}
+%\newcommand*{\Cf}{{Cf.}}
+%\newcommand*{\vd}{{v.}}
+\newcommand*{\etal}{{et al.}}
+
+
+
 %\usepackage[shortlabels,inline]{enumitem}
 %\SetEnumitemKey{para}{itemindent=\parindent,leftmargin=0pt,listparindent=\parindent,parsep=0pt,itemsep=\topsep}
 %\setlist{itemsep=0pt,topsep=\parsep}
@@ -78,7 +144,7 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Sample {et~al.}} %use et al only if is more than 1 author
-\def\Authors{P.G.L. Porta Mana\,$^{1,2,*}$, I. Rye\,$^{3}$, A. Vik\,$^{1,2}$, M. Koci\'nski\,$^{2,4}$, A. Lundervold\,$^{2,4}$, A. J. Lundervold\,$^{3}$, A. S. Lundervold\,$^{1,2}$}
+\def\Authors{P.G.L. Porta~Mana\,$^{1,2,*}$, I.~Rye\,$^{3}$, A.~Vik\,$^{1,2}$, M.~Koci\'nski\,$^{2,4}$, A.~Lundervold\,$^{2,4}$, A.~J.~Lundervold\,$^{3}$, A.~S.~Lundervold\,$^{1,2}$}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
 \def\Address{$^{1}$Department of Computer Science, Electrical Engineering and Mathematical Sciences, Western Norway University of Applied Sciences, Bergen, Norway \\
@@ -246,7 +312,7 @@ Several additional advantages of this quantification framework are also exemplif
 
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they got the results of their analyses. From these results and other relevant information, their clinician will assess their risk of developing Alzheimer. Clinician and patients will then decide among a set of possible preventive treatments.
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they received the results of their analyses. From these results, available clinical statistical data, and other relevant information, their clinician will assess their risk of developing Alzheimer. The clinician and each patient will then decide among a set of possible preventive treatments.
 
 Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three:
 \begin{itemize}
@@ -255,14 +321,14 @@ Besides this shared condition and worry, these patients have other things in com
 \item Olivia and Curtis have different clinical results -- in particular, Olivia has the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis hasn't -- and age, Olivia being more than 20 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options.
 \end{itemize}
 
-We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure\mynotew{***} summarizes the similarity and differences between Olivia and the other three patients. Table\mynotew{***} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
+We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure~\ref{fig:OABC} summarizes the similarity and differences between Olivia and the other three patients. Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis.
 \begin{figure}[!h]% with figure
  \centering\includegraphics[width=0.33\linewidth]{OABC.png}\\
 \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{figure}%
 \begin{table}[!h]
   \centering
-  \caption{\mynotew{Clinical results \& demographic data}}
+  \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
   \footnotesize
   \begin{tabular}{cccccccccccccc}
     Patient&&
@@ -281,11 +347,20 @@ We can categorize these differences as \enquote{difference in auxiliary informat
 
 \medskip
 
-Considering the similarities and differences among these patients, which treatments will should prescribed to them?
+Considering the similarities and differences among these patients, which treatments are optimal and should prescribed to them?
 
-The purpose of the present work
+\medskip
 
-We will soon see that despite the many factors in common among these four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal preventive option for each patient is different from those for the other three}. This difference arises from the difference in clinical results, or auxiliary information, or preventive benefits.
+The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates such as those listed in table~\ref{tab:patients_data}. The solution method takes into account and integrates available clinical statistical data and each patient's unique combination of clinical results, auxiliary information, and preventive benefits. It is therefore the staple method for personalized prognosis, diagnosis, treatment.
+
+In our example we shall find that despite the many factors in common among the four patients -- even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences in clinical results, auxiliary information, or preventive benefits among patients.
+
+The method used is none else than decision theory, the combination of probability theory and utility theory. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}. Its medical application is explained and exemplified in old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}.
+
+Decision theory also constitutes the foundation for the construction of an Artificial Intelligence agent \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}.
+
+
+
 
 \medskip
 
