@@ -43,9 +43,9 @@
 \newcommand*{\amp}{\&}
 % \newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
 % }
-\newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+\newcommand*{\citein}[2][]{\textnormal{\cite[#1]{#2}}%\addtocategory{extras}{#2}
 }
-\newcommand*{\citebi}[2][]{\textcite[#1]{#2}%\addtocategory{extras}{#2}
+\newcommand*{\citebi}[2][]{\cite[#1]{#2}%\addtocategory{extras}{#2}
 }
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
@@ -391,9 +391,34 @@ The inferential and decision-making steps are summarized in table~\ref{tab:infer
 \section{\protect\mynotep{Practical example}}
 \label{sec:example}
 
+\mynotez{It may be optimal to present the steps in reverse order: the last one explains the goal, and makes clear why the preceding steps are necessary.}
+
 \subsection{Learning}
 \label{sec:learning_step}
 
+The learning stage is essential to arrive at the probability that a patient might convert from Mild Cognitive Impairment to Alzheimer's Disease.
+
+The basic idea is to consider the patient one member in a large population of similar patients. If we knew the joint frequencies of all possible combinations of predictor and predictand values in such population -- and knew nothing else -- then we would judge the probability for our patient to have particular values to be equal to the population frequency. Pure symmetry considerations lead to this intuitive result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. This conclusion also holds for \emph{conditional} frequencies and probabilities, that is, probabilities for a particular variate value given that the value of some other variate values are known.
+
+If the full statistics of such a population were known, our task would just be to \enquote{enumerate} rather than to \enquote{learn}. Learning comes into play because the full population is not known: we only have a sample from it.
+
+The most we can do is therefore to assign a probability to each possible frequency distribution for the full population. Intuitively, the probability of a candidate frequency distribution is determined by two factors: (a) how well it fits the sample data, (b) how biologically or physically reasonable it is. Figure~\ref{fig:inferring_distribution} show a fictitious sample data and various candidate frequency distributions \mynotep{...}.
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}
+  \hfill
+  \includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}
+  \\
+  \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
+  \hfill
+  \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
+  \caption{\mynotep{Upper-left: Sample data.
+      Upper-right: candidate frequency distribution that fits the data and does not look unnatural.
+      Lower-left: candidate distribution that might look natural but doesn't fit the sample data.
+      Lower-right: candidate distribution that fits the data very well but looks unnatural.}}\label{fig:inferring_distribution}
+\end{figure}%
+
+\mynotep{Some more intuition and details about the maths, principles, and relation to machine learning} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
 
 
 \subsection{Population assessment}
