@@ -446,11 +446,15 @@ This is the maximal amount of information that can be extract from our dataset. 
 \item \emph{Conditional probability, \enquote{generative} algorithms:} if we are interested in the probability of $X,Y$ given $Z$, we calculate $\p(X,Y\|Z) \defd \p(X,Y,Z)/\sum_{X,Y}\p(X,Y,Z)$.
 \item \emph{Regression or classification:} if we are interested in the average value of $Z$ given $X,Y$, we calculate $\E(Z \| X,Y) \defd \sum_{Z}Z\,\p(Z\|X,Y)$. The \enquote{noise} around this average value is moreover given by $\p(Z-\E\|X,Y)$.
 \item \emph{Functional regression:} if $Z$ turns out to be a function $f$ of $X,Y$, then the probability will be a delta distribution: $\p(Z\|X,Y) = \delt[Z-f(X,Y)]$.
+  % We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.}
+  The present ideal machine-learning algorithm thus always recovers a functional relationship if there is one, including its noise distribution.
 \end{itemize}
 We will see that no one of these quantities can be used alone to solve our clinical decision problem for all future patients.
 
-The present method moreover yields additional useful information:
+The present method moreover has some further advantages and yields additional useful information:
 \begin{itemize}
+\item \emph{Discrete or continuous variates:} the variate to be prognosed can be not only binary or discrete, as in the present case, but also continuous.
+\item \emph{Partially missing data:} data having missing values for some variates can be fully used, both in the learning dataset and in the prognostic results of new patients.
 \item \emph{Maximal predictive power of the variates:} from the probability distribution $\p(X,Y,Z,\dotsc)$ we can calculate the mutual information between any two sets of variates, for example between $Z$ and $\set{X,Y}$. This quantity tells us what is the maximal predictive power -- which can be measured by accuracy or other metrics -- from one set to the other that can be achieved by any inference algorithm \citep{mackay1995_r2005,goodetal1968,coveretal1991_r2006}. Functional dependence is included as a special case; for example, a binary variate $Z$ is a function of $\set{X,Y}$ if and only if their mutual information \footnote{The \enquote{shannon} ($\mathrm{Sh}$) is a measurement unit of information, as specified by the \cite{iso2008c}.} equals $1\,\mathrm{Sh}$.
 \item \emph{Variability owing to limited sample size:} we can calculate how much any of the quantities listed so far -- from average values to mutual information -- could change if more sample data were added to our dataset.
 \end{itemize}
@@ -459,7 +463,7 @@ The present method moreover yields additional useful information:
 
 For readers with an interest in machine learning and artificial intelligence, we briefly discuss the drawbacks of some popular inference algorithms with respect to the present ideal algorithm.
 
-\emph{Neural networks} are based on the assumptions that there is a \emph{functional relationship} from the predictor to the predictand,
+\emph{Neural networks and gaussian processes} are based on the assumption that there is a functional relationship from predictors to predictand,
 % \setlength{\intextsep}{0ex}% with wrapfigure
 % \setlength{\columnsep}{0ex}% with wrapfigure
 % \begin{wrapfigure}{r}{0.4\linewidth}% with wrapfigure
@@ -467,36 +471,39 @@ For readers with an interest in machine learning and artificial intelligence, we
 % \includegraphics[width=\linewidth]{exampledistr_full_all.pdf}
 % %\caption{caption}\label{fig:comparison_a5}
 % \end{wrapfigure}%
-possibly contaminated by a little noise (typically assumed gaussian). This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors, such as images. In our case, for example, the mutual information between predictors and the conversion variate is $0.16\,\mathrm{Sh}$, to be compared with $1\,\mathrm{Sh}$, if conversion were a function of the predictors, and with $0\,\mathrm{Sh}$, if conversion were completely unpredictable. See \sect~\mynotep{***} for further details.
+possibly contaminated by a little noise, typically assumed gaussian. This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors such as images. In our case the mutual information between predictors and the conversion variate is $0.14\,\mathrm{Sh}$, to be compared with $1\,\mathrm{Sh}$, if conversion were a function of the predictors, and with $0\,\mathrm{Sh}$, if conversion were completely unpredictable. See \sect~\mynotep{***} for further details. An additional deficiency of neural networks is that they do not yield any probabilities, even if there are many efforts to render such an output possible \citep{pearceetal2020,osbandetal2021,backetal2019}. Such an advance, however, would still not solve the final deficiency of neural networks and gaussian processes: they try to infer the predictand from the predictors but cannot be used for the reverse inference.
 
+\emph{Random forests} also assume a functional relationship from predictors to predictand. This assumptions is mitigated when the predictand is a discrete variate; in this case a random forest can output an agreement score from its constituent decision trees. This score can give an idea of the underlying uncertainty, but it is not a probability,\footnote{This score is sometimes called a \enquote{non-calibrated probability}, which is akin to calling a shape a \enquote{non-round circle}.} and therefore cannot be used in the decision-making stage, see \sect~\ref{sec:expected_utility_step}. It is possible to transform this score into a proper probability \citep{dyrlandetal2022b}, but this possibility does not solve the final deficiency of random forests: like neural networks, they try to infer the predictand from the predictors but cannot be used for the reverse inference.
 
+\emph{Parametric models and machine-learning algorithms} such as logistic or linear regression, support-vector machines, or generalized linear models make even stronger assumptions than neural networks and random forests. They assume specific functional shapes or frequency distributions. Their use may be justified when we are extremely sure -- for instance thanks to underlying physical or biological knowledge -- of the validity of their assumptions; or when the computational resources are extremely scarce. But it is otherwise unnecessary to be hampered by their restrictive and often unrealistic assumptions.
 
+\medskip
 
-In the frequency distribution depicted on the right, for example, a neural network could be acceptable to represent the range $X < 15$, but would be hopeless for $X > 17$. Neural networks, moreover, typically output only the expected value of the predictand, $\E(Y \| X)$, not the full conditional probability $\p(Y \| X)$. \mynotep{Add references and generalizations.}
+An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next two sections we shall see that this precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients belonging to different populations, such as Ariel.
 
-We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.} The ideal machine-learning algorithm used in the present work will therefore always recover a functional relationship, if there is one, including its noise distribution. Additionally it gives us the probability distribution $\p(X)$ for the predictand.
 
 %%%% MI given all minus ...
-% >    AVDEL30MIN_neuro RAVLT_immediate LRHHC_n_long TRABSCOR_neuro AVDELTOT_neuro
-% mean            0.147           0.157        0.160          0.160          0.162
-% sd              0.004           0.005        0.005          0.005          0.005
-%      TRAASCOR_neuro Apoe4_   AGE CATANIMSC_neuro GDTOTAL_gds Gender_num_
-% mean          0.163  0.163 0.164           0.164       0.164       0.165
-% sd            0.005  0.005 0.005           0.005       0.005       0.005
-%      ANARTERR_neuro   all
-% mean          0.165 0.165
-% sd            0.005 0.005
-%%%% differences
-% >      all ANARTERR_neuro Gender_num_ GDTOTAL_gds CATANIMSC_neuro     AGE  Apoe4_
-% mean 0.000       0.000109    0.000423    0.000941        0.000967 0.00102 0.00192
-% sd   0.009       0.009000    0.009000    0.009000        0.009000 0.00900 0.00900
-%      TRAASCOR_neuro AVDELTOT_neuro TRABSCOR_neuro LRHHC_n_long RAVLT_immediate
-% mean        0.00247        0.00337        0.00508      0.00531         0.00795
-% sd          0.00900        0.00900        0.00900      0.00900         0.00900
-%      AVDEL30MIN_neuro
-% mean           0.0186
-% sd             0.0090
+%      AVDEL30MIN_neuro RAVLT_immediate TRABSCOR_neuro AVDELTOT_neuro LRHHC_n_long
+% mean            0.125           0.131          0.135          0.137        0.138
+% sd              0.004           0.004          0.004          0.004        0.004
+%      TRAASCOR_neuro CATANIMSC_neuro   AGE GDTOTAL_gds ANARTERR_neuro Gender_num_
+% mean          0.139           0.139 0.139       0.140          0.140       0.140
+% sd            0.004           0.004 0.004       0.004          0.004       0.004
+%      Apoe4_   all
+% mean  0.140 0.140
+% sd    0.004 0.004
 
+
+%%%% MI differences: 
+%        all    Apoe4_ Gender_num_ ANARTERR_neuro GDTOTAL_gds      AGE CATANIMSC_neuro
+% mean 0.000 0.0000121   0.0000939       0.000264    0.000295 0.000512        0.000561
+% sd   0.009 0.0090000   0.0090000       0.009000    0.009000 0.009000        0.009000
+%      TRAASCOR_neuro LRHHC_n_long AVDELTOT_neuro TRABSCOR_neuro RAVLT_immediate
+% mean        0.00113      0.00187        0.00234        0.00438         0.00905
+% sd          0.00900      0.00900        0.00900        0.00900         0.00800
+%      AVDEL30MIN_neuro
+% mean           0.0144
+% sd             0.0080
 
 \subsubsection{Random forests}
 \label{sec:random_forests}
@@ -532,6 +539,8 @@ Let's clarify this with an example. In our dataset we observe a value $\texttt{G
 
 \subsection{Maximization of expected benefit}
 \label{sec:expected_utility_step}
+
+ \citep{lindley1982}
 
 
 
