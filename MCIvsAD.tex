@@ -437,6 +437,11 @@ The most we can do is therefore to assign a probability to each possible frequen
 \end{figure}%
 
 \mynotep{Some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
+  \caption{\mynotep{Examples of a-priori probable candidates of frequency distribution for a variate such as \textsf{AVDEL30MIN\_neuro} or \textsf{AVDELTOT\_neuro}}}\label{fig:prior_distribution}
+\end{figure}%
 
 The core of our method is the computation of the probabilities of all possible frequency distributions for the full population. From it we obtain the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
 
@@ -515,7 +520,7 @@ An important common deficiency of most inference algorithms mentioned above is t
 \subsection{Population assessment}
 \label{sec:population_step}
 
-Let's clarify this with an example. In our dataset we observe a value $\texttt{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
+Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
 
 
