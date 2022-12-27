@@ -131,6 +131,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \setquotestyle{american}
 \newcommand*{\defquote}[1]{`\,#1\,'}
 
+\usepackage{upgreek}
 %% Macros
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\set{\{}{\}} %}
@@ -143,7 +144,8 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\defs}{\eqqcolon}
 \newcommand*{\Land}{\bigwedge}
 \newcommand*{\zerob}[1]{\makebox[0pt][c]{#1}}
-%
+\newcommand*{\delt}{\updelta}
+% 
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
 
@@ -436,7 +438,18 @@ The most we can do is therefore to assign a probability to each possible frequen
 
 \mynotep{Some more intuition and details about the maths, principles, and relation to machine learning} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
 
-The core of our method is the computation of the probabilities of all possible frequency distributions for the full population. This is the maximal amount of information that it is possible to extract from our dataset.
+The core of our method is the computation of the probabilities of all possible frequency distributions for the full population. From it we obtain the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
+
+This is the maximal amount of information that it is possible to extract from our dataset. Indeed, from it we can quickly calculate any quantity searched by specific or approximate algorithms. For example:
+\begin{itemize}
+\item \emph{Conditional probability, \enquote{discriminative} algorithms:} if we are interested in the probability of $Z$ given $X,Y$, we calculate $\p(Z \| X,Y) \defd \p(X,Y,Z)/\sum_{Z}\p(X,Y,Z)$.
+\item \emph{Conditional probability, \enquote{generative} algorithms:} if we are interested in the probability of $X,Y$ given $Z$, we calculate $\p(X,Y,Z) \defd \p(X,Y,Z)/\sum_{X,Y}\p(X,Y,Z)$.
+\item \emph{Regression or classification:} if we are interested in the average value of $Z$ given $X,Y$, we calculate $\E(Z \| X,Y) \defd \sum_{Z}Z\,\p(Z\|X,Y)$. The \enquote{noise} around this average value is moreover given by $\p(Z-\E\|X,Y)$.
+\item \emph{Functional regression:} if $Z$ turns out to be a function $f$ of $X,Y$, then the probability will be a delta distribution: $\p(Z\|X,Y) = \delt[Z-f(X,Y)]$.
+\end{itemize}
+
+
+
 
 For readers with an interest in machine learning and artificial intelligence, in the next two subsections we briefly discuss the differences between our ideal algorithm and two popular algorithms: neural networks and random forests. These subsections can otherwise be skipped \mynotew{maybe move to appendices}.
 
@@ -453,7 +466,7 @@ Neural networks are based on the assumptions that there is a \emph{functional re
 \end{wrapfigure}%
 variables $X$ to the predictand variables $Y$, possibly contaminated by a little noise (typically further assumed of constant width). In other words, they try to infer functions, not frequency distributions. This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors, such as images. In the frequency distribution depicted on the right, for example, a neural network could be acceptable to represent the range $X < 15$, but would be hopeless for $X > 17$. Neural networks, moreover, typically output only the expected value of the predictand, $\E(Y \| X)$, not the full conditional probability $\p(Y \| X)$. \mynotep{Add references and generalizations.}
 
-We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delta[y-f(x)]$, where $\delta$ is a delta distribution.} The ideal machine-learning algorithm used in the present work will therefore always recover a functional relationship, if there is one, including its noise distribution. Additionally it gives us the probability distribution $\p(X)$ for the predictand.
+We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.} The ideal machine-learning algorithm used in the present work will therefore always recover a functional relationship, if there is one, including its noise distribution. Additionally it gives us the probability distribution $\p(X)$ for the predictand.
 
 \subsubsection{Random forests}
 \label{sec:random_forests}
