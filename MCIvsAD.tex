@@ -578,7 +578,7 @@ It may be necessary to use dataset probabilities different from $\p(\textsf{\sma
 
 The use of the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand})$ from a dataset is especially important for a personalized, patient-adapted approach to prognosis and treatment. A new patient, such as Ariel, may come from a population with statistical properties different from the available dataset. No prognosis, or an in-principle incorrect prognosis, can be made for Ariel if our inference algorithm only relies on the probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors})$.
 
-\mynotew{Illustration of this by training on dataset with a proportion of cAD/sMCI and application to a separate dataset with a different proportion.}
+\mynotew{Illustration of this: We split our learning dataset in two subsets}
 
 The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
 \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
