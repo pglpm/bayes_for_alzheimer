@@ -570,25 +570,12 @@ In our example we find
 \end{equation}
 which is indeed the correct full-population frequency.
 
-If the patients for the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the use of the probability
-\begin{equation}
-  \label{eq:direct_probability}
-  \p(\textsf{\small predictand} \| \textsf{\small predictors},
-  \textsf{\small dataset})
-\end{equation}
-from the dataset would be correct. But the probabilities
-\begin{equation}
-  \label{eq:inverse_probability}
-  \p(\textsf{\small predictors} \| \textsf{\small predictand},
-  \textsf{\small dataset})
-\end{equation}
-together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to the same result. We thus see that \emph{using the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand})$ from the dataset is generally superior to using $\p(\textsf{\small predictand} \| \textsf{\small predictors})$.} The former give the same results as the latter when use of the latter is correct, and they allow us to apply corrections when use of latter is incorrect.
+If the patients for the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the use of the probability $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ from the dataset would be the appropriate one to use. But the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities} \[\p(\textsf{\small predictors} \| \textsf{\small predictand})\] \emph{from the dataset is generally superior to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate.
 
 \mynotew{Illustration of this by training on dataset with a proportion of cAD/sMCI and application to a separate dataset with a different proportion.}
 
-The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the
-%(
-conditional \enquote{$\|\dotso)$} argument any variate we suspect having dataset statistics different from those of the population of interest, obtaining the final desired probabilities from Bayes's theorem.
+The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
+\enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
 
 It may be necessary to use dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors})$ even when the dataset has statistics identical with the population it is sampled from.\mynotew{***}
 
