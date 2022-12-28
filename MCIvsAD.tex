@@ -371,6 +371,13 @@ The method used is none other than decision theory, the combination of probabili
 
 Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}. The present method can therefore be seen as the application of an \emph{ideal machine-learning algorithm}. \enquote{Ideal} in the sense of being free from approximations, special modelling assumptions, and limitations in its informational output; not in the sense of being impracticable. Another important point of the present work, indeed, is to show that \emph{for some kinds of dataset} such ideal machine-learning algorithm is a reality. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their output limitations. We discuss this matter further in \sect\mynotew{***}.
 
+%%%% Note on "predictand"
+%
+% The quantity that we want to forecast is in various texts called "dependent variable" or "response variable". I personally don't like either. Both can be misleading. Surely AD-conversion is not "dependent" on cognitive variates, for example. Moreover we'll see that we are actually swapping the role of "independent" and "dependent" variables in this work. Same goes for "response". With a readership of medical scientists it's best to avoid the special connotations of these words, leaving them for variables that are indeed biologically dependent.
+%
+% This leaves us with "predictand", literally "the thing that has to be predicted", which is exactly what AD-conversion is. I believe this term is used in climate science and meteorology. It's good because it does not misleadingly imply that AD-conversion biologically depends or is a consequence of other variables.
+%%%%
+
 \mynotep{Add other advantages of this exact approach:
   \begin{itemize}
   \item it does not make assumptions, besides natural assumption of smoothness of full-population frequency distribution
@@ -574,20 +581,21 @@ If the samples of the clinical trials had been chosen with the same frequencies 
 \[\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})\]
 \emph{from the dataset is preferable to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate.
 
-It may be necessary to use dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors})$ even when the dataset has statistics identical with the population it is sampled from.\mynotew{***}
+The use of dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ can be necessary even when the dataset has statistics identical with the population it is sampled from. Typical cases are the prognosis of a patient that comes from a peculiar subpopulation or even from a different population. The first case happens for instance when the clinician has additional information not included among the predictor variates, such as the result of an additional clinical test, or family history. The second case happens for instance when the patient comes from a different geographical region. There is of course no sharp distinction between these two cases.
 
-The use of the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand})$ from a dataset is especially important for a personalized, patient-adapted approach to prognosis and treatment. A new patient, such as Ariel, may come from a population with statistical properties different from the available dataset. No prognosis, or an in-principle incorrect prognosis, can be made for Ariel if our inference algorithm only relies on the probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors})$.
+What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. Stated otherwise the patient may still be considered of a member of the subpopulation having those specific predictor values.
+
+This topic is complex and its study is not the goal of the present work. We refer the readers to the brilliant paper by Lindley \amp\ Novick \citeyearpar{lindleyetal1981} for further discussion, and the works by \cite{malinasetal2004_r2016} and \cite{sprengeretal2021} about Simpson's paradox, to which this topic is related.
+
+Our main point is that subpopulation or population variability is an important factor that differentiate patients, and it should be taken into account in a personalized approach. The method presented here does this naturally, allowing a great flexibility in picking which statistical features of the sample dataset should be used for each new patients. As discussed in \sect~\ref{sec:learning_step}, the ideal machine-learning algorithm used here allow us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$, as required by a specific patient's population.
 
 \mynotew{Illustration of this: We split our learning dataset in two subsets}
 
-The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
-\enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
+% The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
+% \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-
-
- \citep{lindleyetal1981,sprengeretal2021,barhillel1980}
 
 \subsection{Prior probability}
 \label{sec:prior_step}
