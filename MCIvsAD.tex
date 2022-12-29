@@ -265,6 +265,8 @@ Several additional advantages of this quantification framework are also exemplif
 %
 % posterior Olivia, Bianca:  0.301679
 % prior Ariel: 0.65
+% likelihood Ariel cAD:  8.97179e-12
+% likelihood Ariel sMCI:  1.85685e-11
 % posterior Ariel: 0.47294
 %%%%%%%%%
 % Curtis:
@@ -333,7 +335,7 @@ We can categorize these differences as \enquote{difference in auxiliary informat
     18&21&3&36&5&10&21&114
     \\
     \emph{Curtis}&
-    63.8&M&[NA]&Y&
+    63.8&M&[missing]&Y&
     15&14&2&20&0&3&36&126
   \end{tabular}
   \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
@@ -565,20 +567,53 @@ If the samples of the clinical trials had been chosen with the same frequencies 
 
 The use of dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ can be necessary even when the dataset has statistics identical with the population it is sampled from. Typical cases are the prognosis of a patient that comes from a peculiar subpopulation or even from a different population. The first case happens for instance when the clinician has additional information not included among the predictor variates, such as the result of an additional clinical test, or family history. The second case happens for instance when the patient comes from a different geographical region. There is of course no sharp distinction between these two cases.
 
-What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. Stated otherwise the patient may still be considered of a member of the subpopulation having those specific predictor values.
+What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} statistics may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. In other words, the patient may still be considered of a member of the subpopulation having those specific predictor values.
 
-This topic is complex and its study is not the goal of the present work. We refer the readers to the brilliant paper by Lindley \amp\ Novick \citeyearpar{lindleyetal1981} for further discussion, and the works by \cite{malinasetal2004_r2016} and \cite{sprengeretal2021} about Simpson's paradox, to which this topic is related. \mynotez{Maybe add refs to Pearl (and Russell) about the notion of causality -- which is somewhat circular, however.}
+This topic is complex and of extreme importance for inference, but its study is not the goal of the present work. We refer the readers to the brilliant paper by Lindley \amp\ Novick \citeyearpar{lindleyetal1981} for further discussion, and the works by \cite{malinasetal2004_r2016} and \cite{sprengeretal2021} about Simpson's paradox, to which this topic is related. \mynotez{Maybe add refs to Pearl (and Russell) about the notion of causality -- which is somewhat circular, however.}
 
-Our main point is that subpopulation or population variability is an important factor that differentiate patients, and it should be taken into account in a personalized approach. The method presented here does this naturally, allowing a great flexibility in picking which statistical features of the sample dataset should be used for each new patients. As discussed in \sect~\ref{sec:learning_step}, the ideal machine-learning algorithm used here allow us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$, as required by a specific patient's population.
+Our main point here is that population variability and auxiliary clinical information are important factors that differentiate patients, and a personalized approach ought to take them into account. The method presented here does this naturally, allowing a great flexibility in selecting which statistical features of the sample dataset should be used for each new patient, and the integration of auxiliary clinical information in the form of a prior probability. As discussed in \sect~\ref{sec:learning_step}, the ideal machine-learning algorithm used here allows us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$ required by the patient's relevant population.
 
-\mynotew{Illustration of this: We split our learning dataset in two subsets}
 
 % The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
 % \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-In our present example, Ariel
+In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we therefore use the probabilities $\p(\textsf{\small conversion} \| \textsf{\small predictors}, \textsf{\small dataset})$, having values
+\begin{equation}
+  \label{eq:posterior_probs}
+  p_{\text{Olivia}} = p_{\text{Bianca}} = 0.30\ ,\qquad
+  p_{\text{Curtis}} = 0.70\ .
+\end{equation}
+
+For Ariel, however, the clinician judges that a different, 65\% base rate of conversion should be used, owing to her different geographical origin and family history. In her case we must use the probabilities $\p(\textsf{\small predictors} \| \textsf{\small conversion}, \textsf{\small dataset})$ and $\p(\textsf{\small predictors} \| \textsf{\small no\,conversion}, \textsf{\small dataset})$, calculated to be
+\begin{equation}
+  \label{eq:ariel_likelihoods}
+  l_{\text{conv.}} = 8.97\cdot10^{-12} \ , \qquad
+  l_{\text{no\,conv.}} = 1.86\cdot10^{-11} \ .
+\end{equation}
+Combining these in Bayes's theorem we obtain the conversion probability
+\begin{equation}
+  \label{eq:ariel_probability}
+  p_{\text{Curtis}} = 0.47 \ .
+\end{equation}
+Note how this probability is higher than for Olivia and Bianca, even if the predictor data are the same for these three patients.
+
+
+
+\mynotew{Illustration of the advantage of using likelihoods: We split our learning dataset in two subsets:
+  \begin{itemize}
+  \item One with 361 datapoints and a ratio of 29.9\%/70.1\% of conversions to \ad\ vs stable \mci. This is used as learning set.
+  \item One with 343 datapoints and a ratio of 63.3\%/36.7\% of conversions to \ad\ vs stable \mci. This is used as a fictive full population.
+  \end{itemize}
+  No systematic sampling of any variates was made in this partition, besides the conversion variate.
+
+  First we use the probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ for making prognoses on the \enquote{full population} of 343 patients, considering the specific predictor values of each one. We obtain 37.3\% correct prognoses.
+
+  Then we use the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ instead, together with the base rate of 63.3\%, according to \eqn~\eqref{eq:base-rate_correction}. We obtain 73.2\% correct prognoses.
+
+  Consider that if we made prognoses on the \enquote{full population} of 343 patients by a coin toss, we would obtain 50\% correct prognoses. Always prognosing \enquote{stable \mci}, we would obtain 63.3\% correct prognoses. The first approach leads to results worse than a coin toss because of the underlying base-rate fallacy. The second approach, instead, leads to better results than just always prognosing the most common outcome, because it combines appropriate statistical information from the learning dataset with the correct base rate.}
+
 
 \subsection{Likelihood and posterior probability}
 \label{sec:posterior_step}
