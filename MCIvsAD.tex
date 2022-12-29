@@ -145,6 +145,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\Land}{\bigwedge}
 \newcommand*{\zerob}[1]{\makebox[0pt][c]{#1}}
 \newcommand*{\delt}{\updelta}
+\newcommand*{\eU}{\bar{U}}
 % 
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
@@ -742,7 +743,33 @@ But the choice between treatments does not only rely on the probability of the m
 
 The benefits of the different treatments, and the probability thresholds at which one treatment becomes preferable to another, must therefore be judged primarily by the patient. Utility theory and maximization of expected utility allow clinician and patient to make such judgements and decisions in a coherent way \citetext{\citealp{soxetal1988_r2013,huninketal2001_r2014}; see also the clear and charming exposition by \citealp{lindley1971_r1988}}.
 
-The quantification of utilities is not within the scope of the present work. The clinical books cited above offer several guidelines and rules , but the present approach 
+We summarize the main, patient-dependent procedure for decision making, and show how our computations so far fit perfectly with it.
+
+The clinician first assesses and list the mutually exclusive courses of actions available for the specific patient. These could be treatments, more tests, do nothing, and so on. Often there are \emph{sequences} of decision available, but the utility framework can be applied to them as well \citetext{see references above and \citealp{raiffa1968_r1970}}. The list of courses of action is already patient-dependent: some alternatives may not be suitable (say, owing to allergies), some may be economically too costly, and so on.
+
+Each course of action will have different consequences, which additionally depend on the patient's unknown clinical condition of interest. A treatment may have some consequences if the patient has or will develop the disease, and different consequences otherwise. The patient quantifies, with the clinician's guidance, the benefits and costs -- technically called \enquote{utilities} -- of such possible consequences. The quantification of utilities is not within the scope of the present work. The references cited above offer several guidelines and rules for numerically translating factors such as quality of life and expected lifespan.
+
+The courses of actions, uncertain clinical conditions, and the quantified utilities $U$ of their consequences can be organized into a table of this form:
+
+{\centering
+  \begin{tabular}{cccc}
+    &{\small clinical condition $a$}&{\small clinical condition $b$}&{\small \ldots}
+    \\[2\jot]
+    {\small action $\alpha$} & $U_{\alpha a}$ & $U_{\alpha b}$ &$\dotso$ \\[\jot]
+    {\small action $\beta$} & $U_{\beta a}$ & $U_{\beta b}$ &$\dotso$ \\[\jot]
+    {\small \ldots} &$\dotso$&$\dotso$&$\dotso$
+  \end{tabular}
+
+} 
+which can be compactly represented by a numerical matrix $\bigl(U_{ij})$, where the row index $i$ enumerates the actions, and the column index $j$ enumerates the clinical conditions.
+
+The \emph{expected utility} $\eU_{i}$ of an action $i$ is calculated as the expectation of its utilities $U_{ia}, U_{ib}, \dotsc$ with respect to the probabilities $\p(a), \p(b), \dotsc$ of the clinical conditions $a,b,\dotsc$:
+\begin{equation}
+  \label{eq:def_expected_utility}
+  \eU_{i} \defd U_{ia}\, \p(a) + U_{ib}\, \p(b) + \dotsb
+\end{equation}
+
+
 
  \citep{lindley1982}
 
