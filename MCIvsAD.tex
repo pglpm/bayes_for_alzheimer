@@ -250,77 +250,57 @@ Several additional advantages of this quantification framework are also exemplif
 
 %%%% EXAMPLE-PATIENT DATA %%%%
 % Olivia, Ariel, Bianca:
-% Apoe4_
-% 1
-% ANARTERR_neuro
-% 14
-% AVDEL30MIN_neuro
-% 3
-% AVDELTOT_neuro
-% 12
-% CATANIMSC_neuro
-% 18
-% GDTOTAL_gds
-% 0
-% RAVLT_immediate
-% 29
-% AGE
-% 83.4873
-% LRHHC_n_long
-% 0.00276752
-% TRAASCOR_neuro
-% 126.543
-% TRABSCOR_neuro
-% 117.003
-% Gender_num_
-% 1
+% Apoe4_             0.00000000
+% ANARTERR_neuro    18.00000000
+% AVDEL30MIN_neuro   5.00000000 Ravlt-del
+% AVDELTOT_neuro    10.00000000 Ravlt-rec
+% CATANIMSC_neuro   21.00000000
+% GDTOTAL_gds        3.00000000
+% RAVLT_immediate   36.00000000
+% TRAASCOR_neuro    21.00000000
+% TRABSCOR_neuro   114.00000000
+% AGE               75.38823609
+% LRHHC_n_long       0.00425972
+% Gender_num_        1.00000000
 %
+% posterior Olivia, Bianca:  0.301679
+% prior Ariel: 0.65
+% posterior Ariel: 0.47294
 %%%%%%%%%
 % Curtis:
-% Apoe4_
-% 0
-% ANARTERR_neuro
-% 6
-% AVDEL30MIN_neuro
-% 0
-% AVDELTOT_neuro
-% 2
-% CATANIMSC_neuro
-% 13
-% GDTOTAL_gds
-% 1
-% RAVLT_immediate
-% 16
-% AGE
-% 61.517
-% LRHHC_n_long
-% 0.00416919
-% TRAASCOR_neuro
-% 24.8009
-% TRABSCOR_neuro
-% 83.4148
-% Gender_num_
-% 0
+% Apoe4_             1.00000000
+% ANARTERR_neuro    15.00000000
+% AVDEL30MIN_neuro   0.00000000
+% AVDELTOT_neuro     3.00000000
+% CATANIMSC_neuro   14.00000000
+% GDTOTAL_gds        2.00000000
+% RAVLT_immediate   20.00000000
+% TRAASCOR_neuro    36.00000000
+% TRABSCOR_neuro   126.00000000
+% AGE               63.82721344
+% LRHHC_n_long       NA
+% Gender_num_        0.00000000
+%
+% posterior 0.70256
 %
 %%%%%%%%
-% Prior prob. for Ariel: 0.3
-%%%%%%%%
-% Posterior probabilities and optimal treatments
-% Olivia 60% - #3
-% Ariel 20% - #1
-% Bianca 60% - #2
-% Curtis 80% - #4
-%%%%%%%%
-% Utility matrices Olivia, Ariel, Curtis:
-% 1  1.0  0.0
-% 2  0.8  0.5
-% 3  0.5  0.8
-% 4  0.0  1.0
+% Utility matrix Olivia, Ariel, Curtis:
+% #1  1.0  0.0
+% #2  0.9  0.3
+% #3  0.8  0.5
+% #4  0.0  1.0
+%%%%
 % Utility matrix Bianca:
-% 1  1.0  0.0
-% 2  0.7  0.8
-% 3  0.4  0.9
-% 4  0.0  1.0
+% #1  1.0  0.0
+% #2  0.8  0.3
+% #3  0.7  0.5
+% #4  0.0  1.0
+%%%%%%%%
+% optimal treatments
+% Olivia #2
+% Ariel #3
+% Bianca #1
+% Curtis #4
 
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
 % names from Shakespeare's plays
@@ -328,12 +308,14 @@ These four persons don't know each other, but they have something in common: the
 
 Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region from Olivia, where the conversion rate from Mild Cognitive Impairment to Alzheimer is lower: about 30\%, whereas in Olivia's it is around 45\% \citep{petersenetal1999} Moreover there is no history of Alzheimer's Disease in Ariel's family.
-\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that would render some of the preventive options less beneficial to her.
-\item Olivia and Curtis have different clinical results -- in particular, Olivia has the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis hasn't -- and age, Olivia being more than 20 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options.
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region with a higher rate of conversion, and from a family with a heavy history of Alzheimer's Disease, unlike Olivia. Because of this family background, the clinician judges a priori a 65\% probability that Ariel's cognitive impairment will convert to Alzheimer's Disease
+
+\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the preventive options slightly riskier for her.
+
+\item Olivia and Curtis have different clinical results. In particular, Olivia does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has, and Olivia is more than 10 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
 \end{itemize}
 
-We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical factors} (Olivia and Curtis). Figure~\ref{fig:OABC} summarizes the similarity and differences between Olivia and the other three patients. Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}.
+We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis). Figure~\ref{fig:OABC} summarizes the similarity and differences between Olivia and the other three patients. Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}.
 \begin{figure}[!h]% with figure
  \centering\includegraphics[width=0.25\linewidth]{OABC.png}\\
 \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
@@ -347,12 +329,12 @@ We can categorize these differences as \enquote{difference in auxiliary informat
     ANART&CFT&GDS&RAVLT-im&RAVLT-del&RAVLT-rec&TMTA&TMTB
     \\[1\jot]
     \emph{Olivia, Ariel, Bianca}&
-    83.5&F&2.77&Y&
-    14&18&0&29&12&3&126.5&117.0
+    75.4&F&4.26&N&
+    18&21&3&36&5&10&21&114
     \\
     \emph{Curtis}&
-    61.5&M&4.17&N&
-    6&13&1&16&2&0&24.8&83.4
+    63.8&M&[NA]&Y&
+    15&14&2&20&0&3&36&126
   \end{tabular}
   \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
 \end{table}
@@ -512,7 +494,7 @@ An important common deficiency of most inference algorithms mentioned above is t
 
 
 
-\subsection{Population assessment}
+\subsection{Population assessment and prior probability}
 \label{sec:population_step}
 
 \setlength{\intextsep}{0ex}% with wrapfigure
@@ -585,7 +567,7 @@ The use of dataset probabilities different from $\p(\textsf{\small predictand} \
 
 What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. Stated otherwise the patient may still be considered of a member of the subpopulation having those specific predictor values.
 
-This topic is complex and its study is not the goal of the present work. We refer the readers to the brilliant paper by Lindley \amp\ Novick \citeyearpar{lindleyetal1981} for further discussion, and the works by \cite{malinasetal2004_r2016} and \cite{sprengeretal2021} about Simpson's paradox, to which this topic is related.
+This topic is complex and its study is not the goal of the present work. We refer the readers to the brilliant paper by Lindley \amp\ Novick \citeyearpar{lindleyetal1981} for further discussion, and the works by \cite{malinasetal2004_r2016} and \cite{sprengeretal2021} about Simpson's paradox, to which this topic is related. \mynotez{Maybe add refs to Pearl (and Russell) about the notion of causality -- which is somewhat circular, however.}
 
 Our main point is that subpopulation or population variability is an important factor that differentiate patients, and it should be taken into account in a personalized approach. The method presented here does this naturally, allowing a great flexibility in picking which statistical features of the sample dataset should be used for each new patients. As discussed in \sect~\ref{sec:learning_step}, the ideal machine-learning algorithm used here allow us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$, as required by a specific patient's population.
 
@@ -596,11 +578,7 @@ Our main point is that subpopulation or population variability is an important f
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-
-\subsection{Prior probability}
-\label{sec:prior_step}
-
- \citep{lindleyetal1981,sprengeretal2021,barhillel1980}
+In our present example, Ariel
 
 \subsection{Likelihood and posterior probability}
 \label{sec:posterior_step}
