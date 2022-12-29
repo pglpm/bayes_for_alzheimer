@@ -318,19 +318,16 @@ Besides this shared condition and worry, these patients have other things in com
 \item Olivia and Curtis have different clinical results. In particular, Olivia does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has, and Olivia is more than 10 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
 \end{itemize}
 
-We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis). Figure~\ref{fig:OABC} summarizes the similarity and differences between Olivia and the other three patients. Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}.
-\begin{figure}[!h]% with figure
- \centering\includegraphics[width=0.25\linewidth]{OABC.png}\\
-\caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
-\end{figure}%
+We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis). Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}. The figure on its side summarizes the similarity and differences between Olivia and the other three patients. 
+% \begin{figure}[!h]% with figure
+%  \centering\includegraphics[width=0.25\linewidth]{OABC.png}\\
+% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+% \end{figure}%
 \begin{table}[!h]
   \centering
   \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
-    &{\small Olivia}
-    &{\small Ariel}
-    &{\small Bianca}
-    &{\small Curtis}
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
     Age&75.4&75.4&75.4&63.8 \\
     Sex&F&F&F&M \\
@@ -346,7 +343,12 @@ We can categorize these differences as \enquote{difference in auxiliary informat
     TMTB&114&114&114&126
     \\[\jot]
     \hline
-  \end{tabular}
+  \end{tabular}\hspace{2em}
+  \begin{minipage}{0.4\linewidth}
+    \centering\includegraphics[width=\linewidth]{OABC.png}\\
+    % \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+  \end{minipage}
+  \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
   % \begin{tabular}{ccccccccccccc}
   %   Patient&
   %   Age&Sex&HC${}\cdot 10^{-3}$&APOE4&
@@ -360,7 +362,6 @@ We can categorize these differences as \enquote{difference in auxiliary informat
   %   63.8&M&[missing]&Y&
   %   15&14&2&20&0&3&36&126
   % \end{tabular}
-  \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
 \end{table}
 
 \medskip
@@ -491,7 +492,7 @@ possibly contaminated by a little noise, typically assumed gaussian. This is a v
 An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
 
 
-\subsection{Application}
+\subsection{Application to case study}
 \label{sec:learn_application}
 
 In our case study, the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
@@ -500,10 +501,7 @@ In our case study, the \tjm\ yields the following probabilities of main importan
   \centering
   \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
-    &{\small Olivia}
-    &{\small Ariel}
-    &{\small Bianca}
-    &{\small Curtis}
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
     {\small $\p(\text{conversion to AD} \| \text{predictors})$}&
     0.302&0.302&0.302&0.691
@@ -516,6 +514,7 @@ In our case study, the \tjm\ yields the following probabilities of main importan
     \\[\jot]
     \hline
   \end{tabular}
+    \caption{\mynotew{Probabilities computed by the \tjm}}\label{tab:prob_likelihoods_patients}
 \end{table}
 
 As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the \enquote{error} on these probabilities. There is an error on the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities (all relative numerical errors are below 0.8\%, Curtis's two likelihoods being an exception at 2\%).
@@ -543,7 +542,7 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
     \includegraphics[width=\linewidth]{directprob_curtis.pdf}\\
     \footnotesize Curtis
   \end{minipage}
-  \caption{Probability distributions for full-population frequency of conversion to AD, given Olivia, Ariel, Bianca's and Curtis's predictor values}\label{fig:freq_distribution_patients}
+  \caption{Probability distributions for full-population frequency of conversion to AD, given Olivia, Ariel, Bianca's and Curtis's predictor. Red lines are the values of the probabilities  $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$}\label{fig:freq_distribution_patients}
 \end{figure}%
 
 
@@ -583,7 +582,7 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 % sd             0.0080
 
 
-
+\clearpage
 \section{Population assessment and prior probability}
 \label{sec:population_step}
 
@@ -695,25 +694,32 @@ Our main point here is that population variability and auxiliary clinical inform
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we therefore use the probabilities $\p(\textsf{\small conversion} \| \textsf{\small predictors}, \textsf{\small dataset})$, having values
-\begin{equation}
-  \label{eq:posterior_probs}
-  p_{\text{Olivia}} = p_{\text{Bianca}} = 0.30\ ,\qquad
-  p_{\text{Curtis}} = 0.70\ .
-\end{equation}
+\subsection{Application to case study}
+\label{sec:posterior_application}
 
-For Ariel, however, the clinician judges that a different, 65\% base rate or prior probability of conversion should be used, owing to her different geographical origin and family history. In her case we must use the probabilities $\p(\textsf{\small predictors} \| \textsf{\small conversion}, \textsf{\small dataset})$ and $\p(\textsf{\small predictors} \| \textsf{\small no\,conversion}, \textsf{\small dataset})$, calculated to be
-\begin{equation}
-  \label{eq:ariel_likelihoods}
-  l_{\text{conv.}} = 8.97\cdot10^{-12} \ , \qquad
-  l_{\text{no\,conv.}} = 1.86\cdot10^{-11} \ .
-\end{equation}
-Combining these and the base rate $0.65$ in Bayes's theorem we obtain the conversion probability
-\begin{equation}
-  \label{eq:ariel_probability}
-  p_{\text{Ariel}} = 0.47 \ .
-\end{equation}
-Note how this probability is higher than for Olivia and Bianca, even if the predictor data are the same for these three patients.
+In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\textsf{\small conversion} \| \textsf{\small predictors}, \textsf{\small dataset})$ provided in the same table.
+
+For Ariel, however, the clinician judges that a different base rate or prior probability of conversion should be used, equal to 65\%,  owing to her different geographical origin and family history. In her case we must use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the prior probability of $0.65$.
+
+The final probabilities of conversion to \ad\ for our four patients are reported in table~\ref{tab:posterior_patients}. Note how the final probability for Ariel is higher than that for Olivia and Bianca, even if the predictor data are the same for these three patients.
+
+\medskip
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{lcccc}
+    \hline\\[-1.5\jot]
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
+    \\[\jot]
+    {\small prior probability $\p(\text{conversion to AD} \| \text{aux info})$}&
+    0.463&0.65&0.463&0.463
+    \\
+    {\small final probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset}, \text{aux info})$}&
+    0.302&0.47&0.302&0.691
+    \\[\jot]
+    \hline
+  \end{tabular}
+    \caption{Final probabilities of conversion computed from dataset and auxiliary information}\label{tab:posterior_patients}
+\end{table}
 
 
 % \subsection{Likelihood and posterior probability}
