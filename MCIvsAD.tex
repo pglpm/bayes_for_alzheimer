@@ -120,6 +120,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 % \setlist[itemize]{leftmargin=1.5\parindent}
 % \setlist[description]{leftmargin=1.5\parindent}
 
+\usepackage{bm}
 
 \usepackage{mathtools}
 
@@ -150,6 +151,8 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
 \newcommand*{\tjm}{Turing-Jaynes machine}
+\newcommand*{\AD}{\mathrm{AD}}
+\newcommand*{\nAD}{\lnot\mathrm{AD}}
 
 
 % Leave a blank line between paragraphs instead of using \\
@@ -180,7 +183,7 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 %\title[Conversion from MCI to AD]{Conversion from MCI to Alzheimer's disease: model-free predictions with quantified uncertainty} 
 %\title[Conversion from MCI to AD]{Model-free predictions with quantified uncertainty in personalized medicine: A case study on the conversion from MCI to AD} 
-\title[Conversion from Mild Cognitive Impairment to Alzheimer's Disease]{Personalized prognosis \& treatment\\ using Turing-Jaynes machines:\\ An example study on  conversion from Mild Cognitive Impairment to Alzheimer's Disease} 
+\title[Personalized prognosis \amp\ treatment using a \tjm]{Personalized prognosis \& treatment\\ using Turing-Jaynes machines:\\ An example study on  conversion from Mild Cognitive Impairment to Alzheimer's Disease} 
 
 \author[\firstAuthorLast ]{\Authors} %This field will be automatically populated
 \address{} %This field will be automatically populated
@@ -494,7 +497,7 @@ possibly contaminated by a little noise, typically assumed gaussian. This is a v
 An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
 
 
-\subsection{Application to case study}
+\subsection{Application to the case study}
 \label{sec:learn_application}
 
 In our case study, the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
@@ -696,7 +699,7 @@ Our main point here is that population variability and auxiliary clinical inform
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-\subsection{Application to case study}
+\subsection{Application to the case study}
 \label{sec:posterior_application}
 
 In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\textsf{\small conversion} \| \textsf{\small predictors}, \textsf{\small dataset})$ provided in the same table.
@@ -747,29 +750,110 @@ We summarize the main, patient-dependent procedure for decision making, and show
 
 The clinician first assesses and list the mutually exclusive courses of actions available for the specific patient. These could be treatments, more tests, do nothing, and so on. Often there are \emph{sequences} of decision available, but the utility framework can be applied to them as well \citetext{see references above and \citealp{raiffa1968_r1970}}. The list of courses of action is already patient-dependent: some alternatives may not be suitable (say, owing to allergies), some may be economically too costly, and so on.
 
-Each course of action will have different consequences, which additionally depend on the patient's unknown clinical condition of interest. A treatment may have some consequences if the patient has or will develop the disease, and different consequences otherwise. The patient quantifies, with the clinician's guidance, the benefits and costs -- technically called \enquote{utilities} -- of such possible consequences. The quantification of utilities is not within the scope of the present work. The references cited above offer several guidelines and rules for numerically translating factors such as quality of life and expected lifespan.
+Each course of action will have different consequences, which additionally depend on the patient's unknown clinical condition of interest. A treatment may have some consequences if the patient has or will develop the disease, and different consequences otherwise. The patient quantifies, with the clinician's guidance, the benefits and costs -- technically called \enquote{utilities} -- of such possible consequences. The quantification of utilities is not within the scope of the present work. The references cited above offer several guidelines and rules for numerically translating factors such as quality of life and expected lifespan into utilities.
 
 The courses of actions, uncertain clinical conditions, and the quantified utilities $U$ of their consequences can be organized into a table of this form:
-
-{\centering
-  \begin{tabular}{cccc}
-    &{\small clinical condition $a$}&{\small clinical condition $b$}&{\small \ldots}
-    \\[2\jot]
-    {\small action $\alpha$} & $U_{\alpha a}$ & $U_{\alpha b}$ &$\dotso$ \\[\jot]
-    {\small action $\beta$} & $U_{\beta a}$ & $U_{\beta b}$ &$\dotso$ \\[\jot]
-    {\small \ldots} &$\dotso$&$\dotso$&$\dotso$
-  \end{tabular}
-
-} 
-which can be compactly represented by a numerical matrix $\bigl(U_{ij})$, where the row index $i$ enumerates the actions, and the column index $j$ enumerates the clinical conditions.
+  \begin{center}
+    \begin{tabular}{cccc}
+      &{\small clinical condition $a$}&{\small clinical condition $b$}&{\small \ldots}
+      \\[2\jot]
+      {\small action $\alpha$} & $U_{\alpha a}$ & $U_{\alpha b}$ &$\dotso$ \\[\jot]
+      {\small action $\beta$} & $U_{\beta a}$ & $U_{\beta b}$ &$\dotso$ \\[\jot]
+      {\small \ldots} &$\dotso$&$\dotso$&$\dotso$
+    \end{tabular}
+  \end{center}
+which can be compactly represented by a so-called \emph{utility matrix} $\bigl(U_{ij})$, the row index $i$ enumerating the actions, and the column index $j$ the clinical conditions. Note that the number of possible treatments and of clinical conditions do not need to be equal; generally they are not.
 
 The \emph{expected utility} $\eU_{i}$ of an action $i$ is calculated as the expectation of its utilities $U_{ia}, U_{ib}, \dotsc$ with respect to the probabilities $\p(a), \p(b), \dotsc$ of the clinical conditions $a,b,\dotsc$:
 \begin{equation}
   \label{eq:def_expected_utility}
   \eU_{i} \defd U_{ia}\, \p(a) + U_{ib}\, \p(b) + \dotsb
 \end{equation}
+Note that this corresponds to a matrix multiplication between the matrix of utilities and the vector of probabilities.
 
+Finally, the recommended action is the one having \emph{maximal expected utility}.
 
+\mynotep{Add a couple of comments about the inevitability of the rules of decision theory \citep{lindley1971_r1988}}
+
+\subsection{Application to the case study}
+\label{sec:expected_utility_application}
+
+At present there are no treatments for \ad, nor preventive treatments \mynotew{true?}. But for the sake of our case study let us imagine that there are three mutually exclusive treatment options for prevention or retardation of the disease; call them $\beta$, $\gamma$, $\delta$. And denote the simple option of \enquote{no treatment} by $\alpha$. The clinical conditions to be considered are just two: the patient will have stable \mci, or will convert to \ad. Denote them by $\nAD$ and $\AD$.
+
+We have therefore $4 \times 2 = 8$ possible consequences of the four treatments depending on the two clinical conditions. Our four patients and clinician quantify the utilities, arriving at the utility matrices shown in table~\ref{tab:utilities_patients}. Note that Olivia, Ariel, Curtis quantify the benefits of the treatments in exactly the same way, but Bianca's quantification differs slightly \mynotew{add an example of why}.
+
+\medskip
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{cccccccc}
+    \hline\\[-1.5\jot]
+    &{\small Olivia} &&{\small Ariel} &&{\small Bianca} &&{\small Curtis}
+    \\[\jot]
+    $\begin{matrix}&\\
+      \text{treatment }\alpha\\ 
+      \text{treatment }\beta\\ 
+      \text{treatment }\gamma\\ 
+      \text{treatment }\delta
+    \end{matrix}$
+    &
+    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    &&
+    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    &&
+    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\8&3\\7&5\\0&10\end{matrix}$
+    &&
+    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    \\[5\jot]
+    \hline
+  \end{tabular}
+  \caption{Utility matrices for the four patients}\label{tab:utilities_patients}
+\end{table}
+
+The probabilities for the two medical conditions are those found in the previous section, reported in table~\ref{tab:posterior_patients}. For brevity we denote just by $\p(\AD)$ the probability of conversion given a patient's predictor values, and by $\p(\nAD)\equiv 1- \p(\AD)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For example, for Olivia the expected utility of treatment $\beta$ is
+\begin{equation}
+  \label{eq:utility_olivia_example}
+  \eU_{\beta} = 9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
+\end{equation}
+The results for all patients are reported in table~\ref{tab:exp_utilities_patients}, with the maximal expected utilities in \textbf{boldface}.
+
+\medskip
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{ccccc}
+    \hline\\[-1.5\jot]
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
+    \\[\jot]
+    $\begin{matrix}
+      \text{treatment }\alpha\\ 
+      \text{treatment }\beta\\ 
+      \text{treatment }\gamma\\ 
+      \text{treatment }\delta
+    \end{matrix}$
+    &
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\end{matrix}$
+    &
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\end{matrix}$
+    &
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\end{matrix}$
+    &
+    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\end{matrix}$
+    \\[5\jot]
+    \hline
+  \end{tabular}
+  \caption{Expected utilities for the four patients}\label{tab:exp_utilities_patients}
+\end{table}
+
+% ##     olivia    ariel   curtis
+% ## 1 0.698321 0.527060 0.309080
+% ## 2 0.718993 0.616236 0.485448
+% ## 3 0.709496 0.658118 0.592724
+% ## 4 0.301679 0.472940 0.690920
+
+% ##     bianca
+% ## 1 0.698321
+% ## 2 0.649161
+% ## 3 0.639664
+% ## 4 0.301679
 
  \citep{lindley1982}
 
