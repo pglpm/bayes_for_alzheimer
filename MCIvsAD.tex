@@ -172,7 +172,7 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 
 
-
+\setcounter{section}{-1}
 \begin{document}
 \onecolumn
 \firstpage{1}
@@ -398,12 +398,10 @@ The inferential and decision-making steps based on the \tjm\ are summarized in t
   \end{framed}
 \end{table}
 
-\section{\protect\mynotep{Practical example}}
-\label{sec:example}
+These steps will be explained and illustrated in the next three sections, presented in chronological order as the clinician would apply them. They could also be presented in reverse order, more suited to their logical dependence, because the procedure in each one is motivated by the next. We suggest that readers familiar with the principles of clinical decision making read them in \sect\,\ref{sec:learning_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:utilities_step} order; whereas readers unfamiliar with these principles (who may include readers with a specialized background in machine learning) read them in \sect\,\ref{sec:utilities_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:learning_step} order.
 
-\mynotez{It may be optimal to present the steps in reverse order: the last one explains the goal, and makes clear why the preceding steps are necessary.}
 
-\subsection{Learning}
+\section{Learning}
 \label{sec:learning_step}
 
 In the learning stage the \tjm\ infers, from a given sample dataset, the statistical relationships of a large population of which our future patients can be considered members, at least in some respects. Such relationships will help us in our prognoses. The basic idea is intuitive. If a patient can be considered a member of some population, and if we knew the joint frequencies of all possible combinations of predictor and predictand values in such population -- and knew nothing else -- then we would say that the probability for the patient to have particular values is equal to the population frequency. Pure symmetry considerations lead to this intuitive result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}.
@@ -497,7 +495,7 @@ An important common deficiency of most inference algorithms mentioned above is t
 
 
 
-\subsection{Population assessment and prior probability}
+\section{Population assessment and prior probability}
 \label{sec:population_step}
 
 \setlength{\intextsep}{0ex}% with wrapfigure
@@ -590,7 +588,7 @@ We then make a prognosis for each of the 343 new patients with four approaches: 
 
 \medskip
   
-The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach instead leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate.
+The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach instead leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \tjm, are incapable of extracting this useful information.
 
 \medskip
 
@@ -635,7 +633,7 @@ Note how this probability is higher than for Olivia and Bianca, even if the pred
 %  \citep{lindleyetal1981,sprengeretal2021,barhillel1980}
 
 
-\subsection{Treatment and benefit assessments}
+\section{Treatment \amp\ benefit assessments, and decision}
 \label{sec:utilities_step}
 
 In clinical practice we can rarely diagnose or prognose a medical condition with full certainty. Perfect classification is therefore impossible. But also a \enquote{most probable} classification, which may be enough in other contexts, is inadequate in clinical ones. The problem is that the clinician has to decide among different courses of actions, such as different treatments, more tests, and so on, and the optimal one depends on \emph{how probable} the medical condition is, not just on whether it is more probable than not.
@@ -651,12 +649,12 @@ Utility theory and maximization of expected utility allow clinician and patient 
 
 The quantification of utilities is not within the scope of the present work (see the clinical textbook just cited), but the present approach 
 
+ \citep{lindley1982}
 
  
-\subsection{Maximization of expected benefit}
-\label{sec:expected_utility_step}
+% \subsection{Maximization of expected benefit}
+% \label{sec:expected_utility_step}
 
- \citep{lindley1982}
 
 
 \section{Discussion}
