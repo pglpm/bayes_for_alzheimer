@@ -991,10 +991,10 @@ FUNCTION {book}
   date.block
   format.btitle "title" output.check
   crossref missing$
-    { format.bvolume output
-      new.block
-      format.number.series output
-      new.sentence
+    { %format.bvolume output
+      %new.block
+      %format.number.series output
+      %new.sentence
       format.publisher.address output
     }
     {

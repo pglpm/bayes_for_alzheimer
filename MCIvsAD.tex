@@ -454,11 +454,6 @@ The \tjm\ assigns a probability to each possible frequency distribution for the 
 \end{figure}%
 
 \mynotep{Some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
-\begin{figure}[!t]% with figure
-  \centering%
-  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
-  \caption{\mynotep{Examples of a-priori probable candidates of frequency distribution for a variate such as \textsf{AVDEL30MIN\_neuro} or \textsf{AVDELTOT\_neuro}}}\label{fig:prior_distribution}
-\end{figure}%
 
 The \tjm\ computes the probabilities of all possible frequency distributions for the full population, and from these the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
 
@@ -822,7 +817,7 @@ $
         \nAD&\AD
       \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
-    \\[5\jot]
+    \\[6\jot]
     \hline
   \end{tabular}
   \caption{Utility matrices for the four patients}\label{tab:utilities_patients}
@@ -879,7 +874,34 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 % \subsection{Maximization of expected benefit}
 % \label{sec:expected_utility_step}
 
+\section{Additional results provided by the \tjm}
+\label{sec:additional_results}
 
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{lcc}
+    \hline\\[-1.5\jot]
+    &{\small as sole predictor} &{\small as missing predictor}
+    \\[\jot]
+    all& 0.140& \\
+    none& &0.140 \\
+    Age& & 0.139 \\
+    Sex& & 0.140 \\
+    HC${}/10^{-3}$& & 0.138 \\
+    APOE4& & 0.140 \\
+    ANART& & 0.140 \\
+    CFT& & 0.139 \\
+    GDS& & 0.140 \\
+    RAVLT-im& &0.131 \\
+    RAVLT-del& & 0.125 \\
+    RAVLT-rec& & 0.137 \\
+    TMTA& & 0.139 \\
+    TMTB& & 0.135
+    \\[\jot]
+    \hline
+  \end{tabular}
+  \caption{Mutual information/Sh}
+\end{table}
 
 \section{Discussion}
 \label{sec:discussion}
@@ -904,9 +926,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 % \end{wrapfigure}%
 % The space of possible full-population frequency distributions has finite (owing to the finite precision of measurements) but very large number of dimensions. For our dataset it is around the order of $10^{20}$. Most distributions in such space, however, look like noise, as the example on the side, and are completely unrealistic as distributions for a \emph{full population}.
 
-As discussed in \sect~\ref{sec:learning_step}, the \tjm\ explores the space of possible distributions of frequencies of all 13 variates listed in table~\ref{tab:patients_data}, for the full population of patients from which the dataset originates. In the present study it does so by using a total of 1535 independent parameters to represent the distributions, with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons.
-
-Actually, the number of parameters used is in principle infinite, because the machine warns us if the data indicates that more parameters are needed. In the present study the data indicates, on the contrary, that fewer than 250 parameters would have been enough.
+As discussed in \sect~\ref{sec:learning_step}, the \tjm\ explores the space of possible distributions of frequencies of all 13 variates listed in table~\ref{tab:patients_data}, for the full population of patients from which the dataset originates. In the present study it does so by using a total of 1535 independent parameters to represent the distributions, with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons. Actually, the number of parameters used is in principle infinite, because the machine gives a warning if the data indicates that more parameters are needed. In the present study the data indicates, on the contrary, that fewer than 250 parameters would be enough. More details on the mathematical representation can be found in \cite{dunsonetal2011}; see also \cite{rossi2014,rasmussen1999}.
 
 \mynotep{Should I add a more precise description of the mathematical representation?}
 
@@ -917,6 +937,17 @@ There is a fundamental difference in how the \tjm\ and most popular machine-lear
 This difference explains why the \tjm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures \citetext{it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} $k$ and data splits; see \eg\ \citealp{portamana2019b,fongetal2020}}.
 
 \mynotew{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
+
+
+
+\mynotew{possibly add a plot showing the distributions considered reasonable by the machine}
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
+  \caption{\mynotep{Examples of a-priori probable candidates of frequency distribution for a variate such as \textsf{RAVLT-del%AVDEL30MIN\_neuro
+} or \textsf{RAVLT-rec%AVDELTOT\_neuro
+}}}\label{fig:prior_distribution}
+\end{figure}%
 
 
 
