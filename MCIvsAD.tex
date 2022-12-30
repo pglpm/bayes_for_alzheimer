@@ -785,7 +785,7 @@ We have therefore $4 \times 2 = 8$ possible consequences of the four treatments 
 \medskip
 \begin{table}[!h]
   \centering
-  \begin{tabular}{cccccccc}
+  \begin{tabular}{lccccccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &&{\small Ariel} &&{\small Bianca} &&{\small Curtis}
     \\[\jot]
@@ -796,13 +796,32 @@ We have therefore $4 \times 2 = 8$ possible consequences of the four treatments 
       \text{treatment }\delta
     \end{matrix}$
     &
-    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    $
+    \begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
+\end{gathered}
+$
     &&
-    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
     &&
-    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\8&3\\7&5\\0&10\end{matrix}$
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}\end{gathered}$
     &&
-    $\begin{matrix}\nAD&\AD\\[0.5\jot]10&0\\9&3\\8&5\\0&10\end{matrix}$
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
     \\[5\jot]
     \hline
   \end{tabular}
@@ -819,7 +838,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \medskip
 \begin{table}[!h]
   \centering
-  \begin{tabular}{ccccc}
+  \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
@@ -827,16 +846,17 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
       \text{treatment }\alpha\\ 
       \text{treatment }\beta\\ 
       \text{treatment }\gamma\\ 
-      \text{treatment }\delta
+      \text{treatment }\delta\\[\jot]
+      \text{optimal}
     \end{matrix}$
     &
-    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\end{matrix}$
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[\jot]\beta\end{matrix}$
     &
-    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\end{matrix}$
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[\jot]\gamma\end{matrix}$
     &
-    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\end{matrix}$
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\alpha\end{matrix}$
     &
-    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\end{matrix}$
+    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[\jot]\delta\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
@@ -855,8 +875,6 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 % ## 3 0.639664
 % ## 4 0.301679
 
- \citep{lindley1982}
-
  
 % \subsection{Maximization of expected benefit}
 % \label{sec:expected_utility_step}
@@ -869,6 +887,24 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \mynotez{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
 \mynotez{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
+
+\appendix
+\renewcommand\thesection{\Alph{section}}
+\section{Appendices}
+\label{sec:appendices}
+
+\subsection{Mathematical details about the \tjm}
+\label{sec:maths_tjm}
+
+% \setlength{\intextsep}{0ex}% with wrapfigure
+% \setlength{\columnsep}{1ex}% with wrapfigure
+% \begin{wrapfigure}{r}{0.25\linewidth}% with wrapfigure
+% %\vspace{-1ex}%
+% \includegraphics[width=\linewidth]{noisedistrnolines.pdf}%
+% \end{wrapfigure}%
+% The space of possible full-population frequency distributions has finite (owing to the finite precision of measurements) but very large number of dimensions. For our dataset it is around the order of $10^{20}$. Most distributions in such space, however, look like noise, as the example on the side, and are completely unrealistic as distributions for a \emph{full population}.
+
+As discussed in \sect~\ref{sec:learning_step}, the \tjm\ explores the space of possible distributions of frequencies of all variates, for the \emph{full population} of patients. In the present study it does so by using 191 parameters for each continuous or integer variate (binary variates only require one parameter). The total number of parameters is 1536. As a crude intuition, it is as if we divided the range of each variate into 191 bins, and considered all possible frequency histograms over these. The actual parametrization of the frequency space is more subtle than this. The data actually indicate that fewer than 30 parameters per variate would suffice.
 
 
 
@@ -890,46 +926,6 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \hrule
 \hrule
 
---- Luca, old pieces of text ---
-
-Personalized diagnosis, prognosis, treatment, and prevention strategies must make allowance for several fundamental differences among patients:
-\begin{itemize}
-\item the \emph{kinds} of clinical data and evidence available for diagnosis or prognosis can be different;
-\item the \emph{values} of the same kind of clinical data and evidence can be different;
-\item the kinds of treatment or prevention options can be different;
-\item the advantages and disadvantages, benefits and costs of the same kinds of treatment or prevention can be different;
-\item finally, the evaluation of the clinician -- which often relies on too subtle clues (family history, regional history, case experience) to be considered as measurable data -- can be different.
-\end{itemize}
-
-Is there really a methodological framework that can take all these differences into account? Yes, there is, and Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}: Statistical Decision Theory. Its application in Medicine is explained and exemplified in several, brilliant, old and new textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}. This theory has mathematical and logical foundations and its principles constitute indeed the foundations for the definition and realization of Artificial Intelligence \citep{russelletal1995_r2022}
-\mynotew{}
-
-
-
-The basics of clinical decision making \mynotew{..basics: each piece of evidence contributes with a likelihood or odds; they combine together and together with the clinician's pre-data evaluation. Then they are combined with the different benefits/costs of treatments or prevention strategies to find the optimal one. Decision trees can be necessary (but don't change this framework). Costs \& benefits are evaluated by clinician \& patient together.}
-
-
-\begin{multline}\label{eq:bayes_theorem_intro}
-    \overbrace{\vphantom{\bigg\{}\p(\text{health condition}\|
-      \text{results of all tests},\ 
-      \text{prior info})}^{\zerob{\scriptsize\emph{post-test probability}}}
-    \mathrel{\ \propto\ }{}
-    \\
-    \shoveright{\overbrace{\vphantom{\bigg\{}\p(\text{health condition} \|
-      \text{prior info})}^{\zerob{\scriptsize\emph{pre-test probability by clinician}}}
-  \mathbin{\ \times\ }{}}    
-    \\[\jot]
-\text{\scriptsize\emph{likelihoods of tests}}\left\{\;  \begin{aligned}
- \p(\text{result of 1st test} \| \text{health condition} ,\ 
-  \text{prior info})
-  &\mathbin{\ \times\ }{}\\
-  \p(\text{result of 2nd test} \| \text{health condition} ,\ 
-  \text{prior info})
-  &\mathbin{\ \times\ }{}
-\\
-{}\dotsb &
-  \end{aligned}\right.
-\end{multline}
 
 
 % {\color{yellow}\tiny For Original Research Articles \citep{conference}, Clinical Trial Articles \citep{article}, and Technology Reports \citep{patent}, the introduction should be succinct, with no subheadings \citep{book}. For Case Reports the Introduction should include symptoms at presentation \citep{chapter}, physical exams and lab results \citep{dataset}.
@@ -938,53 +934,53 @@ The basics of clinical decision making \mynotew{..basics: each piece of evidence
 
 
 
-\section{Article types}
+% \section{Article types}
 
-For requirements for a specific article type please refer to the Article Types on any Frontiers journal page. Please also refer to  \href{http://home.frontiersin.org/about/author-guidelines#Sections}{Author Guidelines} for further information on how to organize your manuscript in the required sections or their equivalents for your field
+% For requirements for a specific article type please refer to the Article Types on any Frontiers journal page. Please also refer to  \href{http://home.frontiersin.org/about/author-guidelines#Sections}{Author Guidelines} for further information on how to organize your manuscript in the required sections or their equivalents for your field
 
-% For Original Research articles, please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
+% % For Original Research articles, please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
 
-\section{Manuscript Formatting}
+% \section{Manuscript Formatting}
 
-\subsection{Heading Levels}
+% \subsection{Heading Levels}
 
-%There are 5 heading levels
+% %There are 5 heading levels
 
-\subsection{Level 2}
-\subsubsection{Level 3}
-\paragraph{Level 4}
-\subparagraph{Level 5}
+% \subsection{Level 2}
+% \subsubsection{Level 3}
+% \paragraph{Level 4}
+% \subparagraph{Level 5}
 
-\subsection{Equations}
-Equations should be inserted in editable format from the equation editor.
+% \subsection{Equations}
+% Equations should be inserted in editable format from the equation editor.
 
-\begin{equation}
-\sum x+ y =Z\label{eq:01}
-\end{equation}
+% \begin{equation}
+% \sum x+ y =Z\label{eq:01}
+% \end{equation}
 
-\subsection{Figures}
-Frontiers requires figures to be submitted individually, in the same order as they are referred to in the manuscript. Figures will then be automatically embedded at the bottom of the submitted manuscript. Kindly ensure that each table and figure is mentioned in the text and in numerical order. Figures must be of sufficient resolution for publication \href{https://www.frontiersin.org/about/author-guidelines#ImageSizeRequirements}{see here for examples and minimum requirements}. Figures which are not according to the guidelines will cause substantial delay during the production process. Please see \href{https://www.frontiersin.org/about/author-guidelines#FigureRequirementsStyleGuidelines}{here} for full figure guidelines. Cite figures with subfigures as figure \ref{fig:Subfigure 1} and \ref{fig:Subfigure 2}.
-
-
-\subsubsection{Permission to Reuse and Copyright}
-Figures, tables, and images will be published under a Creative Commons CC-BY licence and permission must be obtained for use of copyrighted material from other sources (including re-published/adapted/modified/partial figures and images from the internet). It is the responsibility of the authors to acquire the licenses, to follow any citation instructions requested by third-party rights holders, and cover any supplementary charges.
-%%Figures, tables, and images will be published under a Creative Commons CC-BY licence and permission must be obtained for use of copyrighted material from other sources (including re-published/adapted/modified/partial figures and images from the internet). It is the responsibility of the authors to acquire the licenses, to follow any citation instructions requested by third-party rights holders, and cover any supplementary charges.
-
-\subsection{Tables}
-Tables should be inserted at the end of the manuscript. Please build your table directly in LaTeX.Tables provided as jpeg/tiff files will not be accepted. Please note that very large tables (covering several pages) cannot be included in the final PDF for reasons of space. These tables will be published as \href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} on the online article page at the time of acceptance. The author will be notified during the typesetting of the final article if this is the case. 
-
-\section{Nomenclature}
-
-\subsection{Resource Identification Initiative}
-To take part in the Resource Identification Initiative, please use the corresponding catalog number and RRID in your current manuscript. For more information about the project and for steps on how to search for an RRID, please click \href{http://www.frontiersin.org/files/pdf/letter_to_author.pdf}{here}.
-
-\subsection{Life Science Identifiers}
-Life Science Identifiers (LSIDs) for ZOOBANK registered names or nomenclatural acts should be listed in the manuscript before the keywords. For more information on LSIDs please see \href{https://www.frontiersin.org/about/author-guidelines#Nomenclature}{Inclusion of Zoological Nomenclature} section of the guidelines.
+% \subsection{Figures}
+% Frontiers requires figures to be submitted individually, in the same order as they are referred to in the manuscript. Figures will then be automatically embedded at the bottom of the submitted manuscript. Kindly ensure that each table and figure is mentioned in the text and in numerical order. Figures must be of sufficient resolution for publication \href{https://www.frontiersin.org/about/author-guidelines#ImageSizeRequirements}{see here for examples and minimum requirements}. Figures which are not according to the guidelines will cause substantial delay during the production process. Please see \href{https://www.frontiersin.org/about/author-guidelines#FigureRequirementsStyleGuidelines}{here} for full figure guidelines. Cite figures with subfigures as figure \ref{fig:Subfigure 1} and \ref{fig:Subfigure 2}.
 
 
-\section{Additional Requirements}
+% \subsubsection{Permission to Reuse and Copyright}
+% Figures, tables, and images will be published under a Creative Commons CC-BY licence and permission must be obtained for use of copyrighted material from other sources (including re-published/adapted/modified/partial figures and images from the internet). It is the responsibility of the authors to acquire the licenses, to follow any citation instructions requested by third-party rights holders, and cover any supplementary charges.
+% %%Figures, tables, and images will be published under a Creative Commons CC-BY licence and permission must be obtained for use of copyrighted material from other sources (including re-published/adapted/modified/partial figures and images from the internet). It is the responsibility of the authors to acquire the licenses, to follow any citation instructions requested by third-party rights holders, and cover any supplementary charges.
 
-For additional requirements for specific article types and further information please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines#AdditionalRequirements}{Author Guidelines}.
+% \subsection{Tables}
+% Tables should be inserted at the end of the manuscript. Please build your table directly in LaTeX.Tables provided as jpeg/tiff files will not be accepted. Please note that very large tables (covering several pages) cannot be included in the final PDF for reasons of space. These tables will be published as \href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} on the online article page at the time of acceptance. The author will be notified during the typesetting of the final article if this is the case. 
+
+% \section{Nomenclature}
+
+% \subsection{Resource Identification Initiative}
+% To take part in the Resource Identification Initiative, please use the corresponding catalog number and RRID in your current manuscript. For more information about the project and for steps on how to search for an RRID, please click \href{http://www.frontiersin.org/files/pdf/letter_to_author.pdf}{here}.
+
+% \subsection{Life Science Identifiers}
+% Life Science Identifiers (LSIDs) for ZOOBANK registered names or nomenclatural acts should be listed in the manuscript before the keywords. For more information on LSIDs please see \href{https://www.frontiersin.org/about/author-guidelines#Nomenclature}{Inclusion of Zoological Nomenclature} section of the guidelines.
+
+
+% \section{Additional Requirements}
+
+% For additional requirements for specific article types and further information please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines#AdditionalRequirements}{Author Guidelines}.
 
 \section*{Conflict of Interest Statement}
 %All financial, commercial or other relationships that might be perceived by the academic community as representing a potential conflict of interest must be disclosed. If no such relationship exists, authors will be asked to confirm the following statement: 
