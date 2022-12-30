@@ -1157,7 +1157,6 @@ FUNCTION {mastersthesis}
 
 FUNCTION {misc}
 { output.bibitem
-  "[Dataset] " write$
   format.authors output
   author format.key output
   format.date "year" output.check
