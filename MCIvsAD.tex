@@ -910,6 +910,11 @@ Actually, the number of parameters used is in principle infinite, because the ma
 
 \mynotep{Should I add a more precise description of the mathematical representation?}
 
+\mynotep{Is the part below superfluous? I think it could be interesting for readers from machine learning}
+
+There is a fundamental difference in how the \tjm\ and most popular machine-learning algorithms (including neural networks, random forests, support-vector machines, excluding gaussian processes) work. The latter do, at bottom, an optimization, looking for the minimum of some error function. The \tjm\ does a full \emph{space exploration} and \emph{averaging}, as explained in \sect~\ref{sec:learning_step}. Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{de~Finetti's \citeyear{definetti1930} theorem; \citealp{dawid2013}; \citealp[\sects~4.2--4.3]{bernardoetal1994_r2000}; see also \citealp{selfetal1987}}. The optimization done by most machine-learning algorithms is an approximate form of averaging -- assuming or hoping that most of the mass to be averaged is around the extremum \citep[\chap~16]{mackay1992,murphy2012}. But the underlying necessity of a proper averaging becomes manifest in many of the obligatory procedures that go together with training a machine-learning algorithm; cross-validation for instance \citep{mackay1992b}.
+
+This difference explains why the \tjm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures \citetext{it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} $k$ and data splits; see \eg\ \citealp{portamana2019b,fongetal2020}}.
 
 
 
