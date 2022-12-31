@@ -855,7 +855,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
     \\[5\jot]
     \hline
   \end{tabular}
-  \caption{Expected utilities for the four patients}\label{tab:exp_utilities_patients}
+  \caption{Expected utilities and optimal treatment for our four patients}\label{tab:exp_utilities_patients}
 \end{table}
 
 % ##     olivia    ariel   curtis
@@ -874,33 +874,91 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 % \subsection{Maximization of expected benefit}
 % \label{sec:expected_utility_step}
 
+%% Mutual-info results
+% MI: 
+%                               mean     sd
+% GDTOTAL_gds               0.000521 0.0003
+% Gender_num_               0.003200 0.0008
+% Apoe4_                    0.003500 0.0010
+% AGE                       0.006160 0.0010
+% ANARTERR_neuro            0.006860 0.0010
+% TRAASCOR_neuro            0.013300 0.0020
+% TRABSCOR_neuro            0.023900 0.0020
+% CATANIMSC_neuro           0.024300 0.0020
+% LRHHC_n_long              0.028100 0.0020
+% genetic-demo vars         0.036000 0.0030
+% AVDELTOT_neuro            0.060300 0.0030
+% RAVLT_immediate           0.092400 0.0040
+% AVDEL30MIN_neuro          0.094000 0.0040
+% allminus_AVDEL30MIN_neuro 0.125000 0.0040
+% allminus_RAVLT_immediate  0.131000 0.0040
+% allminus_TRABSCOR_neuro   0.135000 0.0040
+% cognitive vars            0.137000 0.0040
+% allminus_AVDELTOT_neuro   0.138000 0.0040
+% allminus_LRHHC_n_long     0.138000 0.0040
+% allminus_TRAASCOR_neuro   0.139000 0.0040
+% allminus_CATANIMSC_neuro  0.139000 0.0040
+% allminus_AGE              0.139000 0.0040
+% allminus_GDTOTAL_gds      0.140000 0.0040
+% allminus_ANARTERR_neuro   0.140000 0.0040
+% allminus_Gender_num_      0.140000 0.0040
+% allminus_Apoe4_           0.140000 0.0040
+% all                       0.140000 0.0040
+
+
 \section{Additional results provided by the \tjm}
 \label{sec:additional_results}
 
+\mynotep{Add brief explanation of mutual information, then summarize interesting results:}
+
+From table~\ref{tab:mutual_info}:
+\begin{itemize}
+\item The presence of the APOE4 allele is a poor predictor, \emph{within the population selected for the dataset}, both when used alone and when used in combination with all other predictors.
+\item The combined cognitive variates are better predictors than the combined genetic-demographic ones.
+\item Hippocampal volume is au pair with most cognitive-test predictors, when used alone, but not very important in combination with all other predictors.
+\item The \textsf{RAVLT-imm} and \textsf{RAVLT-del} tests are important predictors, both when used alone and when used in combination with all other predictors.
+\end{itemize}
+
+
+
+
+
 \begin{table}[!h]
   \centering
-  \begin{tabular}{lcc}
+  \begin{tabular}{ll}
     \hline\\[-1.5\jot]
-    &{\small as sole predictor} &{\small as missing predictor}
+    {\small predictor set} &{\small mutual information with predictand}
     \\[\jot]
-    all& 0.140& \\
-    none& &0.140 \\
-    Age& & 0.139 \\
-    Sex& & 0.140 \\
-    HC${}/10^{-3}$& & 0.138 \\
-    APOE4& & 0.140 \\
-    ANART& & 0.140 \\
-    CFT& & 0.139 \\
-    GDS& & 0.140 \\
-    RAVLT-im& &0.131 \\
-    RAVLT-del& & 0.125 \\
-    RAVLT-rec& & 0.137 \\
-    TMTA& & 0.139 \\
-    TMTB& & 0.135
-    \\[\jot]
+GDTOTAL-gds               &0.0005  \\
+Gender-num-               &0.0032  \\
+Apoe4-                    &0.0035  \\
+AGE                       &0.006  \\
+ANARTERR-neuro            &0.006  \\
+TRAASCOR-neuro            &0.013  \\
+TRABSCOR-neuro            &0.023  \\
+CATANIMSC-neuro           &0.024  \\
+LRHHC-n-long              &0.028  \\
+\textbf{genetic-demog vars}         &0.036  \\
+AVDELTOT-neuro            &0.060  \\
+RAVLT-immediate           &0.092  \\
+AVDEL30MIN-neuro          &0.094  \\
+allminus-AVDEL30MIN-neuro &0.125  \\
+allminus-RAVLT-immediate  &0.131  \\
+allminus-TRABSCOR-neuro   &0.135  \\
+\textbf{cognitive vars}            &0.137  \\
+allminus-AVDELTOT-neuro   &0.138  \\
+allminus-LRHHC-n-long     &0.138  \\
+allminus-TRAASCOR-neuro   &0.139  \\
+allminus-CATANIMSC-neuro  &0.139  \\
+allminus-AGE              &0.139  \\
+allminus-GDTOTAL-gds      &0.140  \\
+allminus-ANARTERR-neuro   &0.140  \\
+allminus-Gender-num-      &0.140  \\
+allminus-Apoe4-           &0.140  \\
+all                       &0.140  \\[\jot]
     \hline
   \end{tabular}
-  \caption{Mutual information/Sh}
+  \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004$}\label{tab:mutual_info}
 \end{table}
 
 \section{Discussion}
@@ -909,6 +967,13 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \mynotez{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
 \mynotez{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
+
+\subsection{Range of application of \tjm s}
+\label{sec:rangeTJM}
+
+The range of application of the \tjm\ used in the present study has two kinds of bound: computational and theoretical.
+
+As mentioned in \sect~\ref{sec:learning_step} and explained in appendix~\ref{sec:maths_tjm}, 
 
 \appendix
 \renewcommand\thesection{\Alph{section}}
@@ -934,7 +999,7 @@ As discussed in \sect~\ref{sec:learning_step}, the \tjm\ explores the space of p
 
 There is a fundamental difference in how the \tjm\ and most popular machine-learning algorithms (including neural networks, random forests, support-vector machines, excluding gaussian processes) work. The latter do, at bottom, an optimization, looking for the minimum of some error function. The \tjm\ does a full \emph{space exploration} and \emph{averaging}, as explained in \sect~\ref{sec:learning_step}. Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{de~Finetti's \citeyear{definetti1930} theorem; \citealp{definetti1937,dawid2013}; \citealp[\sects~4.2--4.3]{bernardoetal1994_r2000}; see also \citealp{selfetal1987}}. The optimization done by most machine-learning algorithms is an approximate form of averaging -- assuming or hoping that most of the mass to be averaged is around the extremum \citep[\chap~16]{mackay1992,murphy2012}. But the underlying necessity of a proper averaging becomes manifest in many of the obligatory procedures that go together with training a machine-learning algorithm; cross-validation for instance \citep{mackay1992b}.
 
-This difference explains why the \tjm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures \citetext{it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} $k$ and data splits; see \eg\ \citealp{portamana2019b,fongetal2020}}.
+This difference explains why the \tjm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures \citetext{it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$; see \eg\ \citealp{portamana2019b,fongetal2020}}.
 
 \mynotew{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
 
