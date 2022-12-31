@@ -877,33 +877,33 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 %% Mutual-info results
 % MI: 
 %                               mean     sd
-% GDTOTAL_gds               0.000521 0.0003
-% Gender_num_               0.003200 0.0008
-% Apoe4_                    0.003500 0.0010
-% AGE                       0.006160 0.0010
-% ANARTERR_neuro            0.006860 0.0010
-% TRAASCOR_neuro            0.013300 0.0020
-% TRABSCOR_neuro            0.023900 0.0020
-% CATANIMSC_neuro           0.024300 0.0020
-% LRHHC_n_long              0.028100 0.0020
-% genetic-demo vars         0.036000 0.0030
-% AVDELTOT_neuro            0.060300 0.0030
-% RAVLT_immediate           0.092400 0.0040
-% AVDEL30MIN_neuro          0.094000 0.0040
-% allminus_AVDEL30MIN_neuro 0.125000 0.0040
-% allminus_RAVLT_immediate  0.131000 0.0040
-% allminus_TRABSCOR_neuro   0.135000 0.0040
-% cognitive vars            0.137000 0.0040
-% allminus_AVDELTOT_neuro   0.138000 0.0040
-% allminus_LRHHC_n_long     0.138000 0.0040
-% allminus_TRAASCOR_neuro   0.139000 0.0040
-% allminus_CATANIMSC_neuro  0.139000 0.0040
-% allminus_AGE              0.139000 0.0040
-% allminus_GDTOTAL_gds      0.140000 0.0040
-% allminus_ANARTERR_neuro   0.140000 0.0040
-% allminus_Gender_num_      0.140000 0.0040
-% allminus_Apoe4_           0.140000 0.0040
-% all                       0.140000 0.0040
+% GDTOTAL_gds               0.00052096 0.0003
+% Gender_num_               0.00320230 0.0008
+% Apoe4_                    0.00349680 0.0010
+% AGE                       0.00616330 0.0010
+% ANARTERR_neuro            0.00686160 0.0010
+% TRAASCOR_neuro            0.01329100 0.0020
+% TRABSCOR_neuro            0.02385100 0.0020
+% CATANIMSC_neuro           0.02425800 0.0020
+% LRHHC_n_long              0.02813100 0.0020
+% noncog+demog              0.03598000 0.0030
+% AVDELTOT_neuro            0.06025100 0.0030
+% RAVLT_immediate           0.09243000 0.0040
+% AVDEL30MIN_neuro          0.09397900 0.0040
+% allminus_AVDEL30MIN_neuro 0.12548000 0.0040
+% allminus_RAVLT_immediate  0.13083000 0.0040
+% allminus_TRABSCOR_neuro   0.13546000 0.0040
+% allminus_AVDELTOT_neuro   0.13761000 0.0040
+% allminus_LRHHC_n_long     0.13797000 0.0040
+% cog+demo                  0.13798000 0.0040
+% allminus_TRAASCOR_neuro   0.13870000 0.0040
+% allminus_CATANIMSC_neuro  0.13928000 0.0040
+% allminus_AGE              0.13933000 0.0040
+% allminus_GDTOTAL_gds      0.13956000 0.0040
+% allminus_ANARTERR_neuro   0.13957000 0.0040
+% allminus_Gender_num_      0.13974000 0.0040
+% allminus_Apoe4_           0.13983000 0.0040
+% all                       0.13984000 0.0040
 
 
 \section{Additional results provided by the \tjm}
@@ -913,8 +913,8 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 
 From table~\ref{tab:mutual_info} we see that, \emph{within the population selected for the dataset}:
 \begin{itemize}
-\item The presence of the APOE4 allele is a poor predictor, both when used alone and when used in combination with all other predictors.
-\item The combined cognitive variates are better predictors than the combined genetic-demographic ones.
+\item The presence of the APOE4 allele is a poor predictor, au pair with sex, both when used alone and when used in combination with all other predictors.
+\item The combined cognitive and demographic variates are much better predictors than the combined hippocampal, APOE4, and demographic ones.
 \item Hippocampal volume is au pair with most cognitive-test predictors, when used alone, but not very important in combination with all other predictors.
 \item The \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree the \textsf{RAVLT-rec} tests are important predictors, both when used alone and when used in combination with all other predictors.
 \end{itemize}
@@ -938,14 +938,14 @@ TRAASCOR-neuro            &0.013  \\
 TRABSCOR-neuro            &0.023  \\
 CATANIMSC-neuro           &0.024  \\
 LRHHC-n-long              &0.028  \\
-\textbf{genetic-demog vars}         &0.036  \\
+\textbf{non-cog+demog vars}         &0.036  \\
 AVDELTOT-neuro            &0.060  \\
 RAVLT-immediate           &0.092  \\
 AVDEL30MIN-neuro          &0.094  \\
 allminus-AVDEL30MIN-neuro &0.125  \\
 allminus-RAVLT-immediate  &0.131  \\
 allminus-TRABSCOR-neuro   &0.135  \\
-\textbf{cognitive vars}            &0.137  \\
+\textbf{cog+demog vars}            &0.138  \\
 allminus-AVDELTOT-neuro   &0.138  \\
 allminus-LRHHC-n-long     &0.138  \\
 allminus-TRAASCOR-neuro   &0.139  \\
