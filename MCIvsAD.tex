@@ -964,6 +964,107 @@ all                       &0.140  \\[\jot]
 \section{Discussion}
 \label{sec:discussion}
 
+Summary in table~\ref{tab:summary}.
+
+\begin{table}[!b]
+  \centering
+  \begin{tabular}{lcccc}
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
+    \\[\jot]
+    \hline\\[-1.5\jot]
+    Age&75.4&75.4&75.4&63.8 \\
+    Sex&F&F&F&M \\
+    HC${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
+    APOE4&N&N&N&Y \\
+    ANART&18&18&18&15 \\
+    CFT&21&21&21&14 \\
+    GDS&3&3&3&2 \\
+    RAVLT-im&36&36&36&20 \\
+    RAVLT-del&5&5&5&0 \\
+    RAVLT-rec&10&10&10&3 \\
+    TMTA&21&21&21&36 \\
+    TMTB&114&114&114&126
+    \\[\jot]
+    \hline
+    \\[-1.5\jot]
+    {\small $\p(\AD \| \text{predictors})$}&
+    0.302&0.302&0.302&0.691
+    \\
+    {\small $\p(\text{predictors} \| \AD)/10^{-12}$}&
+    8.97&8.97&8.97&1.54
+    \\
+    {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
+    18.6&18.6&18.6&0.50
+    \\[\jot]
+    \hline\\
+    {\small appropriate dataset statistics}&
+    {\small all}&
+    {\small predictor$\|$predictand}&
+    {\small all}&
+    {\small all}\\
+    {\small prior probability of conversion}&
+    0.463&0.65&0.463&0.463
+    \\
+    {\small final probability of conversion}&
+    0.302&0.47&0.302&0.691
+    \\[\jot]
+    \hline\\[-1.5\jot]
+utility matrices
+    &
+    $
+    \begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
+\end{gathered}
+$
+    &
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
+    &
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}\end{gathered}$
+    &
+    $\begin{gathered}
+      \begin{smallmatrix}
+        \nAD&\AD
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
+    \\[6\jot]
+    \hline\\
+    $\begin{matrix}
+      \text{exp. utility treatment }\alpha\\ 
+      \text{exp. utility treatment }\beta\\ 
+      \text{exp. utility treatment }\gamma\\ 
+      \text{exp. utility treatment }\delta\\[\jot]
+      \text{optimal}
+    \end{matrix}$
+    &
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[\jot]\beta\end{matrix}$
+    &
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[\jot]\gamma\end{matrix}$
+    &
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\alpha\end{matrix}$
+    &
+    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[\jot]\delta\end{matrix}$
+    \\[5\jot]
+    \hline
+  \end{tabular}
+  \caption{\mynotew{Summary}}\label{tab:summary}
+\end{table}
+
+
+
+
+
+
 \mynotez{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
 \mynotez{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
