@@ -968,12 +968,13 @@ all                       &0.140  \\[\jot]
 
 Summary in table~\ref{tab:summary}.
 
-\begin{table}[!b]
+\begin{table}[t]
   \centering
   \begin{tabular}{lcccc}
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
     \hline\\[-1.5\jot]
+    \emph{\small Predictor values}&&&& \\[\jot]
     Age&75.4&75.4&75.4&63.8 \\
     Sex&F&F&F&M \\
     HC${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
@@ -986,9 +987,8 @@ Summary in table~\ref{tab:summary}.
     RAVLT-rec&10&10&10&3 \\
     TMTA&21&21&21&36 \\
     TMTB&114&114&114&126
-    \\[\jot]
-    \hline
-    \\[-1.5\jot]
+    \\[2\jot] \hline\\
+    \emph{\small Outputs of \tjm}&&&& \\[\jot]
     {\small $\p(\AD \| \text{predictors})$}&
     0.302&0.302&0.302&0.691
     \\
@@ -997,14 +997,14 @@ Summary in table~\ref{tab:summary}.
     \\
     {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
     18.6&18.6&18.6&0.50
-    \\[\jot]
-    \hline\\
+    \\[2\jot] \hline\\
+    \emph{\small Additional information, final probability}&&&& \\[\jot]
     {\small auxiliary info}&
     {\small none}&
     {\small family history, base rate}&
     {\small none}&
     {\small none}\\
-    {\small appropriate dataset statistics}&
+    {\small applicable dataset statistics}&
     {\small all}&
     {\small predictor$\|$predictand}&
     {\small all}&
@@ -1014,9 +1014,14 @@ Summary in table~\ref{tab:summary}.
     \\
     {\small final probability of conversion}&
     0.302&0.47&0.302&0.691
-    \\[\jot]
-    \hline\\[-1.5\jot]
-utility matrices
+    \\[2\jot] \hline\\
+    \emph{\small Available actions and utilities}&&&& \\[\jot]
+    $\begin{matrix}&\\
+      \text{treatment }\alpha\\ 
+      \text{treatment }\beta\\ 
+      \text{treatment }\gamma\\ 
+      \text{treatment }\delta\\[\jot]
+    \end{matrix}$
     &
     $
     \begin{gathered}
@@ -1044,23 +1049,23 @@ $
         \nAD&\AD
       \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
-    \\[6\jot]
-    \hline\\
+    \\[7\jot] \hline\\
+    \emph{\small Expected utilities and optimal decision}&&&& \\[\jot]
     $\begin{matrix}
       \text{exp. utility treatment }\alpha\\ 
       \text{exp. utility treatment }\beta\\ 
       \text{exp. utility treatment }\gamma\\ 
-      \text{exp. utility treatment }\delta\\[\jot]
+      \text{exp. utility treatment }\delta\\[2\jot]
       \text{optimal}
     \end{matrix}$
     &
-    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[\jot]\beta\end{matrix}$
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[2\jot]\beta\end{matrix}$
     &
-    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[\jot]\gamma\end{matrix}$
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[2\jot]\gamma\end{matrix}$
     &
-    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\alpha\end{matrix}$
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\alpha\end{matrix}$
     &
-    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[\jot]\delta\end{matrix}$
+    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[2\jot]\delta\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
