@@ -908,6 +908,8 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 % all                       0.13984000 0.0040
 
 
+
+\newpage
 \section{Additional results provided by the \tjm}
 \label{sec:additional_results}
 
@@ -929,40 +931,41 @@ From table~\ref{tab:mutual_info} we see that, \emph{within the population select
   \centering
   \begin{tabular}{ll}
     \hline\\[-1.5\jot]
-    {\small predictor set} &{\small mutual information with predictand}
+    {\small predictor set} &{\small mutual information/Sh}
     \\[\jot]
-GDTOTAL-gds               &0.0005  \\
-Gender-num-               &0.0032  \\
-Apoe4-                    &0.0035  \\
-AGE                       &0.006  \\
-ANARTERR-neuro            &0.006  \\
-TRAASCOR-neuro            &0.013  \\
-TRABSCOR-neuro            &0.023  \\
-CATANIMSC-neuro           &0.024  \\
-LRHHC-n-long              &0.028  \\
-\textbf{non-cog+demog vars}         &0.036  \\
-AVDELTOT-neuro            &0.060  \\
-RAVLT-immediate           &0.092  \\
-AVDEL30MIN-neuro          &0.094  \\
-allminus-AVDEL30MIN-neuro &0.125  \\
-allminus-RAVLT-immediate  &0.131  \\
-allminus-TRABSCOR-neuro   &0.135  \\
-\textbf{cog+demog vars}            &0.138  \\
-allminus-AVDELTOT-neuro   &0.138  \\
-allminus-LRHHC-n-long     &0.138  \\
-allminus-TRAASCOR-neuro   &0.139  \\
-allminus-CATANIMSC-neuro  &0.139  \\
-allminus-AGE              &0.139  \\
-allminus-GDTOTAL-gds      &0.140  \\
-allminus-ANARTERR-neuro   &0.140  \\
-allminus-Gender-num-      &0.140  \\
-allminus-Apoe4-           &0.140  \\
-all                       &0.140  \\[\jot]
+GDS               &0.0005  \\
+Sex               &0.0032  \\
+APOE4                    &0.0035  \\
+Age                       &0.006  \\
+ANART            &0.006  \\
+TMTA            &0.013  \\
+TMTB            &0.023  \\
+CFT           &0.024  \\
+HC              &0.028  \\
+\textbf{APOE4 + HC + demographic}         &0.036  \\
+RAVLT-rec            &0.060  \\
+RAVLT-imm           &0.092  \\
+RAVLT-del          &0.094  \\
+all minus RAVLT-del &0.125  \\
+all minus RAVLT-imm  &0.131  \\
+all minus TMTB   &0.135  \\
+\textbf{cognitive + demographic}            &0.138  \\
+all minus RAVLT-rec   &0.138  \\
+all minus HC     &0.138  \\
+all minus TMTA   &0.139  \\
+all minus CFT  &0.139  \\
+all minus Age              &0.139  \\
+all minus GDS      &0.140  \\
+all minus ANART   &0.140  \\
+all minus Sex      &0.140  \\
+all minus APOE4           &0.140  \\
+\textbf{all}                       &0.140  \\[\jot]
     \hline 
   \end{tabular}
-  \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004$}\label{tab:mutual_info}
+  \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
 \end{table}
 
+\newpage
 \section{Discussion}
 \label{sec:discussion}
 
@@ -1011,61 +1014,49 @@ Summary in table~\ref{tab:summary}.
     {\small all}\\
     {\small prior probability of conversion}&
     0.463&0.65&0.463&0.463
-    \\
+    \\[\jot]
     {\small final probability of conversion}&
     0.302&0.47&0.302&0.691
     \\[2\jot] \hline\\
     \emph{\small Available actions and utilities}&&&& \\[\jot]
-    $\begin{matrix}&\\
-      \text{treatment }\alpha\\ 
-      \text{treatment }\beta\\ 
-      \text{treatment }\gamma\\ 
-      \text{treatment }\delta\\[\jot]
+    $
+    \begin{matrix}
+      &\begin{smallmatrix}\nAD&\AD\end{smallmatrix}\\
+      \begin{smallmatrix}
+      \text{treatment $\alpha$}\\
+      \text{treatment $\beta$}\\
+      \text{treatment $\gamma$}\\
+      \text{treatment $\delta$}
+    \end{smallmatrix}&
+    \Biggl[\begin{smallmatrix}
+      \hphantom{\nAD}&\hphantom{\AD}\\&\\&\\&
+    \end{smallmatrix}\Biggr]
     \end{matrix}$
     &
-    $
-    \begin{gathered}
-      \begin{smallmatrix}
-        \nAD&\AD
-      \end{smallmatrix}\\[-\jot]
-\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
-\end{gathered}
-$
+    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
     &
-    $\begin{gathered}
-      \begin{smallmatrix}
-        \nAD&\AD
-      \end{smallmatrix}\\[-\jot]
-      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
+    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
     &
-    $\begin{gathered}
-      \begin{smallmatrix}
-        \nAD&\AD
-      \end{smallmatrix}\\[-\jot]
-      \begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}\end{gathered}$
+    $\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}$
     &
-    $\begin{gathered}
-      \begin{smallmatrix}
-        \nAD&\AD
-      \end{smallmatrix}\\[-\jot]
-      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
+    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
     \\[7\jot] \hline\\
     \emph{\small Expected utilities and optimal decision}&&&& \\[\jot]
     $\begin{matrix}
-      \text{exp. utility treatment }\alpha\\ 
-      \text{exp. utility treatment }\beta\\ 
-      \text{exp. utility treatment }\gamma\\ 
-      \text{exp. utility treatment }\delta\\[2\jot]
-      \text{optimal}
+      \text{treatment }\alpha\\ 
+      \text{treatment }\beta\\ 
+      \text{treatment }\gamma\\ 
+      \text{treatment }\delta\\[2\jot]
+      \text{Optimal}
     \end{matrix}$
     &
-    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[2\jot]\beta\end{matrix}$
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[2\jot]\bm{\beta}\end{matrix}$
     &
-    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[2\jot]\gamma\end{matrix}$
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[2\jot]\bm{\gamma}\end{matrix}$
     &
-    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\alpha\end{matrix}$
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\bm{\alpha}\end{matrix}$
     &
-    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[2\jot]\delta\end{matrix}$
+    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[2\jot]\bm{\delta}\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
