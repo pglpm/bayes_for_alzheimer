@@ -200,6 +200,7 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 %%% Leave the Abstract empty if your article does not require one, please see the Summary Table for full details.
 \section{}
+\mynotew{TO BE REWRITTEN}
 
 Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease. Early identification of patients with a high risk of Alzheimer's Disease is essential to provide treatment before the disease is well-established in the brain. great importance to study how well different kinds of predictors
 %-- from neuropsychological examinations to advanced brain-imaging techniques -- 
@@ -913,65 +914,89 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \section{Additional results provided by the \tjm}
 \label{sec:additional_results}
 
-\mynotep{Add brief explanation of mutual information, then summarize interesting results:}
+The rich output of the \tjm\ allows us to make not only a fully personalized prognosis and clinical decision-making, but also many kinds of sensitivity checks.
 
-From table~\ref{tab:mutual_info} we see that, \emph{within the population selected for the dataset}:
+It can be useful to know, for example, how important some predictors are for the prognosis. If the values of some predictors are unavailable for a patient, the clinician may thus decide whether it is preferable to acquire them, of whether they can be simply neglected. More generally, predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
+
+The \tjm\ allows us to compute the expected \enquote{predictive power}, for the full population of patients, of any set of predictors available in the dataset; and for any metric measuring this power, such as accuracy. A fact of paramount advantage is that \emph{the predictive power found with the \tjm\ is the maximal one obtainable by \textbf{any} inference algorithm}. Thus, if the \tjm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; and inference algorithms than reach lower accuracy can in principle be improved upon.
+
+We show this kind of predictive-power computation for the present dataset. In our four-patient scenario it could be important for Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if its acquisition would lead to a much more informative prognosis.
+
+We use two metrics of \enquote{predictive power} of a set of predictors: the mutual information~\citep{shannon1948,coveretal1991_r2006} between them and the event of conversion to \ad, and their accuracy. Mutual information is a model-free measure of the relation between two sets of variates; it has diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a deterministic function from the former to the latter.
+
+We consider 15 sets of predictors:
 \begin{itemize}
-\item The presence of the APOE4 allele is a poor predictor, au pair with sex, both when used alone and when used in combination with all other predictors.
-\item The combined cognitive and demographic variates are much better predictors than the combined hippocampal, APOE4, and demographic ones.
-\item Hippocampal volume is au pair with most cognitive-test predictors, when used alone, but not very important in combination with all other predictors.
-\item The \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree the \textsf{RAVLT-rec} tests are important predictors, both when used alone and when used in combination with all other predictors.
+\item every predictor, used individually (12 sets);
+\item all cognitive-test predictors used together, jointly with demographic information (Age and Sex);
+\item APOE4, Hippocampal Volume, and demographic information, used together;
+\item all predictors together minus one, excluding each single predictor in turn (12 sets);
+\item all predictors jointly.
 \end{itemize}
 
+The expected mutual information and accuracy (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, both ordered according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.494\linewidth]{plotMI.pdf}\hfill%
+  \includegraphics[width=0.494\linewidth]{plotAcc.pdf}%
+  \caption{Mutual information and accuracy of several sets of predictors, for the prognosis of conversion to \ad. The bars show the numerical computation error ($\pm$~one standard deviation). Both graphs are ordered according to increasing mutual information (mutual-information and accuracy orderings agree within numerical error).}\label{fig:mutual_info}
+\end{figure}%
 
 
+The figure reveals several interesting findings, \emph{valid within the population selected for the dataset}:
+\begin{itemize}
+\item The presence of the APOE4 allele is a poor predictor (within this population), comparable with Sex or Age; both when used alone and when used in combination with all other predictors; the latter point is evident from the fact that the mutual information of the combined predictors barely decrease if the APOE4 one is dropped.
+\item The combined cognitive and demographic variates are better predictors than the combined hippocampal, APOE4, and demographic variates.
+\item Hippocampal Volume is comparable to most cognitive-test predictors, both when used individually and in combination with all other predictors.
+\item The \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree the \textsf{RAVLT-rec} tests are good predictors, both when used alone and when used in combination with all other predictors.
+\end{itemize}
 
+Regarding Curtis's missing value for Hippocampal volume, the clinician notices that acquiring it would only increase the prognostic accuracy by less than 1\%, and so decides to proceed without it.
 
-\begin{table}[!t]
-  \centering
-  \begin{tabular}{ll}
-    \hline\\[-1.5\jot]
-    {\small predictor set} &{\small mutual information/Sh}
-    \\[\jot]
-GDS               &0.0005  \\
-Sex               &0.0032  \\
-APOE4                    &0.0035  \\
-Age                       &0.006  \\
-ANART            &0.006  \\
-TMTA            &0.013  \\
-TMTB            &0.023  \\
-CFT           &0.024  \\
-HC              &0.028  \\
-\textbf{APOE4 + HC + demographic}         &0.036  \\
-RAVLT-rec            &0.060  \\
-RAVLT-imm           &0.092  \\
-RAVLT-del          &0.094  \\
-all minus RAVLT-del &0.125  \\
-all minus RAVLT-imm  &0.131  \\
-all minus TMTB   &0.135  \\
-\textbf{cognitive + demographic}            &0.138  \\
-all minus RAVLT-rec   &0.138  \\
-all minus HC     &0.138  \\
-all minus TMTA   &0.139  \\
-all minus CFT  &0.139  \\
-all minus Age              &0.139  \\
-all minus GDS      &0.140  \\
-all minus ANART   &0.140  \\
-all minus Sex      &0.140  \\
-all minus APOE4           &0.140  \\
-\textbf{all}                       &0.140  \\[\jot]
-    \hline 
-  \end{tabular}
-  \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
-\end{table}
+% \begin{table}[!t]
+%   \centering
+%   \begin{tabular}{ll}
+%     \hline\\[-1.5\jot]
+%     {\small predictor set} &{\small mutual information/Sh}
+%     \\[\jot]
+% GDS               &0.0005  \\
+% Sex               &0.0032  \\
+% APOE4                    &0.0035  \\
+% Age                       &0.006  \\
+% ANART            &0.006  \\
+% TMTA            &0.013  \\
+% TMTB            &0.023  \\
+% CFT           &0.024  \\
+% HC              &0.028  \\
+% \textbf{APOE4 + HC + demographic}         &0.036  \\
+% RAVLT-rec            &0.060  \\
+% RAVLT-imm           &0.092  \\
+% RAVLT-del          &0.094  \\
+% all minus RAVLT-del &0.125  \\
+% all minus RAVLT-imm  &0.131  \\
+% all minus TMTB   &0.135  \\
+% \textbf{cognitive + demographic}            &0.138  \\
+% all minus RAVLT-rec   &0.138  \\
+% all minus HC     &0.138  \\
+% all minus TMTA   &0.139  \\
+% all minus CFT  &0.139  \\
+% all minus Age              &0.139  \\
+% all minus GDS      &0.140  \\
+% all minus ANART   &0.140  \\
+% all minus Sex      &0.140  \\
+% all minus APOE4           &0.140  \\
+% \textbf{all}                       &0.140  \\[\jot]
+%     \hline 
+%   \end{tabular}
+%   \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
+% \end{table}
 
-\newpage
-\section{Discussion}
-\label{sec:discussion}
+\section{Summary of the case study}
+\label{sec:summary}
+
 
 Summary in table~\ref{tab:summary}.
 
-\begin{table}[t]
+\begin{table}[!t]
   \centering
   \begin{tabular}{lcccc}
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
@@ -1065,6 +1090,9 @@ Summary in table~\ref{tab:summary}.
 
 
 
+\newpage
+\section{Discussion}
+\label{sec:discussion}
 
 
 
