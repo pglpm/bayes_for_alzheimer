@@ -935,7 +935,7 @@ We consider 15 sets of predictors:
 \item all predictors jointly.
 \end{itemize}
 
-The expected mutual information and accuracy (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, both ordered according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
+The expected mutual information and accuracy (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
 \begin{figure}[!t]% with figure
   \centering%
   \includegraphics[width=0.494\linewidth]{plotMI.pdf}\hfill%
@@ -944,16 +944,19 @@ The expected mutual information and accuracy (on a 0--1 scale) for these sets ar
 \end{figure}%
 
 
-The figure reveals several interesting findings, \emph{valid within the population selected for the dataset}:
+The figure reveals several interesting findings, \emph{valid within the population selected for the dataset}, which can be compared with the analysis in  \cite[see especially Fig.~3 and Table~3]{ryeetal2022}:
 \begin{itemize}
 \item The set of 12 predictors considered in the present work \citep[and in ][]{ryeetal2022} can at most lead to a prognostic accuracy of around 68\%, for any inference algorithm. This fact agrees with the (completely independent) findings in \cite{ryeetal2022}, where a maximal accuracy of 68\% was found using an ensemble model; the present analysis also shows that that model managed to achieve the maximal accuracy possible with these predictors (but see \sect~\ref{sec:discussion} for limitations of that model.)
-\item The presence of the APOE4 allele is a poor predictor (within this population), comparable with Sex or Age; both when used alone and when used in combination with all other predictors; the latter point is evident from the fact that the mutual information of the combined predictors barely decrease if the APOE4 one is dropped.
-\item The combined cognitive and demographic variates are better predictors than the combined hippocampal, APOE4, and demographic variates.
-\item Hippocampal Volume is comparable to most cognitive-test predictors, both when used individually and in combination with all other predictors.
-\item The \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree the \textsf{RAVLT-rec} tests are good predictors, both when used alone and when used in combination with all other predictors.
+\item \textsf{APOE4}, \textsf{GDS}, \textsf{Age}, \textsf{Sex}, and to some degree \textsf{ANART} are poor predictors (within this population), when used alone and when used in combination with all other predictors. The latter point is evident from the fact that the mutual information of the combined predictors barely decrease if any one of these four predictors is omitted.
+\item The combined cognitive and demographic variates are better predictors than the combined hippocampal, \textsf{APOE4}, and demographic variates.
+\item \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree \textsf{RAVLT-rec} and Hippocampal Volume \citep[contrast this with]{ryeetal2022} are good predictors, both when used alone and when used in combination with all other predictors.
 \end{itemize}
 
-Regarding Curtis's missing value for Hippocampal volume, the clinician notices that acquiring it would only increase the prognostic accuracy by less than 1\%, and so decides to proceed without it.
+The \tjm\ also reveals that the present dataset does not allows us to precisely quantify the decrease in prognostic power when one of the 12 predictors is omitted. An analysis -- not reported here owing to space constraints \mynotez{if there's time I'll try to include these variability ranges} -- about the possible variability of the results of \fig~\ref{fig:mutual_info} if a larger dataset were available, shows that the relative ordering of the mutual information of the \enquote{all minus $X$} predictor sets could easily change. (It is thus probable that the importance analysis of \citealp{ryeetal2022} only reflects peculiarities of the present dataset rather than properties generalizable to the full population; this is also plausible considering that the methods employed there are of the bootstrap kind \mynotew{***add ref about this, maybe \citep[\chap~10]{efron1982_r1994}}.)
+
+\medskip
+
+Regarding Curtis's missing value for Hippocampal volume, the clinician notices that acquiring it would only increase the prognostic accuracy by less than 0.5\%, and so decides to proceed without it.
 
 % \begin{table}[!t]
 %   \centering
@@ -993,6 +996,7 @@ Regarding Curtis's missing value for Hippocampal volume, the clinician notices t
 %   \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
 % \end{table}
 
+\newpage
 \section{Summary of the case study}
 \label{sec:summary}
 
