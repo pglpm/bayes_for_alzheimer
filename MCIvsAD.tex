@@ -202,11 +202,15 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 \section{}
 \mynotew{TO BE REWRITTEN}
 
-Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease. Early identification of patients with a high risk of Alzheimer's Disease is essential to provide treatment before the disease is well-established in the brain. great importance to study how well different kinds of predictors
+Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease, and early identification of these patients is essential to provide the most efficient treatment. 
+%before the disease is well-established in the brain. great importance to study how well different kinds of predictors
 %-- from neuropsychological examinations to advanced brain-imaging techniques -- 
-allow us to prognose a trajectory from Mild Cognitive Impairment towards Alzheimer's Disease in an individual patient.
+Studies identifying predictors of the prognosis of MCI patients are thus called for. 
+%iallow us to prognose a trajectory from Mild Cognitive Impairment towards Alzheimer's Disease in an individual patient.
 
-But more is needed for a personalized approach to prognosis, prevention, and treatment, than just the obvious requirement that prognoses be as best as they can be for each patient. Several situational elements that can be different from patient to patient must be accounted for:
+Although results from a routine clinical examination are essential, several situational factors must be taken into account to ogtain a personalized approach to prognosis, prevention, and treatment. 
+%, than just the obvious requirement that prognoses be as best as they can be for each patient. 
+%Several situational elements that can be different from patient to patient must be accounted for:
 \begin{itemize}
 \item the \emph{kinds} of clinical data and evidence available for prognosis;
 \item the \emph{outcomes} of the same kind of clinical data and evidence;
@@ -216,11 +220,15 @@ But more is needed for a personalized approach to prognosis, prevention, and tre
 \end{itemize}
 Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision-making.
 
-Clinical decision-making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of benefits and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient, we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and benefits of treatment or prevention to arrive at the best course of action for that patient. The main result underlying statistical decision theory is that decision-making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
+Clinical decision-making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of benefits and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient, we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and benefits of treatment or prevention to arrive at the best course of action for that patient. 
+%The main result underlying 
+To be optimal and logically consistent, this clinical decision making \emph{must} take a statistical decision theory into account.   %underlying decision-making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
 
-The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
+The present study uses different statistical approached to investigate the prognostic power of results from neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The 
+%present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of 
+to predict the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
 
- (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
+% (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the ADNI database.
 
 The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors. \mynotew{update this}
 
@@ -252,8 +260,11 @@ Several additional advantages of this quantification framework are also exemplif
  \keyFont{\section{Keywords:} Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-\section{Each patient is unique}
+\section{Each patient is unique} % this fits quite well with the theme of the special issue of the journal
+% \section{Four unique patients} % alternative title
+\label{sec:four_patients}
 
+%\section*{Introduction}
 %%%% EXAMPLE-PATIENT DATA %%%%
 % Olivia, Ariel, Bianca:
 % Apoe4_             0.00000000
@@ -312,15 +323,17 @@ Several additional advantages of this quantification framework are also exemplif
 
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent some clinical analyses and cognitive tests. Today they received the results of their analyses. From these results, available clinical statistical data, and other relevant information, their clinician will assess their risk of developing Alzheimer. The clinician and each patient will then decide among a set of possible preventive treatments.
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent a clinical examination, including a set of cognitive tests. Today they received the results from this examination. Based on these results, available clinical statistical data, and other relevant information, their clinician will
+% indicate % [what does this mean?]
+assess their risk of developing Alzheimer, and then make a decision among a set of mutually exclusive preventive-treatment options, together with the patients and their relatives.
 
-Besides this shared condition and worry, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three:
+Besides a shared MCI diagnosis and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three patients (see Table 1):
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region with a higher rate of conversion, and from a family with a heavy history of Alzheimer's Disease, unlike Olivia. Because of this family background, the clinician judges a priori a 65\% probability that Ariel's cognitive impairment will convert to Alzheimer's Disease
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from MCI to \ad. Moreover, Ariel comes, unlike Olivia, from a family with a heavy history of Alzheimer's Disease. Because of this geographical and family background, the clinician judges a priori a 65\% probability that Ariel's cognitive impairment will convert to Alzheimer's Disease
 
 \item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the preventive options slightly riskier for her.
 
-\item Olivia and Curtis have different clinical results. In particular, Olivia does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has, and Olivia is more than 10 years older than Curtis. But they otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
+\item Olivia and Curtis have different results on all neuropsychological tests and Hippocampal-Volume measure, in disfavour of Curtis. Olivia furthermore does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has. Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
 \end{itemize}
 
 We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis). Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}. The figure on its side summarizes the similarity and differences between Olivia and the other three patients. 
@@ -336,16 +349,16 @@ We can categorize these differences as \enquote{difference in auxiliary informat
     \\[\jot]
     Age&75.4&75.4&75.4&63.8 \\
     Sex&F&F&F&M \\
-    HC${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
-    APOE4&N&N&N&Y \\
-    ANART&18&18&18&15 \\
-    CFT&21&21&21&14 \\
-    GDS&3&3&3&2 \\
-    RAVLT-im&36&36&36&20 \\
-    RAVLT-del&5&5&5&0 \\
-    RAVLT-rec&10&10&10&3 \\
-    TMTA&21&21&21&36 \\
-    TMTB&114&114&114&126
+    Hippocampus volume (\textsf{HC})${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
+    \textsf{APOE4} status&N&N&N&Y \\
+    Reading test (\textsf{ANART})&18&18&18&15 \\
+    Category Fluency Test (\textsf{CFT})&21&21&21&14 \\
+    Geriatric Depression Scale (\textsf{GDS})&3&3&3&2 \\
+    \textsf{RAVLT-imm}ediate memory &36&36&36&20 \\
+    \textsf{RAVLT-del}ayed recall &5&5&5&0 \\
+   \textsf{ RAVLT-rec}ognition &10&10&10&3 \\
+    Trail Making Test A (\textsf{TMTA})&21&21&21&36 \\
+    Trail Making Test B (\textsf{TMTB})&114&114&114&126
     \\[\jot]
     \hline
   \end{tabular}\hspace{2em}
@@ -428,9 +441,17 @@ The inferential and decision-making steps based on the \tjm\ are summarized in t
 
 These steps will be explained and illustrated in the next three sections, presented in chronological order as the clinician would apply them. They could also be presented in reverse order, more suited to their logical dependence, because the procedure in each one is motivated by the next. We suggest that readers familiar with the principles of clinical decision making read them in \sect\,\ref{sec:learning_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:utilities_step} order; whereas readers unfamiliar with these principles (who may include readers with a specialized background in machine learning) read them in \sect\,\ref{sec:utilities_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:learning_step} order.
 
+% \section*{Methods}
+% \subsection*{Participants}
+% \subsection*{Measures}
+% \subsection*{Statistical procedures}
+%% [Luca] The kind of division above doesn't really make sense with the current presentation. In case one must rearrange the whole material
 
-\section{Learning}
+\section*{Learning}
 \label{sec:learning_step}
+
+\subsection{Theory and method}
+\label{sec:learning_theory}
 
 In the learning stage the \tjm\ infers, from a given sample dataset, the statistical relationships of a large population of which our future patients can be considered members, at least in some respects. Such relationships will help us in our prognoses. The basic idea is intuitive. If a patient can be considered a member of some population, and if we knew the joint frequencies of all possible combinations of predictor and predictand values in such population -- and knew nothing else -- then we would say that the probability for the patient to have particular values is equal to the population frequency. Pure symmetry considerations lead to this intuitive result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}.
 
@@ -494,8 +515,8 @@ possibly contaminated by a little noise, typically assumed gaussian. This is a v
 
 An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
 
-
-\subsection{Application to the case study}
+% \section{Results}
+\subsection{Application to the example study}
 \label{sec:learn_application}
 
 In our case study, the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
@@ -567,8 +588,12 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 
 
 \clearpage
-\section{Population assessment and prior probability}
+\section{Assessment of population and auxiliary information}
 \label{sec:population_step}
+
+\subsection{Theory and method}
+\label{sec:populationprior_theory}
+
 
 \setlength{\intextsep}{0ex}% with wrapfigure
 \setlength{\columnsep}{1ex}% with wrapfigure
@@ -678,7 +703,7 @@ Our main point here is that population variability and auxiliary clinical inform
 
 % Let's clarify this with an example. In our dataset we observe a value $\textsf{GDS} = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
-\subsection{Application to the case study}
+\subsection{Application to the example study}
 \label{sec:posterior_application}
 
 In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\textsf{\small conversion} \| \textsf{\small predictors}, \textsf{\small dataset})$ provided in the same table.
@@ -706,14 +731,12 @@ The final probabilities of conversion to \ad\ for our four patients are reported
 \end{table}
 
 
-% \subsection{Likelihood and posterior probability}
-% \label{sec:posterior_step}
-
-%  \citep{lindleyetal1981,sprengeretal2021,barhillel1980}
-
-
-\section{Assessments of treatments and benefits, and final decision}
+\section{Assessments of treatments and benefits; final decision}
 \label{sec:utilities_step}
+
+\subsection{Theory and method}
+\label{sec:expected_utility_theory}
+
 
 A crucial point in clinical decision-making is this: the clinician needs to assess, not the presence (present or future) of a disease, but the \emph{risk} of its presence. Is there a difference? and why is it important?
 
@@ -756,7 +779,7 @@ Finally, the recommended action is the one having \emph{maximal expected utility
 
 \mynotep{Add a couple of comments about the inevitability of the rules of decision theory \citep{lindley1971_r1988}}
 
-\subsection{Application to the case study}
+\subsection{Application to the example study}
 \label{sec:expected_utility_application}
 
 At present there are no treatments for \ad, nor preventive treatments \mynotew{true?}. But for the sake of our case study let us imagine that there are three mutually exclusive treatment options for prevention or retardation of the disease; call them $\beta$, $\gamma$, $\delta$. And denote the simple option of \enquote{no treatment} by $\alpha$. The clinical conditions to be considered are just two: the patient will have stable \mci, or will convert to \ad. Denote them by $\nAD$ and $\AD$.
