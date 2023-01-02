@@ -1012,45 +1012,32 @@ Summary in table~\ref{tab:summary}.
     \\[\jot]
     \hline\\[-1.5\jot]
     \emph{\small Predictor values}&&&& \\[\jot]
-    Age&75.4&75.4&75.4&63.8 \\
-    Sex&F&F&F&M \\
-    HC${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
-    APOE4&N&N&N&Y \\
-    ANART&18&18&18&15 \\
-    CFT&21&21&21&14 \\
-    GDS&3&3&3&2 \\
-    RAVLT-im&36&36&36&20 \\
-    RAVLT-del&5&5&5&0 \\
-    RAVLT-rec&10&10&10&3 \\
-    TMTA&21&21&21&36 \\
-    TMTB&114&114&114&126
-    \\[2\jot] \hline\\
-    \emph{\small Outputs of \tjm}&&&& \\[\jot]
-    {\small $\p(\AD \| \text{predictors})$}&
-    0.302&0.302&0.302&0.703
-    \\
-    {\small $\p(\text{predictors} \| \AD)/10^{-12}$}&
-    8.97&8.97&8.97&1.14
-    \\
-    {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
-    18.6&18.6&18.6&0.343
+    Age&75.4&75.4&75.4&\textcolor{redpurple}{63.8} \\
+    Sex&F&F&F&\textcolor{redpurple}{M} \\
+    HC${}/10^{-3}$&4.26&4.26&4.26&\textcolor{redpurple}{[missing]} \\
+    APOE4&N&N&N&\textcolor{redpurple}{Y} \\
+    ANART&18&18&18&\textcolor{redpurple}{15} \\
+    CFT&21&21&21&\textcolor{redpurple}{14} \\
+    GDS&3&3&3&\textcolor{redpurple}{2} \\
+    RAVLT-im&36&36&36&\textcolor{redpurple}{20} \\
+    RAVLT-del&5&5&5&\textcolor{redpurple}{0} \\
+    RAVLT-rec&10&10&10&\textcolor{redpurple}{3} \\
+    TMTA&21&21&21&\textcolor{redpurple}{36} \\
+    TMTB&114&114&114&\textcolor{redpurple}{126}
     \\[2\jot] \hline\\
     \emph{\small Additional information, final probability}&&&& \\[\jot]
     {\small auxiliary info}&
     {\small none}&
-    {\small family history, base rate}&
+    {\small\color{redpurple} family history, base rate}&
     {\small none}&
     {\small none}\\
     {\small applicable dataset statistics}&
     {\small all}&
-    {\small predictor$\|$predictand}&
+    {\small\color{redpurple} predictor$\|$predictand}&
     {\small all}&
     {\small all}\\
     {\small prior probability of conversion}&
-    0.463&0.65&0.463&0.463
-    \\[\jot]
-    {\small final probability of conversion}&
-    0.302&0.47&0.302&0.703
+    0.463&\textcolor{redpurple}{0.65}&0.463&0.463
     \\[2\jot] \hline\\
     \emph{\small Available actions and utilities}&&&& \\[\jot]
     $
@@ -1071,17 +1058,29 @@ Summary in table~\ref{tab:summary}.
     &
     $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
     &
-    $\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}$
+    $\color{redpurple}\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}$
     &
     $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
-    \\[7\jot] \hline\\
-    \emph{\small Expected utilities and optimal decision}&&&& \\[\jot]
+    \\[4\jot] \hline\\
+    \emph{\small Outputs of \tjm}&&&& \\[2\jot]
+    {\small $\p(\AD \| \text{predictors})$}&
+    0.302&0.302&0.302&0.703
+    \\
+    {\small $\p(\text{predictors} \| \AD)/10^{-12}$}&
+    8.97&8.97&8.97&1.14
+    \\
+    {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
+    18.6&18.6&18.6&0.343
+    \\[\jot]
+    {\small final probability of conversion}&
+    0.302&0.47&0.302&0.703
+    \\[\jot]
     $\begin{matrix}
-      \text{treatment }\alpha\\ 
-      \text{treatment }\beta\\ 
-      \text{treatment }\gamma\\ 
-      \text{treatment }\delta\\[2\jot]
-      \text{Optimal}
+      \text{exp. utility treatment }\alpha\\ 
+      \text{exp. utility treatment }\beta\\ 
+      \text{exp. utility treatment }\gamma\\ 
+      \text{exp. utility treatment }\delta\\[2\jot]
+      \text{Optimal treatment}
     \end{matrix}$
     &
     $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[2\jot]\bm{\beta}\end{matrix}$
@@ -1091,10 +1090,10 @@ Summary in table~\ref{tab:summary}.
     $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\bm{\alpha}\end{matrix}$
     &
     $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[2\jot]\bm{\delta}\end{matrix}$
-    \\[5\jot]
+    \\[6\jot]
     \hline
   \end{tabular}
-  \caption{\mynotew{Summary}}\label{tab:summary}
+  \caption{\mynotew{Summary. The basic data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}}\label{tab:summary}
 \end{table}
 
 
