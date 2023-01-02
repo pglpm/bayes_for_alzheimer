@@ -507,13 +507,13 @@ In our case study, the \tjm\ yields the following probabilities of main importan
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
     {\small $\p(\text{conversion to AD} \| \text{predictors})$}&
-    0.302&0.302&0.302&0.691
+    0.302&0.302&0.302&0.703
     \\
     {\small $\p(\text{predictors} \| \text{conversion to AD})/10^{-12}$}&
-    8.97&8.97&8.97&1.54
+    8.97&8.97&8.97&1.14
     \\
     {\small $\p(\text{predictors} \| \text{no conversion to AD})/10^{-12}$}&
-    18.6&18.6&18.6&0.50
+    18.6&18.6&18.6&0.343
     \\[\jot]
     \hline
   \end{tabular}
@@ -521,18 +521,6 @@ In our case study, the \tjm\ yields the following probabilities of main importan
 \end{table}
 
 As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the \enquote{error} on these probabilities. There is an error on the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities (all relative numerical errors are below 0.8\%, Curtis's two likelihoods being an exception at 2\%).
-%      olivia  ariel bianca curtis
-% [1,] 0.3020 0.3020 0.3020  0.691
-% [2,] 0.0009 0.0009 0.0009  0.001
-% [3,] 0.3100 0.3100 0.3100  0.180
-%        olivia    ariel   bianca   curtis
-% [1,] 8.97e-12 8.97e-12 8.97e-12 1.54e-12
-% [2,] 6.00e-14 6.00e-14 6.00e-14 4.00e-14
-% [3,] 6.60e-01 6.60e-01 6.60e-01 2.30e+00
-%        olivia    ariel   bianca   curtis
-% [1,] 1.86e-11 1.86e-11 1.86e-11 5.01e-13
-% [2,] 1.00e-13 1.00e-13 1.00e-13 1.00e-14
-% [3,] 7.70e-01 7.70e-01 7.70e-01 2.10e+00
 
 \begin{figure}[!t]% with figure
   \centering%
@@ -551,13 +539,6 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 
 
 \medskip
-
-
-
-
-%      olivia  ariel bianca curtis
-% [1,] 0.3020 0.3020 0.3020  0.691
-% [2,] 0.0009 0.0009 0.0009  0.001
 
 
 
@@ -717,7 +698,7 @@ The final probabilities of conversion to \ad\ for our four patients are reported
     0.463&0.65&0.463&0.463
     \\
     {\small final probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset}, \text{aux info})$}&
-    0.302&0.47&0.302&0.691
+    0.302&0.47&0.302&0.703
     \\[\jot]
     \hline
   \end{tabular}
@@ -856,7 +837,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
     &
     $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\alpha\end{matrix}$
     &
-    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[\jot]\delta\end{matrix}$
+    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[\jot]\delta\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
@@ -864,10 +845,10 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \end{table}
 
 % ##     olivia    ariel   curtis
-% ## 1 0.698321 0.527060 0.309080
-% ## 2 0.718993 0.616236 0.485448
-% ## 3 0.709496 0.658118 0.592724
-% ## 4 0.301679 0.472940 0.690920
+% ## 1 0.698321 0.527060 0.297440
+% ## 2 0.718993 0.616236 0.478464
+% ## 3 0.709496 0.658118 0.589232
+% ## 4 0.301679 0.472940 0.702560
 
 % ##     bianca
 % ## 1 0.698321
@@ -952,11 +933,32 @@ The figure reveals several interesting findings, \emph{valid within the populati
 \item \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree \textsf{RAVLT-rec} and Hippocampal Volume \citep[contrast this with]{ryeetal2022} are good predictors, both when used alone and when used in combination with all other predictors.
 \end{itemize}
 
-The \tjm\ also reveals that the present dataset does not allows us to precisely quantify the decrease in prognostic power when one of the 12 predictors is omitted. An analysis -- not reported here owing to space constraints \mynotez{if there's time I'll try to include these variability ranges} -- about the possible variability of the results of \fig~\ref{fig:mutual_info} if a larger dataset were available, shows that the relative ordering of the mutual information of the \enquote{all minus $X$} predictor sets could easily change. (It is thus probable that the importance analysis of \citealp{ryeetal2022} only reflects peculiarities of the present dataset rather than properties generalizable to the full population; this is also plausible considering that the methods employed there are of the bootstrap kind \mynotew{***add ref about this, maybe \citep[\chap~10]{efron1982_r1994}}.)
+The \tjm\ shows that the omission of any one of the 12 predictors, except \textsf{RAVLT-del} and \textsf{RAVLT-imm}, does not lead to an appreciable decrease in mutual information (relative change of less than 3\%) or accuracy (relative decrease of 0.3\% or less). This puts the importance analysis of \citealp{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive and we did not carry it out further.
+
+It is important to keep in mind, however, that any ranking in \enquote{prognostic power} depends on the metric used. In a practical clinical application, the appropriate metric should be the patient's specific number of available treatments and their utility matrix \citep{dyrlandetal2022}. Use of the accuracy, as done above, assumes a patient with only two available treatments having utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$.
 
 \medskip
 
-Regarding Curtis's missing value for Hippocampal volume, the clinician notices that acquiring it would only increase the prognostic accuracy by less than 0.5\%, and so decides to proceed without it.
+Regarding Curtis's missing value for Hippocampal Volume, his clinician can do this kind of sensitivity analysis using the output of the \tjm, calculating the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The results of the 0.5\%--99.5\% intervals are as follows:
+
+\medskip
+
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{rcc}
+    \hline\\[-\jot]
+    treatment&0.5\%&99.5\% \\[\jot]
+    $\alpha$ & 2.97 & 2.99 \\
+    $\beta$ & 4.78 & 4.79 \\
+    $\gamma$ & 5.89 & 5.90 \\
+    $\delta$ & \textbf{7.01} & \textbf{7.03}\\
+    \hline
+  \end{tabular}
+\end{table}
+
+(The four corresponding probability histograms, if plotted jointly, would look like vertical lines.)
+
+It is clear that knowledge of this variate would not change the optimal treatment $\delta$. The clinician therefore proceeds without it.
 
 % \begin{table}[!t]
 %   \centering
@@ -1025,13 +1027,13 @@ Summary in table~\ref{tab:summary}.
     \\[2\jot] \hline\\
     \emph{\small Outputs of \tjm}&&&& \\[\jot]
     {\small $\p(\AD \| \text{predictors})$}&
-    0.302&0.302&0.302&0.691
+    0.302&0.302&0.302&0.703
     \\
     {\small $\p(\text{predictors} \| \AD)/10^{-12}$}&
-    8.97&8.97&8.97&1.54
+    8.97&8.97&8.97&1.14
     \\
     {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
-    18.6&18.6&18.6&0.50
+    18.6&18.6&18.6&0.343
     \\[2\jot] \hline\\
     \emph{\small Additional information, final probability}&&&& \\[\jot]
     {\small auxiliary info}&
@@ -1048,7 +1050,7 @@ Summary in table~\ref{tab:summary}.
     0.463&0.65&0.463&0.463
     \\[\jot]
     {\small final probability of conversion}&
-    0.302&0.47&0.302&0.691
+    0.302&0.47&0.302&0.703
     \\[2\jot] \hline\\
     \emph{\small Available actions and utilities}&&&& \\[\jot]
     $
@@ -1088,7 +1090,7 @@ Summary in table~\ref{tab:summary}.
     &
     $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\bm{\alpha}\end{matrix}$
     &
-    $\begin{matrix}3.09\\4.85\\5.93\\\bm{6.91}\\[2\jot]\bm{\delta}\end{matrix}$
+    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[2\jot]\bm{\delta}\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
