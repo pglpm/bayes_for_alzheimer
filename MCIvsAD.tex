@@ -327,7 +327,7 @@ These four persons don't know each other, but they have something in common: the
 % indicate % [what does this mean?]
 assess their risk of developing Alzheimer, and then make a decision among a set of mutually exclusive preventive-treatment options, together with the patients and their relatives.
 
-Besides a shared MCI diagnosis and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three patients (see Table 1):
+Besides a shared MCI diagnosis and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three patients:
 \begin{itemize}
 \item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from MCI to \ad. Moreover, Ariel comes, unlike Olivia, from a family with a heavy history of Alzheimer's Disease. Because of this geographical and family background, the clinician judges a priori a 65\% probability that Ariel's cognitive impairment will convert to Alzheimer's Disease
 
@@ -336,65 +336,23 @@ Besides a shared MCI diagnosis and associated worries, these patients have other
 \item Olivia and Curtis have different results on all neuropsychological tests and Hippocampal-Volume measure, in disfavour of Curtis. Olivia furthermore does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has. Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
 \end{itemize}
 
-We can categorize these differences as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in preventive benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis). Table~\ref{tab:patients_data} reports the clinical results and demographic data common to Olivia, Ariel, Bianca, as well as those of Curtis \mynotew{need to explain the variates and refer to \citep{ryeetal2022}}. The figure on its side summarizes the similarity and differences between Olivia and the other three patients. 
-% \begin{figure}[!h]% with figure
-%  \centering\includegraphics[width=0.25\linewidth]{OABC.png}\\
-% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
-% \end{figure}%
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{lcccc}
-    \hline\\[-1.5\jot]
-    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
-    \\[\jot]
-    Age&75.4&75.4&75.4&63.8 \\
-    Sex&F&F&F&M \\
-    Hippocampus volume (\textsf{HC})${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
-    \textsf{APOE4} status&N&N&N&Y \\
-    Reading test (\textsf{ANART})&18&18&18&15 \\
-    Category Fluency Test (\textsf{CFT})&21&21&21&14 \\
-    Geriatric Depression Scale (\textsf{GDS})&3&3&3&2 \\
-    \textsf{RAVLT-imm}ediate memory &36&36&36&20 \\
-    \textsf{RAVLT-del}ayed recall &5&5&5&0 \\
-   \textsf{ RAVLT-rec}ognition &10&10&10&3 \\
-    Trail Making Test A (\textsf{TMTA})&21&21&21&36 \\
-    Trail Making Test B (\textsf{TMTB})&114&114&114&126
-    \\[\jot]
-    \hline
-  \end{tabular}\hspace{2em}
-  \begin{minipage}{0.4\linewidth}
-    \centering\includegraphics[width=\linewidth]{OABC.png}\\
-    % \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
-  \end{minipage}
-  \caption{\mynotew{Clinical results \& demographic data}}\label{tab:patients_data}
-  % \begin{tabular}{ccccccccccccc}
-  %   Patient&
-  %   Age&Sex&HC${}\cdot 10^{-3}$&APOE4&
-  %   ANART&CFT&GDS&RAVLT-im&RAVLT-del&RAVLT-rec&TMTA&TMTB
-  %   \\[1\jot]
-  %   \emph{Olivia, Ariel, Bianca}&
-  %   75.4&F&4.26&N&
-  %   18&21&3&36&5&10&21&114
-  %   \\
-  %   \emph{Curtis}&
-  %   63.8&M&[missing]&Y&
-  %   15&14&2&20&0&3&36&126
-  % \end{tabular}
-\end{table}
-
-\medskip
+\begin{wrapfigure}{r}{0.25\linewidth}%
+\vspace{-2em}\includegraphics[width=\linewidth]{OABC.png}
+%\caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+\end{wrapfigure}%
+We can categorize these differences, schematized in the side figure, as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis).
 
 Considering the similarities and differences among these patients, which treatments are optimal and should prescribed to them?
 
 \medskip
 
-Our main purpose in the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates such as those listed in table~\ref{tab:patients_data}. The solution method integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
+Our main purpose in the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates. The solution method integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
 
 In our example we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, or preventive benefits.
 
 The method used is none other than decision theory, the combination of probability theory and utility theory \citep[\chaps~13--14]{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}, with old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} that explain and exemplify its application.
 
-Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}. The present method can therefore be seen as the application of an ideal machine-learning algorithm. We call it the \emph{Turing-Jaynes machine}  in homage to Turing, who put these principles into practice with automated devices \citep{good1979}, and Jaynes, who clearly explained the inductive logic behind such a machine \citep{jaynes1994_r2003}. The \tjm\ is \enquote{ideal} in the sense of being free from approximations, special modelling assumptions, and limitations in its informational output; not in the sense of being impracticable. In the present work we indeed show that for some kinds of dataset such ideal machine-learning algorithm is a reality. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their output limitations. We discuss this matter further in \sect\mynotew{***}.
+Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealp[\chap~IV]{russelletal1995_r2022}; \citealp[\chaps~1--2]{jaynes1994_r2003}}. The present method can therefore be seen as the application of an ideal machine-learning algorithm. We call it the \emph{Turing-Jaynes machine}  in homage to Turing, who put these principles into practice with automated devices \citep{good1979}, and Jaynes, who clearly explained the inductive logic behind such a machine \citep{jaynes1994_r2003}. The \tjm\ is \enquote{ideal} in the sense of being free from approximations, special modelling assumptions, and limitations in its informational output; not in the sense of being impracticable. In the present work we indeed show that for some kinds of dataset such ideal machine-learning algorithm is a reality. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their output limitations. We discuss this matter further in \sect~\ref{sec:discussion}.
 
 %%%% Note on "predictand"
 %
@@ -524,7 +482,7 @@ possibly contaminated by a little noise, typically assumed gaussian. This is a v
 
 \emph{Parametric models and machine-learning algorithms} such as logistic or linear regression, support-vector machines, or generalized linear models make even stronger assumptions than neural networks and random forests. They assume specific functional shapes or frequency distributions. Their use may be justified when we are extremely sure -- for instance thanks to underlying physical or biological knowledge -- of the validity of their assumptions; or when the computational resources are extremely scarce. But it is otherwise unnecessary to be hampered by their restrictive and often unrealistic assumptions.
 
-\mynotew{Add note on \enquote{ensembling}: it does not give probabilities \citep[\sect~18.2]{murphy2022}}
+\mynotep{Add note on \enquote{ensembling}: it does not give probabilities \citep[\sect~18.2]{murphy2022}}
 
 \medskip
 
@@ -534,11 +492,34 @@ An important common deficiency of most inference algorithms mentioned above is t
 \subsection{Application to the example study}
 \label{sec:learn_application}
 
-\mynotew{Add here examples of output from the \tjm; for example the population distributions for some predictor, given converted/non-converted.}
+\mynotep{Show some graphs about the full-population distribution inferred by the \tjm; for example the population distributions for some predictor, given converted/non-converted.}
 
-\mynotew{Use \enquote{likelihood} instead of \enquote{predictors$\|$predictand}? It's a possibility. I personally prefer the second notation, much more clear and explicit.}
+The predictor values for our four patients are reported in table~\ref{tab:patients_data}. Note that Curtis's value for the Hippocampus Volume is missing; the \tjm\ has no difficulty with this.
+\begin{table}[!b]
+  \centering
+  \begin{tabular}[b]{lcccc}
+    \hline\\[-1.5\jot]
+    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
+    \\[2\jot]
+    Age&75.4&75.4&75.4&63.8 \\
+    Sex&F&F&F&M \\
+    Hippocampus volume (\textsf{HC})${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
+    \textsf{APOE4} status&N&N&N&Y \\
+    Reading test (\textsf{ANART})&18&18&18&15 \\
+    Category Fluency Test (\textsf{CFT})&21&21&21&14 \\
+    Geriatric Depression Scale (\textsf{GDS})&3&3&3&2 \\
+    \textsf{RAVLT-imm}\,ediate memory &36&36&36&20 \\
+    \textsf{RAVLT-del}\,ayed recall &5&5&5&0 \\
+   \textsf{RAVLT-rec}\,ognition &10&10&10&3 \\
+    Trail Making Test A (\textsf{TMTA})&21&21&21&36 \\
+    Trail Making Test B (\textsf{TMTB})&114&114&114&126
+    \\[\jot]
+    \hline
+  \end{tabular}\hfill
+  \caption{\mynotep{Predictor values for the four patients}}\label{tab:patients_data}
+\end{table}
 
-In our case study, the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
+Given these predictor values the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
   
 \begin{table}[!h]
   \centering
@@ -557,8 +538,10 @@ In our case study, the \tjm\ yields the following probabilities of main importan
     \\[\jot]
     \hline
   \end{tabular}
-    \caption{\mynotew{Probabilities computed by the \tjm}}\label{tab:prob_likelihoods_patients}
-\end{table}
+  \caption{\mynotep{Probabilities computed by the \tjm}}\label{tab:prob_likelihoods_patients}
+  \end{table}
+
+\medskip
 
 As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the \enquote{error} on these probabilities. There is an error on the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities (all relative numerical errors are below 0.8\%, Curtis's two likelihoods being an exception at 2\%).
 
@@ -578,7 +561,7 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 
 
 
-\medskip
+\mynotez{Use \enquote{likelihood} instead of \enquote{predictors$\|$predictand}? It's a possibility. I personally prefer the second notation, much more clear and explicit.}
 
 
 
@@ -1143,7 +1126,7 @@ Summary in table~\ref{tab:summary}.
     \\[6\jot]
     \hline
   \end{tabular}
-  \caption{\mynotew{Summary. The basic data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}}\label{tab:summary}
+  \caption{\mynotep{Summary. The basic data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}}\label{tab:summary}
 \end{table}
 
 
@@ -1154,9 +1137,9 @@ Summary in table~\ref{tab:summary}.
 
 
 
-\mynotez{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
+\mynotep{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
-\mynotez{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
+\mynotep{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
 
 \subsection{Range of application of \tjm s}
 \label{sec:rangeTJM}
@@ -1193,11 +1176,10 @@ There is a fundamental difference in how the \tjm\ and most popular machine-lear
 
 This difference explains why the \tjm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures \citetext{it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$; see \eg\ \citealp{portamana2019b,fongetal2020}}.
 
-\mynotew{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
+\mynotep{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
 
 
-
-\mynotew{possibly add a plot showing the distributions considered reasonable by the machine}
+\mynotep{possibly add a plot showing the distributions considered reasonable by the machine}
 \begin{figure}[!t]% with figure
   \centering%
   \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
