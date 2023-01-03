@@ -414,30 +414,42 @@ Decision theory is also the normative foundation for the construction of an Arti
   \end{itemize}
   and goals, results, and some synopsis}
 
-The inferential and decision-making steps based on the \tjm\ are summarized in table~\ref{tab:inference_decision_steps}.
+The inferential and decision-making steps based on the \tjm\ are summarized in the inset at the bottom of this page.
 \begin{table}[!b]  
-  \centering
   \begin{framed}
-    \mynotew{To be redone}
-    \caption{Inferential and decision-making steps. Steps in \textbf{boldface} represent patient-dependent, personalized steps that cannot be obtained from the learning dataset}\label{tab:inference_decision_steps}
-
-    \vspace{1em}
+    \small
+      \begin{center}
+        \textbf{Inset: Inferential and decision-making steps}
+  \end{center}
     
     \begin{enumerate}\itemsep1em 
-    \item\label{item:learn} Infer the full-population frequencies of predictors and predictand with the \tjm,  using available datasets.
-    \item\label{item:population} \textbf{Assess in respect of which variates the present patient can be considered as belonging to the same population underlying the learning dataset.}
-    \item\label{item:prior} \textbf{Assess the prior probability of the predictand for the present patient.} This step allows us (a) to consider additional clinical information outside of the dataset's variates, and available for the present patient only; (b) to correct for mismatches between the dataset's underlying population and the patient's one.
+    \item\label{item:learn} Infer the joint, full-population frequencies of predictors and predictand with the \tjm,  using available datasets.
+
+      Input the clinical data of the patient, and select the appropriate output probabilities to be used in the next step.
       
-    \item\label{item:likelihood}Calculate the \emph{likelihood}
-      % -- as opposed to the probability --
-      of the predictand for a specific patient, given the patient's predictor values. Combine this likelihood with the prior from step~\ref{item:prior}, to obtain the final probability for the predictand, for the present patient.
+    \item\label{item:population} Assess which statistics of the dataset can be applied to the present patient. Take their probabilities from step~\ref{item:learn}.
 
-    \item\label{item:utilities} \textbf{Assess the clinical courses of action available for the present patient, together their benefits and costs.} This step is fundamentally patient-dependent and is the one open to most variability from patient to patient.
+      Assess auxiliary clinical information available for this patient; quantify it in a prior probability.
 
-    \item\label{item:expected_utility} Choose the course of action having maximal expected benefit for the present patient, given the benefits assessed in step~\ref{item:utilities} and the final probability assessed in step~\ref{item:likelihood}.  
+      From these, the final probability of the patient's true medical condition is calculated.
+      
+    \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient.
+
+      Assess the utility (benefit and loss) of each course of action, depending on each possible medical condition of the patient.
+
+      Combine the utilities with the final probabilities from step~\ref{item:population}. Choose the course of action having maximal expected utility.  
     \end{enumerate}
   \end{framed}
 \end{table}
+
+How does the clinician use the \tjm\ in a specific application to a patient, after the machine has learned from the dataset? The clinician inputs:
+  \begin{enumerate}
+  \item\label{item:input_data} the patient's clinical data
+  \item\label{item:input_stat} the choice of statistical relation that can be generalized from dataset to the patient (see \sect~\ref{sec:population_step})
+  \item prior probabilities coming from auxiliary information
+  \item set of available treatments and their utilities
+  \end{enumerate}
+  Then the machine will output (in a fraction of a second) the optimal treatment for the patient. Alternatively the clinician can stop at step \ref{item:input_stat} above, and do the rest of the calculation by hand.
 
 
 These steps taken by the clinician and use of the \tjm\ will be explained and illustrated in the next three sections. They are presented in chronological order as the clinician would apply them. In each section, a general overview and discussion of the theory and method behind the specific step is first given, followed by the concrete application to our example case.
@@ -478,7 +490,7 @@ The \tjm\ assigns a probability to each possible frequency distribution for the 
       Lower-right: candidate distribution that fits the data very well but looks unnatural.}}\label{fig:inferring_distribution}
 \end{figure}%
 
-\mynotep{Some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
+\mynotep{EITHER HERE OR IN APPENDIX~\ref{sec:maths_tjm}: Add some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
 
 The \tjm\ computes the probabilities of all possible frequency distributions for the full population, and from these the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
 
@@ -1193,6 +1205,13 @@ This difference explains why the \tjm\ is computationally much more expensive th
 } or \textsf{RAVLT-rec%AVDELTOT\_neuro
 }}}\label{fig:prior_distribution}
 \end{figure}%
+
+
+\subsection{Computational details}
+\label{sec:comput_details}
+
+The learning stage, with 13 variates and 704 datapoints, took less than 5~hours. The computation was done with 16 parallel 3.0--4.80~GHz cores. After that, calculation of probabilities and expected utilities for any single patient is immediate. The mutual information and accuracy analysis of \sect~\ref{sec:additional_results} took roughly 1~h.
+
 
 
 
