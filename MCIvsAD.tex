@@ -666,7 +666,7 @@ If the samples of the clinical trials had been chosen with the same frequencies 
   \begin{framed}
   \small
   \begin{center}
-    \textbf{Inset: superiority of the \enquote{predictors$\pmb{\|}$predictand} approach}
+    \textbf{Inset: superiority of the \enquote{predictors$\pmb{\|}$predictand} approach}\label{tab:superiority_predictors_given_predictand}
   \end{center}
     We split our learning dataset in two subsets:
     \begin{itemize}
@@ -1135,14 +1135,23 @@ Summary in table~\ref{tab:summary}.
 \section{Discussion}
 \label{sec:discussion}
 
-Through four fictional (but statistically realistic) patients we have shown that the differences among patients which are relevant to clinical diagnosis or prognosis and decision-making for a specific medical condition, can be approximately divided into three categories:
+The differences among patients which are relevant to clinical diagnosis/prognosis and decision-making can be approximately divided into three categories:
 \begin{enumerate}[I.]
 \item\label{item:diff_corepredictors} differences in the availability and values of a core set of clinical predictors, for which we have population-wide statistical information;
-\item\label{item:diff_priorinfo} differences in the availability and values of auxiliary and usually \enquote{softer} predictors, such as geographical or family background; or more generally in predictors not belonging to the core set;
+\item\label{item:diff_priorinfo} differences in the availability and values of auxiliary and usually \enquote{softer} predictors, such as geographical or family background; or more generally of predictors not belonging to the core set;
 \item\label{item:diff_utility} differences in the availability and benefit of clinical courses of actions, such as treatments and further tests.
 \end{enumerate}
 
-Current development of prognostic methods, especially when based on machine learning, is almost exclusively focused on differences in the first category. Moreover, in presenting how these methods could be applied, the clinical context is usually overly simplified, as if it were just a simple classification task. It is not. The clinician's ultimate goal is not to \enquote{classify} a patient's condition -- a clinician doesn't simply say \enquote{hey, you're likely to develop Alzheimer. Goodbye, now you can go!}. The ultimate goal is to choose among several courses of action. And the number of such courses of action is typically larger than the number of possible \enquote{labels} of the medical condition. Already this simple numerical discrepancy shows that classification methods don't fill the bill. The choice of a course of action is moreover the moment were patient differences can be very dramatic. \mynotep{to be continued...}
+These differences are intimately connected with, and partially stem from, several hallmarks of a clinician's tasks:
+
+First, there is often an irreducible element of uncertainty in inferring a medical or biological condition from a set of predictors. In mathematical terms, there is no function from predictors to predictands \mynotep{refer to a figure in the previous sections}. This is especially often the case for predictors that are more readily available and less invasive, and therefore more desirable. The irreducible uncertainty originates from the natural variability within a population. Yet this variability can be harnessed, and the way to harness it can crucially vary from patient to patient. We illustrated this with an example in the inset of \sect~\ref{sec:population_step}, p.~\ref{tab:superiority_predictors_given_predictand}, which showed that any relation from predictors to predictands lead to poor prognoses, whereas taking into account the variability in the predictors \emph{given} the predictand improved our prognoses.
+
+Second, the irreducible prognostic uncertainty makes clinician's ultimate task not one of classification or regression, but one of \emph{decision-making under risk}. This is clear considering that a clinician may have \emph{three or more} courses of action to choose from, even if the unknown medical condition only has \emph{two} possible \enquote{class labels}. A pure class label is therefore of no help to the clinician, who instead needs to know the uncertainty or \emph{probability} of the label, in order to evaluate risks and benefits, and from these make a final decision.
+
+\mynotep{to be finished}
+
+
+% Current development of prognostic methods, especially when based on machine learning, is almost exclusively focused on differences in the first category. Moreover, in presenting how these methods could be applied, the clinical context is usually overly simplified, as if it were just a simple classification task. It is not. The clinician's ultimate goal is not to \enquote{classify} a patient's condition -- a clinician doesn't simply say \enquote{hey, you're likely to develop Alzheimer. Goodbye, now you can go!}. The ultimate goal is to choose among several courses of action. And the number of such courses of action is typically larger than the number of possible \enquote{labels} of the medical condition. Already this simple numerical discrepancy shows that classification methods don't fill the bill. The choice of a course of action is moreover the moment were patient differences can be very dramatic. \mynotep{to be continued...}
 
 \mynotep{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
