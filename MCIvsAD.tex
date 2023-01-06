@@ -940,7 +940,7 @@ As already said, the output of the \tjm\ is about the full population of future 
 Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
 
 The answer to this question can only be given probabilistically, and obviously with great uncertainty. Yet there may be surprising details about it which we can assess with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}. The dark-blue curve represent, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\% and 75\% uncertainty intervals. Despite the evident large uncertainties, we see that it's very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks.
-\begin{figure}[!t]% with figure
+\begin{figure}[b]% with figure
   \centering%
   \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
   \caption{Possible distribution of prognostic probabilities of conversion in the full patient population}\label{fig:progn_probs}
@@ -988,17 +988,25 @@ It is clear that knowledge of the Hippocampal Volume would be overly unlikely to
 \subsection{Predictor importance}
 \label{sec:predictor_importance}
 
-The question about Curtis in the previous subsection can be generalized. How important is each predictor in prognosing the conversion to \ad?
+The question about Curtis in the previous subsection can be generalized to a whole population. How important, in general, is each predictor in prognosing the conversion to \ad? Predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
 
-The question, as formulated, is too vague (ill-posed) to be answered: what do we mean by \enquote{important}? and in which context
+\setlength{\intextsep}{0ex}% with wrapfigure
+\setlength{\columnsep}{1ex}% with wrapfigure
+\begin{wrapfigure}{r}{0.33\linewidth}% with wrapfigure
+\vspace{-1ex}%
+\includegraphics[width=\linewidth]{example_importance_context.pdf}%
+% \includegraphics[width=\linewidth]{baseratetrials.png}\\[\jot]
+% \includegraphics[width=\linewidth]{baseratepopulation.png}
+\end{wrapfigure}%
+To answer this general question, which is too vague (ill-posed), we must first specify which other predictors the predictor of interest is used with, and what we mean by \enquote{important}.
 
-The rich output of the \tjm\ allows us to make not only a fully personalized prognosis and clinical decision-making, but also many kinds of sensitivity checks.
+The schematic picture on the side illustrates the necessity of specifying a predictor's context. Individuals in this population can be either \textcolor{bluepurple}{blue circles $\circ$} or \textcolor{redpurple}{red triangles $\triangle$} and have two predictors $X,Y$. Predictor $X$, if used by itself, is worthless in distinguishing the two subpopulations, because these have identical marginal distributions (depicted beside the grey lines). If used in conjunction with $Y$, however, predictor $X$ allows us to identify an individual's subpopulation with full certainty. It is therefore an essential predictor in this case: dropping it would lead to a complete loss of predictive power. An analogous discussion holds for $Y$ in the present case. The converse can also happen (not illustrated): a predictor might be \enquote{good} if used by itself, and yet it might be discarded without any loss if used in combination with others.
 
-It can be useful to know, for example, how important some predictors are for the prognosis. If the values of some predictors are unavailable for a patient, the clinician may thus decide whether it is preferable to acquire them, of whether they can be simply neglected. More generally, predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
+A predictor's \enquote{importance} or \enquote{prognostic power} is undefined until we specify a relevant metric, for predictors can be ranked differently by different metrics. From our discussion so far it should be clear that in clinical decision-making the canonical metric is the \emph{utility} which a predictor's presence or absence leads to. This point was partially illustrated with Curtis's example in the previous subsection. What if we want to make an assessment, not for a single patient, but for full population? It can be proved, again from decision-theoretic principles, that the population average of all utility matrices should be used in this case \citep[\cf][\sect~4.1]{dyrlandetal2022}. This seems a quantity very difficult to assess; but it can also be proved that even just a semi-quantitative assessment leads to better results than using some other \enquote{general-purpose} metric \citep[\sect~4.2]{dyrlandetal2022}.
 
-The \tjm\ allows us to compute the expected \enquote{predictive power}, for the full population of patients, of any set of predictors available in the dataset; and for any metric measuring this power, such as accuracy. A fact of paramount advantage is that \emph{the predictive power of a set of predictors found with the \tjm\ is the maximal one obtainable by \textbf{any} inference algorithm}; in other words it is an intrinsic property of that set of predictors. Thus, if the \tjm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \tjm, by construction, always reaches the theoretical limit.
+The \tjm\ allows us to compute the expected value of virtually any prognostic-importance metric of any subset of predictors available in the dataset. Two facts of paramount advantage are that (a) \emph{the prognostic power of a set of predictors found with the \tjm\ is the maximal one obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \tjm\ achieves this maximal power}. Thus, if the \tjm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \tjm, by construction, will reach this accuracy.
 
-We use two metrics of \enquote{predictive power} of a set of predictors: the mutual information~\citep{shannon1948,coveretal1991_r2006} between them and the event of conversion to \ad, and their accuracy. Mutual information is a model-free measure of the relation between two sets of variates; it has diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a non-constant deterministic function from the former to the latter. \mynotew{Consider using conditional entropy instead of mutual info; maybe both. Show the distribution of cAD/sMCI across the main diagonal o f the 12D predictor space}
+We illustrate this kind of computation in our example case, using two metrics: the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad. Use of the accuracy assumes that the population of patients has only two available treatments having average utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$. Mutual information is a model-free measure of the relation between two sets of variates, with diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a non-constant deterministic function from the former to the latter. \mynotew{Consider using conditional entropy instead of mutual info; maybe both. Show the distribution of cAD/sMCI across the main diagonal o f the 12D predictor space}
 
 We consider 27 sets of predictors:
 \begin{itemize}
@@ -1009,12 +1017,13 @@ We consider 27 sets of predictors:
 \item all predictors jointly.
 \end{itemize}
 
-The expected mutual information and accuracy (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
+The expected accuracy and mutual information (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
 \begin{figure}[!t]% with figure
   \centering%
-  \includegraphics[width=0.494\linewidth]{plotMI.pdf}\hfill%
-  \includegraphics[width=0.494\linewidth]{plotAcc.pdf}%
-  \caption{Mutual information and accuracy of several sets of predictors, for the prognosis of conversion to \ad. The bars show the numerical computation error ($\pm$~one standard deviation). Both graphs are ordered according to increasing mutual information (mutual-information and accuracy orderings agree within numerical error).}\label{fig:mutual_info}
+\includegraphics[width=0.494\linewidth]{plotAcc.pdf}%
+\hfill%
+\includegraphics[width=0.494\linewidth]{plotMI.pdf}%
+\caption{Accuracy and mutual information of several sets of predictors, for the prognosis of conversion to \ad. The bars show the numerical computation error ($\pm$~one standard deviation). Both graphs are ordered according to increasing mutual information (mutual-information and accuracy orderings agree within numerical error).}\label{fig:mutual_info}
 \end{figure}%
 
 
@@ -1028,9 +1037,6 @@ The figure reveals several interesting findings, \emph{valid within the populati
 
 The \tjm\ shows that the omission of any one of the 12 predictors, except \textsf{RAVLT-del} and \textsf{RAVLT-imm}, does not lead to an appreciable decrease in mutual information (relative change of less than 3\%) or accuracy (relative decrease of 0.3\% or less). This puts the importance analysis of \citealp{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive and we did not carry it out further.
 
-It is important to keep in mind, however, that any ranking in \enquote{prognostic power} depends on the metric used. In a practical clinical application, the appropriate metric should be the patient's specific number of available treatments and their utility matrix \citep{dyrlandetal2022}. Use of the accuracy, as done above, assumes a patient with only two available treatments having utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$.
-
-\medskip
 
 % \begin{table}[!t]
 %   \centering
@@ -1069,35 +1075,6 @@ It is important to keep in mind, however, that any ranking in \enquote{prognosti
 %   \end{tabular}
 %   \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
 % \end{table}
-
-
-\subsection{Resource planning}
-\label{sec:resource_planning}
-
-How often will the four treatment be prescribed to future patients?
-
-$\alpha$: 23\%--27\%
-
-$\beta$: 2\%--5\%
-
-$\gamma$: 26\%--48\%
-
-$\delta$: 25\%--45\%
-
-(these are 75\% intervals)
-
-%%              a         b        c        d
-%% 12.5% 0.227406 0.0214949 0.261877 0.249176
-%% 50%   0.248901 0.0293112 0.367855 0.351246
-%% 87.5% 0.265511 0.0532487 0.477956 0.447240
-
-
-\begin{figure}[!t]% with figure
-  \centering%
-  \includegraphics[width=0.75\linewidth]{plot1000patients.pdf}%
-  \caption{Probability and treatments in future patients.}\label{fig:mutual_info}
-\end{figure}%
-
 
 
 \newpage
