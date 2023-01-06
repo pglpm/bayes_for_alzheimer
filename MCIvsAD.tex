@@ -932,22 +932,71 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \section{Additional information provided by the \tjm}
 \label{sec:additional_results}
 
+As already said, the output of the \tjm\ is about the full population of future patients, with all its statistics. This output can therefore be used for additional purposes such as resource planning, sensitivity checks, and the investigation of the predictors' importance in the prognosis.
+
+\subsection{Resource planning}
+\label{sec:resource_planning}
+
+Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
+
+The answer to this question can only be given probabilistically, and obviously with great uncertainty. Yet there may be surprising details about it which we can assess with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}. The dark-blue curve represent, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\% and 75\% uncertainty intervals. Despite the evident large uncertainties, we see that it's very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks.
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
+  \caption{Possible distribution of prognostic probabilities of conversion in the full patient population}\label{fig:progn_probs}
+\end{figure}%
+
+This information also allows us to forecast in which proportions the treatments $\alpha,\beta,\gamma,\delta$ (see \sect~\ref{sec:utilities_step}) will be prescribed -- assuming that the full population has on average the utility matrix of Olivia, table~\ref{tab:utilities_patients}. We find the following ranges, with a 90\% probability that the true future proportion will be within each:
+\begin{equation}
+  \label{eq:ranges_future_treatments}
+  \alpha\text{: 3\%--8\%}\qquad
+  \beta\text{: 1\%--13\%}\qquad
+  \gamma\text{: 22\%--59\%}\qquad
+  \delta\text{: 34\%--63\%}
+\end{equation}
+Again, despite the obvious large uncertainties, we can be quite sure that treatments $\gamma$ and $\delta$ will be prescribed ten times or more often than $\alpha$ and $\beta$. This kind of semi-quantitative forecast can be very useful for resource and production planning.
+
 \subsection{Sensitivity checks}
 \label{sec:sensitivity}
+
+The kind of forecasts illustrated in the previous subsection can also be applied to individual patients for various kinds of sensitivity analysis.
+
+Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \tjm\ can give a probabilistic answer to this question.
+
+The clinician uses the \tjm\ to find the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following intervals with 99\% probability:
+
+\medskip
+
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{rcc}
+    \hline\\[-\jot]
+    treatment&0.5\%&99.5\% \\[\jot]
+    $\alpha$ & 2.97 & 2.99 \\
+    $\beta$ & 4.78 & 4.79 \\
+    $\gamma$ & 5.89 & 5.90 \\
+    $\delta$ & \textbf{7.01} & \textbf{7.03}\\
+    \hline
+  \end{tabular}
+\end{table}
+
+(The four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines.)
+
+It is clear that knowledge of the Hippocampal Volume would be overly unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
+
 
 \subsection{Predictor importance}
 \label{sec:predictor_importance}
 
-\mynotew{Separate text below into two subsections}
+The question about Curtis in the previous subsection can be generalized. How important is each predictor in prognosing the conversion to \ad?
 
+The question, as formulated, is too vague (ill-posed) to be answered: what do we mean by \enquote{important}? and in which context
 
 The rich output of the \tjm\ allows us to make not only a fully personalized prognosis and clinical decision-making, but also many kinds of sensitivity checks.
 
 It can be useful to know, for example, how important some predictors are for the prognosis. If the values of some predictors are unavailable for a patient, the clinician may thus decide whether it is preferable to acquire them, of whether they can be simply neglected. More generally, predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
 
 The \tjm\ allows us to compute the expected \enquote{predictive power}, for the full population of patients, of any set of predictors available in the dataset; and for any metric measuring this power, such as accuracy. A fact of paramount advantage is that \emph{the predictive power of a set of predictors found with the \tjm\ is the maximal one obtainable by \textbf{any} inference algorithm}; in other words it is an intrinsic property of that set of predictors. Thus, if the \tjm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \tjm, by construction, always reaches the theoretical limit.
-
-We show this kind of predictive-power computation for the present dataset. In our four-patient scenario it could be important for Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if its acquisition would lead to a much more informative prognosis.
 
 We use two metrics of \enquote{predictive power} of a set of predictors: the mutual information~\citep{shannon1948,coveretal1991_r2006} between them and the event of conversion to \ad, and their accuracy. Mutual information is a model-free measure of the relation between two sets of variates; it has diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a non-constant deterministic function from the former to the latter. \mynotew{Consider using conditional entropy instead of mutual info; maybe both. Show the distribution of cAD/sMCI across the main diagonal o f the 12D predictor space}
 
@@ -982,27 +1031,6 @@ The \tjm\ shows that the omission of any one of the 12 predictors, except \texts
 It is important to keep in mind, however, that any ranking in \enquote{prognostic power} depends on the metric used. In a practical clinical application, the appropriate metric should be the patient's specific number of available treatments and their utility matrix \citep{dyrlandetal2022}. Use of the accuracy, as done above, assumes a patient with only two available treatments having utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$.
 
 \medskip
-
-Regarding Curtis's missing value for Hippocampal Volume, his clinician can do this kind of sensitivity analysis using the output of the \tjm, calculating the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The results is that the expected utilities for Curtis's treatments must be in the following  intervals with 99\% probability:
-
-\medskip
-
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{rcc}
-    \hline\\[-\jot]
-    treatment&0.5\%&99.5\% \\[\jot]
-    $\alpha$ & 2.97 & 2.99 \\
-    $\beta$ & 4.78 & 4.79 \\
-    $\gamma$ & 5.89 & 5.90 \\
-    $\delta$ & \textbf{7.01} & \textbf{7.03}\\
-    \hline
-  \end{tabular}
-\end{table}
-
-(The four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines.)
-
-It is clear that knowledge of this variate would not change the optimal treatment $\delta$. The clinician therefore proceeds without it.
 
 % \begin{table}[!t]
 %   \centering
@@ -1048,20 +1076,20 @@ It is clear that knowledge of this variate would not change the optimal treatmen
 
 How often will the four treatment be prescribed to future patients?
 
-$\alpha$: 22\%--27\%
+$\alpha$: 23\%--27\%
 
-$\beta$: 3\%--6\%
+$\beta$: 2\%--5\%
 
-$\gamma$: 26\%--47\%
+$\gamma$: 26\%--48\%
 
-$\delta$: 26\%--44\%
+$\delta$: 25\%--45\%
 
 (these are 75\% intervals)
 
-%%           a     b        c     d
-%% 12.5% 0.220 0.026 0.258000 0.261
-%% 50%   0.247 0.037 0.357000 0.357
-%% 87.5% 0.269 0.062 0.465875 0.442
+%%              a         b        c        d
+%% 12.5% 0.227406 0.0214949 0.261877 0.249176
+%% 50%   0.248901 0.0293112 0.367855 0.351246
+%% 87.5% 0.265511 0.0532487 0.477956 0.447240
 
 
 \begin{figure}[!t]% with figure
@@ -1206,7 +1234,7 @@ The range of application of the \tjm\ used in the present study has two kinds of
 
 As mentioned in \sect~\ref{sec:learning_step} and explained in appendix~\ref{sec:maths_tjm}, the fact that the \tjm\ extracts all available information from the dataset also makes it computationally expensive. It is at present impossible to use with high-dimensional predictors (if our dataset had included a predictor such as a $128\times128\times128$ grayscale MRI image, the learning stage would have taken around 100 years). Approximate but much faster algorithms such as neural networks and random forests are thus, at present, still the only options with such predictors. There is, however, the interesting possibility of combining such fast algorithms together with a \tjm, as a post-processor of their raw output. This allows us to extract useful information usually hidden in such output at a low computational cost \citep{dyrlandetal2022b}. Such information can be then used for clinical decision making as illustrated in the present work.
 
-As explained in \sect~\ref{sec:population_step}, the essentially sole assumption underlying the \tjm's inference and its practical used with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in technical jargon, partial or conditional exchangeability applies). This precludes using the \tjm\ to forecast how the statistics of the full population could change in the future. However, the machine \emph{can} be used for time-dependent (transversal \mynotez{correct?}) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For example, if data about the time of conversion to \ad\ were available in the dataset, the \tjm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place.
+As explained in \sect~\ref{sec:population_step}, the essentially sole assumption underlying the \tjm's inference and its practical used with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in technical jargon, partial or conditional exchangeability applies). This precludes using the \tjm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (transversal \mynotez{correct?}) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For example, if data about the time of conversion to \ad\ were available in the dataset, the \tjm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
 \appendix
 \renewcommand\thesection{\Alph{section}}
