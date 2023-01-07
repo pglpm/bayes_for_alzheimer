@@ -988,6 +988,8 @@ It is clear that knowledge of the Hippocampal Volume would be overly unlikely to
 \subsection{Predictor importance}
 \label{sec:predictor_importance}
 
+\mynotew{[Luca] I think the initial presentation of the problem, here below, still slightly misses the target. The point is that the vague and ill-posed question \enquote{which predictor is most important?} hides a decision problem: \enquote{if I had to drop one feature for all patients, which one should I drop last?} or \enquote{if I had to use only one feature for all patients, which one should I prioritize?}. This formulation uniquely determines the relevant metric. I'll rewrite this later.}
+
 The question about Curtis in the previous subsection can be generalized to a whole population. How important, in general, is each predictor in prognosing the conversion to \ad? Predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
 
 \setlength{\intextsep}{0ex}% with wrapfigure
@@ -1020,10 +1022,10 @@ We consider 27 sets of predictors:
 The expected accuracy and mutual information (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
 \begin{figure}[!t]% with figure
   \centering%
-\includegraphics[width=0.494\linewidth]{plotAcc.pdf}%
+\includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
 \hfill%
-\includegraphics[width=0.494\linewidth]{plotMI.pdf}%
-\caption{Accuracy and mutual information of several sets of predictors, for the prognosis of conversion to \ad. The bars show the numerical computation error ($\pm$~one standard deviation). Both graphs are ordered according to increasing mutual information (mutual-information and accuracy orderings agree within numerical error).}\label{fig:mutual_info}
+\includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
+\caption{Expected accuracy and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \textsf{all} predictor set is mathematically guaranteed to be optimal according to both metrics, and has therefore be ranked first. The bars show $\pm$~two standard deviations around the expected value for accuracy, and around the numerical computation error for the mutual information. }\label{fig:mutual_info}
 \end{figure}%
 
 
@@ -1032,10 +1034,10 @@ The figure reveals several interesting findings, \emph{valid within the populati
 \item The set of 12 predictors considered in the present work \citep[and in ][]{ryeetal2022} can at most lead to a prognostic accuracy of around 68\%, for any inference algorithm. This fact agrees with the (completely independent) findings in \cite{ryeetal2022}, where a maximal accuracy of 68\% was found using an ensemble model; the present analysis also shows that that model managed to achieve the maximal accuracy possible with these predictors (but see \sect~\ref{sec:discussion} for limitations of that model.)
 \item \textsf{APOE4}, \textsf{GDS}, \textsf{Age}, \textsf{Sex}, and to some degree \textsf{ANART} are poor predictors (within this population), when used alone and when used in combination with all other predictors. The latter point is evident from the fact that the mutual information of the combined predictors barely decrease if any one of these four predictors is omitted.
 \item The combined cognitive and demographic variates are better predictors than the combined hippocampal, \textsf{APOE4}, and demographic variates.
-\item \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree \textsf{RAVLT-rec} and Hippocampal Volume \citep[contrast this with]{ryeetal2022} are good predictors, both when used alone and when used in combination with all other predictors.
+\item \textsf{RAVLT-imm}, \textsf{RAVLT-del}, and to a lesser degree are good predictors, both when used alone and when used in combination with all other predictors. Hippocampal Volume is a poorer predictor than any of the \textsf{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with]{ryeetal2022}.
 \end{itemize}
 
-The \tjm\ shows that the omission of any one of the 12 predictors, except \textsf{RAVLT-del} and \textsf{RAVLT-imm}, does not lead to an appreciable decrease in mutual information (relative change of less than 3\%) or accuracy (relative decrease of 0.3\% or less). This puts the importance analysis of \citealp{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive and we did not carry it out further.
+The \tjm\ shows that the omission of any one of the 12 predictors, except \textsf{RAVLT-del} and possibly \textsf{RAVLT-imm}, does not lead to an appreciable decrease in accuracy (relative decrease of 0.3\% or less) or in mutual information (relative decrease of less than 3\%). This puts the importance analysis of \citealp{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive and we did not carry it out further.
 
 
 % \begin{table}[!t]
