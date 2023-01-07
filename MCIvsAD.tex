@@ -928,7 +928,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 
 
 
-\newpage
+\bigskip
 \section{Additional information provided by the \tjm}
 \label{sec:additional_results}
 
@@ -937,10 +937,10 @@ As already said, the output of the \tjm\ is about the full population of future 
 \subsection{Resource planning}
 \label{sec:resource_planning}
 
-Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
+Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
 
-The answer to this question can only be given probabilistically, and obviously with great uncertainty. Yet there may be surprising details about it which we can assess with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}. The dark-blue curve represent, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\% and 75\% uncertainty intervals. Despite the evident large uncertainties, we see that it's very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks.
-\begin{figure}[b]% with figure
+The \tjm\ can answer this question probabilistically, and obviously with great uncertainty. Yet there may be surprising details that can be assessed with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}, assuming that the \tjm\ will be regularly updated with the new patients' data (the calculation could also be made without this assumption). The dark-blue curve represents, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\% and 75\% uncertainty ranges. Despite the evident large uncertainties, we see that it is very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks. Note that there are correlations between the fractions at different bins, which cannot be shown in this kind of plot.
+\begin{figure}[t]% with figure
   \centering%
   \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
   \caption{Possible distribution of prognostic probabilities of conversion in the full patient population}\label{fig:progn_probs}
