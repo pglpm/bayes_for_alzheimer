@@ -946,7 +946,7 @@ The \tjm\ can answer this question probabilistically, and obviously with great u
   \caption{Possible distribution of prognostic probabilities of conversion in the full patient population}\label{fig:progn_probs}
 \end{figure}%
 
-This information also allows us to forecast in which proportions the treatments $\alpha,\beta,\gamma,\delta$ (see \sect~\ref{sec:utilities_step}) will be prescribed -- assuming that the full population has on average the utility matrix of Olivia, table~\ref{tab:utilities_patients}. We find the following ranges, with a 90\% probability that the true future proportion will be within each:
+This information also allows us to forecast in which proportions the treatments $\alpha,\beta,\gamma,\delta$ (see \sect~\ref{sec:utilities_step}) will be prescribed -- assuming that the full population has on average the utility matrix of Olivia, table~\ref{tab:utilities_patients}. We find the coverage intervals, with a 90\% probability that the true future proportion will be within each:
 \begin{equation}
   \label{eq:ranges_future_treatments}
   \alpha\text{: 3\%--8\%}\qquad
@@ -963,26 +963,23 @@ The kind of forecasts illustrated in the previous subsection can also be applied
 
 Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \tjm\ can give a probabilistic answer to this question.
 
-The clinician uses the \tjm\ to find the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following intervals with 99\% probability:
-
-\medskip
-
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{rcc}
-    \hline\\[-\jot]
-    treatment&0.5\%&99.5\% \\[\jot]
-    $\alpha$ & 2.97 & 2.99 \\
-    $\beta$ & 4.78 & 4.79 \\
-    $\gamma$ & 5.89 & 5.90 \\
-    $\delta$ & \textbf{7.01} & \textbf{7.03}\\
-    \hline
-  \end{tabular}
-\end{table}
-
-(The four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines.)
-
-It is clear that knowledge of the Hippocampal Volume would be overly unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
+The clinician uses the \tjm\ to find the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
+% "coverage interval": \citep[C.2.30]{jcgm1993_r2008}
+\begin{equation}
+  \label{eq:possible_utilities_curtis}
+  \alpha\text{: 2.97\%--2.98\%}\qquad
+  \beta\text{: 4.78\%--4.79\%}\qquad
+  \gamma\text{: 5.89\%--5.90\%}\qquad
+  \bm{\delta}\textbf{: 7.02\%--7.03\%}
+\end{equation}
+%          [,1]    [,2]    [,3]    [,4]
+% 0.5%  2.97225 4.78335 5.89167 7.01188
+% 5%    2.97226 4.78336 5.89168 7.01766
+% 12.5% 2.97235 4.78341 5.89170 7.02096
+% 87.5% 2.97904 4.78743 5.89371 7.02765
+% 95%   2.98234 4.78940 5.89470 7.02774
+% 99.5% 2.98812 4.79287 5.89643 7.02775
+(the four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines). It is clear that knowledge of the Hippocampal Volume would be overly unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
 
 
 \subsection{Predictor importance}
