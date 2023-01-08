@@ -545,7 +545,7 @@ Given these predictor values the \tjm\ yields the following probabilities of mai
 
 \medskip
 
-As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the \enquote{error} on these probabilities. There is an error on the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative numerical errors are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standard for the expression of measurement uncertainty, \citealp{jcgm1993_r2008}).
+As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty, \citealp{jcgm1993_r2008}).
 
 \begin{figure}[!t]% with figure
   \centering%
@@ -1015,13 +1015,13 @@ We consider 27 sets of predictors:
 \item all predictors jointly.
 \end{itemize}
 
-The expected accuracy and mutual information (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical computation error. The latter is reported as bars of $\pm$~one standard deviation.
+The expected accuracy and mutual information (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical uncertainty. The latter is reported as coverage intervals of $\pm$~two standard deviations.
 \begin{figure}[!t]% with figure
   \centering%
 \includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
 \hfill%
 \includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
-\caption{Expected accuracy and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \textsf{all} predictor set is mathematically guaranteed to be optimal according to both metrics, and has therefore be ranked first. Bars show the numerical computation error ($\pm$~two standard deviations).}\label{fig:mutual_info}
+\caption{Expected accuracy and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \textsf{all} predictor set is mathematically guaranteed to be optimal according to both metrics, and has therefore be ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
 \end{figure}%
 
 
