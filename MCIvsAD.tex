@@ -1004,9 +1004,7 @@ A predictor's \enquote{importance} or \enquote{prognostic power} is undefined un
 
 The \tjm\ allows us to compute the expected value of virtually any prognostic-importance metric of any subset of predictors available in the dataset. Two facts of paramount advantage are that (a) \emph{the prognostic power of a set of predictors found with the \tjm\ is the maximal one obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \tjm\ achieves this maximal power}. Thus, if the \tjm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \tjm, by construction, will reach this accuracy.
 
-We illustrate this kind of computation in our example case, using two metrics: the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad. Use of the accuracy assumes that the population of patients has only two available treatments having average utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$. Mutual information is a model-free measure of the relation between two sets of variates, with diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a non-constant deterministic function from the former to the latter. \mynotew{Consider using conditional entropy instead of mutual info; maybe both. Show the distribution of cAD/sMCI across the main diagonal o f the 12D predictor space}
-
-We consider 27 sets of predictors:
+We illustrate this kind of computation in our example case, using: (a) two metrics, the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad; and (b) 27 different sets of predictors:
 \begin{itemize}
 \item every predictor, used individually (12 sets);
 \item all cognitive-test predictors used together, jointly with demographic information (Age and Sex);
@@ -1015,13 +1013,17 @@ We consider 27 sets of predictors:
 \item all predictors jointly.
 \end{itemize}
 
-The expected accuracy and mutual information (on a 0--1 scale) for these sets are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing mutual information. The ordering of mutual information and accuracy agree within the numerical uncertainty. The latter is reported as coverage intervals of $\pm$~two standard deviations.
+Use of the accuracy assumes that the population of patients has only two available treatments having average utility matrix $\bigl[\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr]$. Mutual information is a model-free measure of the relation between two sets of variates, with diverse operational interpretations \citep{mackay1995_r2005,woodward1953_r1964,minka1998d_r2003,goodetal1968,kelly1956,kullback1959_r1978} and international standards \citep{iso2008c}. A set of predictors and a binary variate (such as our conversion to \ad) have a mutual information of $1\,\mathrm{Sh}$ if and only if there is a non-constant deterministic function from the former to the latter. \mynotew{Consider using conditional entropy instead of mutual info; maybe both. Show the distribution of cAD/sMCI across the main diagonal o f the 12D predictor space}
+
+Our specific questions are the following: \enquote{What is the expected value of the accuracy for the next new patient, if we use the given set of predictors?} and \enquote{What is the mutual information between the given set of predictors and the predictand, given the present available data?}.
+
+The answers to these questions are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing metric. The ordering of mutual information and accuracy agree within the uncertainty of the numerical computation. The latter is reported as coverage intervals of $\pm$~two standard deviations.
 \begin{figure}[!t]% with figure
   \centering%
 \includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
 \hfill%
 \includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
-\caption{Expected accuracy and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \textsf{all} predictor set is mathematically guaranteed to be optimal according to both metrics, and has therefore be ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
+\caption{Expected accuracy (for the next new patient) and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \textsf{all} predictor set is mathematically guaranteed to be optimal according to both metrics, and has therefore be ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
 \end{figure}%
 
 
