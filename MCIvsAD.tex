@@ -527,9 +527,9 @@ The predictor values for our four patients are reported in table~\ref{tab:patien
   \caption{\mynotep{Predictor values for the four patients}}\label{tab:patients_data}
 \end{table}
 
-Given these predictor values the \tjm\ yields the following probabilities of main importance for the  application in the next sections:
+Given these predictor values the \tjm\ yields the  probabilities of main importance for the  application in the next sections reported in table~\ref{tab:prob_likelihoods_patients}.
   
-\begin{table}[!h]
+\begin{table}[!b]
   \centering
   \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
@@ -546,12 +546,12 @@ Given these predictor values the \tjm\ yields the following probabilities of mai
     \\[\jot]
     \hline
   \end{tabular}
-  \caption{\mynotep{Probabilities computed by the \tjm}}\label{tab:prob_likelihoods_patients}
+  \caption{\mynotep{Probabilities computed by the \tjm}} \label{tab:prob_likelihoods_patients}
   \end{table}
 
 \medskip
 
-As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty, \citealp{jcgm1993_r2008}).
+As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008}).
 
 \begin{figure}[!t]% with figure
   \centering%
@@ -1204,6 +1204,8 @@ Second, owing to the irreducible prognostic uncertainty, the clinician's ultimat
 
 
 % Current development of prognostic methods, especially when based on machine learning, is almost exclusively focused on differences in the first category. Moreover, in presenting how these methods could be applied, the clinical context is usually overly simplified, as if it were just a simple classification task. It is not. The clinician's ultimate goal is not to \enquote{classify} a patient's condition -- a clinician doesn't simply say \enquote{hey, you're likely to develop Alzheimer. Goodbye, now you can go!}. The ultimate goal is to choose among several courses of action. And the number of such courses of action is typically larger than the number of possible \enquote{labels} of the medical condition. Already this simple numerical discrepancy shows that classification methods don't fill the bill. \mynotep{to be continued...}
+
+\mynotep{Possible additional point of view} Let's assume that current technology allows for a particular maximal rate of extraction of information per unit time, and if we assume that different inference algorithms reach this maximum rate (or do not reach it by a common amount). Information and communication theory \citep[I--II]{mackay1995_r2005} then suggests that if one inference algorithm is, say 100 times faster than a \tjm, its output has also 100 times less information than a \tjm's. Do we need this extra information? The example case illustrated in the present work shows that part of this extra information is necessary for personalized medicine; and the remaining amount can be very useful or at times necessary for sensitivity analyses or resource planning.
 
 \mynotep{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
 
