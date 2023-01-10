@@ -1187,6 +1187,8 @@ Summary in table~\ref{tab:summary}.
 \section{Discussion}
 \label{sec:discussion}
 
+\mynotew{[Luca] There are a couple different ways to introduce the discussion. I'll write some variants as soon as possible}
+
 The differences among patients which are relevant to clinical diagnosis/prognosis and decision-making can be approximately divided into three categories:
 \begin{enumerate}[I.]
 \item\label{item:diff_corepredictors} differences in the availability and values of a core set of clinical predictors, for which we have population-wide statistical information;
@@ -1207,7 +1209,16 @@ Second, owing to the irreducible prognostic uncertainty, the clinician's ultimat
 
 \mynotep{Possible additional point of view} Let's assume that current technology allows for a particular maximal rate of extraction of information per unit time, and if we assume that different inference algorithms reach this maximum rate (or do not reach it by a common amount). Information and communication theory \citep[I--II]{mackay1995_r2005} then suggests that if one inference algorithm is, say 100 times faster than a \tjm, its output has also 100 times less information than a \tjm's. Do we need this extra information? The example case illustrated in the present work shows that part of this extra information is necessary for personalized medicine; and the remaining amount can be very useful or at times necessary for sensitivity analyses or resource planning.
 
-\mynotep{Difficulty in assessing and quantifying additional info: Just ignoring it is not a solution and is unethical}
+\subsection{Counters to critiques}
+\label{sec:critics}
+
+Any inference or decision-making algorithm aspiring to take into account patient differences must perforce have some open \enquote{input slots} for such differences. We saw that the \tjm\ requires inputs about a patient's specific predictors, relevant statistical relations and auxiliary data, and treatment utilities.
+
+Some researchers may wonder: can such additional input be avoided? They fear that errors could sneak in through these extra inputs.
+
+This question is answered by a mathematical theorem at the very core of decision theory \footnote{\citealp{savage1954_r1972,luceetal1957,raiffaetal1961_r2000,atkinsonetal1964,ferguson1967,lindley1971_r1988,kreps1988,bernardoetal1994_r2000,prattetal1995_r1996,pettigrew2011_r2019}}, which is too seldom emphasized: Any decision we make, either (A) comes explicitly or implicitly through some set of utilities and maximization of their expectations, or (B) is logically inconsistent. There is no third alternative. Thus the choice is not between using utilities or not using utilities, but between choosing them explicitly or letting them be chosen in a way we don't know. If you use a decision-making algorithm that does not ask you for utilities, then the algorithm is internally supplying utilities beyond your control, or worse, is committing logical inconsistencies.
+
+The first advantage of explicitly operating through utilities, probabilities, decision theory, is that we are at the very least sure of not acting in a self-contradictory way. The second advantage is that the utilities used to arrive at a decision lie openly in front of us. We can analyse and change them if we find them inappropriate to a specific problem. If they are hidden, it's more difficult to analyse which are inappropriate and how they should be changed.
 
 \mynotep{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
 
