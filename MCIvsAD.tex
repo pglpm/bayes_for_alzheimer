@@ -601,8 +601,125 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 \section{Assessment of population and auxiliary information}
 \label{sec:population_step}
 
-\subsection{Theory and method}
-\label{sec:populationprior_theory}
+As already mentioned and as it will be discussed more in detail in the next section, the clinician needs a probability in order to choose a treatment or other course of action about the current patient. This probability is computed by generalizing associations between predictors and predictand hidden in a dataset of similar patients. The way this generalization is made, however, can differ from patient to patient in two respects:
+\begin{itemize}
+\item Only some particular, directed associations can be generalized to the current patient, whereas others would be inappropriate to generalize. In some cases, for example when the learning dataset is artificially assembled with balancing or stratification methods, some associations cannot be generalized to any patients at all.
+\item There can be additional information available for the current patient, for instance some clinical predictors not included in the learning dataset, or other \enquote{softer} information such as family history or geographic background.
+\end{itemize}
+There is no sharp separation between these two items. The presence of additional information often automatically implies that some associations cannot be generalized from the learning dataset to the current patient.
+
+
+\setlength{\intextsep}{0ex}% with wrapfigure
+\setlength{\columnsep}{1ex}% with wrapfigure
+\begin{wrapfigure}{r}{0.25\linewidth}% with wrapfigure
+%\vspace{-1ex}%
+\includegraphics[width=\linewidth]{baseratefallacy3.png}%
+% \includegraphics[width=\linewidth]{baseratetrials.png}\\[\jot]
+% \includegraphics[width=\linewidth]{baseratepopulation.png}
+\end{wrapfigure}%
+Let us explain with a familiar example why particular associations cannot be generalized. Most medicine students learn about the \emph{base-rate fallacy} \citep{barhillel1980,jennyetal2018,sprengeretal2021,matthews1996}. Consider a large set of clinical trials, illustrated in the upper table on the side, where each dot represents, say, 10\,000 patients. In this sample dataset it is found that, among patients having a particular value \enquote{+} of some predictors (left column), 71.4\% (or 5/7, upper square) of them eventually developed a disease. The fallacy lies in judging that a new real patient from the full population, who has that particular predictor value, also has a 71.4\% probability of developing that disease. In fact, \emph{this probability will in general be different}. In our example it is 33.3\% (5/15), as can be seen in the lower table illustrating the full population. This difference would be noticed as soon as the inappropriate probability were used to make prognoses in the full population.
+
+There is a discrepancy in the frequencies of predictand given predictors for the sample dataset and for the full population, because the proportion of positive vs negative disease cases in the latter has some value, 16.7\%/83.3\% in our example, whereas the samples for the trials (dashed line in the lower table) were chosen so as to have a 50\%/50\% proportion. This sampling procedure is called \enquote{class balancing} in machine learning \citep{provost2000,drummondetal2005,weissetal2003}. More generally this discrepancy can appear whenever a population and a sample dataset from it do not have the same frequency distribution for the predictand. In this case we cannot rely on the probabilities of \enquote{predictand given predictors} obtained from the sample dataset, which we symbolically write as
+\begin{equation}
+  \p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})
+\end{equation}
+\mynotew{Maybe make clear at the beginning that we denote predictand with $Y$, predictors with $X$, dataset with $D$, and just write $\p(Y\|X\,D)$.}
+
+A little counting in the side figure reveals, however, that other frequencies may be relied upon. Consider the full population. Among all patients who developed the disease, 83.3\% (or 5/6, upper row) of them had the particular predictor value, while among those who did not develop the disease, 33.3\% (or 1/3, lower row) had the particular predictor value. \emph{And these frequencies are the same in the sample dataset}. These frequencies from the clinical trials can therefore be used to make a prognosis using Bayes's theorem:
+\begin{equation}
+  \label{eq:base-rate_correction}
+  % \p(\textsf{\small predictand} \| \textsf{\small predictors}) \propto
+  % \p(\textsf{\small predictors} \| \textsf{\small predictand},
+  % \textsf{\small dataset})
+  % \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
+  \p(\textsf{\small predictand} \| \textsf{\small predictors}) =
+  \frac{
+    \p(\textsf{\small predictors} \| \textsf{\small predictand},
+  \textsf{\small dataset})
+  \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
+}{\sum\limits_{\text{predictand}}
+    \p(\textsf{\small predictors} \| \textsf{\small predictand},
+  \textsf{\small dataset})
+  \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
+}
+\end{equation}
+In our example we find
+\begin{equation}
+  \label{eq:base-rate_correction_example}
+ \begin{split}
+  % \p(\textsf{\small predictand} \| \textsf{\small predictors}) \propto
+  % \p(\textsf{\small predictors} \| \textsf{\small predictand},
+  % \textsf{\small dataset})
+  % \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
+   \p(\textsf{\small disease+} \| \textsf{\small predictor+})
+   &=
+  \frac{
+    \p(\textsf{\small predictor+} \| \textsf{\small disease+},
+  \textsf{\small trials})
+  \cdot   \p(\textsf{\small disease+} \| \textsf{\small population})
+}{
+  \biggl[\begin{aligned}
+    &\p(\textsf{\small predictor+} \| \textsf{\small disease+},
+  \textsf{\small trials}) 
+  \cdot   \p(\textsf{\small disease+} \| \textsf{\small population})
+  +{}\\[-0.5\jot]&\hspace{5em}
+    \p(\textsf{\small predictor+} \| \textsf{\small disease\textminus},
+  \textsf{\small trials})
+  \cdot   \p(\textsf{\small disease\textminus} \| \textsf{\small population})
+\end{aligned}\biggr]
+} \\[2\jot]
+&\approx
+  \frac{ 0.833 \cdot 0.167}{0.833 \cdot 0.167 + 0.333 \cdot 0.833}
+  = 0.33
+  \end{split}
+\end{equation}
+which is indeed the correct full-population frequency.
+
+If the samples of the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the probability $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ from the dataset would be the appropriate one to use. But the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities}
+\[\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})\]
+\emph{from the dataset is preferable to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ probabilities is illustrated with a toy example in the inset at the bottom of this page.
+\begin{table}[t]
+  \begin{framed}
+  \small
+  \begin{center}
+    \textbf{Inset: superiority of the \enquote{predictors$\pmb{\|}$predictand} approach}\label{tab:superiority_predictors_given_predictand}
+  \end{center}
+    We split our learning dataset in two subsets:
+    \begin{itemize}
+    \item One with 361 datapoints and a ratio of 29.9\%/70.1\% of conversions to \ad\ vs stable \mci. This is used as learning set.
+    \item One with 343 datapoints and a ratio of 63.3\%/36.7\% of conversions to \ad\ vs stable \mci. This is used as a fictive full population.
+    \end{itemize}
+    No systematic sampling of any variates was made in this partition, besides the conversion variate.
+
+    We then make a prognosis for each of the 343 new patients with four approaches: (a) using the probabilities $\p(\textsf{predictand} \| \textsf{predictors}, \textsf{dataset})$, as typical of machine-learning algorithms; (b) using $\p(\textsf{predictors} \| \textsf{predictand}, \textsf{dataset})$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{conversion to \ad}, which guarantees 63.3\% correct prognoses owing to the base rate. Here is the accuracy (that is, the number of prognoses giving more than 50\% probability to the correct course) of each approach, ranked:
+
+    \medskip
+    { 
+      % \begin{table}[!h]
+      \centering
+      \begin{tabular}{cccc}
+        \hline\\[-\jot]
+        {\scriptsize predictand$\|$predictors}&{\scriptsize coin toss}&{\scriptsize always predict conversion}&{\scriptsize predictors$\|$predictand \amp\ base rate}
+        \\[1\jot]
+        37.3\% & 50\% & 63.3\% & 73.2\%\\[\jot]
+        \hline
+      \end{tabular}
+      % \end{table}
+
+    }
+    \medskip
+    
+    The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach instead leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \tjm, are incapable of extracting this useful information.
+  \end{framed}
+\end{table}
+
+\medskip
+
+The use of dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ can be necessary even when the dataset has statistics identical with the population it is sampled from. Typical cases are the prognosis of a patient that comes from a peculiar subpopulation or even from a different population \citetext{\citealp{lindleyetal1981}; \citealp{quintanaetal2017}; \citealp[\chap~4]{soxetal1988_r2013}; \citealp[\chap~5]{huninketal2001_r2014}}. The first case happens for instance when the clinician has additional information not included among the predictor variates, such as the result of an additional clinical test, or family history. The second case happens for instance when the patient comes from a different geographical region. There is of course no sharp distinction between these two cases.
+
+What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} statistics may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. In other words, the patient may still be considered of a member of the subpopulation having those specific predictor values. Using more technical language we say that a new patient can be considered \emph{exchangeable} with the patients constituting the dataset, but only conditional on particular variates. See \cite[esp.\ around \sects~7.3, 8.6]{lindley2006_r2014} and \cite{lindleyetal1981} for a clear and logically impeccable presentation not obscured by technical language \citetext{more technical references are \citealp[\sects~4.2--4.3]{definetti1930,definetti1937,dawid2013,bernardoetal1994_r2000}; see also \cite{malinasetal2004_r2016}, \cite{sprengeretal2021} about confounding and Simpson's paradox, to which this topic is tightly related}.
+
+This topic is complex and of extreme importance for inference, but its detailed study is not the goal of the present work. Our main point here is that population variability and auxiliary clinical information are important factors that differentiate patients, and a personalized approach ought to take them into account. The method here presented does this naturally, allowing a great flexibility in selecting which statistical features of the sample dataset should be used for each new patient, and the integration of auxiliary clinical information in the form of a prior probability. As discussed in \sect~\ref{sec:learning_step}, the \tjm\ allows us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$ required by the patient's relevant population.
 
 \mynotew{[Luca] testing a slightly different presentation:}
 
@@ -659,113 +776,7 @@ The \tjm\ calculates and outputs this probability in several different ways, as 
 The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \tjm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
 
 
-\setlength{\intextsep}{0ex}% with wrapfigure
-\setlength{\columnsep}{1ex}% with wrapfigure
-\begin{wrapfigure}{r}{0.25\linewidth}% with wrapfigure
-%\vspace{-1ex}%
-\includegraphics[width=\linewidth]{baseratefallacy3.png}%
-% \includegraphics[width=\linewidth]{baseratetrials.png}\\[\jot]
-% \includegraphics[width=\linewidth]{baseratepopulation.png}
-\end{wrapfigure}%
-Most medicine students learn about the \emph{base-rate fallacy} \citep{barhillel1980,jennyetal2018,sprengeretal2021,matthews1996}. Consider a large set of clinical trials, illustrated in the upper table on the side, where each dot represents, say, 10\,000 patients. In this sample dataset it is found that, among patients having a particular value \enquote{+} of some predictors (left column), 71.4\% (or 5/7, upper square) of them eventually developed a disease. The fallacy lies in judging that a new real patient from the full population, who has that particular predictor value, also has a 71.4\% probability of developing that disease. In fact, \emph{this probability will in general be different}. In our example it is 33.3\% (5/15), as can be seen in the lower table illustrating the full population. This difference would be noticed as soon as the inappropriate probability were used to make prognoses in the full population.
 
-There is a discrepancy in the frequencies of predictand given predictors for the sample dataset and for the full population, because the proportion of positive vs negative disease cases in the latter has some value, 16.7\%/83.3\% in our example, whereas the samples for the trials (dashed line in the lower table) were chosen so as to have a 50\%/50\% proportion. This sampling procedure is called \enquote{class balancing} in machine learning \citep{provost2000,drummondetal2005,weissetal2003}. More generally this discrepancy can appear whenever a population and a sample dataset from it do not have the same frequency distribution for the predictand. In this case we cannot rely on the probabilities of \enquote{predictand given predictors} obtained from the sample dataset.
-
-A little counting in the side figure reveals, however, that other frequencies may be relied upon. Consider the full population. Among all patients who developed the disease, 83.3\% (or 5/6, upper row) of them had the particular predictor value, while among those who did not develop the disease, 33.3\% (or 1/3, lower row) had the particular predictor value. \emph{And these frequencies are the same in the sample dataset}. These frequencies from the clinical trials can therefore be used to make a prognosis using Bayes's theorem:
-\begin{equation}
-  \label{eq:base-rate_correction}
-  % \p(\textsf{\small predictand} \| \textsf{\small predictors}) \propto
-  % \p(\textsf{\small predictors} \| \textsf{\small predictand},
-  % \textsf{\small dataset})
-  % \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
-  \p(\textsf{\small predictand} \| \textsf{\small predictors}) =
-  \frac{
-    \p(\textsf{\small predictors} \| \textsf{\small predictand},
-  \textsf{\small dataset})
-  \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
-}{\sum\limits_{\text{predictand}}
-    \p(\textsf{\small predictors} \| \textsf{\small predictand},
-  \textsf{\small dataset})
-  \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
-}
-\end{equation}
-In our example we find
-\begin{equation}
-  \label{eq:base-rate_correction_example}
- \begin{split}
-  % \p(\textsf{\small predictand} \| \textsf{\small predictors}) \propto
-  % \p(\textsf{\small predictors} \| \textsf{\small predictand},
-  % \textsf{\small dataset})
-  % \cdot   \p(\textsf{\small predictand} \| \textsf{\small population})
-   \p(\textsf{\small disease+} \| \textsf{\small predictor+})
-   &=
-  \frac{
-    \p(\textsf{\small predictor+} \| \textsf{\small disease+},
-  \textsf{\small trials})
-  \cdot   \p(\textsf{\small disease+} \| \textsf{\small population})
-}{
-  \biggl[\begin{aligned}
-    &\p(\textsf{\small predictor+} \| \textsf{\small disease+},
-  \textsf{\small trials}) 
-  \cdot   \p(\textsf{\small disease+} \| \textsf{\small population})
-  +{}\\[-0.5\jot]&\hspace{5em}
-    \p(\textsf{\small predictor+} \| \textsf{\small disease\textminus},
-  \textsf{\small trials})
-  \cdot   \p(\textsf{\small disease\textminus} \| \textsf{\small population})
-\end{aligned}\biggr]
-} \\[2\jot]
-&\approx
-  \frac{ 0.833 \cdot 0.167}{0.833 \cdot 0.167 + 0.333 \cdot 0.833}
-  = 0.33
-  \end{split}
-\end{equation}
-which is indeed the correct full-population frequency.
-
-If the samples of the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the probability $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ from the dataset would be the appropriate one to use. But the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities}
-\[\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})\]
-\emph{from the dataset is preferable to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ probabilities is illustrated with a toy example in the inset at the bottom of this page.
-\begin{table}[!b]
-  \begin{framed}
-  \small
-  \begin{center}
-    \textbf{Inset: superiority of the \enquote{predictors$\pmb{\|}$predictand} approach}\label{tab:superiority_predictors_given_predictand}
-  \end{center}
-    We split our learning dataset in two subsets:
-    \begin{itemize}
-    \item One with 361 datapoints and a ratio of 29.9\%/70.1\% of conversions to \ad\ vs stable \mci. This is used as learning set.
-    \item One with 343 datapoints and a ratio of 63.3\%/36.7\% of conversions to \ad\ vs stable \mci. This is used as a fictive full population.
-    \end{itemize}
-    No systematic sampling of any variates was made in this partition, besides the conversion variate.
-
-    We then make a prognosis for each of the 343 new patients with four approaches: (a) using the probabilities $\p(\textsf{predictand} \| \textsf{predictors}, \textsf{dataset})$, as typical of machine-learning algorithms; (b) using $\p(\textsf{predictors} \| \textsf{predictand}, \textsf{dataset})$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{conversion to \ad}, which guarantees 63.3\% correct prognoses owing to the base rate. Here is the accuracy (that is, the number of prognoses giving more than 50\% probability to the correct course) of each approach, ranked:
-
-    \medskip
-    { 
-      % \begin{table}[!h]
-      \centering
-      \begin{tabular}{cccc}
-        \hline\\[-\jot]
-        {\scriptsize predictand$\|$predictors}&{\scriptsize coin toss}&{\scriptsize always predict conversion}&{\scriptsize predictors$\|$predictand \amp\ base rate}
-        \\[1\jot]
-        37.3\% & 50\% & 63.3\% & 73.2\%\\[\jot]
-        \hline
-      \end{tabular}
-      % \end{table}
-
-    }
-    \medskip
-    
-    The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach instead leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \tjm, are incapable of extracting this useful information.
-  \end{framed}
-\end{table}
-
-\medskip
-
-The use of dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ can be necessary even when the dataset has statistics identical with the population it is sampled from. Typical cases are the prognosis of a patient that comes from a peculiar subpopulation or even from a different population \citetext{\citealp{lindleyetal1981}; \citealp{quintanaetal2017}; \citealp[\chap~4]{soxetal1988_r2013}; \citealp[\chap~5]{huninketal2001_r2014}}. The first case happens for instance when the clinician has additional information not included among the predictor variates, such as the result of an additional clinical test, or family history. The second case happens for instance when the patient comes from a different geographical region. There is of course no sharp distinction between these two cases.
-
-What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} statistics may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. In other words, the patient may still be considered of a member of the subpopulation having those specific predictor values. Using more technical language we say that a new patient can be considered \emph{exchangeable} with the patients constituting the dataset, but only conditional on particular variates. See \cite[esp.\ around \sects~7.3, 8.6]{lindley2006_r2014} and \cite{lindleyetal1981} for a clear and logically impeccable presentation not obscured by technical language \citetext{more technical references are \citealp[\sects~4.2--4.3]{definetti1930,definetti1937,dawid2013,bernardoetal1994_r2000}; see also \cite{malinasetal2004_r2016}, \cite{sprengeretal2021} about confounding and Simpson's paradox, to which this topic is tightly related}.
-
-This topic is complex and of extreme importance for inference, but its detailed study is not the goal of the present work. Our main point here is that population variability and auxiliary clinical information are important factors that differentiate patients, and a personalized approach ought to take them into account. The method here presented does this naturally, allowing a great flexibility in selecting which statistical features of the sample dataset should be used for each new patient, and the integration of auxiliary clinical information in the form of a prior probability. As discussed in \sect~\ref{sec:learning_step}, the \tjm\ allows us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$ required by the patient's relevant population.
 
 
 % The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
@@ -848,6 +859,11 @@ Note that this corresponds to a matrix multiplication between the matrix of util
 Finally, the recommended action is the one having \emph{maximal expected utility}.
 
 \mynotep{Add a couple of comments about the inevitability of the rules of decision theory \citep{lindley1971_r1988}}
+
+
+\subsection{Theory and method}
+\label{sec:populationprior_theory}
+
 
 \subsection{Application to the example study}
 \label{sec:expected_utility_application}
