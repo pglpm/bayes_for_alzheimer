@@ -604,6 +604,60 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 \subsection{Theory and method}
 \label{sec:populationprior_theory}
 
+\mynotew{[Luca] testing a slightly different presentation:}
+
+The probability necessary for the clinician's decision problem is the following:
+\begin{center}
+  \includegraphics[width=0.67\linewidth]{p_scheme.pdf}%
+\end{center}
+It can be rewritten as follows, by the rules for conditional and marginal probabilities:
+\begin{equation}
+  \label{eq:prob_main}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)}
+\end{equation}
+
+The \tjm\ calculates and outputs this probability in several different ways, as demanded by the clinician according to current patient's situation:
+\begin{enumerate}[I.]
+\item\label{item:prob_fully_exch} The patient and the datasets are mutually representative with regard to predictand \emph{and} all predictors; there is no auxiliary information:
+  \begin{equation}
+  \label{eq:prob_fully_exch}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  \frac{\p(Y\, X \| D\, I)}{\sum_{Y}\p(Y\, X \| D\, I)}
+\end{equation}
+
+\item\label{item:prob_exch_givenX} The patient and the datasets are mutually representative with regards to predictand \emph{given} the predictors, but not with regard to the predictors alone; there is no auxiliary information:
+  \begin{equation}
+  \label{eq:prob_exch_givenX}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  % \frac{\p(Y\| X \, D\, I)\ \p(X\| Z\, D\,I)}{\sum_{Y}\p(Y\| X \, Z\, D\, I)\
+  % \p(X \| Z\, D\, I)} =
+  \p(Y \| X\, D\, I)
+\end{equation}
+
+\item\label{item:prob_exch_givenY} The patient and the datasets are mutually representative with regards to predictors \emph{given} the predictand, but not with regard to the predictand alone; there is auxiliary information:
+  \begin{equation}
+  \label{eq:prob_exch_givenY}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
+  \p(Y \| Z\, I)}
+\end{equation}
+
+\item\label{item:prob_exch_other} Other intermediate situations.
+%   \begin{equation}
+%   \label{eq:prob_exch_givenY}
+%   \p(Y \| X\,Z\,D\,I) \equiv
+%   \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+%   \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
+%   \p(Y \| Z\, I)}
+% \end{equation}
+
+\end{enumerate}
+The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \tjm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
+
 
 \setlength{\intextsep}{0ex}% with wrapfigure
 \setlength{\columnsep}{1ex}% with wrapfigure
