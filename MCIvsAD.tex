@@ -689,9 +689,9 @@ If the samples of the clinical trials had been chosen with the same frequencies 
     \item One with 361 datapoints and a ratio of 29.9\%/70.1\% of conversions to \ad\ vs stable \mci. This is used as learning set.
     \item One with 343 datapoints and a ratio of 63.3\%/36.7\% of conversions to \ad\ vs stable \mci. This is used as a fictive full population.
     \end{itemize}
-    No systematic sampling of any variates was made in this partition, besides the conversion variate.
+    This partition was made with no systematic sampling of any variates except the conversion variate.
 
-    We then make a prognosis for each of the 343 new patients with four approaches: (a) using the probabilities $\p(\textsf{predictand} \| \textsf{predictors}, \textsf{dataset})$, as typical of machine-learning algorithms; (b) using $\p(\textsf{predictors} \| \textsf{predictand}, \textsf{dataset})$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{conversion to \ad}, which guarantees 63.3\% correct prognoses owing to the base rate. Here is the accuracy (that is, the number of prognoses giving more than 50\% probability to the correct course) of each approach, ranked:
+    We then make a prognosis for each of the 343 \enquote{new} patients, through four separate approaches: (a) using the probabilities $\p(\textsf{predictand} \| \textsf{predictors}, \textsf{dataset})$, as typical of machine-learning algorithms; (b) using $\p(\textsf{predictors} \| \textsf{predictand}, \textsf{dataset})$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{conversion to \ad}, which guarantees 63.3\% correct prognoses owing to the base rate. The accuracies (number of prognoses giving more than 50\% probability to the correct course) of these four approaches are finally calculate. Here are the results from lowest to highest:
 
     \medskip
     { 
@@ -709,7 +709,7 @@ If the samples of the clinical trials had been chosen with the same frequencies 
     }
     \medskip
     
-    The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach instead leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \tjm, are incapable of extracting this useful information.
+    The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \tjm, are incapable of extracting this useful information.
   \end{framed}
 \end{table}
 
