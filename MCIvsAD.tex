@@ -677,7 +677,7 @@ which is indeed the correct full-population frequency.
 
 If the samples of the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the probability $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ from the dataset would be the appropriate one to use. But the probabilities $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities}
 \[\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})\]
-\emph{from the dataset is preferable to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ probabilities is \emph{mathematically guaranteed} \mynotep{add refs} and illustrated with a toy example in the inset at the bottom of this page.
+\emph{from the dataset is preferable to using} $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\textsf{\small predictors} \| \textsf{\small predictand}, \textsf{\small dataset})$ probabilities is illustrated with a toy example in the inset at the bottom of this page.
 \begin{table}[t]
   \begin{framed}
   \small
@@ -717,7 +717,7 @@ If the samples of the clinical trials had been chosen with the same frequencies 
 
 The use of dataset probabilities different from $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ can be necessary even when the dataset has statistics identical with the population it is sampled from. Typical cases are the prognosis of a patient that comes from a peculiar subpopulation or even from a different population \citetext{\citealp{lindleyetal1981}; \citealp{quintanaetal2017}; \citealp[\chap~4]{soxetal1988_r2013}; \citealp[\chap~5]{huninketal2001_r2014}}. The first case happens for instance when the clinician has additional information not included among the predictor variates, such as the result of an additional clinical test, or family history. The second case happens for instance when the patient comes from a different geographical region. There is of course no sharp distinction between these two cases.
 
-What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} statistics may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. In other words, the patient may still be considered of a member of the subpopulation having those specific predictor values. Using more technical language we say that a new patient can be considered \emph{exchangeable} with the patients constituting the dataset, but only conditional on particular variates. See \cite[esp.\ around \sects~7.3, 8.6]{lindley2006_r2014} and \cite{lindleyetal1981} for a clear and logically impeccable presentation not obscured by technical language \citetext{more technical references are \citealp[\sects~4.2--4.3]{definetti1930,definetti1937,dawid2013,bernardoetal1994_r2000}; see also \cite{malinasetal2004_r2016}, \cite{sprengeretal2021} about confounding and Simpson's paradox, to which this topic is tightly related}.
+What is important is that in either case it can still be possible to use statistical information from the sample dataset to make prognoses. It is sufficient that some \emph{conditional} statistics may be applicable to the specific patient. For a patient coming from a different region, for example, it may be judged that the conditional probabilities $\p(\textsf{\small predictand} \| \textsf{\small predictors}, \textsf{\small dataset})$ still apply. In other words, the patient may still be considered of a member of the subpopulation having those specific predictor values. Using more technical language we say that a new patient can be considered \emph{exchangeable} with the patients constituting the dataset, but only conditional on particular variates. See \cite[esp.\ around \sects~7.3, 8.6]{lindley2006_r2014} and \cite{lindleyetal1981} for a clear and logically impeccable presentation not obscured by technical language \citetext{more technical references are \citealp[\sects~4.2--4.3]{definetti1930,definetti1937,dawid2013,bernardoetal1994_r2000}; see also \citealp{malinasetal2004_r2016}, \citealp{sprengeretal2021} about confounding and Simpson's paradox, to which this topic is tightly related}.
 
 This topic is complex and of extreme importance for inference, but its detailed study is not the goal of the present work. Our main point here is that population variability and auxiliary clinical information are important factors that differentiate patients, and a personalized approach ought to take them into account. The method here presented does this naturally, allowing a great flexibility in selecting which statistical features of the sample dataset should be used for each new patient, and the integration of auxiliary clinical information in the form of a prior probability. As discussed in \sect~\ref{sec:learning_step}, the \tjm\ allows us to quickly calculate conditional probabilities $\p(Y\|X, \textsf{\small dataset})$ for any desired variate subsets $Y$ and $X$ required by the patient's relevant population.
 
@@ -861,9 +861,6 @@ Finally, the recommended action is the one having \emph{maximal expected utility
 \mynotep{Add a couple of comments about the inevitability of the rules of decision theory \citep{lindley1971_r1988}}
 
 
-\subsection{Theory and method}
-\label{sec:populationprior_theory}
-
 
 \subsection{Application to the example study}
 \label{sec:expected_utility_application}
@@ -1006,7 +1003,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 \section{Additional information provided by the \tjm}
 \label{sec:additional_results}
 
-As already said, the output of the \tjm\ is about the full population of future patients, with all its statistics. This output can therefore be used for additional purposes such as resource planning, sensitivity checks, and the investigation of the predictors' importance in the prognosis.
+As already said, the output of the \tjm\ is about the full population of future patients, with all its statistics. This output can therefore be used for additional purposes such as resource planning, imputation of missing data, sensitivity checks, and the investigation of the predictors' importance in the prognosis.
 
 \subsection{Resource planning}
 \label{sec:resource_planning}
@@ -1030,10 +1027,18 @@ This kind of information allows us to make other forecasts of various kinds. For
 \end{equation}
 Again, despite the obvious large uncertainties, we can be quite sure that treatments $\gamma$ and $\delta$ will be prescribed ten times or more often than $\alpha$ and $\beta$. This kind of semi-quantitative forecast can be very useful for resource and production planning.
 
+\subsection{Imputation of missing data}
+\label{sec:missing_data}
+
+As mentioned in \sect~\ref{sec:learning_step}, the \tjm\ treats all variates of the learning dataset on the same footing. This is why it can output probabilities \enquote{predictand$\|$predictors}, \enquote{predictors$\|$predictand}, and other combinations with equal ease, exploiting them to correct subpopulation mismatches as illustrated in \sect~\ref{sec:population_step}.
+
+This feature allows us to impute missing data for one or more patients, giving a probability distribution of what those data could be. Such imputation can be done at prognostic time, for sensitivity checks; we discuss this more in detail in the next section. The imputation can also be done a posteriori, possibly years later, when the actual predictand value becomes known. This can be useful for many purposes, for instance the comparison of biological hypotheses.
+
+
 \subsection{Sensitivity checks}
 \label{sec:sensitivity}
 
-The kind of forecasts illustrated in the previous subsection can also be applied to individual patients for various kinds of sensitivity analysis.
+The imputation of missing data at prognostic time is useful for various kinds of sensitivity analysis.
 
 Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \tjm\ can give a probabilistic answer to this question.
 
