@@ -383,19 +383,17 @@ The inferential and decision-making steps based on the \tjm\ are summarized in t
     \begin{enumerate}\itemsep1em 
     \item\label{item:learn} Infer the joint, full-population frequencies of predictors and predictand with the \tjm,  using available datasets.
 
-      Input the clinical data of the patient, and select the appropriate output probabilities to be used in the next step.
+    \item\label{item:population} Assess which statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
+
+      Input the patient's  clinical data, relevant statistics, and auxiliary information into the \tjm. 
+
+      Upon request, the machine can output the final probability of the predictand's true value for the patient and any other probabilities and likelihoods of interest.
       
-    \item\label{item:population} Assess which statistics of the dataset can be applied to the present patient. Take their probabilities from step~\ref{item:learn}.
+    \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient, and the utility (benefit and loss) of each course of action, depending on each possible predictand value for the patient.
 
-      Assess auxiliary clinical information available for this patient; quantify it in a prior probability.
+      Input the patient's utilities into the \tjm. The machine outputs the course of action having maximal expected utility.
 
-      From these, the final probability of the patient's true medical condition is calculated.
-      
-    \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient.
-
-      Assess the utility (benefit and loss) of each course of action, depending on each possible medical condition of the patient.
-
-      Combine the utilities with the final probabilities from step~\ref{item:population}. Choose the course of action having maximal expected utility.  
+      Upon request, the machine can output the probability of gaining different utilities, perform sensitivity analyses for missing data, and similar tasks.
     \end{enumerate}
   \end{framed}
 \end{table}
