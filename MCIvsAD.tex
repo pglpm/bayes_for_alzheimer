@@ -321,15 +321,15 @@ Several additional advantages of this quantification framework are also exemplif
 % Bianca #1
 % Curtis #4
 
-Meet Olivia, Ariel, Bianca, Curtis.\footnote{Fictive characters; any reference to real persons is purely coincidental}
+Meet Olivia, Ariel, Bianca, Curtis.\footnote{These are purely fictive characters but with clinically realistic conditions; any reference to real persons is purely coincidental.}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. In fact, this is why they recently underwent a clinical examination, including a battery of cognitive tests. Today they received the results from this examination. Based on these results, available clinical statistical data, and other relevant information, their clinician will
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. This is why each of them recently underwent a round of clinical examinations. Today they received the results. Based on these results, on available clinical statistical data, and on other relevant information, their clinician will 
 % indicate % [what does this mean?]
-assess their risk of developing Alzheimer, and then make a decision among a set of mutually exclusive preventive-treatment options, together with the patients and their relatives.
+assess their risk of developing Alzheimer, and then make a decision among a set of mutually exclusive preventive-treatment options, together with the patients and their relatives. In this task the clinician will be helped by a computer algorithm.
 
 Besides a shared MCI diagnosis and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three patients:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from MCI to \ad. Moreover, Ariel comes, unlike Olivia, from a family with a heavy history of Alzheimer's Disease. Because of this geographical and family background, the clinician judges a priori a 65\% probability that Ariel's cognitive impairment will convert to Alzheimer's Disease
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from \mci\ to \ad. Ariel moreover comes, unlike Olivia, from a family with a heavy history of \ad. Because of this geographical and family background, before seeing the clinical data the clinician judges that there's a 65\% probability that Ariel's cognitive impairment will convert to \ad.
 
 \item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the preventive options slightly riskier for her.
 
@@ -342,17 +342,18 @@ Besides a shared MCI diagnosis and associated worries, these patients have other
 \end{wrapfigure}%
 We can categorize these differences, schematized in the side figure, as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis).
 
-Considering the similarities and differences among these patients, which treatments are optimal and should prescribed to them?
+Considering the similarities and differences among these patients, which of the available treatments is optimal for each of them?
+
+In our example study we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion to \ad\ for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
 
 \medskip
 
-Our main purpose in the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, exactly, and at low computational cost, when the available prognostic clinical information involves one-dimensional or categorical variates. The solution method integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
+The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, at low computational cost, taking into account all mentioned categories that differentiate every patient from every other. The solution method is implemented as an algorithm that integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. This algorithm is fully interpretable and can be used when the available clinical information consists of any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates.
+  % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
 
-In our example we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, or preventive benefits.
+The core of the algorithm is none other than Decision Theory, the combination of probability theory and utility theory \citep[\chaps~13--14]{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}, with old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} that explain and exemplify its application.
 
-The method used is none other than decision theory, the combination of probability theory and utility theory \citep[\chaps~13--14]{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it \citep{ledleyetal1959}, with old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} that explain and exemplify its application.
-
-Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present method can therefore be seen as the application of an \emph{ideal} machine-learning algorithm. We call it the \emph{Turing-Jaynes machine}  in homage to Turing, who put this method and its underlying algorithms into practice with automated devices \citep{good1979}, and Jaynes \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic behind such a machine . The \tjm\ is \enquote{ideal} in the sense of being free from approximations, from special modelling assumptions, and from limitations in its informational output; not \enquote{ideal} in the sense of being impracticable. In fact, in the present work we show that for some kinds of dataset this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their output limitations. We discuss this matter further in \sect~\ref{sec:discussion}.
+Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present algorithm can therefore be seen as an ideal machine-learning algorithm. We call it the \emph{Turing-Jaynes machine} in homage to Turing, who put this method and its underlying algorithms into practice with automated devices \citep{good1979}, and Jaynes \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic behind such a machine . The \tjm\ is \enquote{ideal} in the sense of being free from special modelling assumptions or approximations, and from limitations of its informational output; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present shows that this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\ref{sec:discussion}.
 
 %%%% Note on "predictand"
 %
@@ -373,7 +374,7 @@ Decision theory is also the normative foundation for the construction of an Arti
   and goals, results, and some synopsis}
 
 The inferential and decision-making steps based on the \tjm\ are summarized in the inset at the bottom of this page.
-\begin{table}[!b]  
+\begin{table}[t]  
   \begin{framed}
     \small
       \begin{center}
@@ -381,19 +382,23 @@ The inferential and decision-making steps based on the \tjm\ are summarized in t
   \end{center}
     
     \begin{enumerate}\itemsep1em 
-    \item\label{item:learn} Infer the joint, full-population frequencies of predictors and predictand with the \tjm,  using available datasets.
+    \item\label{item:learn} Find or build an appropriate dataset of clinical cases comprising values of the predictors and predictand of interest. Datapoints with partially missing values are allowed.
 
-    \item\label{item:population} Assess which statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
+      Input the dataset into the \tjm\ and let it infer the joint full-population frequencies of predictors and predictand behind the dataset.
 
-      Input the patient's  clinical data, relevant statistics, and auxiliary information into the \tjm. 
+    \item\label{item:predictors} Measure the present patient's predictor values and input them in the \tjm. Partially missing values are allowed.
 
-      Upon request, the machine can output the final probability of the predictand's true value for the patient and any other probabilities and likelihoods of interest.
+    \item\label{item:population} Assess which conditional statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
+
+      Input the relevant statistics and auxiliary information for the present patient into the \tjm. 
+
+      Upon request, the machine can now output the final probability of the predictand's true value for the patient, as well as any other probabilities and likelihoods of interest.
       
     \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient, and the utility (benefit and loss) of each course of action, depending on each possible predictand value for the patient.
 
       Input the patient's utilities into the \tjm. The machine outputs the course of action having maximal expected utility.
 
-      Upon request, the machine can output the probability of gaining different utilities, perform sensitivity analyses for missing data, and similar tasks.
+      Upon request, the machine can output the probability of gaining different utilities, perform sensitivity analyses for missing data, and do other similar tasks.
     \end{enumerate}
   \end{framed}
 \end{table}
@@ -420,10 +425,9 @@ The three steps and sections could also be presented in reverse order, more suit
 % \subsection*{Statistical procedures}
 %% [Luca] The kind of division above doesn't really make sense with the current presentation. In case one must rearrange the whole material
 
+\newpage% Newpage break just to help while writing the draft
 \section{Learning}
 \label{sec:learning_step}
-
-\mynotez{Maybe the proper learning stage, before application to patients, should be in a separate section?}
 
 \subsection{Theory and method}
 \label{sec:learning_theory}
@@ -492,11 +496,19 @@ For readers with an interest in machine learning and artificial intelligence, we
 
 \mynotep{Add note on \enquote{ensembling}: it does not give probabilities \citep[\sect~18.2]{murphy2022}}
 
-\medskip
+
 
 An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
 
-% \section{Results}
+
+\newpage% Newpage break just to help while writing the draft
+\section{Patient's clinical information}
+\label{sec:predictor_step}
+
+\subsection{Theory and method}
+\label{sec:predictor_theory}
+
+
 \subsection{Application to the example study}
 \label{sec:learn_application}
 
@@ -597,7 +609,11 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 % sd             0.0080
 
 
-\newpage
+
+
+
+
+\newpage% Newpage break just to help while writing the draft
 \section{Assessment of population and auxiliary information}
 \label{sec:population_step}
 
@@ -812,6 +828,7 @@ The final probabilities of conversion to \ad\ for our four patients are reported
 \end{table}
 
 
+\newpage% Newpage break just to help while writing the draft
 \section{Assessments of treatments and benefits; final decision}
 \label{sec:utilities_step}
 
@@ -999,7 +1016,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 
 
 
-\bigskip
+\newpage% Newpage break just to help while writing the draft
 \section{Additional information provided by the \tjm}
 \label{sec:additional_results}
 
@@ -1156,7 +1173,7 @@ The \tjm\ shows that the omission of any one of the 12 predictors, except \texts
 % \end{table}
 
 
-\newpage
+\newpage% Newpage break just to help while writing the draft
 \section{Summary of the case study}
 \label{sec:summary}
 
@@ -1256,7 +1273,7 @@ Summary in table~\ref{tab:summary}.
 
 
 
-\newpage
+\newpage% Newpage break just to help while writing the draft
 \section{Discussion}
 \label{sec:discussion}
 
@@ -1304,6 +1321,8 @@ As mentioned in \sect~\ref{sec:learning_step} and explained in appendix~\ref{sec
 
 As explained in \sect~\ref{sec:population_step}, the essentially sole assumption underlying the \tjm's inference and its practical used with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in technical jargon, partial or conditional exchangeability applies). This precludes using the \tjm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (transversal \mynotez{correct?}) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For example, if data about the time of conversion to \ad\ were available in the dataset, the \tjm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
+
+\newpage% Newpage break just to help while writing the draft
 \appendix
 \renewcommand\thesection{\Alph{section}}
 \section{Appendices}
