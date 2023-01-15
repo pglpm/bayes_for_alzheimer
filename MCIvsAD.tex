@@ -338,7 +338,7 @@ Besides a shared MCI diagnosis and associated worries, these patients have other
 
 \begin{wrapfigure}{r}{0.25\linewidth}%
 \vspace{-2em}\includegraphics[width=\linewidth]{OABC.png}
-%\caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+\vspace{-4em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{wrapfigure}%
 We can categorize these differences, schematized in the side figure, as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis).
 
@@ -413,6 +413,8 @@ How does the clinician use the \tjm\ in a specific application to a patient, aft
 These steps taken by the clinician and use of the \tjm\ will be explained and illustrated in the next three sections. They are presented in chronological order as the clinician would apply them. In each section, a general overview and discussion of the theory and method behind the specific step is first given, followed by the concrete application to our example case.
 
 The three steps and sections could also be presented in reverse order, more suited to their logical dependence, because the procedure in each one is actually motivated by the next. We suggest that readers familiar with the principles of clinical decision making read them in \sect\,\ref{sec:learning_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:utilities_step} order; whereas readers unfamiliar with these principles (who may include readers with a specialized background in machine learning) read them in \sect\,\ref{sec:utilities_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:learning_step} order.
+
+\mynotew{Remark that the approach used here is the same as in the research behind the last two black-hole observations \citep{eht2019,eht2022}.}
 
 % \section*{Methods}
 % \subsection*{Participants}
@@ -553,7 +555,7 @@ Given these predictor values the \tjm\ yields the  probabilities of main importa
 
 As an illustration of the additional information provided by the \tjm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008}).
 
-\begin{figure}[!t]% with figure
+\begin{figure}[t]% with figure
   \centering%
   \begin{minipage}{0.49\linewidth}\centering
     \includegraphics[width=\linewidth]{directprob_olivia.pdf}\\
@@ -597,7 +599,7 @@ As an illustration of the additional information provided by the \tjm, \fig~\ref
 % sd             0.0080
 
 
-\clearpage
+\newpage
 \section{Assessment of population and auxiliary information}
 \label{sec:population_step}
 
@@ -1010,7 +1012,7 @@ As already said, the output of the \tjm\ is about the full population of future 
 
 Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
 
-The \tjm\ can answer this question probabilistically, and obviously with great uncertainty. Yet there may be surprising details that can be assessed with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}, assuming that the \tjm\ will be regularly updated with the new patients' data (the calculation could also be made without this assumption). The dark-blue curve represents, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\%, 75\%, 95\% uncertainty coverage intervals \footnote{for terminology see \citealp[C.2.30]{jcgm1993_r2008}}. Despite the evident large uncertainties, we see that it is very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks. Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
+The \tjm\ can answer this question probabilistically, and obviously with great uncertainty. Yet there may be surprising details that can be assessed with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}, assuming that the \tjm\ will be regularly updated with the new patients' data (the calculation could also be made without this assumption). The dark-blue curve represents, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\%, 75\%, 95\% uncertainty coverage intervals \footnote{for terminology see \citealp[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that this is different from a \enquote{confidence interval}; the latter has a very different interpretation and is demonstrably suboptimal  \citep[\sect~37.3]{jaynes1976,mackay1995_r2005}.}. Despite the evident large uncertainties, we see that it is very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks. Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
 \begin{figure}[t]% with figure
   \centering%
   \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
