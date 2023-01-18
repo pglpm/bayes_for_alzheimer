@@ -16,7 +16,18 @@
 %\documentclass[utf8]{frontiersinFPHY_FAMS} % Vancouver Reference Style (Numbered) for articles in the journals "Frontiers in Physics" and "Frontiers in Applied Mathematics and Statistics" 
 
 %\setcitestyle{square} % for articles in the journals "Frontiers in Physics" and "Frontiers in Applied Mathematics and Statistics" 
-\usepackage{url,hyperref,lineno,microtype,subcaption}
+\usepackage{url,nameref,hyperref,lineno,microtype,subcaption}
+\makeatletter
+\AtBeginDocument{%
+  \@ifdefinable{\myorg@nameref}{%
+    \LetLtxMacro\myorg@nameref\nameref
+    \DeclareRobustCommand*{\nameref}[1]{%
+      \textbf{\myorg@nameref{#1}}%
+    }%
+  }%
+}
+\makeatother
+
 \usepackage[onehalfspacing]{setspace}
 \usepackage[usenames]{xcolor}
 % Tol (2012) colour-blind-, print-, screen-friendly colours, alternative scheme; Munsell terminology
@@ -323,32 +334,32 @@ Several additional advantages of this quantification framework are also exemplif
 
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{These are purely fictive characters but with clinically realistic conditions; any reference to real persons is purely coincidental.}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into Alzheimer's Disease within a couple of years. This is why each of them recently underwent a round of clinical examinations. Today they received the results. Based on these results, on available clinical statistical data, and on other relevant information, their clinician will 
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into \ad\ within a couple of years. This is why each of them recently underwent a round of clinical examinations. Today they received the results. Based on these results, on available clinical statistical data, and on other relevant information, their clinician will 
 % indicate % [what does this mean?]
-assess their risk of developing Alzheimer, and then make a decision among a set of mutually exclusive preventive-treatment options, together with the patients and their relatives. In this task the clinician will be helped by a computer algorithm.
+assess their risk of developing Alzheimer. Then, together with the patients and their relatives, the clinician will make a decision among four distinct preventive-treatment options. In these tasks the clinician will be helped by a computer algorithm.
 
-Besides a shared MCI diagnosis and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference and list the similarities and difference between her and the other three patients:
+Besides a shared diagnosis of \mci\ and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference, and list the similarities and difference between her and the other three patients:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also get similar benefits from the available preventive-treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from \mci\ to \ad. Ariel moreover comes, unlike Olivia, from a family with a heavy history of \ad. Because of this geographical and family background, before seeing the clinical data the clinician judges that there's a 65\% probability that Ariel's cognitive impairment will convert to \ad.
+\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also incur similar benefits and losses from the available treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from \mci\ to \ad. And unlike Olivia, Ariel comes from a family with a heavy history of \ad. Because of this geographical and family background, the clinician judges, before seeing the clinical data, that there's a 65\% probability that Ariel's cognitive impairment will convert to \ad.
 
 \item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the preventive options slightly riskier for her.
 
-\item Olivia and Curtis have different results on all neuropsychological tests and Hippocampal-Volume measure, in disfavour of Curtis. Olivia furthermore does not have the risky Apolipoprotein-E4 (APOE4) allele \citep{liuetal2013} whereas Curtis has. Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would get similar benefits from the preventive options. Note that one clinical result of Curtis's (hippocampal volume) is missing.
+\item Olivia and Curtis have different results on all clinical examinations. Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would incur similar benefits or losses from the preventive options. Note that one clinical result for Curtis's (hippocampal volume) is missing.
 \end{itemize}
 
 \begin{wrapfigure}{r}{0.25\linewidth}%
 \vspace{-2em}\includegraphics[width=\linewidth]{OABC.png}
 \vspace{-4em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{wrapfigure}%
-We can categorize these differences, schematized in the side figure, as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis).
+We can categorize these differences, schematized in the figure below, as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits and losses} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis).
 
 Considering the similarities and differences among these patients, which of the available treatments is optimal for each of them?
 
-In our example study we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion to \ad\ for Olivia and Bianca -- \emph{the optimal treatment option for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
+In our example study we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion to \ad\ for Olivia and Bianca -- \emph{the optimal treatment for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
 
 \medskip
 
-The method to solve this clinical decision-making problem is none other than Decision Theory, the combination of probability theory and utility theory\footnote{\citet[\chaps~13--14]{vonneumannetal1944_r1955,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}.}. It integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. Medicine has the distinction of having been one of the first fields to adopt Decision Theory, in Ledley and Lusted's \citeyearpar{ledleyetal1959,ledleyetal1959b,ledleyetal1960} pioneering work. Old and new brilliant textbooks for students in medicine \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} explain and exemplify its application. Ledley \citeyearpar[see especially \sect~1-5 p.~21]{ledley1959,ledley1960} also promoted the algorithmic implementation of clinical decision-making.
+The method to solve this kind of clinical decision-making problems while taking into account individual differences among patients, is none other than Decision Theory: the combination of probability theory and utility theory\footnote{\citet[\chaps~13--14]{vonneumannetal1944_r1955,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}.}. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits. Medicine has the distinction of having been one of the first fields to adopt Decision Theory, with the pioneering work by Ledley and Lusted \citeyearpar{ledleyetal1959,ledleyetal1959b,ledleyetal1960} pioneering work, who also promoted its algorithmic implementation \citep[see especially \sect~1-5 p.~21]{ledley1959,ledley1960}. Its application is explained and exemplified in old and new brilliant textbooks for students in medicine \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}.
 
 The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, at low computational cost, taking into account all mentioned categories that differentiate every patient from every other. The solution method is implemented as an algorithm that integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. This algorithm is fully interpretable and can be used when the available clinical information consists of any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates.
   % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
@@ -357,7 +368,7 @@ The main purpose of the present work is to illustrate, using the four fictitious
 
 The core of the algorithm is none other than Decision Theory, the combination of probability theory and utility theory \citep[\chaps~13--14]{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it, in the work by Ledley and Lusted \citep{ledleyetal1959,ledleyetal1960}, who also promoted its algorithmic implementation. Old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} explain and exemplify its application.
 
-Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present algorithm can therefore be seen as an ideal machine-learning algorithm. We call it the \emph{Ledley-Jaynes machine} in homage to Ledley, who also promoted the use of digital computers in biomedicine \citet[\sect~1-5 p.~21]{ledley1959,ledley1960} and Jaynes's \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic underlying such a \enquote{robot}. The \ljm\ is \enquote{ideal} in the sense of being free from special modelling assumptions or approximations, and from limitations of its informational output; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present shows that this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\ref{sec:discussion}.
+Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present algorithm can therefore be seen as an ideal machine-learning algorithm. We call it the \emph{Ledley-Jaynes machine} in homage to Ledley, who also promoted the use of digital computers in biomedicine \citet[\sect~1-5 p.~21]{ledley1959,ledley1960} and Jaynes's \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic underlying such a \enquote{robot}. The \ljm\ is \enquote{ideal} in the sense of being free from special modelling assumptions or approximations, and from limitations of its informational output; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present shows that this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\nameref{sec:discussion}.
 
 %%%% Note on "predictand"
 %
