@@ -524,7 +524,7 @@
 % Section macros
 
 % Lowest level heading that takes a number by default
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{2}
 
 \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\quad}
 % \renewcommand{\@seccntformat}[1]{\csname c@#1\endcsname\c@section}
