@@ -22,7 +22,7 @@
   \@ifdefinable{\myorg@nameref}{%
     \LetLtxMacro\myorg@nameref\nameref
     \DeclareRobustCommand*{\nameref}[1]{%
-      \textbf{\myorg@nameref{#1}}%
+      \textbf{\color{green}\myorg@nameref{#1}}%
     }%
   }%
 }
@@ -162,7 +162,8 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
 \newcommand*{\ljm}{Ledley-Jaynes machine}
-\newcommand*{\AD}{\mathrm{AD}}
+\newcommand*{\AD}{\textsc{ad}}
+\newcommand*{\MCI}{\textsc{mci}}
 \newcommand*{\nAD}{\lnot\mathrm{AD}}
 
 
@@ -271,87 +272,45 @@ Several additional advantages of this quantification framework are also exemplif
  \keyFont{\section{Keywords:} Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-\section{Each patient is unique} % this fits quite well with the theme of the special issue of the journal
+\newpage
+\section{Introduction: Personalized prognosis, treatment, and computer algorithms}
+\label{sec:intro}
+
+\subsection{Prologue: Four unique patients} % this fits quite well with the theme of the special issue of the journal
 % \section{Four unique patients} % alternative title
 \label{sec:four_patients}
 
-%\section*{Introduction}
-%%%% EXAMPLE-PATIENT DATA %%%%
-% Olivia, Ariel, Bianca:
-% Apoe4_             0.00000000
-% ANARTERR_neuro    18.00000000
-% AVDEL30MIN_neuro   5.00000000 Ravlt-del
-% AVDELTOT_neuro    10.00000000 Ravlt-rec
-% CATANIMSC_neuro   21.00000000
-% GDTOTAL_gds        3.00000000
-% RAVLT_immediate   36.00000000
-% TRAASCOR_neuro    21.00000000
-% TRABSCOR_neuro   114.00000000
-% AGE               75.38823609
-% LRHHC_n_long       0.00425972
-% Gender_num_        1.00000000
-%
-% posterior Olivia, Bianca:  0.301679
-% prior Ariel: 0.65
-% likelihood Ariel cAD:  8.97179e-12
-% likelihood Ariel sMCI:  1.85685e-11
-% posterior Ariel: 0.47294
-%%%%%%%%%
-% Curtis:
-% Apoe4_             1.00000000
-% ANARTERR_neuro    15.00000000
-% AVDEL30MIN_neuro   0.00000000
-% AVDELTOT_neuro     3.00000000
-% CATANIMSC_neuro   14.00000000
-% GDTOTAL_gds        2.00000000
-% RAVLT_immediate   20.00000000
-% TRAASCOR_neuro    36.00000000
-% TRABSCOR_neuro   126.00000000
-% AGE               63.82721344
-% LRHHC_n_long       NA
-% Gender_num_        0.00000000
-%
-% posterior 0.70256
-%
-%%%%%%%%
-% Utility matrix Olivia, Ariel, Curtis:
-% #1  1.0  0.0
-% #2  0.9  0.3
-% #3  0.8  0.5
-% #4  0.0  1.0
-%%%%
-% Utility matrix Bianca:
-% #1  1.0  0.0
-% #2  0.8  0.3
-% #3  0.7  0.5
-% #4  0.0  1.0
-%%%%%%%%
-% optimal treatments
-% Olivia #2
-% Ariel #3
-% Bianca #1
-% Curtis #4
-
 Meet Olivia, Ariel, Bianca, Curtis.\footnote{These are purely fictive characters but with clinically realistic conditions; any reference to real persons is purely coincidental.}
 % names from Shakespeare's plays
-These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into \ad\ within a couple of years. This is why each of them recently underwent a round of clinical examinations. Today they received the results. Based on these results, on available clinical statistical data, and on other relevant information, their clinician will 
+These four persons don't know each other, but they have something in common: they all suffer from a mild form of cognitive impairment, and are afraid that their impairment will turn into \ad\ within a couple of years. This is why each of them recently underwent a battery % collective noun for "tests"
+of clinical examinations. Today they received the results. Based on these results, on available clinical statistical data, and on other relevant information, their clinician will 
 % indicate % [what does this mean?]
-assess their risk of developing Alzheimer. Then, together with the patients and their relatives, the clinician will make a decision among four distinct preventive-treatment options. In these tasks the clinician will be helped by a computer algorithm.
+assess their risk of developing Alzheimer. Then, together with the patients and their relatives, the clinician will make a decision among four distinct preventive-treatment options.\footnote{In the present paper we use \enquote{prognosis} in a general sense to include also \enquote{diagnosis}, and \enquote{treatment} quite loosely to mean any course of action a clinician might take, including \enquote{preventive treatment} or even \enquote{additional tests}.} In these tasks the clinician will be helped by a computer algorithm.
 
-Besides a shared diagnosis of \mci\ and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference, and list the similarities and difference between her and the other three patients:
+Besides a shared diagnosis of \mci\ and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference, and list the similarities and differences between her and the other three patients:
 \begin{itemize}
-\item Olivia and Ariel turn out to have exactly identical clinical results and age. They would also incur similar benefits and losses from the available treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from \mci\ to \ad. And unlike Olivia, Ariel comes from a family with a heavy history of \ad. Because of this geographical and family background, the clinician judges, before seeing the clinical data, that there's a 65\% probability that Ariel's cognitive impairment will convert to \ad.
+\item Olivia and Ariel have identical clinical results and age. They would also incur similar benefits and losses from the four available treatment options. Ariel, however, comes from a different geographical region, which presents a higher rate of conversion from \mci\ to \ad. And unlike Olivia, Ariel comes from a family with a heavy history of \ad. Because of this geographical and family background, the clinician judges, before seeing the clinical data, that there's a 65\% probability that Ariel's cognitive impairment will convert to \ad.
 
-\item Olivia and Bianca also have exactly the same clinical results and age. They come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the preventive options slightly riskier for her.
+\item Olivia and Bianca have identical clinical results and age; they also come from the same geographical region and have very similar family histories. In fact we shall see that they have the same probability of developing Alzheimer's disease. Bianca, however, suffers from several allergies and additional clinical conditions that render some of the treatment options slightly riskier for her.
 
-\item Olivia and Curtis have different results on all clinical examinations. Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would incur similar benefits or losses from the preventive options. Note that one clinical result for Curtis's (hippocampal volume) is missing.
+\item Olivia and Curtis have different results on all clinical examinations; Olivia is also more than 10 years older than Curtis. They otherwise come from the same geographical region, have very similar family histories, and would incur similar benefits or losses from the treatment options. Note that one clinical result for Curtis's (hippocampal volume) is missing.
 \end{itemize}
+
+Considering the similarities and differences among these patients, which of the four available treatments will be optimal for each of them? The clinician will find that, despite the many factors in common among our four patients -- even despite Olivia's, Ariel's, Bianca's identical clinical results, and Olivia's and Bianca's identical probability of conversion to \ad\ -- \emph{the optimal treatment for each patient is different from those for the other three}.
+
+\subsection{Personalized input and output in assistive computer algorithms}
+\label{sec:intro_purposes}
+
+
 
 \begin{wrapfigure}{r}{0.25\linewidth}%
 \vspace{-2em}\includegraphics[width=\linewidth]{OABC.png}
 \vspace{-4em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{wrapfigure}%
-Although the fictitious example above concerns specifically \ad, the differences just described apply more generally to most, if not all, clinical problems of prognosis/diagnosis and treatment. These differences can be broadly categorized as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits and losses} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis), as schematized in the side figure.
+Although the fictitious example above concerns specifically \ad, the differences among patients described there apply more generally to most, if not all, clinical problems of prognosis and treatment. These differences can be broadly categorized as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits and losses} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis), as schematized in the side figure. Each of these categories can affect the clinician's final choice of optimal treatment.
+
+Current research on assistive computer algorithms for clinical prognosis and decision-making tends to focus on patient differences in one category only; above all, differences in clinical predictors. \mynotez{[Luca] this is only my impression; can someone corroborate or disprove this with some literature?} This limitation is reflected in the input and output \enquote{slots} that such algorithms offer to the clinician. For instance, many algorithms allow the clinician to input a patient's clinical results (often requiring that no results be missing), but have no input for auxiliary information about that patient, or for the list of treatment available to that patient and their benefits specific to that patient. These algorithms typically output a discrete prognostic label (say, \enquote{stable \mci} vs \enquote{conversion to \ad}), but no measure of the uncertainty about that label. Yet, a crucial point in clinical decision-making is this: the clinician needs to assess, not the presence (present or future) of a disease, but the \emph{risk} of its presence. We shall discuss this point at length in \sect~\nameref{sec:utilities_step}.
+
 
 We ask two questions:
 \begin{enumerate}
@@ -361,7 +320,7 @@ We ask two questions:
 
 
 
-In our example study we shall find that -- despite the many factors in common among our four patients, even despite the identical clinical results for Olivia, Ariel, Bianca, and despite the identical probability of conversion to \ad\ for Olivia and Bianca -- \emph{the optimal treatment for each patient is different from those for the other three}. This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
+In our example study we shall find that . This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
 
 \medskip
 
