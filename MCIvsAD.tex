@@ -16,17 +16,23 @@
 %\documentclass[utf8]{frontiersinFPHY_FAMS} % Vancouver Reference Style (Numbered) for articles in the journals "Frontiers in Physics" and "Frontiers in Applied Mathematics and Statistics" 
 
 %\setcitestyle{square} % for articles in the journals "Frontiers in Physics" and "Frontiers in Applied Mathematics and Statistics" 
-\usepackage{url,nameref,hyperref,lineno,microtype,subcaption}
-\makeatletter
-\AtBeginDocument{%
-  \@ifdefinable{\myorg@nameref}{%
-    \LetLtxMacro\myorg@nameref\nameref
-    \DeclareRobustCommand*{\nameref}[1]{%
-      \textbf{\color{green}\myorg@nameref{#1}}%
-    }%
-  }%
-}
-\makeatother
+\usepackage{url,hyperref,lineno,microtype,subcaption}
+%% NOTE: Frontiers in Human Neuroscience does allow numbered sections, see for example
+%% https://www.frontiersin.org/articles/10.3389/fnhum.2022.1032724/full
+%% https://www.frontiersin.org/articles/10.3389/fnhum.2022.1077416/full
+%% Other examples in the 2022 volume also show free section naming.
+%
+% In case of non-numbered sections:
+% \makeatletter
+% \AtBeginDocument{%
+%   \@ifdefinable{\myorg@nameref}{%
+%     \LetLtxMacro\myorg@nameref\nameref
+%     \DeclareRobustCommand*{\nameref}[1]{%
+%       \textbf{\color{green}\myorg@nameref{#1}}%
+%     }%
+%   }%
+% }
+% \makeatother
 
 \usepackage[onehalfspacing]{setspace}
 \usepackage[usenames]{xcolor}
@@ -188,7 +194,7 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 
 
-\setcounter{section}{-1}
+% \setcounter{section}{-1}
 \begin{document}
 \onecolumn
 \firstpage{1}
@@ -298,31 +304,66 @@ Besides a shared diagnosis of \mci\ and associated worries, these patients have 
 
 Considering the similarities and differences among these patients, which of the four available treatments will be optimal for each of them? The clinician will find that, despite the many factors in common among our four patients -- even despite Olivia's, Ariel's, Bianca's identical clinical results, and Olivia's and Bianca's identical probability of conversion to \ad\ -- \emph{the optimal treatment for each patient is different from those for the other three}.
 
-\subsection{Personalized input and output in assistive computer algorithms}
+\subsection{Assistive computer algorithms: personalized input and output}
 \label{sec:intro_purposes}
 
+In the example above we said \enquote{in these tasks the clinician will be helped by a computer algorithm}. The need of such computational help is clear from the vast amount of clinical statistical data and the large number of clinical predictors today available to clinicians. But how should such an assistive computer algorithm be designed, in order to take fully into account patient differences?
 
-
+Although the example above concerns specifically \ad, the differences among patients
 \begin{wrapfigure}{r}{0.25\linewidth}%
-\vspace{-2em}\includegraphics[width=\linewidth]{OABC.png}
-\vspace{-4em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
-\end{wrapfigure}%
-Although the fictitious example above concerns specifically \ad, the differences among patients described there apply more generally to most, if not all, clinical problems of prognosis and treatment. These differences can be broadly categorized as \enquote{difference in auxiliary information} (Olivia and Ariel), \enquote{difference in treatment benefits and losses} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis), as schematized in the side figure. Each of these categories can affect the clinician's final choice of optimal treatment.
+\vspace{-1.5em}%
+\includegraphics[width=\linewidth]{OABC.png}%
+\vspace{-2em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+\end{wrapfigure}
+described there apply more generally to most, if not all, clinical problems of prognosis and treatment. These differences can be broadly categorized as \enquote{difference in auxiliary and background information} (Olivia and Ariel), \enquote{difference in benefit and availability of treatments} (Olivia and Bianca), \enquote{difference in clinical predictors} (Olivia and Curtis), as schematized in the side figure. Each of these difference categories can affect the clinician's final choice of optimal treatment. An assistive algorithm should therefore reflect these differences in its input, its output, or both:
+\begin{itemize}
+\item In principle there could be three kinds of input \enquote{slots}, where the clinician can input the current patient's specific values as regards clinical predictors, auxiliary information, and treatment options \amp\ benefits.
+\item If input slots are only available for one or two of the categories above, the output should at least be of such a kind as to allow the clinician to integrate the current patient's specific values of the missing input categories.
+\end{itemize}
 
-Current research on assistive computer algorithms for clinical prognosis and decision-making tends to focus on patient differences in one category only; above all, differences in clinical predictors. \mynotez{[Luca] this is only my impression; can someone corroborate or disprove this with some literature?} This limitation is reflected in the input and output \enquote{slots} that such algorithms offer to the clinician. For instance, many algorithms allow the clinician to input a patient's clinical results (often requiring that no results be missing), but have no input for auxiliary information about that patient, or for the list of treatment available to that patient and their benefits specific to that patient. These algorithms typically output a discrete prognostic label (say, \enquote{stable \mci} vs \enquote{conversion to \ad}), but no measure of the uncertainty about that label. Yet, a crucial point in clinical decision-making is this: the clinician needs to assess, not the presence (present or future) of a disease, but the \emph{risk} of its presence. We shall discuss this point at length in \sect~\nameref{sec:utilities_step}.
-
-
-We ask two questions:
-\begin{enumerate}
-\item Are these difference categories so important as to lead to different treatment choices? Or more directly: Considering the similarities and differences among these patients, which of the four available treatments is optimal for each of them?
-\item Can 
-\end{enumerate}
-
-
-
-In our example study we shall find that . This result exemplifies the importance of differences among patients with regard to clinical results, auxiliary information, treatment benefits.
+To appreciate these requirements, contrast the input and output of many kinds of machine-learning classification algorithms. These typically only allow the input of a patient's clinical predictors, with no space for patient-specific auxiliary information or for adjustments of differences in background statistics (think of Olivia and Ariel). And they typically output only a discrete prognostic label (say, \enquote{stable \mci} vs \enquote{conversion to \ad}), but no measure of the uncertainty about that label. Unfortunately such output does not allow the clinician to assess treatment benefits and losses for the current patient, for this assessment depends not on the presence (present or future) of a disease, but on the \emph{risk} of its presence. We shall discuss these points at length in \sects~\ref{sec:population_step} and~\ref{sec:utilities_step}.
 
 \medskip
+
+The purpose of the present work is to present an assistive algorithm that meets the requirements above. This algorithm is designed to first learn from a dataset of clinical data with relevant predictors and predictand\footnote{literally \enquote{quantity to be predicted} (\cf\ \emph{measurand} in metrology, \citealt[2.3]{jcgm1997_r2012}). We find this term, common in meteorology and climate science, more precise and less obscure or misleading than \enquote{dependent variate}, \enquote{response variate}, or similar.}, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. It offers these features:
+\begin{enumerate}
+\item\label{item:feat_predictors} It can work with clinical predictors comprising any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates.
+  
+\item\label{item:feat_predictands} It can work with a predictand that is also any combination of categorical and one-dimensional variates.
+  
+\item\label{item:feat_inputs} It accepts three inputs:
+  \begin{enumerate}
+  \item\label{item:input_predictors} the clinical-predictor values for the current patient;
+  \item\label{item:input_aux} information about which predictand-predictor relationships learned from the dataset can be generalized to the current patient, and a prior prognostic probability representing auxiliary information;
+  \item\label{item:input_treats} a set of treatment options and their benefits and losses for the current patient.
+  \end{enumerate}
+
+\item\label{item:feat_outputs} It yields three basic outputs
+  \begin{enumerate}
+  \item\label{item:ouput_predictors} any prognostic probabilities or likelihoods about predictors and predictand desired by the clinician, given input~\ref{item:input_predictors};
+  \item\label{item:output_aux} final prognostic probabilities, given inputs~\ref{item:input_predictors}--\ref{item:input_aux};
+  \item\label{item:output_treats} optimal treatment, given inputs~\ref{item:input_predictors}--\ref{item:input_treats};
+  \end{enumerate}
+  
+\item\label{item:feat_modular_inout} Its input and outputs are modular, in the sense that the clinician can for instance give inputs~\ref{item:input_predictors}--\ref{item:input_aux} only, get a prognostic probability~\ref{item:output_aux} as output, and then proceed to treatment assessment by other means or algorithms.
+
+\item\label{item:feat_imputation} It works even if predictor data are missing, both in the learning dataset and for the current patient.
+
+\item\label{item:feat_uncertainty} It can quantify the uncertainty of its own outputs and therefore allow for sensitivity analyses. For example, it can tell how much a prognostic probability could have been different if the learning dataset had been larger, or whether the optimal treatment could be different if a particular missing predictor for the current patient had been available.
+
+\item\label{item:feat_unbeatable} It is model-free and extracts the maximal amount of information theoretically contained in the learning dataset, and therefore achieves the maximal prognostic power that the predictors can yield. In other words, it is unbeatable.
+
+\end{enumerate}
+
+Let us comment on some of these features. We believe that the capability of working with complex predictands, feature~\ref{item:feat_inputs}, is important for a more realistic and nuanced approach to prognosis. In the case of \ad, for instance, it is clear that a simple dichotomy \enquote{has disease} vs \enquote{doesn't have disease} is an oversimplification \mynotep{more text and references?}. The capability of dealing with missing data, feature~\ref{item:feat_imputation}, is important for a concrete implementation in a clinical setting, typically afflicted by imputation problems. Feature~\ref{item:feat_uncertainty} is extremely important for a clinician to assess the reliability of final decisions and inform the patient of the possibility of unwanted outcomes.
+
+We call this assistive algorithm a \emph{\ljm}, for reasons explained in the next section. It is at the moment available as a collection of scripts\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine}} in the R programming language \citep{rcoreteam1995_r2023}, which we plan to soon assemble into a clinician-friendly R package.
+
+The next sections show how the \ljm\ is applied, using the four-patient fictitious scenario of \sect~\ref{sec:four_patients} as a concrete example. \mynotep{finish synopsis}
+
+\section{\ljm: theory and example use}
+\label{sec:the_machine}
+
 
 The method to solve this kind of clinical decision-making problems while taking into account individual differences among patients, is none other than Decision Theory: the combination of probability theory and utility theory\footnote{\citet[\chaps~13--14]{vonneumannetal1944_r1955,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}.}. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits. Medicine has the distinction of having been one of the first fields to adopt Decision Theory, with the pioneering work by Ledley and Lusted \citeyearpar{ledleyetal1959,ledleyetal1959b,ledleyetal1960} pioneering work, who also promoted its algorithmic implementation \citep[see especially \sect~1-5 p.~21]{ledley1959,ledley1960}. Its application is explained and exemplified in old and new brilliant textbooks for students in medicine \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}.
 
@@ -333,7 +374,7 @@ The main purpose of the present work is to illustrate, using the four fictitious
 
 The core of the algorithm is none other than Decision Theory, the combination of probability theory and utility theory \citep[\chaps~13--14]{vonneumannetal1944_r1955,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988,jaynes1994_r2003}. Medicine has the distinction of having been one of the first fields to adopt it, in the work by Ledley and Lusted \citep{ledleyetal1959,ledleyetal1960}, who also promoted its algorithmic implementation. Old and new brilliant textbooks \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} explain and exemplify its application.
 
-Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present algorithm can therefore be seen as an ideal machine-learning algorithm. We call it the \emph{Ledley-Jaynes machine} in homage to Ledley, who also promoted the use of digital computers in biomedicine \citet[\sect~1-5 p.~21]{ledley1959,ledley1960} and Jaynes's \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic underlying such a \enquote{robot}. The \ljm\ is \enquote{ideal} in the sense of being free from special modelling assumptions or approximations, and from limitations of its informational output; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present shows that this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\nameref{sec:discussion}.
+Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[\chap~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2]{jaynes1994_r2003}}. The present algorithm can therefore be seen as an ideal machine-learning algorithm. We call it the \emph{Ledley-Jaynes machine} in homage to Ledley, who also promoted the use of digital computers in biomedicine \citet[\sect~1-5 p.~21]{ledley1959,ledley1960} and Jaynes's \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic underlying such a \enquote{robot}. The \ljm\ is \enquote{ideal} in the sense of being free from special modelling assumptions or approximations, and from limitations of its informational output; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present shows that this ideal machine-learning algorithm can be applied at insubstantial computational cost. It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\ref{sec:discussion}.
 
 %%%% Note on "predictand"
 %

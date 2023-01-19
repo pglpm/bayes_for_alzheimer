@@ -526,7 +526,8 @@
 % Lowest level heading that takes a number by default
 \setcounter{secnumdepth}{5}
 
-\renewcommand{\@seccntformat}[1]{\csname c@#1\endcsname\c@section}
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\quad}
+% \renewcommand{\@seccntformat}[1]{\csname c@#1\endcsname\c@section}
 
 \def\section{%
   \@startsection{section}{1}{\z@}
