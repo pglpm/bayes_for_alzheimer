@@ -282,6 +282,7 @@ Several additional advantages of this quantification framework are also exemplif
 \section{Introduction: Personalized prognosis, treatment, and computer algorithms}
 \label{sec:intro}
 
+\setcounter{subsection}{-1}
 \subsection{Prologue: Four unique patients} % this fits quite well with the theme of the special issue of the journal
 % \section{Four unique patients} % alternative title
 \label{sec:four_patients}
@@ -1048,22 +1049,23 @@ As already said, the output of the \ljm\ is about the full population of future 
 
 Let us ask the following question: if the learning dataset were representative of the full population, then how often in the long run would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
 
-The \ljm\ can answer this question probabilistically, and obviously with great uncertainty. Yet there may be surprising details that can be assessed with a high degree of certainty. The answer is illustrated in \fig~\ref{fig:progn_probs}, assuming that the \ljm\ will be regularly updated with the new patients' data (the calculation could also be made without this assumption). The dark-blue curve represents, for each of the 50 probability bins, the median value of the fraction of patients who will have conversion probability in that bin. The light-blue bands around the median are 50\%, 75\%, 95\% uncertainty coverage intervals \footnote{for terminology see \citet[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \citep[\sect~37.3]{jaynes1976,mackay1995_r2005}.}. Despite the evident large uncertainties, we see that it is very probable that few patients will be prognosed with probabilities around 30\% or larger than 90\%. We also see that the full population is likely to be grouped into three or four \enquote{conversion-probability clusters}, as evident from the peaks. Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
-\begin{figure}[t]% with figure
+The \ljm\ can answer this question probabilistically; the answer is plotted in \fig~\ref{fig:progn_probs}. Note that the calculation assumes that the \ljm\ will not be regularly updated with new patients' data (the calculation could also be made with the opposite assumption). The light-blue bands are 95\% uncertainty coverage intervals \footnote{for terminology see \citet[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \citep[\sect~37.3]{jaynes1976,mackay1995_r2005}.}; this uncertainty comes from the fact that we are not certain about the full-population frequencies. We see that it is very improbable that many patients will be prognosed with probabilities around 30\%, smaller than 5\%, or larger than 75\%. The full population is likely to be grouped into four or five \enquote{conversion-probability clusters}, as evident from the peaks. %Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
+\begin{figure}[h]% with figure
   \centering%
-  \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
+%  \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
+\includegraphics[width=0.75\linewidth]{plotnextpatientconvprob.pdf}%
   \caption{Possible distribution of prognostic probabilities of conversion in the full patient population}\label{fig:progn_probs}
 \end{figure}%
 
-This kind of information allows us to make other forecasts of various kinds. For instance, it would be useful to forecast in which proportions the treatments $\alpha,\beta,\gamma,\delta$ (see \sect~\ref{sec:utilities_step}) will be prescribed -- assuming that the full population has on average the utility matrix of Olivia, table~\ref{tab:utilities_patients}. We find these coverage intervals with a 90\% probability that the true future proportion will be within each:
+This kind of information allows us to make other forecasts of various kinds. For instance, it would be useful to forecast in which proportions the treatments $\alpha,\beta,\gamma,\delta$ (see \sect~\ref{sec:utilities_step}) will be prescribed, assuming that the full population has on average the utility matrix of Olivia, table~\ref{tab:utilities_patients}. We find these coverage intervals with a 90\% probability that the true future proportion will be within each:
 \begin{equation}
   \label{eq:ranges_future_treatments}
-  \alpha\text{: 3\%--8\%}\qquad
-  \beta\text{: 1\%--13\%}\qquad
-  \gamma\text{: 22\%--59\%}\qquad
-  \delta\text{: 34\%--63\%}
+  \alpha\text{: 21\%--28\%}\qquad
+  \beta\text{: 2\%--6\%}\qquad
+  \gamma\text{: 31\%--42\%}\qquad
+  \delta\text{: 31\%--40\%}
 \end{equation}
-Again, despite the obvious large uncertainties, we can be quite sure that treatments $\gamma$ and $\delta$ will be prescribed ten times or more often than $\alpha$ and $\beta$. This kind of semi-quantitative forecast can be very useful for resource and production planning.
+Again, despite the obvious uncertainties, we can be quite sure that treatments $\gamma$, $\delta$ will be prescribed more often than $\alpha$, and that $\beta$ will be only prescribed in 5\% of cases. This kind of semi-quantitative forecast can be very useful for resource planning.
 
 \subsection{Imputation of missing data}
 \label{sec:missing_data}
