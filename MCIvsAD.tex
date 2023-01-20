@@ -234,52 +234,6 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 \section{}
 \mynotew{TO BE REWRITTEN}
 
-% Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease, and early identification of these patients is essential to provide the most efficient treatment. 
-% %before the disease is well-established in the brain. great importance to study how well different kinds of predictors
-% %-- from neuropsychological examinations to advanced brain-imaging techniques -- 
-% Studies identifying predictors of the prognosis of MCI patients are thus called for. 
-% %iallow us to prognose a trajectory from Mild Cognitive Impairment towards Alzheimer's Disease in an individual patient.
-
-% Although results from a routine clinical examination are essential, several situational factors must be taken into account to ogtain a personalized approach to prognosis, prevention, and treatment. 
-% %, than just the obvious requirement that prognoses be as best as they can be for each patient. 
-% %Several situational elements that can be different from patient to patient must be accounted for:
-% \begin{itemize}
-% \item the \emph{kinds} of clinical data and evidence available for prognosis;
-% \item the \emph{outcomes} of the same kind of clinical data and evidence;
-% \item the kinds of treatment or prevention strategies available, owing to different additional medical factors such as physical disabilities, different attitudes toward life, different family networks and possibilities of familial support, different economic means;
-% \item the advantages and disadvantages, benefits and costs of the same kinds of treatment or prevention strategies; the patient has a major role in the quantification of such benefits and costs;
-% \item finally, the initial evaluation by the clinician -- which often relies on too subtle clues (family history, regional history, previous case experience) to be considered as measurable data.
-% \end{itemize}
-% Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision-making.
-
-% Clinical decision-making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of benefits and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient, we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and benefits of treatment or prevention to arrive at the best course of action for that patient. 
-% %The main result underlying 
-% To be optimal and logically consistent, this clinical decision making \emph{must} take a statistical decision theory into account.   %underlying decision-making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
-
-% The present study uses different statistical approached to investigate the prognostic power of results from neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The 
-% %present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of 
-% to predict the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
-
-% % (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
-
-% The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors. \mynotew{update this}
-
-% \mynotew{rewrite following} This quantification also allows us to rank the relative prognostic power of the predictors. It is found that several neuropsychological examinations have the highest prognostic power, much higher than the genetic and imaging-derived predictors included in the present set.
-
-% Several additional advantages of this quantification framework are also exemplified and discussed in the present work:
-% \begin{itemize}
-% \item missing data are automatically handled, and results having partial data are not discarded; this quantification, therefore, also accounts for patient-dependent availability of \emph{non-independent} predictors;
-% \item no modelling assumptions (e.g.,\ linearity, gaussianity, functional dependence) are made;
-% \item the prognostic power obtained is intrinsic to the predictors, that is, it is a bound for \emph{any} prognostic algorithm;
-% \item variability ranges of the results owing to the finite size of the sample data are automatically quantified.
-% \item the values obtained, being probabilities, are more easily interpretable than scores of various kinds.
-% \end{itemize}
-
-
-%Alzheimer's disease (AD) is by far the most common type of dementia. The disease is characterized by an insidious onset caused by neurodegenerative processes, which lead to progressive loss of cognitive and functional abilities. Alongside the devastating personal consequences AD has on those affected and their caregivers, economical costs related to the disease are massive.
-% 
-% One of the difficulties for successful treatment of AD is the fact that its pathological hallmarks tend to be established in the brain decades prior to the time a person's cognitive and functional impairments are severe enough to get medical attention. Management of known risk factors for AD (e.g., high blood pressure and diabetes) is therefore emphasized. Recent studies point towards promising life-style interventions reducing AD-pathology and neurodegeneration and delaying symptom-onset. Much effort is therefore put into early identification and treatment of patients in the prodromal phase of the disease. Mild Cognitive Impairment (MCI) has become a diagnostic concept to describe this phase. Individuals falling within this diagnostic category show a cognitive decline greater than expected in normal cognitive aging, but still not with the severity of functional impairment characterizing those with dementia.
-
 
 % \color{yellow}{\tiny For full guidelines regarding your manuscript please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines}{Author Guidelines}.
 
@@ -392,9 +346,11 @@ The next section~\ref{sec:the_machine} gives an intuitive understanding of the \
 Mathematical details and proofs on which the present work is grounded are given in a companion technical note\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine/raw/main/ledley-jaynes\_machine.pdf}}, which explains more in detail how to use the R~scripts.
 
 \newpage
-\section{\ljm: intuitive understanding and workings}
+\section{The \ljm}
 \label{sec:the_machine}
 
+\subsection{Underlying principles and characteristics}
+\label{sec:the_machine_principles}
 
 The method to solve clinical decision-making problems such as the one of \sect~\ref{sec:intro} %, taking into account individual differences among patients,
 is none other than Decision Theory: the combination of probability theory and utility theory. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits, in a mathematical framework completely determined by basic self-consistency requirements.\footnote{\citet[\chaps~13--14]{jaynes1994_r2003,vonneumannetal1944_r1955,cox1946,savage1954_r1972,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988}.}
@@ -403,27 +359,37 @@ Medicine has the distinction of having been one of the first fields to adopt Dec
 
 The \enquote{\ljm} is an algorithmic implementation of the main calculations underlying the clinical decision-making process, as dreamed by Ledley and Lusted: from the comparison of a patient's specific predictors with the statistics offered by a clinical database, to the choice of optimal treatment. The name is a homage to Ledley and Jaynes \citeyearpar{jaynes1994_r2003}, who clearly explained the inductive logic underlying such a \enquote{robot}, to use his terminology.
 
-% The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, at low computational cost, taking into account all mentioned categories that differentiate every patient from every other. The solution method is implemented as an algorithm that integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. This algorithm is fully interpretable and can be used when the available clinical information consists of any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates.
-  % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
 
 Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[part~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2, 13--14]{jaynes1994_r2003}}. The \ljm\ can therefore be seen as an \emph{ideal} machine-learning algorithm. It is \enquote{ideal} in the sense of being free from special modelling assumptions (this is why we do not call it a \enquote{model}) and from limitations of its informational output, characteristic of most common machine-learning algorithms; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present work shows that this ideal machine-learning algorithm can today be applied at insubstantial computational cost. % It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect~\ref{sec:discussion}.
 
-Here are some features of the \ljm, relevant from a machine-learning perspective. They are connected with the features listed in \sect~\ref{sec:intro_purposes}:
+More concretely, the \ljm\ is ideal because \emph{it computes the probability distribution over all possible long-run joint frequency distributions from which the learning dataset can originate} (joint distributions for all predictor and predictand variates). This is the maximum possible amount of information that can be extracted from the learning dataset, in a strict information-theoretic sense. From this probability distribution the \ljm\ can indeed calculate any quantity outputted by other machine-learning algorithms. For example \citep[for terminology see \eg][\sect~8.6]{murphy2012}:
 \begin{itemize}
-\item It does not make any relational assumptions, besides natural assumption of smoothness of the underlying full-population frequency distribution.
-\item Internally it is not doing any kind of optimization.
-\item It does not need validation or test datasets, or any kind of data splits.
-\item It does not need cross-validation or similar procedures.
-\item It can be used in a \enquote{generative} or \enquote{discriminative} way.
-\item It cannot be affected by \enquote{overfitting} or \enquote{underfitting} problems \mynotew{to be explained in detail}.
+\item \emph{\enquote{Discriminative} algorithms:} the probability $\p(Y \| X)$ of any set of predictands $Y$ given any set of input predictors $X$.
+
+\item \emph{\enquote{Generative} algorithms:}  the probability $\p(X \| Y)$ of any set of input predictors $X$ given any set of predictand values $Y$.
+
+  More generally, the machine can compute any joint, marginal, or conditional probabilities $p(Z',Z'')$, $p(Z')$, $p(Z'\|Z'')$ for any desired subsets of variates $Z', Z''$.
+
+\item \emph{Regression or classification:} the average value of any set of variates $Y$, given any other set of variates $X$, including the special case of predictand $Y$ and predictors $X$. The uncertainty or variability around such average is also automatically computed.
   
-  \item It can be used with partially missing data
-  \item can be used with binary or continuous predictands
-  \item it tells us the maximum predictive power of the predictors
-  \item it quantifies how prediction could change if we had more sample data
-  \item it can be applied on-the-fly to each new patient
-  \end{itemize}
-  and goals, results, and some synopsis
+\item \emph{Functional regression:} if the predictand $Y$ or any other variate of interest turns out to be a function $f$ of variates $X$, then their conditional probability will be a delta distribution: $\p(Y\|X) = \delt[Y-f(X)]$.
+  % We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.}
+  Thus the \ljm\ always recovers a functional relationship if there is one, as well as its noise distribution.
+\end{itemize}
+Furthermore, the machine also quantifies the uncertainty of all outputs above. More precisely, it takes into account that the statistical properties of learning dataset could be different from those of its original population, owing to sampling fluctuations; and it computes how much any of the outputs above would probably change if more learning data were collected.
+
+In the next section we explain intuitively how the \ljm\ computes the general probability distribution over long-run frequencies; but we can already summarize a couple of special characteristics brought about by such computation. Unlike machine-learning algorithms such as neural networks, random forests, support-vector machines, logistic regression, or generalized linear models, the \ljm\ does not do an optimization during the learning phase, searching for the minimum of some objective function. It does a full \emph{hypothesis-space survey}. % Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{\citealt{definetti1930,definetti1937,dawid2013}; \citealt[\sects~4.2--4.3]{bernardoetal1994_r2000}}
+The optimization done by most machine-learning algorithms is an approximate form of this survey, based on the assumption or hope that the most relevant portion of the hypothesis space will be around the extremum \citetext{\citealp[\chap~16]{mackay1992,murphy2012}; \citealp[see also][]{selfetal1987}}. The underlying necessity of a more extensive survey, however, becomes manifest in many of the obligatory procedures that go together with the training of most machine-learning algorithms, cross-validation being a prominent example \citep{mackay1992b}. This leads to another special characteristic: the \ljm\ does not need validation sets, test sets, or other data splits; nor does it need cross-validation procedures. Intuitively this is the case because the underlying hypothesis-space survey realizes a sort of full-fledged cross-validation and data partition. It can indeed be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$ \citep{portamana2019b,fongetal2020}.
+
+Such flexibility and informationally rich output come of course at a computational cost. Until some years ago the cost would have been prohibitive in all but the simplest inferential problems. But today an inference problem involving 13 dimensions and 700 datapoints, such as the example considered in the present work, takes less than six hours of computation on an office computer workstation. We discuss computational limitations further in \sect~\ref{sec:rangeTJM}.
+
+\subsection{Learning from a dataset}
+\label{sec:the_machine_learning}
+
+
+\newpage% Newpage break just to help while writing the draft
+\section{Example application}
+\label{sec:application}
 
 The inferential and decision-making steps based on the \ljm\ are summarized in the inset at the bottom of this page.
 \begin{table}[t]  
@@ -471,17 +437,6 @@ The three steps and sections could also be presented in reverse order, more suit
 
 \mynotew{Remark that the approach used here is the same as in the research behind the last two black-hole observations \citep{eht2019,eht2022}.}
 
-% \section*{Methods}
-% \subsection*{Participants}
-% \subsection*{Measures}
-% \subsection*{Statistical procedures}
-%% [Luca] The kind of division above doesn't really make sense with the current presentation. In case one must rearrange the whole material
-
-\newpage% Newpage break just to help while writing the draft
-
-\section{Example application}
-\label{sec:application}
-
 
 \setcounter{subsection}{-1}
 \subsection{Learning}
@@ -522,7 +477,7 @@ This is the\emph{ maximal amount of information} that can be extracted from the 
 \item \emph{Conditional probability, \enquote{generative} algorithms:} if we are interested in the probability of $X,Y$ given $Z$, we calculate $\p(X,Y\|Z) \defd \p(X,Y,Z)/\sum_{X,Y}\p(X,Y,Z)$.
 \item \emph{Regression or classification:} if we are interested in the average value of $Z$ given $X,Y$, we calculate $\E(Z \| X,Y) \defd \sum_{Z}Z\,\p(Z\|X,Y)$. The \enquote{noise} around this average value is moreover given by $\p(Z-\E\|X,Y)$.
 \item \emph{Functional regression:} if $Z$ turns out to be a function $f$ of $X,Y$, then the probability will be a delta distribution: $\p(Z\|X,Y) = \delt[Z-f(X,Y)]$.
-  % We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.}
+
   Thus, the \ljm\ always recovers a functional relationship if there is one, including its noise distribution.
 \end{itemize}
 We will see that no one of these quantities can be used \emph{alone} to solve our clinical decision problem for all future patients.
@@ -850,13 +805,6 @@ The \ljm\ calculates and outputs this probability in several different ways, as 
 The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \ljm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
 
 
-
-
-
-% The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
-% \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
-
-% Let's clarify this with an example. In our dataset we observe a value $\gds = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
 
 \subsubsection{Application to the example study}
 \label{sec:posterior_application}
@@ -1590,3 +1538,84 @@ The datasets [GENERATED/ANALYZED] for this study can be found in the [NAME OF RE
 %%% The use of LaTeX coding to draw Diagrams/Figures/Structures should be avoided. They should be external callouts including graphics.
 
 \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Text snippets from previous drafts %%%%
+
+%%%% Old abstract %%%%
+% Patients with Mild Cognitive Impairment have an increased risk of a trajectory toward Alzheimer's Disease, and early identification of these patients is essential to provide the most efficient treatment. 
+% %before the disease is well-established in the brain. great importance to study how well different kinds of predictors
+% %-- from neuropsychological examinations to advanced brain-imaging techniques -- 
+% Studies identifying predictors of the prognosis of MCI patients are thus called for. 
+% %iallow us to prognose a trajectory from Mild Cognitive Impairment towards Alzheimer's Disease in an individual patient.
+
+% Although results from a routine clinical examination are essential, several situational factors must be taken into account to ogtain a personalized approach to prognosis, prevention, and treatment. 
+% %, than just the obvious requirement that prognoses be as best as they can be for each patient. 
+% %Several situational elements that can be different from patient to patient must be accounted for:
+% \begin{itemize}
+% \item the \emph{kinds} of clinical data and evidence available for prognosis;
+% \item the \emph{outcomes} of the same kind of clinical data and evidence;
+% \item the kinds of treatment or prevention strategies available, owing to different additional medical factors such as physical disabilities, different attitudes toward life, different family networks and possibilities of familial support, different economic means;
+% \item the advantages and disadvantages, benefits and costs of the same kinds of treatment or prevention strategies; the patient has a major role in the quantification of such benefits and costs;
+% \item finally, the initial evaluation by the clinician -- which often relies on too subtle clues (family history, regional history, previous case experience) to be considered as measurable data.
+% \end{itemize}
+% Statistical decision theory is the normative quantification framework that takes into account these fundamental differences. Medicine has the distinction of having been one of the first fields to adopt this framework, exemplified in brilliant old and new textbooks on clinical decision-making.
+
+% Clinical decision-making makes allowance for these differences among patients through two requirements. First, the quantification of prognostic evidence on one side, and of benefits and costs of treatments and prevention strategies on the other, must be clearly separated and handled in a modular way. Two patients can have the same prognostic evidence and yet very different prevention options. Second, the quantification of independent prognostic evidence ought to be in the form of \emph{likelihoods about the health condition} (or equivalently of likelihood ratios, in a binary case), that is, of the probabilities of the observed test outcomes given the hypothesized health conditions. Likelihoods from independent clinical tests and predictors can then be combined with a simple multiplication; for one patient, we could have three kinds of predictor available; for another, we could have five. The clinician's pre-test assessment is included in the form of a probability. These patient-dependent probabilities are combined with the patient-dependent costs and benefits of treatment or prevention to arrive at the best course of action for that patient. 
+% %The main result underlying 
+% To be optimal and logically consistent, this clinical decision making \emph{must} take a statistical decision theory into account.   %underlying decision-making \emph{must} take this particular mathematical form in order to be optimal and logically consistent.
+
+% The present study uses different statistical approached to investigate the prognostic power of results from neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The 
+% %present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of 
+% to predict the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
+
+% % (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
+
+% The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors. \mynotew{update this}
+
+% \mynotew{rewrite following} This quantification also allows us to rank the relative prognostic power of the predictors. It is found that several neuropsychological examinations have the highest prognostic power, much higher than the genetic and imaging-derived predictors included in the present set.
+
+% Several additional advantages of this quantification framework are also exemplified and discussed in the present work:
+% \begin{itemize}
+% \item missing data are automatically handled, and results having partial data are not discarded; this quantification, therefore, also accounts for patient-dependent availability of \emph{non-independent} predictors;
+% \item no modelling assumptions (e.g.,\ linearity, gaussianity, functional dependence) are made;
+% \item the prognostic power obtained is intrinsic to the predictors, that is, it is a bound for \emph{any} prognostic algorithm;
+% \item variability ranges of the results owing to the finite size of the sample data are automatically quantified.
+% \item the values obtained, being probabilities, are more easily interpretable than scores of various kinds.
+% \end{itemize}
+
+
+%Alzheimer's disease (AD) is by far the most common type of dementia. The disease is characterized by an insidious onset caused by neurodegenerative processes, which lead to progressive loss of cognitive and functional abilities. Alongside the devastating personal consequences AD has on those affected and their caregivers, economical costs related to the disease are massive.
+% 
+% One of the difficulties for successful treatment of AD is the fact that its pathological hallmarks tend to be established in the brain decades prior to the time a person's cognitive and functional impairments are severe enough to get medical attention. Management of known risk factors for AD (e.g., high blood pressure and diabetes) is therefore emphasized. Recent studies point towards promising life-style interventions reducing AD-pathology and neurodegeneration and delaying symptom-onset. Much effort is therefore put into early identification and treatment of patients in the prodromal phase of the disease. Mild Cognitive Impairment (MCI) has become a diagnostic concept to describe this phase. Individuals falling within this diagnostic category show a cognitive decline greater than expected in normal cognitive aging, but still not with the severity of functional impairment characterizing those with dementia.
+
+%%%%%%%%
+
+% The main purpose of the present work is to illustrate, using the four fictitious patients above as example, how this clinical decision-making problem can today be solved methodically, at low computational cost, taking into account all mentioned categories that differentiate every patient from every other. The solution method is implemented as an algorithm that integrates available clinical statistical data with each new patient's unique combination of clinical results, auxiliary information, and treatment benefits. This algorithm is fully interpretable and can be used when the available clinical information consists of any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates.
+  % It is therefore the staple method for personalized prognosis, diagnosis, treatment.
+
+
+
+
+% Here are some features of the \ljm, relevant from a machine-learning perspective. They are connected with the features listed in \sect~\ref{sec:intro_purposes}:
+% \begin{itemize}
+% \item It does not make any relational assumptions, besides natural assumption of smoothness of the underlying full-population frequency distribution.
+% \item Internally it is not doing any kind of optimization.
+% \item It does not need validation or test datasets, or any kind of data splits.
+% \item It does not need cross-validation or similar procedures.
+% \item It can be used in a \enquote{generative} or \enquote{discriminative} way.
+% \item It cannot be affected by \enquote{overfitting} or \enquote{underfitting} problems \mynotew{to be explained in detail}.
+  
+%   \item It can be used with partially missing data
+%   \item can be used with binary or continuous predictands
+%   \item it tells us the maximum predictive power of the predictors
+%   \item it quantifies how prediction could change if we had more sample data
+%   \item it can be applied on-the-fly to each new patient
+%   \end{itemize}
+%   and goals, results, and some synopsis
+
+
+% The situation discussed above generalizes and becomes more complicated as we consider multiple predictor and predictand variates. In general, of all probabilities $\p(\dotso\|\dotso)$ obtained from the dataset we should use those having in the conditional %(
+% \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
+
+% Let's clarify this with an example. In our dataset we observe a value $\gds = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
