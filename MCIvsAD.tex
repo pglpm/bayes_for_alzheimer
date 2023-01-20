@@ -410,14 +410,20 @@ Decision theory is also the normative foundation for the construction of an Arti
 
 Here are some features of the \ljm, relevant from a machine-learning perspective. They are connected with the features listed in \sect~\ref{sec:intro_purposes}:
 \begin{itemize}
-  \item It does not make any relational assumptions, besides natural assumption of smoothness of the underlying full-population frequency distribution.
+\item It does not make any relational assumptions, besides natural assumption of smoothness of the underlying full-population frequency distribution.
+\item Internally it is not doing any kind of optimization.
+\item It does not need validation or test datasets, or any kind of data splits.
+\item It does not need cross-validation or similar procedures.
+\item It can be used in a \enquote{generative} or \enquote{discriminative} way.
+\item It cannot be affected by \enquote{overfitting} or \enquote{underfitting} problems \mynotew{to be explained in detail}.
+  
   \item It can be used with partially missing data
   \item can be used with binary or continuous predictands
   \item it tells us the maximum predictive power of the predictors
   \item it quantifies how prediction could change if we had more sample data
   \item it can be applied on-the-fly to each new patient
   \end{itemize}
-  and goals, results, and some synopsis}
+  and goals, results, and some synopsis
 
 The inferential and decision-making steps based on the \ljm\ are summarized in the inset at the bottom of this page.
 \begin{table}[t]  
