@@ -476,7 +476,7 @@ The dataset used in our example comes from the study by the Alzheimer's Disease 
 
 The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued; hippocampal volume and age are continuous, and \apoe\ and sex are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
 
-The \ljm\ took less than six hours to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference.
+The \ljm\ took less than five hours (on 16 parallel 3.0--4.80~GHz cores) to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference.
 
 Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the predicted distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation that will remain with stable \mci\ (solid blue). On the right, the predicted frequency of conversion in the full population is given, conditional on the same predictors. The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
 \begin{figure}[!t]
@@ -499,17 +499,9 @@ Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the predicted di
 \caption{Predicted distributions of some predictor variates, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation with stable \mci\ (solid blue).}\label{fig:marginal_pop_distributions}
 \end{figure}%
 %
-The two subpopulations of patients are clearly distinct in the \ravltdel, \ravltimm, \hv\ variates; for this reason these predictors can yield probabilities of conversion as high as 70\% or as low as 10\%. The two subpopulations are practically indistinguishable in the \gds\ variate, which therefore always give very uncertain predictions of 50\% probability.
-
-
-
-
-
+The two subpopulations of patients are clearly distinct in the \ravltdel, \ravltimm, \hv\ variates; for this reason these predictors can yield probabilities of conversion as high as 70\% or as low as 10\%. The two subpopulations are practically indistinguishable in the \gds\ variate, which therefore always gives very uncertain predictions.
 
 The learning dataset comprises enough data to greatly reduce our uncertainty about the population distributions, as evident from the very narrow spread of the curves. These simple results show the great usefulness of the \ljm\ for general medical research.
-
-
-
 
 
 \subsection{Patient's clinical information}
@@ -522,7 +514,6 @@ The learning dataset comprises enough data to greatly reduce our uncertainty abo
 \subsubsection{Application to the example study}
 \label{sec:learn_application}
 
-\mynotep{Show some graphs about the full-population distribution inferred by the \ljm; for example the population distributions for some predictor, given converted/non-converted.}
 
 The predictor values for our four patients are reported in table~\ref{tab:patients_data}. Note that Curtis's value for the Hippocampal Volume is missing; the \ljm\ has no difficulty with this.
 \begin{table}[!b]
@@ -1360,16 +1351,6 @@ There is a fundamental difference in how the \ljm\ and most popular machine-lear
 This difference explains why the \ljm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures (it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$; see \eg\ \citealt{portamana2019b,fongetal2020}).
 
 \mynotep{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
-
-
-\mynotep{possibly add a plot showing the distributions considered reasonable by the machine}
-\begin{figure}[!t]% with figure
-  \centering%
-  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
-  \caption{\mynotep{Examples of a-priori probable candidates of frequency distribution for a variate such as \ravltdel%AVDEL30MIN\_neuro
- or \ravltrec%AVDELTOT\_neuro
-}}\label{fig:prior_distribution}
-\end{figure}%
 
 
 \subsection{Computational details}
