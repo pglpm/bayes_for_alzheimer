@@ -381,10 +381,82 @@ Furthermore, the machine also quantifies the uncertainty of all outputs above. M
 In the next section we explain intuitively how the \ljm\ computes the general probability distribution over long-run frequencies; but we can already summarize a couple of special characteristics brought about by such computation. Unlike machine-learning algorithms such as neural networks, random forests, support-vector machines, logistic regression, or generalized linear models, the \ljm\ does not do an optimization during the learning phase, searching for the minimum of some objective function. It does a full \emph{hypothesis-space survey}. % Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{\citealt{definetti1930,definetti1937,dawid2013}; \citealt[\sects~4.2--4.3]{bernardoetal1994_r2000}}
 The optimization done by most machine-learning algorithms is an approximate form of this survey, based on the assumption or hope that the most relevant portion of the hypothesis space will be around the extremum \citetext{\citealp[\chap~16]{mackay1992,murphy2012}; \citealp[see also][]{selfetal1987}}. The underlying necessity of a more extensive survey, however, becomes manifest in many of the obligatory procedures that go together with the training of most machine-learning algorithms, cross-validation being a prominent example \citep{mackay1992b}. This leads to another special characteristic: the \ljm\ does not need validation sets, test sets, or other data splits; nor does it need cross-validation procedures. Intuitively this is the case because the underlying hypothesis-space survey realizes a sort of full-fledged cross-validation and data partition. It can indeed be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$ \citep{portamana2019b,fongetal2020}.
 
-Such flexibility and informationally rich output come of course at a computational cost. Until some years ago the cost would have been prohibitive in all but the simplest inferential problems. But today an inference problem involving 13 dimensions and 700 datapoints, such as the example considered in the present work, takes less than six hours of computation on an office computer workstation. We discuss computational limitations further in \sect~\ref{sec:rangeTJM}.
+Such flexibility and informationally rich output come of course at a computational cost. Until some years ago the cost would have been prohibitive in all but the simplest inferential problems. But today an inference problem involving 13 variates and 700 datapoints, such as the example considered in the present work, takes less than six hours of computation on an office computer workstation. We discuss computational limitations further in \sect~\ref{sec:rangeLJM}.
 
-\subsection{Learning from a dataset}
+\subsection{Basic principle and learning from a dataset}
 \label{sec:the_machine_learning}
+
+The basic inference principle on which the \ljm\ learns and operates is very intuitive.
+
+We consider a patient to be a member of some population of similar patients -- past, present, future. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such population. We would then judge the probability for a patient's particular variate values to be equal to the their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values to 0. Therefore a functional relationship is still encompassed by this point of view as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population.
+
+Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, as each new patient would be already counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
+
+Learning and generalization come into play because the frequency distribution for the population is not fully known: we only have a sample from it, the \enquote{learning dataset}. Thus we can at most assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does. The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is.
+
+The first factor is easily computed: it's the joint probability of the dataset, assuming it was sampled from a population having the candidate frequency.
+
+The second factor is a prior probability expressing how we expect reasonable candidates to be. The only natural requirement is that it should have some degree of smoothness, owing to physical and biological reasons. Figure~\ref{fig:prior_distribution} shows, through a sample, what the machine considers to be \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. 
+\begin{figure}[b]% with figure
+  \centering%
+  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
+  \caption{\mynotep{Examples probable candidates of frequency distribution for a variate such as \ravltdel\ %AVDEL30MIN\_neuro
+      or \ravltrec%AVDELTOT\_neuro
+    }}\label{fig:prior_distribution}
+\end{figure}%
+It must be emphasized that some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting? Such judgement implies that we have a preconceived, reasonable reference distribution in the back of our minds. The fit is either intuitively compared with the preconceived reference; or is compared with a known, ground-truth test for testing owing to its similarity with the preconceived reference.
+
+
+
+In the learning stage the \ljm\ infers, from a given sample dataset, the statistical relationships of a large population of which our future patients can be considered members, at least in some respects. Such relationships will help us in our prognoses. The basic idea is intuitive. If a patient can be considered a member of some population, and if we knew the joint frequencies of all possible combinations of predictor and predictand values in such population -- and knew nothing else -- then we would say that the probability for the patient to have particular values is equal to the population frequency. Pure symmetry considerations lead to this intuitive result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}.
+
+But it must be emphasized, and it is essential for our method, that it is \emph{not} necessary (and is seldom true) that a future patient be considered as a member of such a population \emph{in all respects}. A patient can be considered a member only \emph{conditionally} on particular variate values. We shall discuss this point with an example in \sect~\ref{sec:population_step}.
+
+If the full statistics of such a population were known, our task would just be to \enquote{enumerate} rather than to \enquote{learn}. Learning comes into play because the full population is not known: we only have a sample from it.
+
+The \ljm\ assigns a probability to each possible frequency distribution for the full population. It determines the probability of each \enquote{candidate} frequency distribution by combining two factors: (a) how well the candidate fits the sample data, (b) how biologically or physically reasonable the candidate is. Figure~\ref{fig:inferring_distribution} show a fictitious sample data and various candidate frequency distributions \mynotep{...}.
+\begin{figure}[!t]% with figure
+  \centering%
+  \includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}
+  \hfill
+  \includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}
+  \\
+  \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
+  \hfill
+  \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
+  \caption{\mynotep{Upper-left: Sample data.
+      Upper-right: candidate frequency distribution that fits the data and does not look unnatural.
+      Lower-left: candidate distribution that might look natural but doesn't fit the sample data.
+      Lower-right: candidate distribution that fits the data very well but looks unnatural.}}\label{fig:inferring_distribution}
+\end{figure}%
+
+\mynotep{EITHER HERE OR IN APPENDIX~\ref{sec:maths_tjm}: Add some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
+
+The \ljm\ computes the probabilities of all possible frequency distributions for the full population, and from these the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
+
+
+For readers with an interest in machine learning and artificial intelligence, we briefly discuss the drawbacks of some popular inference algorithms with respect to the \ljm. \mynotew{Rewrite the paragraphs below to better discuss the limitations. Maybe better to list according to limitations than to algorithms:
+  \begin{itemize}
+  \item \emph{Special assumptions}, such as functional dependence (neural networks, Gaussian processes, partly random forests), or special shape of underlying distributions (neural networks, support vector machines, linear and logistic regression, generalized linear models).
+  \item \emph{Lack of uncertainty quantification} (neural networks), or non-probabilistic quantification (random forests for classification)
+  \item \emph{One-way-only inference}, from predictors to predictands only (all)
+  \item \emph{Blindness to possible fluctuations affecting the whole dataset} (all algorithms except gaussian processes): the algorithms try to generalize by splitting the dataset into a training set and a test set. This procedure does not protect up from fluctuations that affect the \emph{whole} dataset. Such fluctuations are important for datasets of small size \mynotep{be precise here about the size}. The \ljm\ intrinsically check how the full population could have been different from the dataset.
+  \end{itemize}
+}
+
+\emph{Neural networks and gaussian processes} are based on the assumption that there is a functional relationship from predictors to predictand, possibly contaminated by a little noise, typically assumed gaussian. This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors such as images. In the case of our dataset, the mutual information between predictors and the conversion variate is $0.14\,\mathrm{Sh}$, to be compared with $1\,\mathrm{Sh}$, if conversion were a function of the predictors, and with $0\,\mathrm{Sh}$, if conversion were completely unpredictable. See \sect~\ref{sec:predictor_importance} for further details. An additional deficiency of neural networks is that they do not yield any probabilities, even if there are many efforts to render such an output possible \citep{pearceetal2020,osbandetal2021,backetal2019}. Such an advance, however, would still not solve the final deficiency of neural networks and gaussian processes: they try to infer the predictand from the predictors but cannot be used for the reverse inference.
+
+\emph{Random forests} also assume a functional relationship from predictors to predictand. This assumptions is mitigated when the predictand is a discrete variate; in this case a random forest can output an agreement score from its constituent decision trees. This score can give an idea of the underlying uncertainty, but it is not a probability,\footnote{It is sometimes called a \enquote{non-calibrated probability}, something akin to a \enquote{non-round circle}.} and therefore cannot be used in the decision-making stage, see \sect~\ref{sec:utilities_step}. It is possible to transform this score into a proper probability \citep{dyrlandetal2022b}, but this possibility does not solve the final deficiency of random forests: like neural networks, they try to infer the predictand from the predictors but cannot be used for the reverse inference.
+
+\emph{Parametric models and machine-learning algorithms} such as logistic or linear regression, support-vector machines, or generalized linear models make even stronger assumptions than neural networks and random forests. They assume specific functional shapes or frequency distributions. Their use may be justified when we are extremely sure -- for instance thanks to underlying physical or biological knowledge -- of the validity of their assumptions; or when the computational resources are extremely scarce. But it is otherwise unnecessary to be hampered by their restrictive and often unrealistic assumptions.
+
+\mynotep{Add note on \enquote{ensembling}: it does not give probabilities \citep[\sect~18.2]{murphy2022}}
+
+
+
+An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
+
+
 
 
 \newpage% Newpage break just to help while writing the draft
@@ -438,80 +510,7 @@ The three steps and sections could also be presented in reverse order, more suit
 \mynotew{Remark that the approach used here is the same as in the research behind the last two black-hole observations \citep{eht2019,eht2022}.}
 
 
-\setcounter{subsection}{-1}
-\subsection{Learning}
-\label{sec:learning_step}
-
-\subsubsection{Theory and method}
-\label{sec:learning_theory}
-
-In the learning stage the \ljm\ infers, from a given sample dataset, the statistical relationships of a large population of which our future patients can be considered members, at least in some respects. Such relationships will help us in our prognoses. The basic idea is intuitive. If a patient can be considered a member of some population, and if we knew the joint frequencies of all possible combinations of predictor and predictand values in such population -- and knew nothing else -- then we would say that the probability for the patient to have particular values is equal to the population frequency. Pure symmetry considerations lead to this intuitive result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}.
-
-But it must be emphasized, and it is essential for our method, that it is \emph{not} necessary (and is seldom true) that a future patient be considered as a member of such a population \emph{in all respects}. A patient can be considered a member only \emph{conditionally} on particular variate values. We shall discuss this point with an example in \sect~\ref{sec:population_step}.
-
-If the full statistics of such a population were known, our task would just be to \enquote{enumerate} rather than to \enquote{learn}. Learning comes into play because the full population is not known: we only have a sample from it.
-
-The \ljm\ assigns a probability to each possible frequency distribution for the full population. It determines the probability of each \enquote{candidate} frequency distribution by combining two factors: (a) how well the candidate fits the sample data, (b) how biologically or physically reasonable the candidate is. Figure~\ref{fig:inferring_distribution} show a fictitious sample data and various candidate frequency distributions \mynotep{...}.
-\begin{figure}[!t]% with figure
-  \centering%
-  \includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}
-  \hfill
-  \includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}
-  \\
-  \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
-  \hfill
-  \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
-  \caption{\mynotep{Upper-left: Sample data.
-      Upper-right: candidate frequency distribution that fits the data and does not look unnatural.
-      Lower-left: candidate distribution that might look natural but doesn't fit the sample data.
-      Lower-right: candidate distribution that fits the data very well but looks unnatural.}}\label{fig:inferring_distribution}
-\end{figure}%
-
-\mynotep{EITHER HERE OR IN APPENDIX~\ref{sec:maths_tjm}: Add some more intuition and details about the maths, principles, and characteristics} \citep{dunsonetal2011,rossi2014,rasmussen1999}.
-
-The \ljm\ computes the probabilities of all possible frequency distributions for the full population, and from these the joint probability distribution $\p(X,Y,Z,\dotsc)$ for all variates $X,Y,Z,\dotsc$ available in the dataset.
-
-This is the\emph{ maximal amount of information} that can be extracted from the dataset. From it we can indeed quickly calculate any quantity typically outputted by specific or approximate algorithms. For example:
-\begin{itemize}
-\item \emph{Conditional probability, \enquote{discriminative} algorithms:} if we are interested in the probability of $Z$ given $X,Y$, we calculate $\p(Z \| X,Y) \defd \p(X,Y,Z)/\sum_{Z}\p(X,Y,Z)$.
-\item \emph{Conditional probability, \enquote{generative} algorithms:} if we are interested in the probability of $X,Y$ given $Z$, we calculate $\p(X,Y\|Z) \defd \p(X,Y,Z)/\sum_{X,Y}\p(X,Y,Z)$.
-\item \emph{Regression or classification:} if we are interested in the average value of $Z$ given $X,Y$, we calculate $\E(Z \| X,Y) \defd \sum_{Z}Z\,\p(Z\|X,Y)$. The \enquote{noise} around this average value is moreover given by $\p(Z-\E\|X,Y)$.
-\item \emph{Functional regression:} if $Z$ turns out to be a function $f$ of $X,Y$, then the probability will be a delta distribution: $\p(Z\|X,Y) = \delt[Z-f(X,Y)]$.
-
-  Thus, the \ljm\ always recovers a functional relationship if there is one, including its noise distribution.
-\end{itemize}
-We will see that no one of these quantities can be used \emph{alone} to solve our clinical decision problem for all future patients.
-
-Use of the \ljm\ has further advantages and yields additional useful information:
-\begin{itemize}
-\item \emph{Discrete or continuous variates:} the variate to be prognosed can be not only binary or discrete, as in the present case, but also continuous.
-\item \emph{Partially missing data:} data having missing values for some variates can be fully used, both in the learning dataset and in the prognostic results of new patients.
-\item \emph{Maximal predictive power of the variates:} from the probability distribution $\p(X,Y,Z,\dotsc)$ we can calculate any  \enquote{prognostic-power} metric, such as accuracy or  mutual information, between any two sets of variates, for example between $Z$ and $\set{X,Y}$. By construction the machine is mathematically guaranteed to achieve the optimal value in any chosen metric. % This quantity tells us what is the maximal predictive power -- which can be measured by accuracy or other metrics -- from one set to the other that can be achieved by any inference algorithm \citep{mackay1995_r2005,goodetal1968,coveretal1991_r2006}. Functional dependence is included as a special case; for example, a binary variate $Z$ is a non-constant function of $\set{X,Y}$ if and only if their mutual information \footnote{The \enquote{shannon} ($\mathrm{Sh}$) is a measurement unit of information, as specified by the \citet{iso2008c}.} equals $1\,\mathrm{Sh}$.
-\item \emph{Uncertainty about learning set and variability owing to limited sample size:} the machine takes into account that the learning dataset could be slightly different from its original population, owing to sampling fluctuations, and tells us how much any of the quantities listed so far -- from average values to mutual information -- could change if more sample data were added to our dataset.
-\end{itemize}
-
-\medskip
-
-For readers with an interest in machine learning and artificial intelligence, we briefly discuss the drawbacks of some popular inference algorithms with respect to the \ljm. \mynotew{Rewrite the paragraphs below to better discuss the limitations. Maybe better to list according to limitations than to algorithms:
-  \begin{itemize}
-  \item \emph{Special assumptions}, such as functional dependence (neural networks, Gaussian processes, partly random forests), or special shape of underlying distributions (neural networks, support vector machines, linear and logistic regression, generalized linear models).
-  \item \emph{Lack of uncertainty quantification} (neural networks), or non-probabilistic quantification (random forests for classification)
-  \item \emph{One-way-only inference}, from predictors to predictands only (all)
-  \item \emph{Blindness to possible fluctuations affecting the whole dataset} (all algorithms except gaussian processes): the algorithms try to generalize by splitting the dataset into a training set and a test set. This procedure does not protect up from fluctuations that affect the \emph{whole} dataset. Such fluctuations are important for datasets of small size \mynotep{be precise here about the size}. The \ljm\ intrinsically check how the full population could have been different from the dataset.
-  \end{itemize}
-}
-
-\emph{Neural networks and gaussian processes} are based on the assumption that there is a functional relationship from predictors to predictand, possibly contaminated by a little noise, typically assumed gaussian. This is a very strong assumption, quite unrealistic for many kinds of variables considered in medicine. It can only be justified in the presence of informationally very rich predictors such as images. In the case of our dataset, the mutual information between predictors and the conversion variate is $0.14\,\mathrm{Sh}$, to be compared with $1\,\mathrm{Sh}$, if conversion were a function of the predictors, and with $0\,\mathrm{Sh}$, if conversion were completely unpredictable. See \sect~\ref{sec:predictor_importance} for further details. An additional deficiency of neural networks is that they do not yield any probabilities, even if there are many efforts to render such an output possible \citep{pearceetal2020,osbandetal2021,backetal2019}. Such an advance, however, would still not solve the final deficiency of neural networks and gaussian processes: they try to infer the predictand from the predictors but cannot be used for the reverse inference.
-
-\emph{Random forests} also assume a functional relationship from predictors to predictand. This assumptions is mitigated when the predictand is a discrete variate; in this case a random forest can output an agreement score from its constituent decision trees. This score can give an idea of the underlying uncertainty, but it is not a probability,\footnote{It is sometimes called a \enquote{non-calibrated probability}, something akin to a \enquote{non-round circle}.} and therefore cannot be used in the decision-making stage, see \sect~\ref{sec:utilities_step}. It is possible to transform this score into a proper probability \citep{dyrlandetal2022b}, but this possibility does not solve the final deficiency of random forests: like neural networks, they try to infer the predictand from the predictors but cannot be used for the reverse inference.
-
-\emph{Parametric models and machine-learning algorithms} such as logistic or linear regression, support-vector machines, or generalized linear models make even stronger assumptions than neural networks and random forests. They assume specific functional shapes or frequency distributions. Their use may be justified when we are extremely sure -- for instance thanks to underlying physical or biological knowledge -- of the validity of their assumptions; or when the computational resources are extremely scarce. But it is otherwise unnecessary to be hampered by their restrictive and often unrealistic assumptions.
-
-\mynotep{Add note on \enquote{ensembling}: it does not give probabilities \citep[\sect~18.2]{murphy2022}}
-
-
-
-An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
+%\setcounter{subsection}{-1}
 
 
 \newpage% Newpage break just to help while writing the draft
@@ -1320,7 +1319,7 @@ The first advantage of explicitly operating through utilities, probabilities, de
 \mynotep{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
 
 \subsection{Range of application of \ljm s}
-\label{sec:rangeTJM}
+\label{sec:rangeLJM}
 
 The range of application of the \ljm\ used in the present study has two kinds of bound: computational and theoretical.
 
@@ -1619,3 +1618,25 @@ The datasets [GENERATED/ANALYZED] for this study can be found in the [NAME OF RE
 % \enquote{$\|\dotso)$} any variate suspected to have dataset statistics different from those of the population of interest. The final desired probabilities are then obtained through Bayes's theorem, supplying additional corrected statistics.
 
 % Let's clarify this with an example. In our dataset we observe a value $\gds = 1$ with a frequency of 32\% across all patients. Among the patients who later converted to \ad, the frequency is 36\%; whereas among those who remained with a stable \mci, the frequency is 28\%. Given a new patient, if we knew that 
+
+
+This is the\emph{ maximal amount of information} that can be extracted from the dataset. From it we can indeed quickly calculate any quantity typically outputted by specific or approximate algorithms. For example:
+\begin{itemize}
+\item \emph{Conditional probability, \enquote{discriminative} algorithms:} if we are interested in the probability of $Z$ given $X,Y$, we calculate $\p(Z \| X,Y) \defd \p(X,Y,Z)/\sum_{Z}\p(X,Y,Z)$.
+\item \emph{Conditional probability, \enquote{generative} algorithms:} if we are interested in the probability of $X,Y$ given $Z$, we calculate $\p(X,Y\|Z) \defd \p(X,Y,Z)/\sum_{X,Y}\p(X,Y,Z)$.
+\item \emph{Regression or classification:} if we are interested in the average value of $Z$ given $X,Y$, we calculate $\E(Z \| X,Y) \defd \sum_{Z}Z\,\p(Z\|X,Y)$. The \enquote{noise} around this average value is moreover given by $\p(Z-\E\|X,Y)$.
+\item \emph{Functional regression:} if $Z$ turns out to be a function $f$ of $X,Y$, then the probability will be a delta distribution: $\p(Z\|X,Y) = \delt[Z-f(X,Y)]$.
+
+  Thus, the \ljm\ always recovers a functional relationship if there is one, including its noise distribution.
+\end{itemize}
+We will see that no one of these quantities can be used \emph{alone} to solve our clinical decision problem for all future patients.
+
+Use of the \ljm\ has further advantages and yields additional useful information:
+\begin{itemize}
+\item \emph{Discrete or continuous variates:} the variate to be prognosed can be not only binary or discrete, as in the present case, but also continuous.
+\item \emph{Partially missing data:} data having missing values for some variates can be fully used, both in the learning dataset and in the prognostic results of new patients.
+\item \emph{Maximal predictive power of the variates:} from the probability distribution $\p(X,Y,Z,\dotsc)$ we can calculate any  \enquote{prognostic-power} metric, such as accuracy or  mutual information, between any two sets of variates, for example between $Z$ and $\set{X,Y}$. By construction the machine is mathematically guaranteed to achieve the optimal value in any chosen metric. % This quantity tells us what is the maximal predictive power -- which can be measured by accuracy or other metrics -- from one set to the other that can be achieved by any inference algorithm \citep{mackay1995_r2005,goodetal1968,coveretal1991_r2006}. Functional dependence is included as a special case; for example, a binary variate $Z$ is a non-constant function of $\set{X,Y}$ if and only if their mutual information \footnote{The \enquote{shannon} ($\mathrm{Sh}$) is a measurement unit of information, as specified by the \citet{iso2008c}.} equals $1\,\mathrm{Sh}$.
+\item \emph{Uncertainty about learning set and variability owing to limited sample size:} the machine takes into account that the learning dataset could be slightly different from its original population, owing to sampling fluctuations, and tells us how much any of the quantities listed so far -- from average values to mutual information -- could change if more sample data were added to our dataset.
+\end{itemize}
+
+\medskip
