@@ -476,20 +476,37 @@ The dataset used in our example comes from the study by the Alzheimer's Disease 
 
 The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued; hippocampal volume and age are continuous, and \apoe\ and sex are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
 
-The \ljm\ took less than six hours to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference. Figure~\ref{fig:marginal_pop_distributions} shows the predicted  distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation that will remain with stable \mci\ (solid blue). The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities for a hypothetical new patient.
-\begin{figure}[b]
+The \ljm\ took less than six hours to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference.
+
+Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the predicted distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation that will remain with stable \mci\ (solid blue). On the right, the predicted frequency of conversion in the full population is given, conditional on the same predictors. The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
+\begin{figure}[!t]
 \centering%
-\includegraphics[width=0.49\linewidth]{population_distr_RAVLT-del.pdf}%
-\hfill%
-\includegraphics[width=0.49\linewidth]{population_distr_RAVLT-imm.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_RAVLT-del.pdf}%
+\qquad%
+\includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-del.pdf}%
 \\
-\includegraphics[width=0.49\linewidth]{population_distr_GDS.pdf}%
-\hfill%
-\includegraphics[width=0.49\linewidth]{population_distr_HV.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_RAVLT-imm.pdf}%
+\qquad%
+\includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-imm.pdf}%
+\\
+\includegraphics[width=0.43\linewidth]{population_distr_GDS.pdf}%
+\qquad%
+\includegraphics[width=0.43\linewidth]{prob_conversion_GDS.pdf}%
+\\
+\includegraphics[width=0.43\linewidth]{population_distr_HV.pdf}%
+\qquad%
+\includegraphics[width=0.43\linewidth]{prob_conversion_HV.pdf}%
 \caption{Predicted distributions of some predictor variates, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation with stable \mci\ (solid blue).}\label{fig:marginal_pop_distributions}
 \end{figure}%
+%
+The two subpopulations of patients are clearly distinct in the \ravltdel, \ravltimm, \hv\ variates, but practically indistinguishable in the \gds\ variate.
 
-The two subpopulations of patients are clearly distinct in the \ravltdel, \ravltimm, \hv\ variates, but practically indistinguishable in the \gds\ variate. The learning dataset contains enough data to greatly reduce our uncertainty about the population distributions, as evident from the very narrow spread of the curves.
+
+
+
+
+
+The learning dataset comprises enough data to greatly reduce our uncertainty about the population distributions, as evident from the very narrow spread of the curves. These simple results show the great usefulness of the \ljm\ for general medical research.
 
 
 
