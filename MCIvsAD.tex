@@ -388,15 +388,11 @@ Such flexibility and informationally rich output come of course at a computation
 
 The calculations by which the \ljm\ learns and operates are univocally determined by Cox's theorem \footnote{\citealp{cox1946,cox1961,polya1954,polya1954b_r1968,tribus1969,rosenkrantz1977,snow1998,halpern1999b,arnborgetal2001,snow2001,claytonetal2017}; for a review see \citealp{vanhorn2003}.}, which determines quantitative inference rules from self-consistency requirements, and by de~Finetti's theorem\footnote{\citealp[\sects~4.2--4.3]{definetti1930,definetti1937,bernardoetal1994_r2000}; for a review see \citealp{dawid2013}.}, which further constrains these rules in the case of \enquote{generalization from similar cases}. These calculations have a very intuitive interpretation.
 
-We consider a patient to be a member of some population of similar patients -- past, present, future. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such population. We would then judge the probability for a patient's particular variate values to be equal to the their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values to 0. Therefore a functional relationship is still encompassed by this point of view as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population.
+We consider a patient to be a member of some population of similar patients -- past, present, future. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such population. We would then judge the probability for a patient's particular variate values to be equal to the their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values to 0. Therefore a functional relationship is still encompassed by this point of view as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population. Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, because each new patient would already be counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
 
-Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, because each new patient would already be counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
+Learning and generalization come into play because the frequency distribution for the population is unknown: we only have a sample from it, the \enquote{learning dataset}. Thus we can at most assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does.
 
-Learning and generalization come into play because the frequency distribution for the population is not fully known: we only have a sample from it, the \enquote{learning dataset}. Thus we can at most assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does. The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is.
-
-The first factor is easily computed: it's the joint probability of the dataset, assuming it was sampled from a population having the candidate frequency.
-
-The second factor is a prior probability expressing how we expect reasonable candidates to be. The only natural requirement is that it should have some degree of smoothness, owing to physical and biological reasons. Figure~\ref{fig:prior_distribution} shows, through a sample, what the machine considers to be \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. 
+The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is. The first factor is easily computed: it is the joint probability of the dataset, assuming it was sampled from a population having the candidate frequency. The second factor is a prior probability expressing how reasonable the candidate is.\footnote{It must be emphasized that some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting? Such judgement implies that we have a preconceived, reasonable reference distribution in the back of our minds. The fit is either intuitively compared with the preconceived reference; or is compared with a known, ground-truth test for testing owing to its similarity with the preconceived reference.} The only natural requirement is that the candidate should have some degree of smoothness, owing to physical and biological reasons. Figure~\ref{fig:prior_distribution} show samples of what the machine considers to be \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. Note that no frequency distributions are excluded; they are only given higher or lower probabilities.
 \begin{figure}[b]% with figure
   \centering%
   \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
@@ -404,7 +400,6 @@ The second factor is a prior probability expressing how we expect reasonable can
       or \ravltrec%AVDELTOT\_neuro
     }}\label{fig:prior_distribution}
 \end{figure}%
-It must be emphasized that some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting? Such judgement implies that we have a preconceived, reasonable reference distribution in the back of our minds. The fit is either intuitively compared with the preconceived reference; or is compared with a known, ground-truth test for testing owing to its similarity with the preconceived reference.
 
 
 
@@ -416,11 +411,19 @@ If the full statistics of such a population were known, our task would just be t
 
 The \ljm\ assigns a probability to each possible frequency distribution for the full population. It determines the probability of each \enquote{candidate} frequency distribution by combining two factors: (a) how well the candidate fits the sample data, (b) how biologically or physically reasonable the candidate is. Figure~\ref{fig:inferring_distribution} show a fictitious sample data and various candidate frequency distributions \mynotep{...}.
 \begin{figure}[!t]% with figure
-  \centering%
-  \includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}
-  \hfill
-  \includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}
-  \\
+\centering%
+\makebox[0.49\linewidth]{\centering\footnotesize dataset}%
+\hfill%
+\makebox[0.49\linewidth]{\centering\footnotesize high-probability candidate population distribution}%
+\\[-2em]
+\includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}%
+\hfill%
+\includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}%
+\\
+\makebox[0.49\linewidth]{\centering\footnotesize low-probability candidate population distribution (poor fit)}%
+\hfill%
+\makebox[0.49\linewidth]{\centering\footnotesize low-probability candidate population distribution (unreasonable)}%
+\\[-2em]
   \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
   \hfill
   \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
