@@ -185,6 +185,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\AD}{\textsc{ad}}
 \newcommand*{\MCI}{\textsc{mci}}
 \newcommand*{\nAD}{\lnot\mathrm{AD}}
+\newcommand*{\adni}{\textsc{adni}}
 
 
 % Leave a blank line between paragraphs instead of using \\
@@ -405,7 +406,7 @@ The way in which the machine assigns a probability to each \enquote{candidate} t
 \end{figure}%
 
 
-The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration.
+The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}.
 \begin{figure}[t]
 \centering%
 \makebox[0.49\linewidth]{\centering\footnotesize dataset}%
@@ -433,15 +434,12 @@ The product of the two factors (i), (ii), normalized, yields the probability of 
 \section{Example application}
 \label{sec:application}
 
-The inferential and decision-making steps based on the \ljm\ are summarized in the inset at the bottom of this page.
-\begin{table}[t]  
+\begin{table}[b]  
   \begin{framed}
     \small
-      \begin{center}
-        \textbf{Inset: Inferential and decision-making steps}
-  \end{center}
-    
-    \begin{enumerate}\itemsep1em 
+      \caption{\bf Main inferential and decision-making steps}\label{tab:main_steps}
+      \begin{enumerate}\itemsep1em
+        \setcounter{enumi}{-1}
     \item\label{item:learn} Find or build an appropriate dataset of clinical cases comprising values of the predictors and predictand of interest. Datapoints with partially missing values are allowed.
 
       Input the dataset into the \ljm\ and let it infer the joint full-population frequencies of predictors and predictand behind the dataset.
@@ -463,26 +461,33 @@ The inferential and decision-making steps based on the \ljm\ are summarized in t
   \end{framed}
 \end{table}
 
-How does the clinician use the \ljm\ in a specific application to a patient, after the machine has learned from the dataset? The clinician inputs:
-  \begin{enumerate}
-  \item\label{item:input_data} the patient's clinical data
-  \item\label{item:input_stat} the choice of statistical relation that can be generalized from dataset to the patient (see \sect~\ref{sec:population_step})
-  \item prior probabilities coming from auxiliary information
-  \item set of available treatments and their utilities
-  \end{enumerate}
-  Then the machine will output (in a fraction of a second) the optimal treatment for the patient. Alternatively the clinician can stop at step \ref{item:input_stat} above, and do the rest of the calculation by hand.
+In this section we illustrate how the \ljm\ is applied in the example case outlined in \sect~\ref{sec:four_patients}. Although the patients are fictitious, the dataset is real and briefly discussed in the next subsection. The main inferential and decision-making steps are summarized in table~\ref{tab:main_steps}. As mentioned in \sect~\ref{sec:intro_purposes}, steps 1.--3. are modular: the clinician is free to stop after any of them and use their output in other ways or with other algorithms.
 
 
-These steps taken by the clinician and use of the \ljm\ will be explained and illustrated in the next three sections. They are presented in chronological order as the clinician would apply them. In each section, a general overview and discussion of the theory and method behind the specific step is first given, followed by the concrete application to our example case.
-
-The three steps and sections could also be presented in reverse order, more suited to their logical dependence, because the procedure in each one is actually motivated by the next. We suggest that readers familiar with the principles of clinical decision making read them in \sect\,\ref{sec:predictor_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:utilities_step} order; whereas readers unfamiliar with these principles (who may include readers with a specialized background in machine learning) read them in \sect\,\ref{sec:utilities_step}-\sect\,\ref{sec:population_step}-\sect\,\ref{sec:predictor_step} order.
-
-\mynotew{Remark that the approach used here is the same as in the research behind the last two black-hole observations \citep{eht2019,eht2022}.}
+These steps are illustrated in the next three subsections, preceded by an explanation of their rationale. They are presented in chronological order as the clinician would apply them. % In each section, a general overview and discussion of the theory and method behind the specific step is first given, followed by the concrete application to our example case.
+Steps 1.--3. could also be presented in reverse order; which would be more suited to their logical dependence, as the procedure in each step is actually motivated by the one in the next. We suggest that readers familiar with the principles of clinical decision making read the following subsections in \ref{sec:dataset}--\ref{sec:predictor_step}--\ref{sec:population_step}--\ref{sec:utilities_step} order; whereas readers unfamiliar with these principles read them in \ref{sec:dataset}--\ref{sec:utilities_step}--\ref{sec:population_step}--\ref{sec:predictor_step} order.
 
 
 \setcounter{subsection}{-1}
 \subsection{Learning dataset}
 \label{sec:dataset}
+
+The dataset used in our example comes from the study by the Alzheimer's Disease Neuroimaging Initiative (\adni). This longitudinal multicentre study is designed to develop and validate neuroimaging and biochemical biomarkers for the early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present dataset consists of 704 \adni\ subjects meeting the criteria for \mci\ at their first, baseline assessment who additionally had a minimum of two following, additional study visits, as well as three \textsc{mri} examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit. This longitudinal diagnostic label is used as the predictand variate $\cad$ in our study: it categorizes each subject as either converting to \ad\ after the first study visit ($\cad=1$), or remaining stable with \mci\ ($\cad=0$). The dataset has 325 subjects with $\cad=1$ and 379 with $\cad=0$. Criteria used for classifying subjects as having \mci\ or \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
+
+The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued; hippocampal volume and age are continuous, and \apoe\ and sex are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
+
+The \ljm\ took less than six hours to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference. Figure~\ref{fig:marginal_pop_distributions} shows the predicted  distributions of \ravltdel\ and for hippocampal volume, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation that will remain with stable \mci\ (solid blue). The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities for a hypothetical new patient.
+\begin{figure}[b]
+\centering%
+\includegraphics[width=0.49\linewidth]{population_distr_RAVLT-del.pdf}%
+\hfill%
+\includegraphics[width=0.49\linewidth]{population_distr_HV.pdf}%
+\caption{Predicted distributions of two predictor variates, for the subpopulation of patients that will convert to Alzheimer (red dashed) and the subpopulation with stable \mci\ (solid blue).}\label{fig:marginal_pop_distributions}
+\end{figure}%
+
+The two subpopulations of patients are clearly distinct in each of these two variates. The learning dataset contains enough data to greatly reduce our uncertainty about the population distribution, as evident from the very narrow spread of the curves.
+
+
 
 
 
@@ -1310,7 +1315,7 @@ As explained in \sect~\ref{sec:population_step}, the essentially sole assumption
 \subsection{Predictors and predictand}
 \label{sec:predictors_description}
 
-For the present study, data used in the learning stage of \sect~\ref{sec:learn_application} comes from the Alzheimer's Disease Neuroimaging Initiative (\textsc{adni}) study. This longitudinal multicenter study is designed to develop and validate neuroimaging and biochemical biomarkers for early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present sample of 704 subjects consisted of all \textsc{adni} participants meeting the criteria for Mild Cognitive Impairment at their first, baseline assessment who additionally had a minimum of three study visits (that is, baseline visit and at least two additional visits), and three MRI examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit, and this longitudinal diagnostic label was used to partition our sample into 325 subjects converting to Alzheimer's Disease following the first study visit, and 379 subjects remaining stable with \mci. Criteria used for classifying subjects as having \mci\ and \ad, as well as \textsc{adni}'s general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
+For the present study, data used in the learning stage of \sect~\ref{sec:learn_application} comes from the Alzheimer's Disease Neuroimaging Initiative (\adni) study. This longitudinal multicenter study is designed to develop and validate neuroimaging and biochemical biomarkers for early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present sample of 704 subjects consisted of all \adni\ participants meeting the criteria for Mild Cognitive Impairment at their first, baseline assessment who additionally had a minimum of three study visits (that is, baseline visit and at least two additional visits), and three MRI examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit, and this longitudinal diagnostic label was used to partition our sample into 325 subjects converting to Alzheimer's Disease following the first study visit, and 379 subjects remaining stable with \mci. Criteria used for classifying subjects as having \mci\ and \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
 
 \subsection{Mathematical details about the \ljm}
 \label{sec:maths_tjm}
@@ -1538,9 +1543,9 @@ The datasets [GENERATED/ANALYZED] for this study can be found in the [NAME OF RE
 
 % The present study uses different statistical approached to investigate the prognostic power of results from neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4The 
 % %present work investigates the prognostic power of a set of neuropsychological and Magnetic Resonance Imaging examinations, demographic data, and genetic information about Apolipoprotein-E4 (APOE) status, for the prediction of 
-% to predict the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
+% to predict the onset of Alzheimer's Disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \adni\ database.
 
-% % (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \textsc{adni} database.
+% % (APOE) status, for the prediction of the onset of Alzheimer's disease in patients defined as mildly cognitively impaired at a baseline examination. The longitudinal data used come from the \adni\ database.
 
 % The prognostic power of these predictors is quantified in the form of a combined likelihood for the onset of Alzheimer's disease. As a hypothetical example application of personalized clinical decision making, three patient cases are considered where a clinician starts with prognostic uncertainties, possibly coming from other tests, of 50\%/50\%, 25\%/75\%, 75\%/25\%. It is shown how these pre-test probabilities are changed by the predictors. \mynotew{update this}
 
@@ -1649,7 +1654,25 @@ For readers with an interest in machine learning and artificial intelligence, we
 
 An important common deficiency of most inference algorithms mentioned above is that their inference only goes from predictors to predictands. In the next section we shall see that this limitation precludes -- or makes much riskier -- the prognostic use of the learning dataset for patients, such as Ariel, who belong to different populations.
 
+%%%%%%%%%%%%%%%
 
+
+
+How does the clinician use the \ljm\ in a specific application to a patient, after the machine has learned from the dataset? The clinician inputs:
+  \begin{enumerate}
+  \item\label{item:input_data} the patient's clinical data
+  \item\label{item:input_stat} the choice of statistical relation that can be generalized from dataset to the patient (see \sect~\ref{sec:population_step})
+  \item prior probabilities coming from auxiliary information
+  \item set of available treatments and their utilities
+  \end{enumerate}
+
+
+
+
+
+
+
+    Then the machine will output (in a fraction of a second) the optimal treatment for the patient. Alternatively the clinician can stop at step \ref{item:input_stat} above, and do the rest of the calculation by hand.
 
 
 
