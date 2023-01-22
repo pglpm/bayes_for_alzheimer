@@ -343,36 +343,36 @@ The purpose of the present work is to present an assistive algorithm that meets 
 
 \item\label{item:feat_imputation} It works even if predictor data are missing, both in the learning dataset and for the current patient.
 
-\item\label{item:feat_uncertainty} It can quantify the uncertainty of its own outputs and therefore allow for sensitivity analyses. For example, it can tell how much a prognostic probability could have been different if the learning dataset had been larger, or whether the optimal treatment could be different if a particular missing predictor for the current patient had been available.
+\item\label{item:feat_uncertainty} It can quantify the uncertainty of its own outputs, allowing for sensitivity analyses. For example, it can tell how much a prognostic probability could have been different if the learning dataset had been larger, or whether the optimal treatment could be different if a particular missing predictor for the current patient were available.
 
-\item\label{item:feat_forecast} It can make various kinds of long-term forecasts, such as frequency of prognoses having given probabilities, frequency of prescribed treatments, and similar -- provided that the dataset used for its learning can be considered representative of the full population,
+\item\label{item:feat_forecast} It can make various kinds of long-term forecasts, such as frequency of prognoses with given probabilities, frequency of prescribed treatments, and similar -- provided that the dataset used for its learning can be considered representative of the full population,
 
 \item\label{item:feat_unbeatable} It is model-free and extracts the maximal amount of information theoretically contained in the learning dataset, and therefore achieves the maximal prognostic power that the predictors can yield. In other words, it is unbeatable.
 
 \end{enumerate}
 
-Let us comment on some of these features. We believe that the capability of working with complex predictands, feature~\ref{item:feat_variates}, is important for a more realistic and nuanced approach to prognosis. In the case of \ad, for instance, it is clear that a simple dichotomy \enquote{has disease} vs. \enquote{doesn't have disease} is an oversimplification \mynotep{more text and references?}. Without the capability of being used with patients having peculiar contexts or clinical situations, feature~\ref{item:feat_conditionalstats}, the algorithm would be of no use in the often occurring case of patients having special clinical contexts. The capability of dealing with missing data, feature~\ref{item:feat_imputation}, is important for a concrete implementation in a clinical setting, typically afflicted by imputation problems. Feature~\ref{item:feat_uncertainty} is extremely important for a clinician to assess the reliability of final decisions and inform the patient of the possibility of unwanted outcomes. Finally, features~\ref{item:feat_indifferentvariates} and~\ref{item:feat_unbeatable}, the fact that this algorithm yields the maximal amount of information (as determined by information theory) jointly contained in all variates, makes it valuable in general clinical research. The algorithm can, for example, forecast the maximal accuracy obtainable by \emph{any} inference algorithm based on the same predictors or another set of predictors; it itself attains that maximal accuracy.
+Let us comment on some of these features. We believe that the capability of working with complex predictands, feature~\ref{item:feat_variates}, is important for a more realistic and nuanced approach to prognosis. In the case of \ad, for instance, it is clear that a simple dichotomy \enquote{has disease} vs. \enquote{doesn't have disease} is an oversimplification \mynotep{more text and references?}. Without feature~\ref{item:feat_conditionalstats}, the capability of auxiliary contextual information, the algorithm would be of no use in the often occurring case of patients having peculiar clinical contexts. The capability of dealing with missing data, feature~\ref{item:feat_imputation}, is important for a concrete implementation in a clinical setting, typically afflicted by imputation problems. Feature~\ref{item:feat_uncertainty} is extremely important for a clinician to assess the reliability of final decisions and honestly inform the patient of the possibility of unwanted outcomes. Finally, features~\ref{item:feat_indifferentvariates} and~\ref{item:feat_unbeatable}, the fact that this algorithm yields the maximal amount of information (as determined by information theory) jointly contained in all variates, makes it valuable in general clinical research. The algorithm can, for example, forecast the maximal accuracy obtainable by \emph{any} inference algorithm based on the same predictors or another set of predictors; it itself attains that maximal accuracy.
 
 Further features relevant for Machine Learning are given in \sect\mynotep{***}.
 
-We call this algorithm a \emph{\ljm}, for reasons explained in the next section. It is at the moment available as a collection of scripts\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine}} in the R programming language \citep{rcoreteam1995_r2023}, which we plan to soon assemble into a clinician-friendly R package.
+We call this algorithm a \emph{\ljm}, for reasons explained in the next section. It is at the moment available as a collection of scripts\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine}} in the R programming language \citep{rcoreteam1995_r2023}, which we plan to assemble into a clinician-friendly R package soon.
 
 The next section~\ref{sec:the_machine} gives an intuitive understanding of the \ljm's underlying principles and workings. It is largely independent of the subsequent sections, so it can be skipped by readers who want to immediately see its application. Application is shown in \sect~\ref{sec:application}, using the four-patient fictitious scenario of \sect~\ref{sec:four_patients} as a concrete example; the final subsection~\ref{sec:additional_results} discusses applications to general medical research. A summary and discussion is given in \sect~\ref{sec:discussion}.
 
-Mathematical details and proofs on which the present work is grounded are given in a companion technical note\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine/raw/main/ledley-jaynes\_machine.pdf}}, which explains more in detail how to use the R~scripts.
+Mathematical details and proofs on which the present work is grounded are given in a companion technical note\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine/raw/main/ledley-jaynes\_machine.pdf}}, which also explains how to use the R~scripts.
 
 \bigskip% Newpage break just to help while writing the draft
 \section{The \ljm}
 \label{sec:the_machine}
 
 This section can be skipped by % practitioners of Hearsay Science
-readers not interested in the principles and mathematical details underlying the \ljm.
+readers not interested in the principles and mathematical details underlying the \ljm, but can be of interest to readers from Machine Learning and Artificial Intelligence.
 
 \subsection{Underlying theory and characteristics}
 \label{sec:the_machine_principles}
 
 The method to solve clinical decision-making problems such as the one of \sect~\ref{sec:intro} %, taking into account individual differences among patients,
-is none other than Decision Theory: the combination of probability theory and utility theory. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits, in a mathematical framework, completely determined by basic self-consistency requirements.\footnote{\citet[\chaps~13--14]{jaynes1994_r2003,vonneumannetal1944_r1955,cox1946,savage1954_r1972,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988}.}
+is none other than Decision Theory: the combination of probability theory and utility theory. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits, in a mathematical framework, completely determined by basic self-consistency requirements.\footnote{\citet[\chaps~13--14]{jaynes1994_r2003}; \citet{vonneumannetal1944_r1955,cox1946,savage1954_r1972,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988}.}
 
 Medicine has the distinction of having been one of the first fields to adopt Decision Theory, with the pioneering work by Ledley and Lusted \citeyearpar{ledleyetal1959,ledleyetal1959b,ledleyetal1960,lustedetal1960}, who also promoted its algorithmic implementation \citep[see especially \sect~1-5 p.~21]{ledley1959,ledley1960}. Clinical decision-making is today explained and exemplified in brilliant textbooks for medical students and clinicians \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}. An outline is given in \sect~\ref{sec:expected_utility_theory}.
 
@@ -389,25 +389,25 @@ More concretely, the \ljm\ is ideal because \emph{it computes the probability di
 
   More generally, the machine can compute any joint, marginal, or conditional probabilities $p(Z',Z'')$, $p(Z')$, $p(Z'\|Z'')$ for any desired subsets of variates $Z', Z''$.
 
-\item \emph{Regression or classification:} the average value of any set of variates $Y$, given any other set of variates $X$, including the special case of predictand $Y$ and predictors $X$. The uncertainty or variability around such an average is also automatically computed.
+\item \emph{Regression or classification:} the expected value $\E(Y\|X)$ of any set of variates $Y$, given any other set of variates $X$, including the particular case of $Y$ predictand, and $X$ predictors. The uncertainty or variability around such an average is also automatically computed.
   
 \item \emph{Functional regression:} if the predictand $Y$ or any other variate of interest turns out to be a function $f$ of variates $X$, then their conditional probability will be a delta distribution: $\p(Y\|X) = \delt[Y-f(X)]$.
   % We must remember that a function can always be represented by a probability distribution, but not vice versa.\footnote{The function $f\colon x \mapsto y=f(x)$ corresponds to the probability density $\p(y\|x) = \delt[y-f(x)]$, where $\delt$ is a delta distribution.}
   Thus the \ljm\ always recovers a functional relationship if there is one, as well as its noise distribution.
 \end{itemize}
-Furthermore, the machine also quantifies the uncertainty of all outputs above. More precisely, it takes into account that the statistical properties of the learning dataset could be different from those of its original population, owing to sampling fluctuations; and it computes how much any of the outputs above would probably change if more learning data were collected.
+Furthermore, the machine also quantifies the uncertainty of all outputs above. More precisely, it takes into account that the statistical properties of the learning dataset could be different from those of its original population, owing to sampling fluctuations; and it can compute how much any of the outputs above would probably change if more learning data were collected.
 
 In the next section, we explain intuitively how the \ljm\ computes the general probability distribution over long-run frequencies; but we can already summarize a couple of special characteristics brought about by such computation. Unlike machine-learning algorithms such as neural networks, random forests, support-vector machines, logistic regression, or generalized linear models, the \ljm\ does not do an optimization during the learning phase, searching for the minimum of some objective function. It does a full \emph{hypothesis-space survey}. % Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{\citealt{definetti1930,definetti1937,dawid2013}; \citealt[\sects~4.2--4.3]{bernardoetal1994_r2000}}
-The optimization done by most machine-learning algorithms is an approximate form of this survey, based on the assumption or hope that the most relevant portion of the hypothesis space will be around the extremum \citetext{\citealp[\chap~16]{mackay1992,murphy2012}; \citealp[see also][]{selfetal1987}}. The underlying necessity of a more extensive survey, however, becomes manifest in many of the obligatory procedures that go together with the training of most machine-learning algorithms, cross-validation being a prominent example \citep{mackay1992b}. This leads to another special characteristic: the \ljm\ does not need validation sets, test sets, or other data splits; nor does it need cross-validation procedures. Intuitively this is the case because the underlying hypothesis-space survey realizes a sort of full-fledged cross-validation and data partition. It can indeed be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$ \citep{portamana2019b,fongetal2020}.
+The optimization done by most machine-learning algorithms is an approximate form of this survey, based on the assumption or hope that the most relevant portion of the hypothesis space will be around the extremum \citetext{\citealp[\chap~16]{mackay1992,murphy2012}; \citealp[see also][]{selfetal1987}}. The underlying necessity of a more extensive survey, however, becomes manifest in many of the obligatory procedures that go together with the training of most machine-learning algorithms, cross-validation being a prominent example \citep{mackay1992b}. This leads to another special characteristic: the \ljm\ does not need validation sets, test sets, or other data splits; nor does it need cross-validation procedures. Intuitively this is the case because the underlying hypothesis-space survey realizes a sort of full-fledged cross-validation and data partition. It can indeed be proven that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$ \citep{portamana2019b,fongetal2020}.
 
 Such flexibility and informationally rich output come, of course, at a computational cost. Until some years ago, the cost would have been prohibitive in all but the simplest inferential problems. But today, an inference problem involving 13 variates and 700 datapoints, such as the example considered in the present work, takes less than six hours of computation on an office computer workstation. We discuss computational limitations further in \sect~\ref{sec:rangeLJM}.
 
 \subsection{Intuitive understanding of the learning algorithm}
 \label{sec:the_machine_learning}
 
-The calculations by which the \ljm\ learns and operates are univocally determined by Cox's theorem \footnote{\citealp{cox1946,cox1961,polya1954,polya1954b_r1968,tribus1969,fine1973,rosenkrantz1977,paris1994_r2006,snow1998,arnborgetal2001,snow2001,claytonetal2017}; for a review see \citealp{vanhorn2003}.}, which determines quantitative inference rules from self-consistency requirements, and by de~Finetti's theorem\footnote{\citealp[\sects~4.2--4.3]{definetti1930,definetti1937,bernardoetal1994_r2000}; for a review see \citealp{dawid2013}.}, which further constrains these rules in the case of \enquote{generalization from similar cases}. These calculations have a very intuitive interpretation.
+The calculations by which the \ljm\ learns and operates are univocally determined by Cox's theorem \footnote{\citealp{cox1946,cox1961,polya1954,polya1954b_r1968,tribus1969,fine1973,rosenkrantz1977,paris1994_r2006,snow1998,arnborgetal2001,snow2001,claytonetal2017}; for a review see \citealp{vanhorn2003}.}, which yields quantitative inference rules from self-consistency requirements, and by de~Finetti's theorem\footnote{\citealp[\sects~4.2--4.3]{definetti1930,definetti1937,bernardoetal1994_r2000}; for a review see \citealp{dawid2013}.}, which further constrains these rules in the case of \enquote{generalization from similar cases}. These calculations have a very intuitive interpretation.
 
-We consider a patient to be a member of some population of similar past, present, and future patients. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such a population. We would then judge the probability for a patient's particular variate values to be equal to their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values to 0. Therefore, this point of view still encompasses a functional relationship as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population. Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, because each new patient would already be counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
+We consider a patient to be a member of some population of similar past, present, and future patients. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such a population. We would then judge the probability for a patient's variate values to be equal to their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values having 0. Therefore, this point of view still encompasses a functional relationship as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population. Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, because each new patient would already be counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
 
 Learning and generalization come into play because the frequency distribution for the population is unknown: we only have a sample from it, the \enquote{learning dataset}. Thus we can, at most, assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does.
 
@@ -707,21 +707,21 @@ which is indeed the correct full-population frequency.
 
 If the samples of the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the probability $\p(\predictand \| \predictors, \dataset)$ from the dataset would be the appropriate one to use. But the probabilities $\p(\predictors \| \predictand, \dataset)$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities}
 \[\p(\predictors \| \predictand, \dataset)\]
-\emph{from the dataset is preferable to using} $\p(\predictand \| \predictors, \dataset)$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\predictors \| \predictand, \dataset)$ probabilities is illustrated with a toy example in table~\ref{tab:superiority_predictors_given_predictand}.
-\begin{table}[t]
+\emph{from the dataset is preferable to using} $\p(\predictand \| \predictors, \dataset)$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of latter is inappropriate. The superiority of using $\p(\predictors \| \predictand, \dataset)$ probabilities (called \enquote{generative} in machine learning, see \eg\ \citealp[\sect~8.6]{murphy2012}) is illustrated with a toy example in table~\ref{tab:superiority_predictors_given_predictand}.
+\begin{table}[b]
   \begin{framed}
   \small
-  \caption{\small\bf superiority of the \enquote{predictors$\pmb{\|}$predictand} approach}
+  \caption{\small\bf superiority of the \enquote{predictors$\pmb{\|}$predictand} (or \enquote{generative}) approach}
   \label{tab:superiority_predictors_given_predictand}
   \mbox{}\\
-  We split our learning dataset in two subsets:
+  We split our learning dataset into two subsets:
     \begin{itemize}
-    \item One with 361 datapoints and a ratio of 29.9\%/70.1\% of conversions to \ad\ vs stable \mci. This is used as learning set.
-    \item One with 343 datapoints and a ratio of 63.3\%/36.7\% of conversions to \ad\ vs stable \mci. This is used as a fictive full population.
+    \item One with 361 subjects and a ratio of 29.9\%/70.1\% of subjects with $\cad\mo\yes$ vs $\cad\mo\no$.
+    \item One with 343 subjects and a ratio of 63.3\%/36.7\% of subjects with $\cad\mo\yes$ vs $\cad\mo\no$. This subset is used as a fictive full population.
     \end{itemize}
-    This partition was made with no systematic sampling of any variates except the conversion variate.
+    This partition was made with no systematic sampling of any variates except the predictand \cad.
 
-    We then make a prognosis for each of the 343 \enquote{new} patients, through four separate approaches: (a) using the probabilities $\p(\predictand \| \predictors, \dataset)$, as typical of machine-learning algorithms; (b) using $\p(\predictors \| \predictand, \dataset)$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{conversion to \ad}, which guarantees 63.3\% correct prognoses owing to the base rate. Finally, the accuracies (number of prognoses giving more than 50\% probability to the correct course) of these four approaches are calculated. Here are the results from lowest to highest:
+    \smallskip After training on the learning dataset, we make a prognosis for each of the 343 \enquote{new} patients, through four separate approaches: (a) using the probabilities $\p(\predictand \| \predictors, \dataset)$, as typical of machine-learning algorithms; (b) using $\p(\predictors \| \predictand, \dataset)$ together with the base rate, as explained above; (c) tossing a coin; (d) always prognosing \enquote{$\cad\mo\yes$}, which guarantees 63.3\% correct prognoses owing to the base rate of the full population. Finally, the accuracies (number of prognoses giving more than 50\% probability to the correct outcome) of these four approaches are calculated. Here are the results from lowest to highest:
 
     \medskip
     { 
@@ -739,7 +739,7 @@ If the samples of the clinical trials had been chosen with the same frequencies 
     }
     \medskip
     
-    The \enquote{predictand$\|$predictors} approach leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \ljm, are incapable of extracting this useful information.
+    The \enquote{predictand$\|$predictors} approach (\enquote{discriminative} in machine-learning parlance) leads to worse results than a coin toss because of its underlying base-rate fallacy. The \enquote{predictors$\|$predictand} approach (\enquote{generative} in machine-learning parlance) leads to better results than simply always prognosing the most common base-rate outcome; this shows that the dataset can still provide useful statistical information despite its mismatched base rate. Inference algorithms that only yield \enquote{predictand$\|$predictors} outputs, unlike the \ljm, are incapable of extracting this useful information.
   \end{framed}
 \end{table}
 
@@ -926,6 +926,8 @@ The probabilities for the two medical conditions are those found in the previous
 \end{split}
 \end{equation}
 The results for all patients are reported in table~\ref{tab:utilities_patients}, bottom, with the maximal expected utilities in \textbf{boldface}.
+
+A summary of the clinician's inputs, the \ljm's outputs, and the final decisions is given in table~\ref{tab:summary} on page~\pageref{tab:summary}.
 
 % ##     olivia    ariel   curtis
 % ## 1 0.698321 0.527060 0.297440
@@ -1132,9 +1134,12 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
 %   \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
 % \end{table}
 
-
-\begin{table}[!t]
+\newpage
+\begin{table}[t]
   \centering
+  \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data and final results that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
+
+\medskip
   \begin{tabular}{lcccc}
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
@@ -1214,16 +1219,16 @@ $
     \\[7\jot] \hline\\[-1.5\jot]
     &\multicolumn{4}{c}{\textit{\footnotesize Outputs of \ljm}}
     \\\hline \\
-    {\small $\p(\cad\mo\yes \| \predictors)$}&
+    {\small $\p(\cad\mo\yes \| \predictors, \dataset)$}&
     0.302&0.302&0.302&0.703
     \\
-    {\small $\p(\predictors \| \cad\mo\yes)/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\yes, \dataset)/10^{-12}$}&
     8.97&8.97&8.97&1.14
     \\
-    {\small $\p(\predictors \| \cad\mo\no)/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\no, \dataset)/10^{-12}$}&
     18.6&18.6&18.6&0.343
     \\[3\jot]
-    \parbox{12em}{\small final probability of conversion\\
+    \parbox{14em}{\small final probability of conversion\\
       $\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$
     }&
     0.302&0.47&0.302&0.703
@@ -1246,8 +1251,9 @@ $
     \\[7\jot]
     \hline
   \end{tabular}
-  \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data and final results that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
 \end{table}
+\mbox{}
+\newpage
 
 
 
