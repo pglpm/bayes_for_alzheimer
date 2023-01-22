@@ -764,68 +764,15 @@ What is important is that in either case it can still be possible to use statist
 
 This topic is complex and of extreme importance for inference, but its detailed study is not the goal of the present work. Our main point here is that population variability and auxiliary clinical information are important factors that differentiate patients, and a personalized approach ought to take them into account. The method here presented does this naturally, allowing a great flexibility in selecting which statistical features of the sample dataset should be used for each new patient, and the integration of auxiliary clinical information in the form of a prior probability. As discussed in \sect~\ref{sec:predictor_step}, the \ljm\ allows us to quickly calculate conditional probabilities $\p(Y\|X, \dataset)$ for any desired variate subsets $Y$ and $X$ required by the patient's relevant population.
 
-\mynotew{[Luca] testing a slightly different presentation:}
-
-The probability necessary for the clinician's decision problem is the following:
-\begin{center}
-  \includegraphics[width=0.67\linewidth]{p_scheme.pdf}%
-\end{center}
-It can be rewritten as follows, by the rules for conditional and marginal probabilities:
-\begin{equation}
-  \label{eq:prob_main}
-  \p(Y \| X\,Z\,D\,I) \equiv
-  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)}
-\end{equation}
-
-The \ljm\ calculates and outputs this probability in several different ways, as demanded by the clinician according to current patient's situation:
-\begin{enumerate}[I.]
-\item\label{item:prob_fully_exch} The patient and the datasets are mutually representative with regard to predictand \emph{and} all predictors; there is no auxiliary information:
-  \begin{equation}
-  \label{eq:prob_fully_exch}
-  \p(Y \| X\,Z\,D\,I) \equiv
-  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
-  \frac{\p(Y\, X \| D\, I)}{\sum_{Y}\p(Y\, X \| D\, I)}
-\end{equation}
-
-\item\label{item:prob_exch_givenX} The patient and the datasets are mutually representative with regards to predictand \emph{given} the predictors, but not with regard to the predictors alone; there is no auxiliary information:
-  \begin{equation}
-  \label{eq:prob_exch_givenX}
-  \p(Y \| X\,Z\,D\,I) \equiv
-  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
-  % \frac{\p(Y\| X \, D\, I)\ \p(X\| Z\, D\,I)}{\sum_{Y}\p(Y\| X \, Z\, D\, I)\
-  % \p(X \| Z\, D\, I)} =
-  \p(Y \| X\, D\, I)
-\end{equation}
-
-\item\label{item:prob_exch_givenY} The patient and the datasets are mutually representative with regards to predictors \emph{given} the predictand, but not with regard to the predictand alone; there is auxiliary information:
-  \begin{equation}
-  \label{eq:prob_exch_givenY}
-  \p(Y \| X\,Z\,D\,I) \equiv
-  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
-  \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
-  \p(Y \| Z\, I)}
-\end{equation}
-
-\item\label{item:prob_exch_other} Other intermediate situations.
-%   \begin{equation}
-%   \label{eq:prob_exch_givenY}
-%   \p(Y \| X\,Z\,D\,I) \equiv
-%   \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
-%   \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
-%   \p(Y \| Z\, I)}
-% \end{equation}
-
-\end{enumerate}
-The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \ljm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
 
 
 
 \subsubsection{Application to the example study}
 \label{sec:posterior_application}
 
-In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\texttt{\small conversion} \| \predictors, \dataset)$ provided in the same table.
+In our example of \sect~\ref{sec:four_patients}, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients the clinician can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\cad\mo\yes \| \predictors, \dataset)$ provided in the same table.
 
-For Ariel, however, the clinician judges that a different base rate or prior probability of conversion should be used, equal to 65\%,  owing to her different geographical origin and family history. In her case we must use Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the prior probability of $0.65$.
+For Ariel, however, the clinician judges that a different base rate or prior probability of conversion should be used, equal to 65\%, because of her different geographical origin and family history. In her case the clinician uses Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the prior probability of $0.65$.
 
 The final probabilities of conversion to \ad\ for our four patients are reported in table~\ref{tab:posterior_patients}. Note how the final probability for Ariel is higher than that for Olivia and Bianca, even if the predictor data are the same for these three patients.
 
@@ -836,10 +783,10 @@ The final probabilities of conversion to \ad\ for our four patients are reported
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
-    {\small prior probability $\p(\text{conversion to AD} \| \text{aux info})$}&
+    {\small initial probability\; $\p(\cad\mo\yes \| \texttt{\footnotesize auxiliary\,info})$}&
     0.463&0.65&0.463&0.463
-    \\
-    {\small final probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset}, \text{aux info})$}&
+    \\[\jot]
+    {\small final probability\; $\p(\cad\mo\yes \| \predictors, \dataset, \texttt{\footnotesize auxiliary\,info})$}&
     0.302&0.47&0.302&0.703
     \\[\jot]
     \hline
@@ -852,11 +799,11 @@ The final probabilities of conversion to \ad\ for our four patients are reported
 \subsection{Assessments of treatments and benefits; final decision}
 \label{sec:utilities_step}
 
-\subsubsection{Theory and method}
+\subsubsection{Rationale}
 \label{sec:expected_utility_theory}
 
 
-A crucial point in clinical decision-making is this: the clinician needs to assess, not the presence (present or future) of a disease, but the \emph{risk} of its presence. Is there a difference? and why is it important?
+A crucial point in clinical decision-making is this: the clinician needs to assess, not the presence (present or future) of a disease, but the \emph{risk} of its presence. Is there a difference between these two problems? and why is the difference important?
 
 In clinical practice we can rarely diagnose or prognose a medical condition with full certainty. Perfect classification is therefore impossible. But also a \enquote{most probable} classification, which may be enough in other contexts, is inadequate in clinical ones. The problem is that the clinician has to decide among different courses of actions, such as different treatments, more tests, and so on, and the optimal one depends on \emph{how probable} the medical condition is, not just on whether it is more probable than not.
 
@@ -1708,3 +1655,61 @@ How does the clinician use the \ljm\ in a specific application to a patient, aft
     %%%%%%%%%%%%%%%%%%%%%%
 
     As an illustration of the additional information provided by the \ljm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008}).
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \mynotew{[Luca] testing a slightly different presentation:}
+
+The probability necessary for the clinician's decision problem is the following:
+\begin{center}
+  \includegraphics[width=0.67\linewidth]{p_scheme.pdf}%
+\end{center}
+It can be rewritten as follows, by the rules for conditional and marginal probabilities:
+\begin{equation}
+  \label{eq:prob_main}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)}
+\end{equation}
+
+The \ljm\ calculates and outputs this probability in several different ways, as demanded by the clinician according to current patient's situation:
+\begin{enumerate}[I.]
+\item\label{item:prob_fully_exch} The patient and the datasets are mutually representative with regard to predictand \emph{and} all predictors; there is no auxiliary information:
+  \begin{equation}
+  \label{eq:prob_fully_exch}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  \frac{\p(Y\, X \| D\, I)}{\sum_{Y}\p(Y\, X \| D\, I)}
+\end{equation}
+
+\item\label{item:prob_exch_givenX} The patient and the datasets are mutually representative with regards to predictand \emph{given} the predictors, but not with regard to the predictors alone; there is no auxiliary information:
+  \begin{equation}
+  \label{eq:prob_exch_givenX}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  % \frac{\p(Y\| X \, D\, I)\ \p(X\| Z\, D\,I)}{\sum_{Y}\p(Y\| X \, Z\, D\, I)\
+  % \p(X \| Z\, D\, I)} =
+  \p(Y \| X\, D\, I)
+\end{equation}
+
+\item\label{item:prob_exch_givenY} The patient and the datasets are mutually representative with regards to predictors \emph{given} the predictand, but not with regard to the predictand alone; there is auxiliary information:
+  \begin{equation}
+  \label{eq:prob_exch_givenY}
+  \p(Y \| X\,Z\,D\,I) \equiv
+  \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+  \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
+  \p(Y \| Z\, I)}
+\end{equation}
+
+\item\label{item:prob_exch_other} Other intermediate situations.
+%   \begin{equation}
+%   \label{eq:prob_exch_givenY}
+%   \p(Y \| X\,Z\,D\,I) \equiv
+%   \frac{\p(Y\, X \| Z\, D\, I)}{\sum_{Y}\p(Y\, X \| Z\, D\, I)} =
+%   \frac{\p(X\| Y \, D\, I)\ \p(Y\| Z\,I)}{\sum_{Y}\p(X\| Y \, D\, I)\
+%   \p(Y \| Z\, I)}
+% \end{equation}
+
+\end{enumerate}
+The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \ljm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
