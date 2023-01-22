@@ -1054,14 +1054,14 @@ In our question about a predictor's importance, what we want to know is what hap
 
 Regarding the meaning of \enquote{importance} or \enquote{prognostic power}, we must specify a relevant metric, and can expect that predictors could be ranked differently by different metrics. From our discussion so far it is clear that in clinical decision-making the canonical metric is the final \emph{expected utility} which a predictor's presence or absence leads to, see \sect~\ref{sec:utilities_step}. This point was partially illustrated with Curtis's example in the previous subsection. What if we want to make a similar assessment, not for a single patient, but for the full population? which utility matrix should we use? It can be proved, again from decision-theoretic principles, that the population average of all utility matrices should be used in this case \citep[\cf][\sect~4.1]{dyrlandetal2022}. This seems a quantity very difficult to assess, but it can also be shown \citep[\sect~4.2]{dyrlandetal2022} that even a semi-quantitative assessment leads to better results than using some other general-purpose metric.
 
-The \ljm\ allows us to compute the expected value of virtually any prognostic-importance metric, and for any subset of predictors available in the dataset. This computation has moreover two properties of paramount importance: (a) \emph{the prognostic power of a set of predictors found with the \ljm\ is the maximum possible obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \ljm\ achieves this maximum power}. Thus, if the \ljm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \ljm, by construction, will reach this accuracy. Note we mean accuracy in the long run, over the full population; an inference algorithm could reach higher accuracies in some \enquote{test dataset} thanks to sampling fluctuations; in fact this is bound to happen from time to time.\footnote{The \ljm\ can also predict the size of such fluctuations, given the size of the test dataset; the required computation is somewhat expensive though.}.
+The \ljm\ allows us to compute the expected value of virtually any prognostic-importance metric, and for any subset of predictors available in the dataset. This computation has moreover two properties of paramount importance: (a) \emph{the prognostic power of a set of predictors found with the \ljm\ is the maximum possible obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \ljm\ achieves this maximum power}. Thus, if the \ljm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \ljm, by construction, will reach this accuracy. Note we mean accuracy in the long run, over the full population; an inference algorithm could reach higher accuracies in some \enquote{test dataset} thanks to sampling fluctuations; in fact this is bound to happen from time to time.\footnote{The \ljm\ can also calculate, with a somewhat expensive computation, the size of such fluctuations, given the size of the test dataset.}
 
-Let us illustrate this kind of \enquote{predictor importance} computation for our dataset. We use: (a) two metrics, the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad; and (b) 27 different sets of predictors:
+Let us illustrate this kind of \enquote{predictor importance} assessment for our dataset. We use: (a) two metrics, the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the \cad\ predictand; (b) 27 different sets of predictors:
 \begin{itemize}
 \item every predictor, used individually (12 sets);
 \item all cognitive-test predictors used together, jointly with demographic information (\age\ and \sex);
-\item \apoe, Hippocampal Volume, and demographic information, used together;
-\item all predictors together minus one, excluding each single predictor in turn (12 sets);
+\item \apoe\ and Hippocampal Volume, jointly with demographic information;
+\item all predictors jointly excluding one, each single predictor being excluded in turn (12 sets);
 \item all predictors jointly.
 \end{itemize}
 
@@ -1071,24 +1071,27 @@ Use of the accuracy assumes that the population of patients has only two availab
 Our specific questions are the following: \enquote{What is the expected value of the accuracy for the next new patient, if we use the given set of predictors?} and \enquote{What is the mutual information between the given set of predictors and the predictand, given the presently available data?}.
 
 The answers to these questions are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing metric. The ordering of mutual information and accuracy agree within the uncertainty of the numerical computation (Monte Carlo integration). The latter is reported as coverage intervals of $\pm$~two standard deviations.
-\begin{figure}[!t]% with figure
+\begin{figure}[b]% with figure
   \centering%
 \includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
 \hfill%
 \includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
-\caption{Expected accuracy (for the next new patient) and mutual information of several sets of predictors for the prognosis of conversion to \ad. Both graphs have been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \texttt{all} predictor set is mathematically guaranteed to be optimal according to both metrics and has therefore been ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
+\caption{Expected accuracy for the next new patient (left), and mutual information (right), of several sets of predictors for the prognosis of conversion to \ad. Each graph has been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \texttt{all} predictor set is mathematically guaranteed to be optimal according to both metrics and has therefore been ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
 \end{figure}%
 
 
-The figure reveals several interesting findings, \emph{valid within the population selected for the dataset}, which can be compared with the analysis in  \citet[see especially Fig.~3 and Table~3]{ryeetal2022}:
+The plots reveal several findings, \emph{valid within the population selected for the dataset}, which can be compared with the analysis in \citet[see especially Fig.~3 and Table~3]{ryeetal2022}:
 \begin{itemize}
-\item The set of 12 predictors considered in the present work and in \citet{ryeetal2022} can, at most, lead to a prognostic accuracy of around 68\%, for any inference algorithm. This fact agrees with the (completely independent) findings in \citet{ryeetal2022}, where a maximal accuracy of 68\% was found using an ensemble model; the present analysis also shows that that model managed to achieve the maximal accuracy possible with these predictors (but see \sect~\ref{sec:discussion} for limitations of that model.)
+\item The set of 12 predictors considered in the present work and in \citet{ryeetal2022} can at most yield a prognostic accuracy of around $67.7\%\pm0.7\%$ over the full population, for any inference algorithm. This fact agrees with the (completely independent) findings in \citet{ryeetal2022}, where a maximal accuracy of 68.3\% \emph{on a test dataset} was found using an ensemble model. The present analysis also shows that that model managed to achieve the maximal accuracy possible with these predictors (but see \sect~\ref{sec:discussion} for limitations of that model).
+
 \item \apoe, \gds, \age, \sex, and to some degree \anart are poor predictors (within this population) when used alone and when used in combination with all other predictors. The latter point is evident from the fact that the mutual information of the combined predictors barely decreases if any one of these four predictors is omitted.
-\item The combined cognitive and demographic variates are better predictors than the combined hippocampal, \apoe, and demographic variates.
-\item \ravltimm, \ravltdel, and to a lesser degree are good predictors, both when used alone and when used in combination with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}.
+
+\item The combined cognitive and demographic variates are better predictors than the joint use of Hippocampal Volume, \apoe, and demographic variates.
+
+\item \ravltimm, \ravltdel, and to a lesser degree \ravltrec\ are good predictors, both when used alone and when used jointly with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}.
 \end{itemize}
 
-The \ljm\ shows that the omission of any one of the 12 predictors, except \ravltdel\ and possibly \ravltimm, does not lead to an appreciable decrease in accuracy (relative decrease of 0.3\% or less) or in mutual information (relative decrease of less than 3\%). This puts the importance analysis of \citet{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive, and we did not carry it out further.
+The \ljm\ shows that the omission of any one of the 12 predictors, except \ravltdel\ and possibly \ravltimm, does not lead to an appreciable decrease in accuracy (relative decrease of 0.3\% or less) or in mutual information (relative decrease of less than 3\%). This puts the prognostic-importance analysis of \citet{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive, and we did not carry it out further.
 
 
 % \begin{table}[!t]
@@ -1129,13 +1132,6 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
 %   \caption{Mutual information between various predictor sets and conversion to \ad. The mutual information is measured in shannons and has a maximum numerical error of $0.004\,\mathrm{Sh}$}\label{tab:mutual_info}
 % \end{table}
 
-
-\bigskip% Newpage break just to help while writing the draft
-\subsection{Summary of the case study}
-\label{sec:summary}
-
-
-Summary in table~\ref{tab:summary}.
 
 \begin{table}[!t]
   \centering
