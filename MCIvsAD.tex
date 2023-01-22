@@ -463,7 +463,7 @@ The product of the two factors (i), (ii), normalized, yields the probability of 
 
       \item\label{item:predictors} Measure the present patient's predictor values and input them in the \ljm. Partially missing values are allowed.
 
-      \item\label{item:population} Assess which conditional statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
+      \item\label{item:population} Assess which conditional statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter in a prior probability.
 
         Input the relevant statistics and auxiliary information for the present patient into the \ljm. 
 
@@ -493,11 +493,11 @@ Steps 1.--3. could also be presented in reverse order; which would be more suite
 The dataset used in our example comes from the study by the Alzheimer's Disease Neuroimaging Initiative (\adni). This longitudinal multicentre study is designed to develop and validate neuroimaging and biochemical biomarkers for the early detection, monitoring, and treatment of \ad\ \citep{petersenetal2010}. The present dataset consists of 704 \adni\ subjects meeting the criteria for \mci\ at their first, baseline assessment who additionally had a minimum of two following, additional study visits, as well as three \textsc{mri} examinations. Each subject's diagnostic status was reevaluated at each study visit. This longitudinal diagnostic label is used as the predictand variate $\cad$ in our study: it categorizes each subject as either converting to \ad\ after the first study visit ($\cad=1$) or remaining stable with \mci\ ($\cad=0$). The dataset has 325 subjects (46.2\%) with $\cad=1$ and 379 (53.8\%) with $\cad=0$. Criteria used for classifying subjects as having \mci\ or \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
 
 
-The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued; hippocampal volume and age are continuous, and \apoe\ and sex are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
+The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued, hippocampal volume and \age\ are continuous, and \apoe\ and \sex\ are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
 
-The \ljm\ took less than five hours (on a 16-core Intel Core i9-12900K CPU) to calculate the probability distribution for the possible population joint frequencies distributions of the 13 variates. Some results can already be visualized after this inference.
+The \ljm\ took less than five hours (on a 16-core Intel Core i9-12900K CPU) to calculate the probability distribution for the possible joint population-frequency distributions of the 13 variates. Some results can already be visualized after this inference.
 
-Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the predicted distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume for the subpopulation of patients that will convert to \ad\ (red dashed) and the subpopulation that will remain with stable \mci\ (solid blue). On the right, the predicted frequency of conversion in the full population is given, conditional on the same predictors. The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
+Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the predicted distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume for the subpopulation of patients that will convert to \ad\ (\textcolor{red}{red}) and the subpopulation that will remain with stable \mci\ (\textcolor{blue}{blue}). On the right, the predicted frequency of conversion in the full population is plotted, conditional on the same predictors. The thin curves are 100 samples of highly probable frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
 \begin{figure}[!t]
 \centering%
 \includegraphics[width=0.43\linewidth]{population_distr_RAVLT-del.pdf}%
@@ -770,10 +770,10 @@ The final probabilities of conversion to \ad\ for our four patients are reported
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
-    {\small initial probability\; $\p(\cad\mo\yes \| \texttt{\footnotesize auxiliary\,info})$}&
+    {\small initial probability\; $\p(\cad\mo\yes \| \auxinfo)$}&
     0.463&0.65&0.463&0.463
     \\[\jot]
-    {\small final probability\; $\p(\cad\mo\yes \| \predictors, \dataset, \texttt{\footnotesize auxiliary\,info})$}&
+    {\small final probability\; $\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$}&
     0.302&0.47&0.302&0.703
     \\[\jot]
     \hline
@@ -794,9 +794,9 @@ A crucial point in clinical decision-making is this: the clinician needs to asse
 
 In clinical practice, we can rarely diagnose or prognose a medical condition with full certainty. Perfect classification is therefore impossible. But also a \enquote{most probable} classification, which may be enough in other contexts, is inadequate in clinical ones. The problem is that the clinician has to decide among different courses of action, such as different treatments, more tests, and so on, and the optimal one depends on \emph{how probable} the medical condition is, not just on whether it is more probable than not.
 
-Two examples illustrate this point. Suppose there is a dangerous treatment that extends the patient's lifetime by one year if the disease is on its course, but shortens the patient's lifetime by five years if the disease is not present. Also suppose that some algorithm tells the clinician whether the disease's presence is \enquote{more probable than not}, given some predictor values; in which case the clinician administers the dangerous treatment. It turns out that 60 out of 100 treated patients having these predictor values eventually develop the disease, so \enquote{more probable than not} is correct. However, the clinician has added $1 \times 60 = 60$ years but \emph{subtracted $\mathit{5 \times 40 = 240}$ years} from the combined lifespans of the treated patients! The conclusion is that the treatment cannot be prescribed just because the disease is \enquote{more probably present than not}. As an opposite example, suppose that a less dangerous treatment extends the patient's lifespan by five years if the disease is on its course, but shortens it by one month if the disease is not present. In this case, it may be advisable to undergo the treatment even if the disease is \emph{less} probably present than not. If the clinician administer the treatment to 100 similar patients, and 20 of them develop the disease, then the clinician has added $5 \times 20=100$ and subtracted $\tfrac{1}{12} \times 60=5$ years to their combined lifespans.
+Two examples illustrate this point. Suppose there is a dangerous treatment that extends the patient's lifetime by 1 year if the disease is on its course, but shortens the patient's lifetime by 5 years if the disease is not present. Also suppose that some algorithm tells the clinician whether the disease's presence is \enquote{more probable than not}, given some predictor values; in which case the clinician administers the dangerous treatment. It turns out that 60 out of 100 treated patients having these same predictor values eventually develop the disease, so \enquote{more probable than not} is correct. However, the final result is that the clinician has added $1 \times 60 = 60$ years but also \emph{subtracted $\mathit{5 \times 40 = 240}$ years} from the combined lifespans of the treated patients! The conclusion is that the treatment cannot be prescribed just because the disease is \enquote{more probably present than not}. As an opposite example, suppose that a less dangerous treatment extends the patient's lifespan by five years if the disease is on its course, but shortens it by one month if the disease is not present. In this case, it may be advisable to undergo the treatment even if the disease is \emph{less} probably present than not. If the clinician administer the treatment to 100 similar patients, and 20 of them develop the disease, then the clinician has added $5 \times 20=100$ and subtracted $\tfrac{1}{12} \times 60=5$ years to their combined lifespans.
 
-In both examples, it is clearly important to assess the \emph{probability} -- having precise connections with the population frequency -- that the patient will develop the disease.\footnote{In the first example, the treatment should only be administered if the probability is higher than 83.3\%; in the second, it can be administered if the probability is at least 1.6\%.} The \ljm, as explained in the previous sections, gives us such probabilities.
+In both examples, it is clearly important to assess the \emph{probability} -- having precise connections with the population frequency -- that the patient will develop the disease. In the first example, the treatment should only be administered if the probability is higher than 83.3\%; in the second, it can be administered if the probability is at least 1.6\%. The \ljm, as explained in the previous sections, tells the clinician the specific probability for the current patient.
 
 But the choice between treatments depends not only on the probability of the medical condition. Here is where differences between patients vary and matter the most. Consider again the second example above, about the less dangerous treatment. Let us add that the treatment would extend the lifespan by five years, but would also somewhat worsen the quality of life of the patient and of the patient's family. Suppose our patient is quite old and tired, has had a happy life, and is now looking with a peaceful mind towards death as a natural part of life. Such a patient may prefer to forego the bother of the treatment and the additional five years, even if the probability for the disease is quite high.
 
@@ -843,7 +843,7 @@ We have therefore $4 \times 2 = 8$ possible consequences of the four treatments 
 \medskip
 \begin{table}[!h]
   \centering
-  \textbf{Utility matrices}\\
+  \textit{Utility matrices}\\
   \begin{tabular}{lccccccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &&{\small Ariel} &&{\small Bianca} &&{\small Curtis}
@@ -859,7 +859,7 @@ We have therefore $4 \times 2 = 8$ possible consequences of the four treatments 
     \begin{gathered}
       {\scriptstyle\cad}\\[-2\jot]
       \begin{smallmatrix}
-        \yes\enspace &\enspace\no
+        \no\enspace &\enspace\yes
       \end{smallmatrix}\\[-\jot]
 \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
 \end{gathered}
@@ -868,28 +868,28 @@ $
     $\begin{gathered}
       {\scriptstyle\cad}\\[-2\jot]
       \begin{smallmatrix}
-        \yes\enspace &\enspace\no
+        \no\enspace &\enspace\yes
       \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
     &&
     $\begin{gathered}
       {\scriptstyle\cad}\\[-2\jot]
       \begin{smallmatrix}
-        \yes\enspace &\enspace\no
+        \no\enspace &\enspace\yes
       \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}\end{gathered}$
     &&
     $\begin{gathered}
       {\scriptstyle\cad}\\[-2\jot]
       \begin{smallmatrix}
-        \yes\enspace &\enspace\no
+        \no\enspace &\enspace\yes
       \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}\end{gathered}$
     \\[6\jot]
     \hline
   \end{tabular}
 \\[1em]
-  \textbf{Expected utilities and optimal treatments}\\
+  \textit{Expected utilities and optimal treatments}\\
   \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
@@ -918,7 +918,12 @@ $
 The probabilities for the two medical conditions are those found in the previous subsection, table~\ref{tab:posterior_patients}. For brevity, we denote just by $\p(\cad)$ the probability of conversion given a patient's predictor values, and by $\p(\smci)\equiv 1- \p(\cad)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For example, for Olivia the expected utility of treatment $\beta$ is
 \begin{equation}
   \label{eq:utility_olivia_example}
-  \eU_{\beta} = 9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
+  \begin{split}
+  \eU_{\beta} &=
+  9 \cdot \p(\cad\mo\no \| \predictors,\dataset,\auxinfo) +
+  3 \cdot \p(\cad\mo\yes \| \predictors,\dataset,\auxinfo)
+  \\&=  9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
+\end{split}
 \end{equation}
 The results for all patients are reported in table~\ref{tab:utilities_patients}, bottom, with the maximal expected utilities in \textbf{boldface}.
 
@@ -975,15 +980,15 @@ The results for all patients are reported in table~\ref{tab:utilities_patients},
 \subsection{Additional information provided by the \ljm}
 \label{sec:additional_results}
 
-As already said, the output of the \ljm\ is about the full population of future patients, with all its statistics. This output can therefore be used for additional purposes such as resource planning, imputation of missing data, sensitivity checks, and the investigation of the predictors' importance in the prognosis.
+As discussed in \sect~\ref{sec:the_machine}, the output of the \ljm\ concerns the full population of past, present, and future patients, with all its statistics. This output can therefore be used for additional purposes such as resource planning, imputation of missing data, sensitivity checks, and the investigation of each predictor's importance in the prognosis. We briefly discuss these possible uses.
 
 \subsubsection{Resource planning}
 \label{sec:resource_planning}
 
-Let us ask the following question: if the learning dataset were representative of the full population, then how often, in the long run, would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on with 50 bins up to 98\%--100\%?
+Let us ask the following question: if the learning dataset were representative of the full population, then how often, in the long run, would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on, with 50 bins up to 98\%--100\%?
 
-The \ljm\ can answer this question probabilistically; the answer is plotted in \fig~\ref{fig:progn_probs}. Note that the calculation assumes that the \ljm\ will not be regularly updated with new patients' data (the calculation could also be made with the opposite assumption). The light-blue bands are 95\% uncertainty coverage intervals \footnote{for terminology see \citet[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \citetext{\citealp[pp.~165--166]{pratt1961}; \citealp{jaynes1976}; \citealp[\sect~37.3]{mackay1995_r2005}}}; this uncertainty comes from the fact that we are not certain about the full-population frequencies. We see that it is very improbable that many patients will be prognosed with probabilities around 30\%, smaller than 5\%, or larger than 75\%. The full population is likely to be grouped into four or five \enquote{conversion-probability clusters}, as evident from the peaks. %Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
-\begin{figure}[h]% with figure
+The \ljm\ can answer this question probabilistically; the answer is plotted in \fig~\ref{fig:progn_probs}. Note that the calculation assumes that the \ljm\ will not be regularly updated with new patients' data (the calculation could also be made with the opposite assumption). The light-blue bands are 95\% uncertainty coverage intervals \footnote{for terminology see \citet[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \citetext{\citealp[pp.~165--166]{pratt1961}; \citealp{jaynes1976}; \citealp[\sect~37.3]{mackay1995_r2005}}}; this uncertainty comes from the fact that we are not certain about the full-population frequencies. We see that it is very improbable that many patients will be prognosed with probabilities around 30\%, smaller than 5\%, or larger than 75\%. The full population is likely to be grouped into three to five \enquote{conversion-probability clusters}, as evident from the peaks. %Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
+\begin{figure}[b]% with figure
   \centering%
 %  \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
 \includegraphics[width=0.75\linewidth]{plotnextpatientconvprob.pdf}%
@@ -998,24 +1003,18 @@ This kind of information allows us to make other forecasts of various kinds. For
   \gamma\text{: 31\%--42\%}\qquad
   \delta\text{: 31\%--40\%}
 \end{equation}
-Again, despite the obvious uncertainties, we can be quite sure that treatments $\gamma$, $\delta$ will be prescribed more often than $\alpha$, and that $\beta$ will be only prescribed in 5\% of cases. This kind of semi-quantitative forecast can be very useful for resource planning.
+Again, despite the obvious uncertainties, we can be quite sure that treatments $\gamma$, $\delta$ will be prescribed more often than $\alpha$, and that $\beta$ will be only prescribed in 5\% of cases. Semi-quantitative forecasts such as this can be very useful for resource planning.
 
 \subsubsection{Imputation of missing data}
 \label{sec:missing_data}
 
-As mentioned in \sect~\ref{sec:predictor_step}, the \ljm\ treats all variates of the learning dataset on the same footing. This is why it can output probabilities \enquote{predictand$\|$predictors}, \enquote{predictors$\|$predictand}, and other combinations with equal ease, exploiting them to correct subpopulation mismatches as illustrated in \sect~\ref{sec:population_step}.
-
-This feature allows us to impute missing data for one or more patients, giving a probability distribution of what those data could be. Such imputation can be done at prognostic time, for sensitivity checks; we discuss this more in detail in the next section. The imputation can also be done a posteriori, possibly years later, when the actual predictand value becomes known. This can be useful for many purposes, for instance, for the comparison of biological hypotheses.
+As mentioned in \sects~\ref{sec:intro_purposes} and \ref{sec:the_machine}, the \ljm\ treats all variates of the learning dataset on the same footing. This is why it can output probabilities \enquote{predictand$\|$predictors}, \enquote{predictors$\|$predictand}, and other combinations with equal ease, exploiting them to correct subpopulation mismatches as discussed in \sect~\ref{sec:population_step}. This feature allows us to impute missing data for one or more patients, giving a probability distribution of what those data could be. We saw and example of this possibility in \sect~\ref{sec:predictor_step} for Curtis's Hippocampal Volume, \fig~\ref{fig:curtis_HV}. Such imputation can be done at prognostic time for sensitivity checks; we discuss this more in detail in the next section. The imputation can also be done a posteriori, possibly years later, when the actual predictand value becomes known. This can be useful for many purposes, for instance, for the comparison of biological hypotheses.
 
 
 \subsubsection{Sensitivity checks}
 \label{sec:sensitivity}
 
-The imputation of missing data at prognostic time is useful for various kinds of sensitivity analysis.
-
-Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \ljm\ can give a probabilistic answer to this question. We already saw in \sect~\ref{sec:predictor_step}, \fig~\ref{fig:curtis_HV}, that the machine can tell the clinician what are the probable values of this predictor for Curtis.
-
-The clinician can also use the \ljm\ to find the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
+The imputation of missing data at prognostic time is useful for various kinds of sensitivity analysis regarding the current patient. Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \ljm\ can answer this question by outputting the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be within the following coverage intervals with 90\% probability:
 \begin{equation}
   \label{eq:possible_utilities_curtis}
   \alpha\text{: 2.97\%--2.98\%}\qquad
@@ -1030,15 +1029,16 @@ The clinician can also use the \ljm\ to find the probability distribution of Cur
 % 87.5% 2.97904 4.78743 5.89371 7.02765
 % 95%   2.98234 4.78940 5.89470 7.02774
 % 99.5% 2.98812 4.79287 5.89643 7.02775
-(the four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines). It is clear that knowledge of the Hippocampal Volume would be overly unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
+(the four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines). It is clear that knowledge of the Hippocampal Volume is very unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
 
 
 \subsubsection{Predictor importance}
 \label{sec:predictor_importance}
 
-\mynotew{[Luca] I think the initial presentation of the problem, here below, still slightly misses the target. The point is that the vague and ill-posed question \enquote{which predictor is most important?} hides a decision problem: \enquote{if I had to drop one feature for all patients, which one should I drop last?} or \enquote{if I had to use only one feature for all patients, which one should I prioritize?}. This formulation uniquely determines the relevant metric. I'll rewrite this later.}
 
-The question about Curtis in the previous subsection can be generalized to a whole population. How important, in general, is each predictor in prognosing the conversion to \ad? Predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether.
+The question about Curtis in the previous subsection can be generalized to a whole population. Predictors that are too invasive or too expensive to obtain and do not make a real difference in the prognosis could be dropped altogether. So how important, in general, is each predictor in prognosing the conversion to \ad?
+
+To answer this question we must first make it more precise. As it stands, it is too vague (ill-posed) because it does not exactly specifies how a predictor is used, and what \enquote{important} means. Let us see why these specifications are important.
 
 \setlength{\intextsep}{0ex}% with wrapfigure
 \setlength{\columnsep}{1ex}% with wrapfigure
@@ -1048,15 +1048,15 @@ The question about Curtis in the previous subsection can be generalized to a who
 % \includegraphics[width=\linewidth]{baseratetrials.png}\\[\jot]
 % \includegraphics[width=\linewidth]{baseratepopulation.png}
 \end{wrapfigure}%
-To answer this general question, which is too vague (ill-posed), we must first specify which other predictors the predictor of interest is used with, and what we mean by \enquote{important}.
-
 The schematic picture on the side illustrates the necessity of specifying a predictor's context. Individuals in this population can be either \textcolor{bluepurple}{blue circles $\circ$} or \textcolor{redpurple}{red triangles $\triangle$} and have two predictors $X_{1}, X_{2}$. Predictor $X_{1}$, if used by itself, is worthless in distinguishing the two subpopulations, because these have identical marginal distributions (depicted beside the grey lines). If used in conjunction with $X_{2}$, however, predictor $X_{1}$ allows us to identify an individual's subpopulation with full certainty. It is therefore an essential predictor in this case: dropping it would lead to a complete loss of predictive power. An analogous discussion holds for $X_{2}$ in the present case. The converse can also happen (not illustrated): a predictor might be \enquote{good} if used by itself, and yet it might be discarded without any loss if used in combination with others.
 
-A predictor's \enquote{importance} or \enquote{prognostic power} is undefined until we specify a relevant metric, for predictors can be ranked differently by different metrics. From our discussion so far it should be clear that in clinical decision-making the canonical metric is the \emph{utility} which a predictor's presence or absence leads to. This point was partially illustrated with Curtis's example in the previous subsection. What if we want to make an assessment, not for a single patient, but for the full population? It can be proved, again from decision-theoretic principles, that the population average of all utility matrices should be used in this case \citep[\cf][\sect~4.1]{dyrlandetal2022}. This seems a quantity very difficult to assess; but it can also be proved that even just a semi-quantitative assessment leads to better results than using some other \enquote{general-purpose} metric \citep[\sect~4.2]{dyrlandetal2022}.
+In our question about a predictor's importance, what we want to know is what happens if the predictor is excluded from the set of all predictors.
 
-The \ljm\ allows us to compute the expected value of virtually any prognostic-importance metric of any subset of predictors available in the dataset. Two facts of paramount advantage are that (a) \emph{the prognostic power of a set of predictors found with the \ljm\ is the maximal one obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \ljm\ achieves this maximal power}. Thus, if the \ljm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm of any kind can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \ljm, by construction, will reach this accuracy.
+Regarding the meaning of \enquote{importance} or \enquote{prognostic power}, we must specify a relevant metric, and can expect that predictors could be ranked differently by different metrics. From our discussion so far it is clear that in clinical decision-making the canonical metric is the final \emph{expected utility} which a predictor's presence or absence leads to, see \sect~\ref{sec:utilities_step}. This point was partially illustrated with Curtis's example in the previous subsection. What if we want to make a similar assessment, not for a single patient, but for the full population? which utility matrix should we use? It can be proved, again from decision-theoretic principles, that the population average of all utility matrices should be used in this case \citep[\cf][\sect~4.1]{dyrlandetal2022}. This seems a quantity very difficult to assess, but it can also be shown \citep[\sect~4.2]{dyrlandetal2022} that even a semi-quantitative assessment leads to better results than using some other general-purpose metric.
 
-We illustrate this kind of computation in our example case, using: (a) two metrics, the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad; and (b) 27 different sets of predictors:
+The \ljm\ allows us to compute the expected value of virtually any prognostic-importance metric, and for any subset of predictors available in the dataset. This computation has moreover two properties of paramount importance: (a) \emph{the prognostic power of a set of predictors found with the \ljm\ is the maximum possible obtainable by \textbf{any} inference algorithm}, or in other words it is an intrinsic property of that set of predictors; (b) \emph{the \ljm\ achieves this maximum power}. Thus, if the \ljm\ says that the accuracy obtainable with a given set of predictors is 70\%, then we know that no other inference algorithm can reach a higher accuracy than 70\%; inference algorithms that reach lower accuracy can in principle be improved upon. The \ljm, by construction, will reach this accuracy. Note we mean accuracy in the long run, over the full population; an inference algorithm could reach higher accuracies in some \enquote{test dataset} thanks to sampling fluctuations; in fact this is bound to happen from time to time.\footnote{The \ljm\ can also predict the size of such fluctuations, given the size of the test dataset; the required computation is somewhat expensive though.}.
+
+Let us illustrate this kind of \enquote{predictor importance} computation for our dataset. We use: (a) two metrics, the accuracy and the mutual information~\citep{shannon1948,coveretal1991_r2006} between a set of predictors and the event of conversion to \ad; and (b) 27 different sets of predictors:
 \begin{itemize}
 \item every predictor, used individually (12 sets);
 \item all cognitive-test predictors used together, jointly with demographic information (\age\ and \sex);
@@ -1724,3 +1724,9 @@ The \ljm\ calculates and outputs this probability in several different ways, as 
 
 \end{enumerate}
 The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_exch_givenX} is that in the former the \ljm\ first updates what it learned from the dataset by including the patient's predictor values, which can rightly be considered as a new datapoint for that set; whereas such update is not done in the latter case. If the dataset has a large number of datapoints, the results from these two situations are typically numerically identical.
+
+
+
+%%%%%%%%%%%%%%%%%
+
+\mynotew{[Luca] I think the initial presentation of the problem, here below, still slightly misses the target. The point is that the vague and ill-posed question \enquote{which predictor is most important?} hides a decision problem: \enquote{if I had to drop one feature for all patients, which one should I drop last?} or \enquote{if I had to use only one feature for all patients, which one should I prioritize?}. This formulation uniquely determines the relevant metric. I'll rewrite this later.}
