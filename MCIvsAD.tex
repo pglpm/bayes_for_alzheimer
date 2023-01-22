@@ -187,6 +187,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\predictors}{\texttt{\footnotesize predictors}}
 \newcommand*{\predictand}{\texttt{\footnotesize predictand}}
 \newcommand*{\dataset}{\texttt{\footnotesize dataset}}
+\newcommand*{\auxinfo}{\texttt{\footnotesize aux\,info}}
 \newcommand*{\population}{\texttt{\footnotesize population}}
 \newcommand*{\diseasep}{\texttt{\footnotesize disease+}}
 \newcommand*{\diseasem}{\texttt{\footnotesize disease\textminus}}
@@ -1138,10 +1139,14 @@ Summary in table~\ref{tab:summary}.
 
 \begin{table}[!t]
   \centering
+  \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
+  \mbox{}\\
   \begin{tabular}{lcccc}
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
     \hline\\[-1.5\jot]
+    &\multicolumn{4}{c}{\textit{\footnotesize Clinician's patient-dependent inputs}}
+    \\\hline \\[-\jot]
     \emph{\small Predictor values}&&&& \\[\jot]
     \age&75.4&75.4&75.4&\textcolor{redpurple}{63.8} \\
     \sex&F&F&F&\textcolor{redpurple}{M} \\
@@ -1155,76 +1160,82 @@ Summary in table~\ref{tab:summary}.
     \ravltrec&10&10&10&\textcolor{redpurple}{3} \\
     \tmta&21&21&21&\textcolor{redpurple}{36} \\
     \tmtb&114&114&114&\textcolor{redpurple}{126}
-    \\[2\jot] \hline\\
+    \\[4\jot] %\hline\\[-\jot]
     \emph{\small Additional information, final probability}&&&& \\[\jot]
     {\small auxiliary info}&
     {\small none}&
     {\small\color{redpurple} family history, base rate}&
     {\small none}&
     {\small none}\\
-    {\small applicable dataset statistics}&
+    {\small applicable dataset subpopulation}&
     {\small all}&
     {\small\color{redpurple} predictor$\|$predictand}&
     {\small all}&
     {\small all}\\
     {\small prior probability of conversion}&
     0.463&\textcolor{redpurple}{0.65}&0.463&0.463
-    \\[2\jot] \hline\\
-    \emph{\small Available actions and utilities}&&&& \\[\jot]
+    \\[4\jot] %\hline\\[-\jot]
+    \emph{\small Available treatments and utilities}&&&& \\[-\jot]
     $
-    \begin{matrix}
-      &\begin{smallmatrix}\smci&\cad\end{smallmatrix}\\
-      \begin{smallmatrix}
+    \begin{matrix}\\
       \text{treatment $\alpha$}\\
       \text{treatment $\beta$}\\
       \text{treatment $\gamma$}\\
       \text{treatment $\delta$}
-    \end{smallmatrix}&
-    \Biggl[\begin{smallmatrix}
-      \hphantom{\smci}&\hphantom{\cad}\\&\\&\\&
-    \end{smallmatrix}\Biggr]
     \end{matrix}$
     &
-    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
+    $
+    \begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
+\end{gathered}
+$
     &
-    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
+    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
+    \end{gathered}$
     &
-    $\color{redpurple}\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}$
+    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+      \color{redpurple}\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}
+    \end{gathered}$
     &
-    $\begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}$
-    \\[4\jot] \hline\\
-    \emph{\small Outputs of \ljm}&&&& \\[2\jot]
-    {\small $\p(\AD \| \text{predictors})$}&
+    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
+    \end{gathered}$
+    \\[7\jot] \hline\\[-1.5\jot]
+    &\multicolumn{4}{c}{\textit{\footnotesize Outputs of \ljm}}
+    \\\hline \\
+    {\small $\p(\cad\mo\yes \| \predictors)$}&
     0.302&0.302&0.302&0.703
     \\
-    {\small $\p(\text{predictors} \| \cad)/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\yes)/10^{-12}$}&
     8.97&8.97&8.97&1.14
     \\
-    {\small $\p(\text{predictors} \| \smci)/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\no)/10^{-12}$}&
     18.6&18.6&18.6&0.343
-    \\[\jot]
-    {\small final probability of conversion}&
+    \\[2\jot]
+    \parbox{12em}{\small final probability of conversion\\
+      $\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$
+    }&
     0.302&0.47&0.302&0.703
-    \\[\jot]
+    \\[2\jot]
     $\begin{matrix}
       \text{exp. utility treatment }\alpha\\ 
       \text{exp. utility treatment }\beta\\ 
       \text{exp. utility treatment }\gamma\\ 
       \text{exp. utility treatment }\delta\\[2\jot]
-      \text{Optimal treatment}
+      \textbf{Optimal treatment}
     \end{matrix}$
     &
     $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[2\jot]\bm{\beta}\end{matrix}$
     &
-    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[2\jot]\bm{\gamma}\end{matrix}$
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[2\jot]\color{redpurple}\bm{\gamma}\end{matrix}$
     &
-    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\bm{\alpha}\end{matrix}$
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[2\jot]\color{redpurple}\bm{\alpha}\end{matrix}$
     &
-    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[2\jot]\bm{\delta}\end{matrix}$
-    \\[6\jot]
+    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[2\jot]\color{redpurple}\bm{\delta}\end{matrix}$
+    \\[7\jot]
     \hline
   \end{tabular}
-  \caption{\mynotep{Summary. The basic data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}}\label{tab:summary}
 \end{table}
 
 
