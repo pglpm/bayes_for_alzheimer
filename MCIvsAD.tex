@@ -1277,25 +1277,25 @@ We presented an assistive algorithm that meets all these requirements (\sect~\re
 
 The \ljm\ was also shown to have uses that go beyond individual clinical decision-making but are still of importance to personalized medicine. For instance, it can assess the maximum possible prognostic power of particular sets of predictors, potentially allowing us to discard clinical predictors that are too invasive or expensive and yet prognostically unimportant.
 
-\subsection{Counters to critiques}
+\subsection{Counters to possible critiques}
 \label{sec:critics}
 
 Any inference or decision-making algorithm aspiring to take into account patient differences must perforce have some open \enquote{input slots} for such differences. We saw that the \ljm\ requires inputs about a patient's specific predictors, relevant statistical relations and auxiliary data, and treatment utilities.
 
 Some researchers may wonder: can such additional input be avoided? They fear that errors could sneak in through these extra inputs.
 
-This question is answered by a mathematical theorem at the very core of decision theory \footnote{\citet{savage1954_r1972,luceetal1957,raiffaetal1961_r2000,atkinsonetal1964,ferguson1967,lindley1971_r1988,kreps1988,bernardoetal1994_r2000,prattetal1995_r1996,lindley2006_r2014,pettigrew2011_r2019}}, which is too seldom emphasized: Any decision we make, either (A) comes explicitly or implicitly through some set of utilities and maximization of their expectations, or (B) is logically inconsistent. There is no third alternative. Thus the choice is not between using utilities or not using utilities, but between choosing them explicitly or letting them be chosen in a way we don't know. If you use a decision-making algorithm that does not ask you for utilities, then the algorithm is internally supplying utilities beyond your control (and probably divorced from your specific problem), or, worse, is committing logical inconsistencies.
+This question is answered by a mathematical theorem at the very core of decision theory \footnote{\citet{savage1954_r1972,luceetal1957,raiffaetal1961_r2000,atkinsonetal1964,ferguson1967,lindley1971_r1988,kreps1988,bernardoetal1994_r2000,prattetal1995_r1996,lindley2006_r2014,pettigrew2011_r2019}}, which is too seldom emphasized: Any decision we make, either (A) comes explicitly or implicitly through some set of utilities and maximization of their expectations, or (B) is logically inconsistent. There is no third alternative. Thus the choice is not between using utilities or not using utilities, but between choosing them explicitly or letting them be chosen in a way we do not know. If you use a decision-making algorithm that does not ask you for utilities, then the algorithm is internally supplying utilities beyond your control (and probably divorced from your specific problem), or, worse, is committing logical inconsistencies.
 
-The first advantage of explicitly operating through utilities, probabilities, decision theory, is that we are, at the very least, sure of not acting in a self-contradictory way. The second advantage is that the utilities used to arrive at a decision lie openly in front of us. We can analyse and change them if we find them inappropriate to a specific problem. If they are hidden, it's more difficult to analyse which are inappropriate and how they should be changed.
+The first advantage of explicitly operating through utilities, probabilities, decision theory, is that we are, at the very least, sure of not acting in a self-contradictory way. The second advantage is that the utilities used to arrive at a decision lie openly in front of us. We can analyse and change them if we find them inappropriate in a specific problem. If they are hidden, it is more difficult to analyse which are inappropriate and how they should be changed.
 
-\mynotep{Subtly hidden disastrous consequences of not following normative decision theory: An algorithm can lead to saving 85\,000 patients out of 100\,000 and be deemed a success. But if the ideal algorithm had been used, 95\,000 patients would actually have been saved. What shall we say to the families of the 10\,000 patients who could have been saved but weren't?}
+The fact that an algorithm works according to decision theory is also an assurance of striving towards theoretical optimality. This point has very subtle consequences. Consider a non-optimal algorithm that leads to saving 85\,000 patients out of 100\,000. Given these numbers it might be deemed a success. But what if a theoretically optimal algorithm is possible, which would lead to 95\,000 saved patients? What shall we say to the families of the 10\,000 patients who could have been saved but weren't?
 
 \subsection{Range of application of \ljm s}
 \label{sec:rangeLJM}
 
-The range of application of the \ljm\ used in the present study has two kinds of bound: computational and theoretical.
+The range of application of the \ljm\ used in the present study has two kinds of bounds: computational and theoretical.
 
-As mentioned in \sect~\ref{sec:predictor_step} and explained in appendix~\ref{sec:maths_tjm}, the fact that the \ljm\ extracts all available information from the dataset also makes it computationally expensive. It is at present impossible to use with high-dimensional predictors (if our dataset had included a predictor such as a $128\times128\times128$ grayscale MRI image, the learning stage would have taken around 100 years). Approximate but much faster algorithms such as neural networks and random forests are thus, at present, still the only options with such predictors. There is, however, the interesting possibility of combining such fast algorithms together with a \ljm, as a post-processor of their raw output. The machine extracts useful information usually hidden in their output at a low computational cost \citep{dyrlandetal2022b}; this information can be then used for clinical decision-making as illustrated in the present work.
+As mentioned in \sect~\ref{sec:the_machine}, the fact that the \ljm\ extracts all available information from the dataset also makes it computationally expensive. It is at present impossible to use with high-dimensional predictors (if our dataset had included a predictor such as a $128\times128\times128$ grayscale MRI image, the learning stage would have taken around 100 years). Approximate but much faster algorithms such as neural networks and random forests are thus, at present, still the only options with such predictors. There is, however, the interesting possibility of combining such fast algorithms together with a \ljm, as a post-processor of their raw output. The machine extracts useful information usually hidden in their output at a low computational cost \citep{dyrlandetal2022b}; this information can be then used for clinical decision-making as illustrated in the present work.
 
 As explained in \sect~\ref{sec:population_step}, the essentially sole assumption underlying the \ljm's inference and its practical use with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in probability-theory jargon, partial or conditional exchangeability applies). This precludes using the \ljm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (longitudinal) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For instance, if data about the time of conversion to \ad\ were available in the dataset, the \ljm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
@@ -1303,44 +1303,27 @@ As explained in \sect~\ref{sec:population_step}, the essentially sole assumption
 \bigskip% Newpage break just to help while writing the draft
 \appendix
 \renewcommand\thesection{\Alph{section}}
-\section{Appendices}
+\section{Further mathematical details about the \ljm\ in the present application}
 \label{sec:appendices}
 
-
-% \subsection{Predictors and predictand}
-% \label{sec:predictors_description}
-
-% For the present study, data used in the learning stage of \sect~\ref{sec:learn_application} comes from the Alzheimer's Disease Neuroimaging Initiative (\adni) study. This longitudinal multicenter study is designed to develop and validate neuroimaging and biochemical biomarkers for early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present sample of 704 subjects consisted of all \adni\ participants meeting the criteria for Mild Cognitive Impairment at their first, baseline assessment who additionally had a minimum of three study visits (that is, baseline visit and at least two additional visits), and three MRI examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit, and this longitudinal diagnostic label was used to partition our sample into 325 subjects converting to Alzheimer's Disease following the first study visit, and 379 subjects remaining stable with \mci. Criteria used for classifying subjects as having \mci\ and \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
-
-\subsection{Mathematical details about the \ljm}
-\label{sec:maths_tjm}
-
-% \setlength{\intextsep}{0ex}% with wrapfigure
-% \setlength{\columnsep}{1ex}% with wrapfigure
-% \begin{wrapfigure}{r}{0.25\linewidth}% with wrapfigure
-% %\vspace{-1ex}%
-% \includegraphics[width=\linewidth]{noisedistrnolines.pdf}%
-% \end{wrapfigure}%
-% The space of possible full-population frequency distributions has finite (owing to the finite precision of measurements) but very large number of dimensions. For our dataset it is around the order of $10^{20}$. Most distributions in such space, however, look like noise, as the example on the side, and are completely unrealistic as distributions for a \emph{full population}.
-
-As discussed in \sect~\ref{sec:predictor_step}, the \ljm\ explores the space of possible distributions of frequencies of all 13 variates listed in table~\ref{tab:patients_data}, for the full population of patients from which the dataset originates. In the present study, it does so by using a total of 1535 independent parameters to represent the distributions, with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons. Actually, the number of parameters used is in principle infinite, because the machine gives a warning if the data indicates that more parameters are needed. In the present study, the data indicate, on the contrary, that fewer than 250 parameters would be enough. More details on the mathematical representation can be found in \citet{dunsonetal2011}; see also \citet{rossi2014,rasmussen1999}.
-
-\mynotep{Should I add a more precise description of the mathematical representation?}
-
-\mynotep{Is the part below superfluous? I think it could be interesting for readers from machine learning}\\
-\mynotep{I, Alexander, think it should be included as the point is very nicely put (and important). }
-
-There is a fundamental difference in how the \ljm\ and most popular machine-learning algorithms (including neural networks, random forests, support-vector machines, excluding gaussian processes) work. The latter do, at bottom, an optimization, looking for the minimum of some error function. The \ljm\ does a full \emph{space exploration} and \emph{averaging}, as explained in \sect~\ref{sec:predictor_step}. Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{\citealt{definetti1930,definetti1937,dawid2013}; \citealt[\sects~4.2--4.3]{bernardoetal1994_r2000}; see also \citealt{selfetal1987}}. The optimization done by most machine-learning algorithms is an approximate form of averaging -- assuming or hoping that most of the mass to be averaged is around the extremum \citep[\chap~16]{mackay1992,murphy2012}. But the underlying necessity of a proper averaging becomes manifest in many of the obligatory procedures that go together with training a machine-learning algorithm; cross-validation for instance \citep{mackay1992b}. \mynotew{Add note: \enquote{ensembling} in ML is not this kind of averaging \citep[\sect~18.2]{murphy2022}}
-
-This difference explains why the \ljm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures (it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$; see \eg\ \citealt{portamana2019b,fongetal2020}).
-
-\mynotep{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
+As discussed in \sect~\ref{sec:predictor_step}, the \ljm\ surveys the space of possible distributions of frequencies of all 13 variates discussed in \sect~\ref{sec:dataset}, for the full population of patients from which the dataset originates. In the present study, it does so by mathematically representing a generic joint frequency distribution as as convex mixture of product kernels, along the ideas in \citet{dunsonetal2011}; see also \citet{rossi2014,rasmussen1999}. This representation uses a total of 1535 independent parameters, with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, incrementally using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons. Actually the number of parameters used is in principle infinite, because the machine gives a warning if the data indicates that more parameters are needed. In the present study, the data indicate, on the contrary, that fewer than 250 parameters would be enough. 
 
 
-\subsection{Computational details}
-\label{sec:comput_details}
+% \mynotep{Is the part below superfluous? I think it could be interesting for readers from machine learning}\\
+% \mynotep{I, Alexander, think it should be included as the point is very nicely put (and important). }\\
+% \mynotep{Luca: moved this to \sect~\ref{sec:the_machine}}
 
-The learning stage, with 13 variates and 704 datapoints, took less than 5~hours. The computation was done on a 16-core Intel Core i9-12900K. After that, the calculation of probabilities and expected utilities for any single patient is immediate. The mutual information and accuracy analysis of \sect~\ref{sec:additional_results} took roughly 1~h.
+% There is a fundamental difference in how the \ljm\ and most popular machine-learning algorithms (including neural networks, random forests, support-vector machines, excluding gaussian processes) work. The latter do, at bottom, an optimization, looking for the minimum of some error function. The \ljm\ does a full \emph{space exploration} and \emph{averaging}, as explained in \sect~\ref{sec:predictor_step}. Inference and generalization in fact essentially rely on averaging operations in problems such as the present one \citetext{\citealt{definetti1930,definetti1937,dawid2013}; \citealt[\sects~4.2--4.3]{bernardoetal1994_r2000}; see also \citealt{selfetal1987}}. The optimization done by most machine-learning algorithms is an approximate form of averaging -- assuming or hoping that most of the mass to be averaged is around the extremum \citep[\chap~16]{mackay1992,murphy2012}. But the underlying necessity of a proper averaging becomes manifest in many of the obligatory procedures that go together with training a machine-learning algorithm; cross-validation for instance \citep{mackay1992b}. \mynotew{Add note: \enquote{ensembling} in ML is not this kind of averaging \citep[\sect~18.2]{murphy2022}}
+
+% This difference explains why the \ljm\ is computationally much more expensive than other algorithms, but also why its output is informationally so rich, and why it does not need any validation datasets, test datasets, other data splits, or cross-validation procedures (it can be proved that one of the internal computations of the machine is mathematically equivalent to doing $k$-fold cross-validations for \emph{all possible} data splits and $k$; see \eg\ \citealt{portamana2019b,fongetal2020}).
+
+% \mynotep{one more remark about extremum-search being equivalent to making a choice, but the utilities are not controlled by the patient and not flexible.}
+
+
+% \subsection{Computational details}
+% \label{sec:comput_details}
+
+% The learning stage, with 13 variates and 704 datapoints, took less than 5~hours. The computation was done on a 16-core Intel Core i9-12900K. After that, the calculation of probabilities and expected utilities for any single patient is immediate. The mutual information and accuracy analysis of \sect~\ref{sec:additional_results} took roughly 1~h.
 
 
 
@@ -1358,13 +1341,6 @@ The learning stage, with 13 variates and 704 datapoints, took less than 5~hours.
 %  \centering\includegraphics[trim={12ex 0 18ex 0},clip,width=\linewidth]{maxent_saddle.png}\\
 %\caption{caption}\label{fig:comparison_a5}
 %\end{figure}% exp_family_maxent.nb
-
-
-
-
-\newpage
-\hrule
-\hrule
 
 
 
