@@ -1135,8 +1135,6 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
 
 \begin{table}[!t]
   \centering
-  \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
-  \mbox{}\\
   \begin{tabular}{lcccc}
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
@@ -1157,7 +1155,7 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
     \tmta&21&21&21&\textcolor{redpurple}{36} \\
     \tmtb&114&114&114&\textcolor{redpurple}{126}
     \\[4\jot] %\hline\\[-\jot]
-    \emph{\small Additional information, final probability}&&&& \\[\jot]
+    \emph{\small Additional information}&&&& \\[\jot]
     {\small auxiliary info}&
     {\small none}&
     {\small\color{redpurple} family history, base rate}&
@@ -1181,20 +1179,36 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
     \end{matrix}$
     &
     $
-    \begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+    \begin{gathered}
+      {\scriptstyle\cad}\\[-2\jot]
+      \begin{smallmatrix}
+        \no\enspace &\enspace\yes
+      \end{smallmatrix}\\[-\jot]
 \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
 \end{gathered}
 $
     &
-    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+    $\begin{gathered}
+            {\scriptstyle\cad}\\[-2\jot]
+      \begin{smallmatrix}
+        \no\enspace &\enspace\yes
+      \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
     \end{gathered}$
     &
-    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
-      \color{redpurple}\begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}
+    $\color{redpurple}\begin{gathered}
+            {\scriptstyle\cad}\\[-2\jot]
+      \begin{smallmatrix}
+        \no\enspace &\enspace\yes
+      \end{smallmatrix}\\[-\jot]
+      \begin{bmatrix}10&0\\8&3\\7&5\\0&10\end{bmatrix}
     \end{gathered}$
     &
-    $\begin{gathered}\begin{smallmatrix}\cad&\smci\end{smallmatrix}\\[-\jot]
+    $\begin{gathered}
+            {\scriptstyle\cad}\\[-2\jot]
+      \begin{smallmatrix}
+        \no\enspace &\enspace\yes
+      \end{smallmatrix}\\[-\jot]
       \begin{bmatrix}10&0\\9&3\\8&5\\0&10\end{bmatrix}
     \end{gathered}$
     \\[7\jot] \hline\\[-1.5\jot]
@@ -1208,12 +1222,12 @@ $
     \\
     {\small $\p(\predictors \| \cad\mo\no)/10^{-12}$}&
     18.6&18.6&18.6&0.343
-    \\[2\jot]
+    \\[3\jot]
     \parbox{12em}{\small final probability of conversion\\
       $\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$
     }&
     0.302&0.47&0.302&0.703
-    \\[2\jot]
+    \\[3\jot]
     $\begin{matrix}
       \text{exp. utility treatment }\alpha\\ 
       \text{exp. utility treatment }\beta\\ 
@@ -1232,6 +1246,7 @@ $
     \\[7\jot]
     \hline
   \end{tabular}
+  \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data and final results that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
 \end{table}
 
 
