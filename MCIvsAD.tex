@@ -1028,9 +1028,9 @@ This feature allows us to impute missing data for one or more patients, giving a
 
 The imputation of missing data at prognostic time is useful for various kinds of sensitivity analysis.
 
-Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \ljm\ can give a probabilistic answer to this question.
+Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \ljm\ can give a probabilistic answer to this question. We already saw in \sect~\ref{sec:predictor_step}, \fig~\ref{fig:curtis_HV}, that the machine can tell the clinician what are the probable values of this predictor for Curtis.
 
-The clinician uses the \ljm\ to find the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
+The clinician can also use the \ljm\ to find the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
 \begin{equation}
   \label{eq:possible_utilities_curtis}
   \alpha\text{: 2.97\%--2.98\%}\qquad
