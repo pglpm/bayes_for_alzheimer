@@ -181,6 +181,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\tmta}{\texttt{TMTA}}
 \newcommand*{\tmtb}{\texttt{TMTB}}
 \newcommand*{\cad}{\texttt{cAD}}
+\newcommand*{\smci}{\texttt{sMCI}}
 \newcommand*{\yes}{\texttt{Y}}
 \newcommand*{\no}{\texttt{N}}
 \newcommand*{\predictors}{\texttt{\footnotesize predictors}}
@@ -198,7 +199,6 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\ljm}{Ledley-Jaynes machine}
 \newcommand*{\AD}{\textsc{ad}}
 \newcommand*{\MCI}{\textsc{mci}}
-\newcommand*{\nAD}{\lnot\mathrm{AD}}
 \newcommand*{\adni}{\textsc{adni}}
 
 
@@ -813,7 +813,7 @@ Two examples illustrate this point. Suppose there is a dangerous treatment that 
 
 In both examples, it is clearly important to assess the \emph{probability} -- having precise connections with the population frequency -- that the patient will develop the disease. And the \ljm, as explained in the previous sections, gives us such probabilities.
 
-But the choice between treatments does not only depend on the probability of the medical condition. Here is where differences between patients vary and matter the most. Consider again the second example above, about the less dangerous treatment. Let us add that the treatment would extend the lifespan by five years, but would also somewhat worsen the quality of life of the patient and the patient's family. Suppose our patient is quite old and tired, has had a happy life, and is now looking with a peaceful mind towards death as a natural part of life. Such a patient may prefer to forego the bother of the treatment and the additional five years even if the probability for the disease is quite high.
+But the choice between treatments depends not only on the probability of the medical condition. Here is where differences between patients vary and matter the most. Consider again the second example above, about the less dangerous treatment. Let us add that the treatment would extend the lifespan by five years, but would also somewhat worsen the quality of life of the patient and of the patient's family. Suppose our patient is quite old and tired, has had a happy life, and is now looking with a peaceful mind towards death as a natural part of life. Such a patient may prefer to forego the bother of the treatment and the additional five years, even if the probability for the disease is quite high.
 
 The benefits of the different treatments, and the probability thresholds at which one treatment becomes preferable to another, must therefore be judged and quantified primarily by the patient. Utility theory and maximization of expected utility allow clinician and patient to make such judgements and decisions in a coherent way \citetext{\citealt{soxetal1988_r2013,huninketal2001_r2014}; see also the clear and charming exposition by \citealt{lindley1971_r1988}, and \citealt{ohaganetal2006}}.
 
@@ -851,13 +851,14 @@ Finally, the recommended action is the one having \emph{maximal expected utility
 \subsubsection{Application to the example study}
 \label{sec:expected_utility_application}
 
-At present, there are no cures for \ad, although some recent pharmacological agents are shown to extend the time before a patient is cognitively severely impaired \mynotew{ref}. But for the sake of our case study let us imagine that there, in the near future, are three mutually exclusive treatment options for prevention or retardation of the disease; call them $\beta$, $\gamma$, $\delta$. And denote the simple option of \enquote{no treatment} by $\alpha$. The clinical conditions to be considered are just two: the patient will have stable \mci, or will convert to \ad. Denote them by $\nAD$ and $\AD$.
+At present, there are no cures for \ad, although some recent pharmacological agents are shown to extend the time before a patient is cognitively severely impaired \mynotew{ref}. But for the sake of our case study let us imagine that there, in the near future, are three mutually exclusive treatment options for prevention or retardation of the disease; call them $\beta$, $\gamma$, $\delta$. And denote the simple option of \enquote{no treatment} by $\alpha$. The clinical conditions to be considered are just two: the patient will convert to \ad\ ($\cad\mo\yes$), or will remain with stable \mci\ ($\cad\mo\no$).
 
-We have therefore $4 \times 2 = 8$ possible consequences of the four treatments depending on the two clinical conditions. Our four patients and clinician quantify the utilities, arriving at the utility matrices shown in table~\ref{tab:utilities_patients}. Note that Olivia, Ariel, and Curtis quantify the benefits of the treatments in exactly the same way, but Bianca's quantification differs slightly \mynotew{add an example of why}.
+We have therefore $4 \times 2 = 8$ possible consequences of the four treatments depending on the two clinical conditions. Our four patients and clinician quantify the utilities, arriving at the utility matrices shown in table~\ref{tab:utilities_patients}, top. Olivia, Ariel, and Curtis quantify the benefits of the treatments in exactly the same way, but Bianca's quantification differs slightly, because of the interaction of the treatments with several allergies and additional clinical conditions, as explained in \sect~\ref{sec:four_patients}.
 
 \medskip
 \begin{table}[!h]
   \centering
+  \textbf{Utility matrices}\\
   \begin{tabular}{lccccccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &&{\small Ariel} &&{\small Bianca} &&{\small Curtis}
@@ -902,19 +903,8 @@ $
     \\[6\jot]
     \hline
   \end{tabular}
-  \caption{Utility matrices for the four patients}\label{tab:utilities_patients}
-\end{table}
-
-The probabilities for the two medical conditions are those found in the previous section, reported in table~\ref{tab:posterior_patients}. For brevity, we denote just by $\p(\AD)$ the probability of conversion given a patient's predictor values, and by $\p(\nAD)\equiv 1- \p(\AD)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For example, for Olivia the expected utility of treatment $\beta$ is
-\begin{equation}
-  \label{eq:utility_olivia_example}
-  \eU_{\beta} = 9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
-\end{equation}
-The results for all patients are reported in table~\ref{tab:exp_utilities_patients}, with the maximal expected utilities in \textbf{boldface}.
-
-\medskip
-\begin{table}[!h]
-  \centering
+\\[1em]
+  \textbf{Expected utilities and optimal treatments}\\
   \begin{tabular}{lcccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
@@ -924,21 +914,28 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
       \text{treatment }\beta\\ 
       \text{treatment }\gamma\\ 
       \text{treatment }\delta\\[\jot]
-      \text{optimal}
+      \textbf{optimal}
     \end{matrix}$
     &
-    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[\jot]\beta\end{matrix}$
+    $\begin{matrix}6.98\\\bm{7.19}\\7.09\\3.02\\[\jot]\bm{\beta}\end{matrix}$
     &
-    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[\jot]\gamma\end{matrix}$
+    $\begin{matrix}5.27\\6.16\\\bm{6.58}\\4.73\\[\jot]\bm{\gamma}\end{matrix}$
     &
-    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\alpha\end{matrix}$
+    $\begin{matrix}\bm{6.98}\\6.49\\6.40\\3.02\\[\jot]\bm{\alpha}\end{matrix}$
     &
-    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[\jot]\delta\end{matrix}$
+    $\begin{matrix}2.97\\4.78\\5.89\\\bm{7.03}\\[\jot]\bm{\delta}\end{matrix}$
     \\[5\jot]
     \hline
   \end{tabular}
-  \caption{Expected utilities and optimal treatment for our four patients}\label{tab:exp_utilities_patients}
+  \caption{Utility matrices, expected utilities, and optimal treatements for our four patients}\label{tab:utilities_patients}
 \end{table}
+
+The probabilities for the two medical conditions are those found in the previous subsection, table~\ref{tab:posterior_patients}. For brevity, we denote just by $\p(\cad)$ the probability of conversion given a patient's predictor values, and by $\p(\smci)\equiv 1- \p(\cad)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For example, for Olivia the expected utility of treatment $\beta$ is
+\begin{equation}
+  \label{eq:utility_olivia_example}
+  \eU_{\beta} = 9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
+\end{equation}
+The results for all patients are reported in table~\ref{tab:utilities_patients}, bottom, with the maximal expected utilities in \textbf{boldface}.
 
 % ##     olivia    ariel   curtis
 % ## 1 0.698321 0.527060 0.297440
@@ -1033,7 +1030,7 @@ The imputation of missing data at prognostic time is useful for various kinds of
 
 Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value could lead to a different treatment. The \ljm\ can give a probabilistic answer to this question.
 
-The clinician uses the \ljm\ to find the probability distribution of Curtis's expected utilities (see table~\ref{tab:exp_utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
+The clinician uses the \ljm\ to find the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be in the following coverage intervals with 90\% probability:
 \begin{equation}
   \label{eq:possible_utilities_curtis}
   \alpha\text{: 2.97\%--2.98\%}\qquad
@@ -1191,7 +1188,7 @@ Summary in table~\ref{tab:summary}.
     \emph{\small Available actions and utilities}&&&& \\[\jot]
     $
     \begin{matrix}
-      &\begin{smallmatrix}\nAD&\AD\end{smallmatrix}\\
+      &\begin{smallmatrix}\smci&\cad\end{smallmatrix}\\
       \begin{smallmatrix}
       \text{treatment $\alpha$}\\
       \text{treatment $\beta$}\\
@@ -1199,7 +1196,7 @@ Summary in table~\ref{tab:summary}.
       \text{treatment $\delta$}
     \end{smallmatrix}&
     \Biggl[\begin{smallmatrix}
-      \hphantom{\nAD}&\hphantom{\AD}\\&\\&\\&
+      \hphantom{\smci}&\hphantom{\cad}\\&\\&\\&
     \end{smallmatrix}\Biggr]
     \end{matrix}$
     &
@@ -1215,10 +1212,10 @@ Summary in table~\ref{tab:summary}.
     {\small $\p(\AD \| \text{predictors})$}&
     0.302&0.302&0.302&0.703
     \\
-    {\small $\p(\text{predictors} \| \AD)/10^{-12}$}&
+    {\small $\p(\text{predictors} \| \cad)/10^{-12}$}&
     8.97&8.97&8.97&1.14
     \\
-    {\small $\p(\text{predictors} \| \nAD)/10^{-12}$}&
+    {\small $\p(\text{predictors} \| \smci)/10^{-12}$}&
     18.6&18.6&18.6&0.343
     \\[\jot]
     {\small final probability of conversion}&
