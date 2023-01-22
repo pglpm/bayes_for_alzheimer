@@ -17,6 +17,9 @@
 
 %\setcitestyle{square} % for articles in the journals "Frontiers in Physics" and "Frontiers in Applied Mathematics and Statistics" 
 \usepackage{url,hyperref,lineno,microtype,subcaption}
+\hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25}}
+% ,citebordercolor={0.2667 0.4667 0.6667},citecolor=bluepurple,linkbordercolor={0.6667 0.2 0.4667},linkcolor=redpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=green,breaklinks=true}
+% \usepackage[vertfit=local]{breakurl}% only for arXiv
 %% NOTE: Frontiers in Human Neuroscience does allow numbered sections, see for example
 %% https://www.frontiersin.org/articles/10.3389/fnhum.2022.1032724/full
 %% https://www.frontiersin.org/articles/10.3389/fnhum.2022.1077416/full
@@ -178,6 +181,9 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\tmta}{\texttt{TMTA}}
 \newcommand*{\tmtb}{\texttt{TMTB}}
 \newcommand*{\cad}{\texttt{cAD}}
+\newcommand*{\yes}{\texttt{Y}}
+\newcommand*{\no}{\texttt{N}}
+\newcommand*{\predictors}{\texttt{predictors}}
 %
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
@@ -346,7 +352,7 @@ The next section~\ref{sec:the_machine} gives an intuitive understanding of the \
 
 Mathematical details and proofs on which the present work is grounded are given in a companion technical note\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine/raw/main/ledley-jaynes\_machine.pdf}}, which explains more in detail how to use the R~scripts.
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \section{The \ljm}
 \label{sec:the_machine}
 
@@ -390,75 +396,78 @@ Such flexibility and informationally rich output come of course at a computation
 \subsection{Intuitive understanding of the learning algorithm}
 \label{sec:the_machine_learning}
 
-The calculations by which the \ljm\ learns and operates are univocally determined by Cox's theorem \footnote{\citealp{cox1946,cox1961,polya1954,polya1954b_r1968,tribus1969,rosenkrantz1977,snow1998,halpern1999b,arnborgetal2001,snow2001,claytonetal2017}; for a review see \citealp{vanhorn2003}.}, which determines quantitative inference rules from self-consistency requirements, and by de~Finetti's theorem\footnote{\citealp[\sects~4.2--4.3]{definetti1930,definetti1937,bernardoetal1994_r2000}; for a review see \citealp{dawid2013}.}, which further constrains these rules in the case of \enquote{generalization from similar cases}. These calculations have a very intuitive interpretation.
+The calculations by which the \ljm\ learns and operates are univocally determined by Cox's theorem \footnote{\citealp{cox1946,cox1961,polya1954,polya1954b_r1968,tribus1969,fine1973,rosenkrantz1977,paris1994_r2006,snow1998,arnborgetal2001,snow2001,claytonetal2017}; for a review see \citealp{vanhorn2003}.}, which determines quantitative inference rules from self-consistency requirements, and by de~Finetti's theorem\footnote{\citealp[\sects~4.2--4.3]{definetti1930,definetti1937,bernardoetal1994_r2000}; for a review see \citealp{dawid2013}.}, which further constrains these rules in the case of \enquote{generalization from similar cases}. These calculations have a very intuitive interpretation.
 
 We consider a patient to be a member of some population of similar past, present, and future patients. Suppose we knew the joint frequency distribution of all possible combinations of predictor and predictand values in such population. We would then judge the probability for a patient's particular variate values to be equal to the their corresponding population frequency. Pure symmetry considerations lead to this result \citep[\sects~4.2--4.3]{definetti1930,dawid2013,bernardoetal1994_r2000}. The same would be true for conditional and marginal probabilities and frequencies.\footnote{If there were a functional relationship from predictors to predictand, then the predictand value corresponding to the function output would have conditional frequency and probability equal to 1, and all other values to 0. Therefore a functional relationship is still encompassed by this point of view as a particular case.} This population frequency distribution would bound the maximal prognostic power attainable with the given predictors in the population. A higher prognostic power could only be attainable by using additional or different predictors having sharper conditional frequencies for the predictand in the population. Given knowledge of such frequency distribution, there would be no problem of \enquote{generalizing} to new patients, because each new patient would already be counted in the known frequencies. An inference algorithm would only need to enumerate and memorize, rather than to learn and generalize.
 
 Learning and generalization come into play because the frequency distribution for the population is unknown: we only have a sample from it, the \enquote{learning dataset}. Thus we can at most assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does.
 
 The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is. The first factor is easily computed: it is the joint probability of the dataset if it were sampled from a population having that candidate frequency. The second factor is a prior probability expressing how reasonable that candidate is.\footnote{It must be emphasized that some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting? Such judgement implies that we have a preconceived, reasonable reference distribution in the back of our minds. The fit is either intuitively compared with the preconceived reference; or is compared with a known, ground-truth test for testing owing to its similarity with the preconceived reference.} The most general natural requirement for \enquote{reasonableness} is that the candidate should have some degree of smoothness, owing to physical and biological reasons. Figure~\ref{fig:prior_distribution} shows samples of what the machine considers to be \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. Note that no frequency distributions are excluded; they are only given higher or lower probabilities.
-\begin{figure}[t]
+\begin{subfigure}[t]\setcounter{subfigure}{0}
   \centering%
-  \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
+  \begin{minipage}[c]{0.39\linewidth}\centering
+    \includegraphics[width=\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
   \caption{Samples of initially probable candidates of the true population frequency distribution, for a variate such as \ravltdel\ %AVDEL30MIN\_neuro
-    or \ravltrec.%AVDELTOT\_neuro
-}\label{fig:prior_distribution}
-\end{figure}%
-
-
-The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}.
-\begin{figure}[t]
-\centering%
-\makebox[0.49\linewidth]{\centering\footnotesize dataset}%
+    or \ravltrec. %AVDELTOT\_neuro
+    }\label{fig:prior_distribution}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.59\linewidth}\centering%
+\makebox[0.49\linewidth]{\footnotesize dataset}%
 \hfill%
-\makebox[0.49\linewidth]{\centering\footnotesize high-probability candidate population distribution}%
-\\[-2em]
+\makebox[0.49\linewidth]{\footnotesize high-probability candidate}%
+\\[-1em]
 \includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}%
 \hfill%
 \includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}%
 \\
-\makebox[0.49\linewidth]{\centering\footnotesize low-probability candidate population distribution (poor fit)}%
+\makebox[0.49\linewidth]{\footnotesize low-probability cand. (poor fit)}%
 \hfill%
-\makebox[0.49\linewidth]{\centering\footnotesize low-probability candidate population distribution (unreasonable)}%
-\\[-2em]
+\makebox[0.49\linewidth]{\footnotesize low-probability cand. (unreasonable)}%
+\\[-1em]
   \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
   \hfill
   \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
-  \caption{Illustration of the two factors determining the final probability of a candidate population frequency distribution, for two variates. \emph{Upper-left}: an example dataset. \emph{Upper-right}: candidate frequency distribution with high final probability; it fits the data and is reasonable. \emph{Lower-left}: candidate distribution with low final probability; it is reasonable but does not fit the data. \emph{Lower-right}: candidate distribution with low final probability; it fits the data but is not reasonable.}\label{fig:inferring_distribution}
-\end{figure}%
+  \caption{Illustration of the two factors determining the final probability of a candidate population frequency distribution. \emph{Upper-left}: an example dataset with two variates. \emph{Upper-right}: candidate frequency distribution with high final probability; it fits the data and is reasonable. \emph{Lower-left}: candidate distribution with low final probability; it is reasonable but does not fit the data. \emph{Lower-right}: candidate distribution with low final probability; it fits the data but is not reasonable.}\label{fig:inferring_distribution}
+  \end{minipage}
+\end{subfigure}%
+
+
+The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}.
 
 
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \section{Example application}
 \label{sec:application}
 
-\begin{table}[b]  
-  \begin{framed}
-    \small
-      \caption{\bf Main inferential and decision-making steps}\label{tab:main_steps}
+\begin{table}[t]\centering
+%  \begin{minipage}{0.75\linewidth}
+    \begin{framed}
+      \small
+      \caption{\small\bf Main inferential and decision-making steps}\label{tab:main_steps}
       \begin{enumerate}\itemsep1em
         \setcounter{enumi}{-1}
-    \item\label{item:learn} Find or build an appropriate dataset of clinical cases comprising values of the predictors and predictand of interest. Datapoints with partially missing values are allowed.
+      \item\label{item:learn} Find or build an appropriate dataset of clinical cases comprising values of the predictors and predictand of interest. Datapoints with partially missing values are allowed.
 
-      Input the dataset into the \ljm\ and let it infer the joint full-population frequencies of predictors and predictand behind the dataset.
+        Input the dataset into the \ljm\ and let it infer the joint full-population frequencies of predictors and predictand behind the dataset.
 
-    \item\label{item:predictors} Measure the present patient's predictor values and input them in the \ljm. Partially missing values are allowed.
+      \item\label{item:predictors} Measure the present patient's predictor values and input them in the \ljm. Partially missing values are allowed.
 
-    \item\label{item:population} Assess which conditional statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
+      \item\label{item:population} Assess which conditional statistics of the dataset can be applied to the present patient, and any auxiliary clinical information available. Quantify the latter it in a prior probability.
 
-      Input the relevant statistics and auxiliary information for the present patient into the \ljm. 
+        Input the relevant statistics and auxiliary information for the present patient into the \ljm. 
 
-      Upon request, the machine can now output the final probability of the predictand's true value for the patient, as well as any other probabilities and likelihoods of interest.
-      
-    \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient, and the utility (benefit and loss) of each course of action, depending on each possible predictand value for the patient.
+        Upon request, the machine can now output the final probability of the predictand's true value for the patient, as well as any other probabilities and likelihoods of interest.
+        
+      \item\label{item:utilities} Assess the clinical courses of action (treatments, more tests, and so on) available for the present patient, and the utility (benefit and loss) of each course of action, depending on each possible predictand value for the patient.
 
-      Input the patient's utilities into the \ljm. The machine outputs the course of action having maximal expected utility.
+        Input the patient's utilities into the \ljm. The machine outputs the course of action having maximal expected utility.
 
-      Upon request, the machine can output the probability of gaining different utilities, perform sensitivity analyses for missing data, and do other similar tasks.
-    \end{enumerate}
-  \end{framed}
+        Upon request, the machine can output the probability of gaining different utilities, perform sensitivity analyses for missing data, and do other similar tasks.
+      \end{enumerate}
+    \end{framed}
+%  \end{minipage}
 \end{table}
 
 In this section we illustrate how the \ljm\ is applied in the example case outlined in \sect~\ref{sec:four_patients}. Although the patients are fictitious, the dataset is real and briefly discussed in the next subsection. The main inferential and decision-making steps are summarized in table~\ref{tab:main_steps}. As mentioned in \sect~\ref{sec:intro_purposes}, steps 1.--3. are modular: the clinician is free to stop after any of them and use their output in other ways or with other algorithms.
@@ -469,10 +478,10 @@ Steps 1.--3. could also be presented in reverse order; which would be more suite
 
 
 \setcounter{subsection}{-1}
-\subsection{Learning dataset}
+\subsection{Predictors, predictand, and learning dataset}
 \label{sec:dataset}
 
-The dataset used in our example comes from the study by the Alzheimer's Disease Neuroimaging Initiative (\adni). This longitudinal multicentre study is designed to develop and validate neuroimaging and biochemical biomarkers for the early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present dataset consists of 704 \adni\ subjects meeting the criteria for \mci\ at their first, baseline assessment who additionally had a minimum of two following, additional study visits, as well as three \textsc{mri} examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit. This longitudinal diagnostic label is used as the predictand variate $\cad$ in our study: it categorizes each subject as either converting to \ad\ after the first study visit ($\cad=1$), or remaining stable with \mci\ ($\cad=0$). The dataset has 325 subjects (46.2\%) with $\cad=1$ and 379 (53.8\%) with $\cad=0$. Criteria used for classifying subjects as having \mci\ or \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
+The dataset used in our example comes from the study by the Alzheimer's Disease Neuroimaging Initiative (\adni). This longitudinal multicentre study is designed to develop and validate neuroimaging and biochemical biomarkers for the early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present dataset consists of 704 \adni\ subjects meeting the criteria for \mci\ at their first, baseline assessment who additionally had a minimum of two following, additional study visits, as well as three \textsc{mri} examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit. This longitudinal diagnostic label is used as the predictand variate $\cad$ in our study: it categorizes each subject as either converting to \ad\ after the first study visit ($\cad\mo\yes$), or remaining stable with \mci\ ($\cad\mo\no$). The dataset has 325 subjects (46.2\%) with $\cad\mo\yes$, and 379 (53.8\%) with $\cad\mo\no$. Criteria used for classifying subjects as having \mci\ or \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
 
 The 12 predictor variates consist of the results of eight tests for cognitive function (\anart, \cft, \gds, \ravltimm, \ravltdel, \ravltrec, \tmta, \tmtb), the presence of the \apoe-e4 risk allele \citep{liuetal2013}, a normalized measure of hippocampal volume (\hv), \age, and \sex. Further details about these variates and their selection can be found in \citet{ryeetal2022}. \mynotew{add details about specially sampled variates (age?), important for step~2.} The cognitive variates are integer-valued; hippocampal volume and age are continuous, and \apoe\ and sex are binary. The values of one or two of these predictors were missing for 30 subjects in the dataset.
 
@@ -507,15 +516,14 @@ The learning dataset comprises enough data to greatly reduce our uncertainty abo
 \subsection{Patient's clinical information}
 \label{sec:predictor_step}
 
-\subsubsection{Theory and method}
-\label{sec:predictor_theory}
+The 12 predictor values for our four patients are reported in table~\ref{tab:patients_data}, top. Note that Curtis's value for the Hippocampal Volume is missing; this is not a problem for the \ljm. Given these predictor values the \ljm\ can output any probabilities of interest to the clinician. Table~\ref{tab:patients_data}, bottom, reports three probabilities that are important for the step of the next subsection:\footnote{All relative uncertainties of the results are below 0.8\%, Curtis's two likelihoods being an exception at 2\%.}
+ % (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008})
+\begin{itemize}
+\item $\p(\cad\mo\yes \| \predictors)$: the probability that the patient will convert to \ad, given the patient's specific predictors and that the patient comes from the same population as the learning dataset.
+\item $\p(\predictors \| \cad\mo\yes)$: the probability that a patient who will convert to \ad\ would have these specific predictor values. In other words, the \emph{likelihood}\footnote{$\p(A\|B)$ is the probability of $A$ given $B$, as well as the likelihood of $B$ given $A$ \citep[\sect~6.1]{good1950}.} of conversion to \ad, given the predictors.
+\item $\p(\predictors \| \cad\mo\no)$: the probability that a patient who will remain with stable \mci\ would have these specific predictor values. In other words, the \emph{likelihood} of stable \mci, given the predictors.
+\end{itemize}
 
-
-\subsubsection{Application to the example study}
-\label{sec:learn_application}
-
-
-The predictor values for our four patients are reported in table~\ref{tab:patients_data}. Note that Curtis's value for the Hippocampal Volume is missing; the \ljm\ has no difficulty with this.
 \begin{table}[!b]
   \centering
   \begin{tabular}[b]{lcccc}
@@ -525,7 +533,7 @@ The predictor values for our four patients are reported in table~\ref{tab:patien
     \age&75.4&75.4&75.4&63.8 \\
     \sex&F&F&F&M \\
     Hippocampal volume (\hv)${}/10^{-3}$&4.26&4.26&4.26&[missing] \\
-    \apoe\ status&N&N&N&Y \\
+    \apoe\ status&\no&\no&\no&\yes \\
     Reading test (\anart)&18&18&18&15 \\
     Category Fluency Test (\cft)&21&21&21&14 \\
     Geriatric Depression Scale (\gds)&3&3&3&2 \\
@@ -535,54 +543,61 @@ The predictor values for our four patients are reported in table~\ref{tab:patien
     Trail Making Test A (\tmta)&21&21&21&36 \\
     Trail Making Test B (\tmtb)&114&114&114&126
     \\[\jot]
-    \hline
-  \end{tabular}\hfill
-  \caption{\mynotep{Predictor values for the four patients}}\label{tab:patients_data}
-\end{table}
-
-Given these predictor values the \ljm\ yields the  probabilities of main importance for the  application in the next sections reported in table~\ref{tab:prob_likelihoods_patients}.
-  
-\begin{table}[!b]
-  \centering
-  \begin{tabular}{lcccc}
-    \hline\\[-1.5\jot]
-    &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
-    \\[\jot]
-    {\small $\p(\text{conversion to AD} \| \text{predictors})$}&
+    \hline\\
+    {\small $\p(\cad\mo\yes \| \predictors)$}&
     0.302&0.302&0.302&0.703
     \\
-    {\small $\p(\text{predictors} \| \text{conversion to AD})/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\yes)/10^{-12}$}&
     8.97&8.97&8.97&1.14
     \\
-    {\small $\p(\text{predictors} \| \text{no conversion to AD})/10^{-12}$}&
+    {\small $\p(\predictors \| \cad\mo\no)/10^{-12}$}&
     18.6&18.6&18.6&0.343
     \\[\jot]
     \hline
-  \end{tabular}
-  \caption{\mynotep{Probabilities computed by the \ljm}} \label{tab:prob_likelihoods_patients}
-  \end{table}
+  \end{tabular}\hfill
+  \caption{Predictor values for the four patients, and resulting conditional probabilities}\label{tab:patients_data}
+\end{table}
+% \begin{table}[!b]
+%   \centering
+%   \begin{tabular}{lcccc}
+%     \hline\\[-1.5\jot]
+%     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
+%     \\[\jot]
+%     {\small $\p(\cad\mo\yes \| \predictors)$}&
+%     0.302&0.302&0.302&0.703
+%     \\
+%     {\small $\p(\predictors \| \cad\mo\yes)/10^{-12}$}&
+%     8.97&8.97&8.97&1.14
+%     \\
+%     {\small $\p(\predictors \| \cad\mo\no)/10^{-12}$}&
+%     18.6&18.6&18.6&0.343
+%     \\[\jot]
+%     \hline
+%   \end{tabular}
+%   \caption{\mynotep{Probabilities computed by the \ljm}} \label{tab:prob_likelihoods_patients}
+%   \end{table}
 
-\medskip
+The \ljm\ can also answers other questions of interest to the clinician. For instance, what could be the value of Curtis's Hippocampal Volume? The answer is given in \fig~\ref{fig:curtis_HV}, which also shows the full-population distribution as comparison (dashed grey); with 95\% probability Curtis's value is between 2.8 and 5.3, with a median of 3.8. And what is the frequency of conversion to \ad\ among the subpopulation having Olivia's, Ariel's, or Bianca's predictors? The answer is given in the histogram of \fig~\ref{fig:freq_distribution_patients}: with 95\% probability, the fraction of this subpopulation that eventually converts to \ad\ is between 0.19 and 0.43; this uncertainty range is due to the limited size of the learning dataset. The probability $\p(\cad\mo\yes \| \predictors)$ is equal to the average of such a distribution \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}, provided the patient and dataset can be considered as coming from the same population.
 
-As an illustration of the additional information provided by the \ljm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008}).
+  
 
-\begin{figure}[t]% with figure
+\begin{subfigure}[t]\setcounter{subfigure}{0}
   \centering%
-  \begin{minipage}{0.49\linewidth}\centering
-    \includegraphics[width=\linewidth]{directprob_olivia.pdf}\\
-    \footnotesize Olivia, Ariel, Bianca
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \includegraphics[width=\linewidth]{curtis_distr_HV.pdf}
+\caption{Probability distribution for Curtis's Hippocampal Volume}\label{fig:curtis_HV}
+  \end{minipage}\hfill%
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \includegraphics[width=\linewidth]{directprob_olivia.pdf}
+%    \\ \footnotesize Olivia, Ariel, Bianca
+    \caption{Probability distribution for the frequency of conversion to \AD, among the subpopulation having Olivia's, Ariel's, or Bianca's predictors. The red vertical line is the value of the probability $\p(\cad\mo\yes \| \predictors)$.}\label{fig:freq_distribution_patients}
   \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\linewidth}\centering
-    \includegraphics[width=\linewidth]{directprob_curtis.pdf}\\
-    \footnotesize Curtis
-  \end{minipage}
-  \caption{Probability distributions for full-population frequency of conversion to AD, given Olivia, Ariel, Bianca's and Curtis's predictor. Red lines are the values of the probabilities  $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$}\label{fig:freq_distribution_patients}
-\end{figure}%
-
-
-
-\mynotez{Use \enquote{likelihood} instead of \enquote{predictors$\|$predictand}? It's a possibility. I personally prefer the second notation, much more clear and explicit.}
+  % \hfill
+  % \begin{minipage}{0.49\linewidth}\centering
+  %   \includegraphics[width=\linewidth]{directprob_curtis.pdf}\\
+  %   \footnotesize Curtis
+  % \end{minipage}
+\end{subfigure}%
 
 
 
@@ -614,7 +629,7 @@ As an illustration of the additional information provided by the \ljm, \fig~\ref
 
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \subsection{Assessment of population and auxiliary information}
 \label{sec:population_step}
 
@@ -797,9 +812,9 @@ The difference between situations~\ref{item:prob_fully_exch} and \ref{item:prob_
 \subsubsection{Application to the example study}
 \label{sec:posterior_application}
 
-In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\texttt{\small conversion} \| \texttt{\small predictors}, \texttt{\small dataset})$ provided in the same table.
+In our present example, all statistics of the dataset are considered relevant for Olivia, Bianca, and Curtis. For these patients we can therefore use Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the dataset conversion rate of $0.463$ -- or equivalently directly the probabilities $\p(\texttt{\small conversion} \| \texttt{\small predictors}, \texttt{\small dataset})$ provided in the same table.
 
-For Ariel, however, the clinician judges that a different base rate or prior probability of conversion should be used, equal to 65\%,  owing to her different geographical origin and family history. In her case we must use Bayes's theorem with the likelihoods of table~\ref{tab:prob_likelihoods_patients} and the prior probability of $0.65$.
+For Ariel, however, the clinician judges that a different base rate or prior probability of conversion should be used, equal to 65\%,  owing to her different geographical origin and family history. In her case we must use Bayes's theorem with the likelihoods of table~\ref{tab:patients_data} and the prior probability of $0.65$.
 
 The final probabilities of conversion to \ad\ for our four patients are reported in table~\ref{tab:posterior_patients}. Note how the final probability for Ariel is higher than that for Olivia and Bianca, even if the predictor data are the same for these three patients.
 
@@ -822,7 +837,7 @@ The final probabilities of conversion to \ad\ for our four patients are reported
 \end{table}
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \subsection{Assessments of treatments and benefits; final decision}
 \label{sec:utilities_step}
 
@@ -1010,7 +1025,7 @@ The results for all patients are reported in table~\ref{tab:exp_utilities_patien
 
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \subsection{Additional information provided by the \ljm}
 \label{sec:additional_results}
 
@@ -1168,7 +1183,7 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
 % \end{table}
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \subsection{Summary of the case study}
 \label{sec:summary}
 
@@ -1268,7 +1283,7 @@ Summary in table~\ref{tab:summary}.
 
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \section{Discussion}
 \label{sec:discussion}
 
@@ -1317,17 +1332,17 @@ As mentioned in \sect~\ref{sec:predictor_step} and explained in appendix~\ref{se
 As explained in \sect~\ref{sec:population_step}, the essentially sole assumption underlying the \ljm's inference and its practical used with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in technical jargon, partial or conditional exchangeability applies). This precludes using the \ljm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (transversal \mynotez{correct?}) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For example, if data about the time of conversion to \ad\ were available in the dataset, the \ljm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
 
-\newpage% Newpage break just to help while writing the draft
+\bigskip% Newpage break just to help while writing the draft
 \appendix
 \renewcommand\thesection{\Alph{section}}
 \section{Appendices}
 \label{sec:appendices}
 
 
-\subsection{Predictors and predictand}
-\label{sec:predictors_description}
+% \subsection{Predictors and predictand}
+% \label{sec:predictors_description}
 
-For the present study, data used in the learning stage of \sect~\ref{sec:learn_application} comes from the Alzheimer's Disease Neuroimaging Initiative (\adni) study. This longitudinal multicenter study is designed to develop and validate neuroimaging and biochemical biomarkers for early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present sample of 704 subjects consisted of all \adni\ participants meeting the criteria for Mild Cognitive Impairment at their first, baseline assessment who additionally had a minimum of three study visits (that is, baseline visit and at least two additional visits), and three MRI examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit, and this longitudinal diagnostic label was used to partition our sample into 325 subjects converting to Alzheimer's Disease following the first study visit, and 379 subjects remaining stable with \mci. Criteria used for classifying subjects as having \mci\ and \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
+% For the present study, data used in the learning stage of \sect~\ref{sec:learn_application} comes from the Alzheimer's Disease Neuroimaging Initiative (\adni) study. This longitudinal multicenter study is designed to develop and validate neuroimaging and biochemical biomarkers for early detection, monitoring, and treatment of Alzheimer's disease \citep{petersenetal2010}. The present sample of 704 subjects consisted of all \adni\ participants meeting the criteria for Mild Cognitive Impairment at their first, baseline assessment who additionally had a minimum of three study visits (that is, baseline visit and at least two additional visits), and three MRI examinations. A reevaluation of each subject's diagnostic status was conducted at each study visit, and this longitudinal diagnostic label was used to partition our sample into 325 subjects converting to Alzheimer's Disease following the first study visit, and 379 subjects remaining stable with \mci. Criteria used for classifying subjects as having \mci\ and \ad, as well as \adni's general criteria for subject inclusion, are described in \citet{mckhannetal1984,petersenetal2010}.
 
 \subsection{Mathematical details about the \ljm}
 \label{sec:maths_tjm}
@@ -1679,3 +1694,6 @@ How does the clinician use the \ljm\ in a specific application to a patient, aft
 
 
 
+    %%%%%%%%%%%%%%%%%%%%%%
+
+    As an illustration of the additional information provided by the \ljm, \fig~\ref{fig:freq_distribution_patients} shows the probability distributions for the full-population frequency of conversion to \ad\ for patients with predictor values equal to those of Olivia, Ariel, Bianca (left), and to those of Curtis (right). The probability $\p(\text{conversion to AD} \| \text{predictors}, \text{dataset})$ is equal to the average of such a distribution, as required by probability theory \citep[\eg][\sects~4.2--4.3]{bernardoetal1994_r2000}. We emphasize that the distributions shown in the figure are \emph{not} the uncertainties or \enquote{errors} on these probabilities. There is a numerical uncertainty over the probabilities, caused by finite computational precision, but it affects at most the third significant digit of the reported probabilities. All relative uncertainties are below 0.8\%, Curtis's two likelihoods being an exception at 2\% (owing to the illustrative character of this example, we do not fully follow the standards for the expression of measurement uncertainty \citep{jcgm1993_r2008}).

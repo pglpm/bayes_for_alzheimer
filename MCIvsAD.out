@@ -1,29 +1,26 @@
-\BOOKMARK [1][-]{section.1}{Introduction: Personalized prognosis, treatment, and computer algorithms}{}% 1
-\BOOKMARK [2][-]{subsection.1.0}{Prologue: Four unique patients}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.1}{Assistive computer algorithms: personalized input and output}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{The Ledley-Jaynes machine}{}% 4
-\BOOKMARK [2][-]{subsection.2.1}{Underlying theory and characteristics}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.2}{Intuitive understanding of the learning algorithm}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Example application}{}% 7
-\BOOKMARK [2][-]{subsection.3.0}{Learning dataset}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Patient's clinical information}{section.3}% 9
-\BOOKMARK [3][-]{section*.6}{Theory and method}{subsection.3.1}% 10
-\BOOKMARK [3][-]{section*.7}{Application to the example study}{subsection.3.1}% 11
-\BOOKMARK [2][-]{subsection.3.2}{Assessment of population and auxiliary information}{section.3}% 12
-\BOOKMARK [3][-]{section*.13}{Application to the example study}{subsection.3.2}% 13
-\BOOKMARK [2][-]{subsection.3.3}{Assessments of treatments and benefits; final decision}{section.3}% 14
-\BOOKMARK [3][-]{section*.15}{Theory and method}{subsection.3.3}% 15
-\BOOKMARK [3][-]{section*.16}{Application to the example study}{subsection.3.3}% 16
-\BOOKMARK [2][-]{subsection.3.4}{Additional information provided by the Ledley-Jaynes machine}{section.3}% 17
-\BOOKMARK [3][-]{section*.19}{Resource planning}{subsection.3.4}% 18
-\BOOKMARK [3][-]{section*.21}{Imputation of missing data}{subsection.3.4}% 19
-\BOOKMARK [3][-]{section*.22}{Sensitivity checks}{subsection.3.4}% 20
-\BOOKMARK [3][-]{section*.23}{Predictor importance}{subsection.3.4}% 21
-\BOOKMARK [2][-]{subsection.3.5}{Summary of the case study}{section.3}% 22
-\BOOKMARK [1][-]{section.4}{Discussion}{}% 23
-\BOOKMARK [2][-]{subsection.4.1}{Counters to critiques}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.2}{Range of application of Ledley-Jaynes machines}{section.4}% 25
-\BOOKMARK [1][-]{appendix.A}{Appendices}{}% 26
-\BOOKMARK [2][-]{subsection.A.1}{Predictors and predictand}{appendix.A}% 27
-\BOOKMARK [2][-]{subsection.A.2}{Mathematical details about the Ledley-Jaynes machine}{appendix.A}% 28
-\BOOKMARK [2][-]{subsection.A.3}{Computational details}{appendix.A}% 29
+\BOOKMARK [1][-]{section.1}{1 Introduction: Personalized prognosis, treatment, and computer algorithms}{}% 1
+\BOOKMARK [2][-]{subsection.1.0}{1.0 Prologue: Four unique patients}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.1}{1.1 Assistive computer algorithms: personalized input and output}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{2 The Ledley-Jaynes machine}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Underlying theory and characteristics}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Intuitive understanding of the learning algorithm}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{3 Example application}{}% 7
+\BOOKMARK [2][-]{subsection.3.0}{3.0 Predictors, predictand, and learning dataset}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Patient's clinical information}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Assessment of population and auxiliary information}{section.3}% 10
+\BOOKMARK [3][-]{section*.9}{Application to the example study}{subsection.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.3}{3.3 Assessments of treatments and benefits; final decision}{section.3}% 12
+\BOOKMARK [3][-]{section*.11}{Theory and method}{subsection.3.3}% 13
+\BOOKMARK [3][-]{section*.12}{Application to the example study}{subsection.3.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{3.4 Additional information provided by the Ledley-Jaynes machine}{section.3}% 15
+\BOOKMARK [3][-]{section*.15}{Resource planning}{subsection.3.4}% 16
+\BOOKMARK [3][-]{section*.17}{Imputation of missing data}{subsection.3.4}% 17
+\BOOKMARK [3][-]{section*.18}{Sensitivity checks}{subsection.3.4}% 18
+\BOOKMARK [3][-]{section*.19}{Predictor importance}{subsection.3.4}% 19
+\BOOKMARK [2][-]{subsection.3.5}{3.5 Summary of the case study}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{4 Discussion}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Counters to critiques}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Range of application of Ledley-Jaynes machines}{section.4}% 23
+\BOOKMARK [1][-]{appendix.A}{A Appendices}{}% 24
+\BOOKMARK [2][-]{subsection.A.1}{A.1 Mathematical details about the Ledley-Jaynes machine}{appendix.A}% 25
+\BOOKMARK [2][-]{subsection.A.2}{A.2 Computational details}{appendix.A}% 26
