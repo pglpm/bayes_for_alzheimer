@@ -251,8 +251,14 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 \mynotew{TO BE REWRITTEN}
 
 \mynotew{Alexander 24.01: A first pass below. Will make another pass tomorrow (Wednesday)}
-The present work presents an assistive and statistically rigorous algorithm--the \ljm-- for personalized medicine.
-This algorithm is designed to first learn from a dataset of clinical and supplementary data with relevant predictors and predictand, and then assist a clinician in the assessment of prognosis \& treatment for new patients. Max amount of information... We apply the \ljm in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We discuss some major advantages of this model-free approach for decision-making under risk, resource planning, imputation of missing values, assessing the importance of each predictor in the prognosis, and more. 
+The present work presents an assistive and statistically rigorous
+% sound
+% principled
+% first-principled
+% theoreticall optimal
+% ...
+algorithm -- the \ljm\ -- for personalized medicine.
+This algorithm is designed to first learn from a dataset of clinical and supplementary data with relevant predictors and predictand, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. Max amount of information... We apply the \ljm\ in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We discuss some major advantages of this model-free approach for decision-making under risk, resource planning, imputation of missing values, assessing the importance of each predictor in the prognosis, and more. 
 
 
 Limitations.
@@ -453,6 +459,8 @@ The way in which the machine assigns a probability to each \enquote{candidate} t
 
 
 The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}.
+
+Further mathematical and computational details are given in appendix~\ref{sec:appendices}.
 
 
 
@@ -1291,7 +1299,7 @@ We presented an assistive algorithm that meets all these requirements (\sect~\re
 
 The \ljm\ was also shown to have uses that go beyond individual clinical decision-making but are still of importance to personalized medicine. For instance, it can assess the maximum possible prognostic power of particular sets of predictors, potentially allowing us to discard clinical predictors that are too invasive or expensive and yet prognostically unimportant.
 
-In actual deployment, we would recommend the hospital, medical centre, or clinician using a \ljm\ to keep a database of incoming patients, with their predictor values, adding the true values of their predictand later in time, once they become known. The \ljm\ can then be retrained on such local database when the latter reaches a size comparable to the original one's. All inferences would thus become even more reliable because based on the local statistics and population characteristic of that hospital.
+In actual deployment, we would recommend the hospital, medical centre, or clinician using a \ljm\ to keep a database of incoming patients, with their predictor values, adding the true values of their predictand later in time, once they become known. The \ljm\ can then be retrained on such local database when the latter reaches a size comparable to the original one's, and periodically retrained afterwards. All inferences would thus become even more reliable because based on the local, current statistics and population characteristic of that hospital.
 
 
 \subsection{Counters to possible critiques}
