@@ -1327,6 +1327,8 @@ The fact that the \ljm\ extracts all available information from the dataset also
 
 The sole assumption underlying the \ljm's inference and its practical use with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in probability-theory jargon, partial or conditional exchangeability applies; see \sect~\ref{sec:population_step}). This precludes using the \ljm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (longitudinal) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For instance, if data about the time of conversion to \ad\ were available in the dataset, the \ljm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
+Finally, the machine is not meant to handle sequences of decisions in a clinical decision tree \citetext{\citealp[\chap~6]{soxetal1988_r2013}; \citealp[\chap~1]{huninketal2001_r2014}} -- it would be impossible, as such a tree is fully patient-dependent -- but it could be used in individual decision branches.
+
 
 \bigskip% Newpage break just to help while writing the draft
 \appendix
@@ -1334,7 +1336,7 @@ The sole assumption underlying the \ljm's inference and its practical use with n
 \section{Further mathematical and computational details about the example application of the \ljm}
 \label{sec:appendices}
 
-The \ljm\ surveys the space of possible distributions of frequencies of all 13 variates discussed in \sect~\ref{sec:dataset}, for the full population of patients from which the dataset originates (see \sect~\ref{sec:population_step}). In the present study, it does so by mathematically representing a generic joint frequency distribution $F(Y,X_1,X_2,\dotsc)$ as as convex mixture of product kernels:
+The \ljm\ surveys the space of possible distributions of frequencies of all 13 variates discussed in \sect~\ref{sec:dataset}, for the full population of patients from which the dataset originates (see \sect~\ref{sec:population_step}). In the present study, it does so by mathematically representing a generic joint frequency distribution $F(Y,X_1,X_2,\dotsc)$ as as convex mixture of appropriate kernels products:
 \begin{equation*}
 F(Y,X_1,X_2,\dotsc) = \sum_i w^{i}\, K(Y\|\bm{\upsilon}^{i})\,
 K(X_1\|\bm{\xi}_1^{i})\, K(X_2\|\bm{\xi}_2^{i})\dotsm\ ,
