@@ -1068,7 +1068,7 @@ The question about Curtis in the previous subsection can be generalized to a who
 As posed, this question is too vague (ill-posed) because it does not exactly specify how a predictor is used, and what \enquote{important} means. Let us see why these details matter.
 
 %\pagebreak
-
+\vbox{
 \setlength{\intextsep}{0ex}% with wrapfigure
 \setlength{\columnsep}{1ex}% with wrapfigure
 \begin{wrapfigure}{r}{0.33\linewidth}% with wrapfigure
@@ -1078,6 +1078,7 @@ As posed, this question is too vague (ill-posed) because it does not exactly spe
 % \includegraphics[width=\linewidth]{baseratepopulation.png}
 \end{wrapfigure}%
 The schematic picture on the side illustrates the necessity of specifying a predictor's context. Individuals in this population can be either \textcolor{bluepurple}{blue circles $\scriptstyle\bigcirc$} or \textcolor{redpurple}{red triangles $\triangle$}, and have two predictors $X_{1}$ and $X_{2}$. Predictor $X_{1}$, if used by itself, is worthless in distinguishing the two subpopulations, because these have identical marginal distributions (depicted underneath the grey horizontal line). If used in conjunction with $X_{2}$, however, predictor $X_{1}$ allows us to identify an individual's subpopulation with full certainty, as is clear from the two-dimensional view. It is therefore an essential predictor in this case: dropping it would lead to a complete loss of predictive power. An analogous discussion holds for $X_{2}$ in the present case. The converse can also happen (not illustrated): a predictor might be \enquote{good} if used by itself, and yet it might be discarded without any loss if used in combination with others.
+}
 
 In our question about a predictor's importance, we want to know what happens if the predictor is dropped from the set of all predictors.
 
@@ -1100,13 +1101,21 @@ Use of the accuracy assumes that the population of patients has only two availab
 Our specific questions are the following: \enquote{What is the expected value of the accuracy for the next new patient, if we use the given set of predictors?} and \enquote{What is the mutual information between the given set of predictors and the predictand, given the presently available data?}.
 
 The answers to these questions are reported in \fig~\ref{fig:mutual_info}, ordered from bottom to top according to increasing metric. The ordering of mutual information and accuracy agree within the uncertainty of the numerical computation (Monte Carlo integration). The latter is reported as coverage intervals of $\pm$~two standard deviations.
-\begin{figure}[t]% with figure
+\begin{subfigure}[t]\setcounter{subfigure}{0}%
   \centering%
+\begin{minipage}[c]{\linewidth}
 \includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
 \hfill%
 \includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
 \caption{Expected accuracy for the next new patient (left), and mutual information (right), of several sets of predictors for the prognosis of conversion to \ad. Each graph has been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \texttt{all} predictor set is mathematically guaranteed to be optimal according to both metrics and has therefore been ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
-\end{figure}%
+\end{minipage}\\
+%\begin{minipage}[t]{\linewidth}
+%  \centering%
+\includegraphics[width=0.49\linewidth]{curtis_prob_conversion_HV.pdf}%
+\begin{minipage}[b]{0.49\linewidth}\caption{Probability of $\cad\mo\yes$ for Curtis, given Curtis's known predictors and different possible values of his unknown Hippocampal Volume. The thinner curves are probable samples of how this probability would change with a larger learning dataset.}\label{fig:curtis_prediction}\vspace{3em}\mbox{}
+\end{minipage}
+%\end{minipage}
+\end{subfigure}%
 
 
 The plots reveal several findings, \emph{valid within the population selected for the dataset}, which can be compared with the analysis in \citet[see especially Fig.~3 and Table~3]{ryeetal2022}:
@@ -1119,7 +1128,7 @@ The plots reveal several findings, \emph{valid within the population selected fo
 
 \item The combined cognitive and demographic variates are better predictors than the joint use of Hippocampal Volume, \apoe, and demographic variates.
 
-\item \ravltimm, \ravltdel, and to a lesser degree \ravltrec\ are good predictors, both when used alone and when used jointly with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}.
+\item \ravltimm, \ravltdel, and to a lesser degree \ravltrec\ are good predictors, both when used alone and when used jointly with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}. This last finding is also clear in Curtis's case: \fig~\ref{fig:curtis_prediction} shows that his probability of conversion to \ad, given his current predictors, would practically be the same for all values of Hippocampal Volume; and it would probably be the same even if the learning dataset contained more points.
 \end{itemize}
 
 The \ljm\ shows that the omission of any one of the 12 predictors, except \ravltdel\ and possibly \ravltimm, does not lead to an appreciable decrease in accuracy (relative decrease of 0.3\% or less) or in mutual information (relative decrease of less than 3\%). This puts the prognostic-importance analysis of \citet{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive, and we did not carry it out further.
@@ -1164,7 +1173,7 @@ The \ljm\ shows that the omission of any one of the 12 predictors, except \ravlt
 % \end{table}
 
 
-\begin{table}[t]
+\begin{table}[b]
   \centering
   \caption{Summary of the clinician's patient-dependent inputs and the \ljm's outputs. Input data and final results that distinguish Ariel, Bianca, Curtis from Olivia are in \textcolor{redpurple}{red}.}\label{tab:summary}
 
