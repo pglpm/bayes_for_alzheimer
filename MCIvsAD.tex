@@ -366,8 +366,8 @@ The purpose of the present work is to present an assistive algorithm that meets 
 
 \end{enumerate}
 
-Let us comment on some of these features. We believe that the capability of working with complex predictands, feature~\ref{item:feat_variates}, is important for a more realistic and nuanced approach to prognosis. In the case of \ad, for instance, a simple dichotomy \enquote{has disease} vs. \enquote{doesn't have disease} is possibly an oversimplification\footnote{see \eg\ \citealp{edmondsetal2015,edmondsetal2020},  whose methods we find, however, inconclusive}.}.
-% [Luca:] They standardize neuropsych. scores based on age and education "based on regression coefficients derived from the normal control group" -- this can already introduce terrible biases and unrealistic approximations (did they check if linearity holds?). Then the rest is the usual astrology with Bonferroni corrections etc. The graphs in their paper don't really tell me anything. In Fig.~3 of the 2020 paper I would have liked to see the points, not just the linear-regression lines. The fact that they omitted the points may actually be a sign that they would have shown the linear regression to be unrealistic.
+Let us comment on some of these features. We believe that the capability of working with complex predictands, feature~\ref{item:feat_variates}, is important for a more realistic and nuanced approach to prognosis. In the case of \ad, for instance, a simple dichotomy \enquote{has disease} vs. \enquote{doesn't have disease} is possibly an oversimplification\footnote{see \eg\ \citet{edmondsetal2015,edmondsetal2020},  whose methods we find, however, inconclusive.}.
+% [Luca:] They standardize neuropsych. scores based on age and education "based on regression coefficients derived from the normal control group" -- this can already introduce unrealistic approximations (did they check if linearity holds?) and terrible biases. Then the rest is the usual astrology with Bonferroni corrections etc. The graphs in their paper don't really tell me anything. In Fig.~3 of the 2020 paper I would have liked to see the datapoints, not just the linear-regression lines. The fact that they omitted the points -- that's bad scientific practice -- may actually be a sign that they would have shown the linear regression to be unrealistic.
 Without feature~\ref{item:feat_conditionalstats}, the capability of auxiliary contextual information, the algorithm would be of no use in the often occurring case of patients having peculiar clinical contexts. The capability of dealing with missing data, feature~\ref{item:feat_imputation}, is important for a concrete implementation in a clinical setting, typically afflicted by imputation problems. Feature~\ref{item:feat_uncertainty} is extremely important for a clinician to assess the reliability of final decisions and honestly inform the patient of the possibility of unwanted outcomes. Finally, features~\ref{item:feat_indifferentvariates} and~\ref{item:feat_unbeatable}, the fact that this algorithm yields the maximal amount of information (as determined by information theory) jointly contained in all variates, makes it valuable in general clinical research. The algorithm can, for example, forecast the maximal accuracy obtainable by \emph{any} inference algorithm based on the same predictors or another set of predictors; it itself attains that maximal accuracy. Further features of interest in Machine Learning are discussed in the next section.
 
 We call this algorithm a \emph{\ljm}, for reasons explained in the next section. It is at the moment available as a collection of scripts\footnote{\url{https://github.com/pglpm/ledley-jaynes\_machine}} in the R~programming language \citep{rcoreteam1995_r2023}, which we plan to assemble into a clinician-friendly R~package soon.
@@ -524,19 +524,19 @@ The \ljm\ took less than five hours (on a 16-core Intel Core i9-12900K CPU) to c
 Some results can already be visualized after this inference. Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the inferred distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume for the subpopulation of patients that will convert to \ad\ (\textcolor{red}{red}) and the subpopulation that will remain with stable \mci\ (\textcolor{blue}{blue}). On the right, the inferred frequency of conversion in the full population is plotted (\textcolor{grey}{grey}), conditional on the same predictors. The thin curves are 100 samples of highly probable population-frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
 \begin{figure}[!t]
 \centering%
-\includegraphics[width=0.43\linewidth]{population_distr_RAVLT-del.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_scat_RAVLT-del.pdf}%
 \qquad%
 \includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-del.pdf}%
 \\
-\includegraphics[width=0.43\linewidth]{population_distr_RAVLT-imm.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_scat_RAVLT-imm.pdf}%
 \qquad%
 \includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-imm.pdf}%
 \\
-\includegraphics[width=0.43\linewidth]{population_distr_GDS.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_scat_GDS.pdf}%
 \qquad%
 \includegraphics[width=0.43\linewidth]{prob_conversion_GDS.pdf}%
 \\
-\includegraphics[width=0.43\linewidth]{population_distr_HV.pdf}%
+\includegraphics[width=0.43\linewidth]{population_distr_scat_HV.pdf}%
 \qquad%
 \includegraphics[width=0.43\linewidth]{prob_conversion_HV.pdf}%
 \caption{Inferred distributions of some predictor variates, for the subpopulation of patients that will convert to \ad\ (red dashed) and the subpopulation with stable \mci\ (solid blue).}\label{fig:marginal_pop_distributions}
