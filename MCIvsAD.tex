@@ -461,9 +461,20 @@ The way in which the machine assigns a probability to each \enquote{candidate} t
 \end{subfigure}%
 
 
-The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}.
+The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}. Further mathematical and computational details are given in appendix~\ref{sec:appendices}.
 
-Further mathematical and computational details are given in appendix~\ref{sec:appendices}.
+We close this section emphasizing that the inferential steps of the machine, from input to output, consist, \emph{literally}, in no more than the reiterated application of just three inductive-logic rules:
+\begin{equation*}
+\begin{gathered}
+\p(\textrm{not-}A \| X) = 1-\p(A\|X)\\
+\p(A\mathbin{\textrm{or}}B \|X) =
+\p(A \|X) + \p(B \|X) -
+\p(A\mathbin{\textrm{and}}B \|X) \\
+\p(A\mathbin{\textrm{and}}B \|X) =
+\p(A \| B\mathbin{\textrm{and}} X) \,
+\p(B \|X) \ .
+\end{gathered}
+\end{equation*}
 
 
 
@@ -1486,20 +1497,15 @@ Maja, Mari, Miri, Emma for continuous encouragement and affection; Buster Keaton
 Computations underlying the \ljm\ were initially performed on resources provided by Sigma2 -- the National Infrastructure for High Performance Computing and Data Storage in Norway (project NN8050K).
 
 
-Data collection and sharing for this project was funded by the Alzheimer’s Disease Neuroimaging Initiative (ADNI) (National Institutes of Health Grant U01 AG024904) and DOD ADNI (Department of Defense award number W81XWH-12-2-0012). ADNI is funded by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengineering, and through generous contributions from the following: AbbVie, Alzheimer’s Association; Alzheimer’s Drug Discovery Foundation; Araclon Biotech; BioClinica, Inc.; Biogen; Bristol-Myers Squibb Company; CereSpir, Inc.; Cogstate; Eisai Inc.; Elan Pharmaceuticals, Inc.; Eli Lilly and Company; EuroImmun; F. Hoffmann-La Roche Ltd and its affiliated company Genentech, Inc.; Fujirebio; GE Healthcare; IXICO Ltd.; Janssen Alzheimer Immunotherapy Research Development, LLC.; Johnson \& Johnson Pharmaceutical Research Development LLC.; Lumosity; Lundbeck; Merck Co., Inc.; Meso Scale Diagnostics, LLC.; NeuroRx Research;
-Neurotrack Technologies; Novartis Pharmaceuticals Corporation; Pfizer Inc.; Piramal Imaging; Servier; Takeda Pharmaceutical
-Company; and Transition Therapeutics. The Canadian Institutes of Health Research is providing funds to support ADNI
-clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Health
-(www.fnih.org). The grantee organization is the Northern California Institute for Research and Education, and the study
-is coordinated by the Alzheimer’s Therapeutic Research Institute at the University of Southern California. ADNI data are
-disseminated by the Laboratory for Neuro Imaging at the University of Southern California. Data included in this article were
-obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). A complete listing
+Clinical-data collection and sharing for this project was funded by the Alzheimer’s Disease Neuroimaging Initiative (ADNI) (National Institutes of Health Grant U01 AG024904) and DOD ADNI (Department of Defense award number W81XWH-12-2-0012). ADNI is funded by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengineering, and through generous contributions from the following: AbbVie, Alzheimer’s Association; Alzheimer’s Drug Discovery Foundation; Araclon Biotech; BioClinica, Inc.; Biogen; Bristol-Myers Squibb Company; CereSpir, Inc.; Cogstate; Eisai Inc.; Elan Pharmaceuticals, Inc.; Eli Lilly and Company; EuroImmun; F. Hoffmann-La Roche Ltd and its affiliated company Genentech, Inc.; Fujirebio; GE Healthcare; IXICO Ltd.; Janssen Alzheimer Immunotherapy Research Development, LLC.; Johnson \& Johnson Pharmaceutical Research Development LLC.; Lumosity; Lundbeck; Merck Co., Inc.; Meso Scale Diagnostics, LLC.; NeuroRx Research; Neurotrack Technologies; Novartis Pharmaceuticals Corporation; Pfizer Inc.; Piramal Imaging; Servier; Takeda Pharmaceutical Company; and Transition Therapeutics. The Canadian Institutes of Health Research is providing funds to support ADNI clinical sites in Canada. Private sector contributions are facilitated by the Foundation for the National Institutes of Health (www.fnih.org). The grantee organization is the Northern California Institute for Research and Education, and the study is coordinated by the Alzheimer’s Therapeutic Research Institute at the University of Southern California. ADNI data are disseminated by the Laboratory for Neuro Imaging at the University of Southern California. 
+
+Clinical data included in this article were obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). A complete listing
 of ADNI investigators can be found at \url{http://adni.loni.usc.edu/wp-content/uploads/how\_to\_apply/ADNI\_Acknowledgement\_List.pdf}.
 
 % \section*{Supplemental Data}
 %  \href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} should be uploaded separately on submission, if there are Supplementary Figures, please include the caption in the same file as the figure. LaTeX Supplementary Material templates can be found in the Frontiers LaTeX folder.
 
-\section*{Software vailability Statement}
+\section*{Software-availability Statement}
 The R~scripts used for this study can be found in the repository \url{https://github.com/pglpm/ledley-jaynes\_machine}; we hope to assemble them into an R~package soon.
 % Please see the availability of data guidelines for more information, at https://www.frontiersin.org/about/author-guidelines#AvailabilityofData
 
