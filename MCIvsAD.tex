@@ -256,7 +256,8 @@ The present work presents an assistive and statistically rigorous
 % sound
 % principled
 % first-principled
-% theoreticall optimal
+% theoretically optimal
+% supercalifragilisticexpialidocious
 % ...
 algorithm -- the \ljm\ -- for personalized medicine.
 This algorithm is designed to first learn from a dataset of clinical and supplementary data with relevant predictors and predictand, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. Max amount of information... We apply the \ljm\ in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We discuss some major advantages of this model-free approach for decision-making under risk, resource planning, imputation of missing values, assessing the importance of each predictor in the prognosis, and more. 
@@ -290,7 +291,7 @@ These four persons don't know each other, but they have something in common: the
 %clinical examination. 
 Today they will receive the results. Based on their individual results, on available clinical statistical data, and on other relevant information, their clinician will 
 % indicate % [what does this mean?]
-assess their risk of developing \ad. Then, together with the patients and their relatives, the clinician will make a decision among four distinct preventive-treatment options, available to each patient.\footnote{In the present paper, we use \enquote{prognosis} in a general sense to include also \enquote{diagnosis}, and \enquote{treatment} quite loosely to mean any course of action a clinician might take, including preventive treatment or even \enquote{additional tests}.} In these tasks, the clinician will be helped by a computer algorithm.
+assess their risk of developing \ad. Then, together with the patients and their relatives, the clinician will make a decision among four distinct preventive-treatment options, available to each patient.\footnote{\label{fn:treatment}In the present paper, we use \enquote{prognosis} in a general sense to include also \enquote{diagnosis}, and \enquote{treatment} quite loosely to mean any course of action a clinician might take, including preventive treatment or even \enquote{additional tests}.} In these tasks, the clinician will be helped by a computer algorithm.
 
 Besides a shared diagnosis of \mci\ and associated worries, these patients have other things in common -- but also some differences. Let's take Olivia as reference, and list the similarities and differences between her and the other three patients:
 \begin{itemize}
@@ -828,30 +829,30 @@ The benefits of the different treatments, and the probability thresholds at whic
 
 We summarize the main, patient-dependent procedure for decision-making, and show how our computations so far fit perfectly with it.
 
-The clinician first assesses and lists the mutually exclusive courses of action available for the specific patient. These could be preventive or curative treatments, more tests, doing nothing, and so on. Often there are \emph{sequences} of decisions available, but the utility framework can be applied to them as well \citep[see references above and][]{raiffa1968_r1970}. The list actions is already patient-dependent: some alternatives may not be medically suitable (say, owing to allergies or other clinical conditions), some may be economically too costly, and so on.
+The clinician first assesses and lists the mutually exclusive courses of action available for the specific patient. These could be preventive or curative treatments, more tests, doing nothing, and so on. Often there are \emph{sequences} of decisions available, but the utility framework can be applied to them as well \citep[see references above and][]{raiffa1968_r1970}. In the present work we are calling these heterogeneous alternatives simply \enquote{treatments} for simplicity (see footnote~\ref{fn:treatment}, p.~\pageref{fn:treatment}). The list treatments is already patient-dependent: some alternatives may not be medically suitable (say, owing to allergies or other clinical conditions), some may be economically too costly, and so on.
 
-Each course of action will have different consequences, which additionally depend on the patient's unknown clinical condition of interest. A treatment may have some consequences if the patient has or will develop the disease, and different consequences otherwise. The patient quantifies, with the clinician's guidance, the benefits and costs -- technically called \enquote{utilities} -- of such possible consequences. The quantification of utilities is not within the scope of the present work. The references cited above offer guidelines and rules for numerically translating factors such as quality of life and expected lifespan into utilities.
+Each treatment will have different consequences, which additionally depend on the patient's unknown clinical condition of interest. A treatment may have some consequences if the patient has or will develop the disease, and different consequences otherwise. The patient quantifies, with the clinician's guidance, the benefits and costs -- technically called \enquote{utilities} -- of such possible consequences. The quantification of utilities is not within the scope of the present work. The references cited above offer guidelines and rules for numerically translating factors such as quality of life and expected lifespan into utilities.
 
-The courses of action, uncertain clinical conditions, and the quantified utilities $U$ of their consequences can be organized into a table of this form:
+The treatments, uncertain clinical conditions, and the quantified utilities $U$ of their consequences can be organized into a table of this form:
   \begin{center}
     \begin{tabular}{cccc}
       &{\small clinical condition $a$}&{\small clinical condition $b$}&{\small \ldots}
       \\[2\jot]
-      {\small action $\alpha$} & $U_{\alpha a}$ & $U_{\alpha b}$ &$\dotso$ \\[\jot]
-      {\small action $\beta$} & $U_{\beta a}$ & $U_{\beta b}$ &$\dotso$ \\[\jot]
+      {\small treatment $\alpha$} & $U_{\alpha a}$ & $U_{\alpha b}$ &$\dotso$ \\[\jot]
+      {\small treatment $\beta$} & $U_{\beta a}$ & $U_{\beta b}$ &$\dotso$ \\[\jot]
       {\small \ldots} &$\dotso$&$\dotso$&$\dotso$
     \end{tabular}
   \end{center}
-which can be compactly represented by a so-called \emph{utility matrix} $\bigl(U_{ij})$, the row index $i$ enumerating the actions, and the column index $j$ the clinical conditions. Note that the number of possible treatments and clinical conditions do not need to be equal; generally, they are not.
+which can be compactly represented by a so-called \emph{utility matrix} $\bigl(U_{ij})$, the row index $i$ enumerating the treatments, and the column index $j$ the clinical conditions. Note that the number of possible treatments and clinical conditions do not need to be equal; generally, they are not.
 
-The \emph{expected utility} $\eU_{i}$ of an action $i$ is calculated as the expectation of its utilities $U_{ia}, U_{ib}, \dotsc$ with respect to the probabilities $\p(a), \p(b), \dotsc$ of the clinical conditions $a,b,\dotsc$:
+The \emph{expected utility} $\eU_{i}$ of a treatment $i$ is calculated as the expectation of its utilities $U_{ia}, U_{ib}, \dotsc$ with respect to the probabilities $\p(a), \p(b), \dotsc$ of the clinical conditions $a,b,\dotsc$:
 \begin{equation}
   \label{eq:def_expected_utility}
   \eU_{i} \defd U_{ia}\, \p(a) + U_{ib}\, \p(b) + \dotsb
 \end{equation}
 Note that this corresponds to a matrix multiplication between the matrix of utilities and the vector of probabilities.
 
-Finally, the recommended action is the one having \emph{maximal expected utility}.
+Finally, the recommended treatment is the one having \emph{maximal expected utility}.
 
 % \mynotep{Add a couple of comments about the inevitability of the rules of decision theory \citep{lindley1971_r1988}}
 
@@ -1286,7 +1287,7 @@ $
 \section{Discussion}
 \label{sec:discussion}
 
-Which requirements does a personalized approach to prognosis and treatment impose on assistive computational technology? This is an important question, because with the increasing amount of statistical clinical data and clinical predictors available for medical care, assistive computational technology is today not a useful option, but a necessity in clinical practice.
+Which requirements does a personalized approach to prognosis and treatment impose on assistive computational technology? This is an important question, because with the increasing amount of statistical clinical data and clinical predictors available for medical care, assistive computational technology is today not merely a useful option, but a necessity in clinical practice.
 
 In the present work we started from the perspective of the clinician's ultimate task, \emph{decision-making under risk}, and saw that patients' differences relevant to prognosis and treatment can be approximately divided into three categories:
 \begin{itemize}
@@ -1296,7 +1297,7 @@ In the present work we started from the perspective of the clinician's ultimate 
 \end{itemize}
 Luckily there is a theory that takes into account and integrates these differences towards the final goal: Decision Theory, which is the subject of several good textbooks on clinical decision-making \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014} after the pioneering work of Lesley \amp\ Lusted \citeyearpar{ledleyetal1959,ledleyetal1959b,ledleyetal1960,lustedetal1960} (a summary and references were given in \sect~\ref{sec:expected_utility_theory}).
 
-Decision-making under risk requires any assistive algorithm to work, explicitly or implicitly, in terms of probabilities, having precise connections with population statistics (\sect~\ref{sec:utilities_step}). Without this condition the integration of patient-dependent treatment utilities would be impossible. The handling of these probabilities should moreover be enough flexible to take into account peculiar but common subpopulations of patients having special contexts or auxiliary information (\sect~\ref{sec:population_step}), and the common possibility of missing values for some clinical predictors (\sect~\ref{sec:predictor_step}). Most if not all popular machine-learning algorithms either do not meet these requirements, or they do so at the cost of unrealistic modelling assumptions. Unfortunately they tend to overly simplify the problem of decision-making under risk, as if it were a simple classification or regression task.
+Decision-making under risk requires any assistive algorithm to work, explicitly or implicitly, in terms of probabilities, having precise connections with population statistics (\sect~\ref{sec:utilities_step}). Without this condition the integration of patient-dependent treatment utilities would be impossible. The handling of these probabilities should moreover be enough flexible to take into account peculiar but common subpopulations of patients having special contexts or auxiliary information (\sect~\ref{sec:population_step}), and the common possibility of missing values for some clinical predictors (\sect~\ref{sec:predictor_step}). Most, if not all, popular machine-learning algorithms either do not meet these requirements, or they do so at the cost of unrealistic modelling assumptions. Unfortunately they tend to overly simplify the problem of decision-making under risk, as if it were a simple classification or regression task.
 
 We presented an assistive algorithm that meets all these requirements (\sect~\ref{sec:the_machine}). We call it the \enquote{\ljm}; it is an algorithm that carries out the calculations required by decision theory. This algorithm is moreover model-free, not making a-priori assumptions about functional dependencies or particular distributions in the variates. We showed its application in an example of prognosis and treatment of conversion from \mci\ to \ad\ for four different patients, where all three categories of differences listed above appeared. The patients were fictitious but the underlying database, originating from \adni, is real, and was explored in a previous work \citep{ryeetal2022}.
 
@@ -1321,15 +1322,15 @@ The fact that an algorithm works according to decision theory is also an assuran
 \subsection{Range of application of \ljm s}
 \label{sec:rangeLJM}
 
-First let us emphasize, even if it is obvious, that the quality of the results obtained with the \ljm\ depends on the quality of the learning dataset. Any peculiar sampling biases (or even numerical errors) in the dataset that are unknown to the clinician will affect the final results. This of course is true for any inference algorithm. But we saw that the \ljm\ allows the clinician to correct for particular sampling biases present in the dataset, if they are known.
+First let us emphasize, even if it is obvious, that the quality of the results obtained with the \ljm\ depends on the quality of the learning dataset. Any peculiar sampling biases (or numerical errors) in the dataset that are unknown to the clinician will affect the final results. This is of course true for any inference algorithm. But we saw that the \ljm\ allows the clinician to correct for particular sampling biases present in the dataset, if they are known.
 
 The range of application of the \ljm\ has two kinds of bounds: computational and theoretical.
 
-The fact that the \ljm\ extracts all available information from the dataset also makes it computationally expensive (see \sect~\ref{sec:the_machine}). It is at present impossible to use with high-dimensional predictors (if our dataset had included a predictor such as a $128\times128\times128$ grayscale \textsc{mri} image, the learning stage would have taken around 100 years). Approximate but much faster algorithms such as neural networks and random forests are thus, at present, still the only options with such predictors. There is, however, the interesting possibility of combining such fast algorithms together with a \ljm, as a post-processor of their raw output. The machine extracts useful information usually hidden in their output at a low computational cost \citep{dyrlandetal2022b}; this information can be then used for clinical decision-making as illustrated in the present work.
+The fact that the \ljm\ extracts all available information from the dataset also makes it computationally expensive (see \sect~\ref{sec:the_machine}). At present it cannot be used with high-dimensional predictors: if our dataset had included a predictor such as a $128\times128\times128$ greyscale \textsc{mri} image, the learning stage would have taken around 100 years. Approximate but much faster algorithms such as neural networks and random forests are thus, at present, still the only options with such predictors. There is, however, the interesting possibility of combining these fast algorithms together with a \ljm, as a post-processor of their raw output. The machine extracts useful information usually hidden in their output at a low computational cost \citep{dyrlandetal2022b}; this information can then be used for clinical decision-making as illustrated in the present work.
 
 The sole assumption underlying the \ljm's inference and its practical use with new patients, is that the latter can be assumed to come, at least in some respects, from the same population as the learning dataset (in probability-theory jargon, partial or conditional exchangeability applies; see \sect~\ref{sec:population_step}). This precludes using the \ljm\ to forecast how the statistics of the full population could change in the future. However, the machine can be used for time-dependent (longitudinal) inferences within a stable population, such as forecasts of the future time of disease onset, expected lifelength, and similar. For instance, if data about the time of conversion to \ad\ were available in the dataset, the \ljm\ could forecast not only \emph{whether}, but also \emph{when} the conversion could take place \citep[\cf\ \eg][]{delacruzmesiaetal2007}.
 
-Finally, the machine is not meant to handle sequences of decisions in a clinical decision tree \citetext{\citealp[\chap~6]{soxetal1988_r2013}; \citealp[\chap~1]{huninketal2001_r2014}} -- it would be impossible, as such a tree is fully patient-dependent -- but it could be used in individual decision branches.
+Finally, the machine is not meant to handle sequences of decisions in a clinical decision tree \citetext{\citealp[\chap~6]{soxetal1988_r2013}; \citealp[\chap~1]{huninketal2001_r2014}} -- it would be impossible in a personalized approach, because such a tree is fully patient-dependent -- but it could be used in individual decision branches.
 
 
 \bigskip% Newpage break just to help while writing the draft
@@ -1338,12 +1339,12 @@ Finally, the machine is not meant to handle sequences of decisions in a clinical
 \section{Further mathematical and computational details about the example application of the \ljm}
 \label{sec:appendices}
 
-The \ljm\ surveys the space of possible distributions of frequencies of all 13 variates discussed in \sect~\ref{sec:dataset}, for the full population of patients from which the dataset originates (see \sect~\ref{sec:population_step}). In the present study, it does so by mathematically representing a generic joint frequency distribution $F(Y,X_1,X_2,\dotsc)$ as as convex mixture of appropriate kernels products:
+The \ljm\ surveys the space of possible distributions of frequencies of all 13 variates discussed in \sect~\ref{sec:dataset}, for the full population of patients from which the dataset originates (see \sect~\ref{sec:population_step}). In the present study, it does so by mathematically representing a generic joint frequency distribution $F(Y,X_1,X_2,\dotsc)$ as a convex mixture of appropriate kernels products:
 \begin{equation*}
 F(Y,X_1,X_2,\dotsc) = \sum_i w^{i}\, K(Y\|\bm{\upsilon}^{i})\,
 K(X_1\|\bm{\xi}_1^{i})\, K(X_2\|\bm{\xi}_2^{i})\dotsm\ ,
 \end{equation*}
-along the ideas in \citet{dunsonetal2011} and \citet{ishwaranetal2002b}; see also \citet{rossi2014,rasmussen1999}. This representation uses a total of 1535 independent parameters ($w^{i}, \bm{\upsilon}^{i}, \bm{\xi}^{i}_{1}, \dotsc$), with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, incrementally using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons. Actually the number of parameters used is in principle infinite, because the machine gives a warning if the data indicate that more parameters are needed. In the present study, the data indicate, on the contrary, that fewer than 250 parameters would be enough. Note that the machine constructs the kernels $K(\|)$ and their product automatically, depending on how many and what kinds of variates the dataset comprises.
+along the ideas in \citet{dunsonetal2011} and \citet{ishwaranetal2002b}; see also \citet{rossi2014,rasmussen1999}. This representation uses a total of 1535 independent parameters ($w^{i}, \bm{\upsilon}^{i}, \bm{\xi}^{i}_{1}, \dotsc$), with roughly 190 parameters for each continuous or integer variate. As a crude intuition, it is as if we divided the range of each variate into 190 bins, and considered all possible frequency histograms over these. The actual parametrization is smarter, incrementally using parameters to represent less and less smooth traits of the distribution. We indeed expect the distribution for a full population to have some degree of smoothness, owing to physical and biological reasons. Actually, the number of parameters used is in principle infinite, because the machine gives a warning if the data indicate that more parameters are needed. In the present study, the data indicate, on the contrary, that fewer than 250 parameters would be enough. Note that the machine constructs the kernels $K(\|)$ and their product automatically, depending on how many and what kinds of variates the dataset comprises.
 
 The probability of a candidate frequency distribution $F$ is determined by its \enquote{fit} $F(D)$ of the data $D$ and a prior-expectation factor $\p(F)$, as explained in \sect~\ref{sec:the_machine_learning}:
 \begin{equation*}
