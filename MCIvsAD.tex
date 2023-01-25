@@ -1057,7 +1057,11 @@ The imputation of missing data at prognostic time is useful for various kinds of
 % 87.5% 2.97904 4.78743 5.89371 7.02765
 % 95%   2.98234 4.78940 5.89470 7.02774
 % 99.5% 2.98812 4.79287 5.89643 7.02775
-(the four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines). It is clear that knowledge of the Hippocampal Volume is very unlikely to change Curtis's optimal treatment from $\delta$. The clinician therefore proceeds without this predictor.
+(the four corresponding probability histograms, if plotted jointly, would look like distinct vertical lines). It is clear that knowledge of the Hippocampal Volume is extremely unlikely to change Curtis's optimal treatment from $\delta$. 
+% old text:
+%Considering the economic costs (involving an \textsc{mri}-scan) for obtaining this uninformative predictor, the clinician decides to proceed without it.
+% [alternative:]
+Considering that the negligible information gained would not outweigh the economic costs (involving an \textsc{mri}-scan) for obtaining this predictor, the clinician decides to proceed without it.
 
 \subsubsection{Predictor importance}
 \label{sec:predictor_importance}
@@ -1112,7 +1116,7 @@ The answers to these questions are reported in \fig~\ref{fig:mutual_info}, order
 %\begin{minipage}[t]{\linewidth}
 %  \centering%
 \includegraphics[width=0.49\linewidth]{curtis_prob_conversion_HV.pdf}%
-\begin{minipage}[b]{0.49\linewidth}\caption{Probability of $\cad\mo\yes$ for Curtis, given Curtis's known predictors and different possible values of his unknown Hippocampal Volume. The thinner curves are probable samples of how this probability would change with a larger learning dataset. Compare this figure with \fig~\ref{fig:marginal_pop_distributions}, p.~\pageref{fig:marginal_pop_distributions}, bottom-right.}\label{fig:curtis_prediction}\vspace{3em}\mbox{}
+\begin{minipage}[b]{0.49\linewidth}\caption{Probability of $\cad\mo\yes$ for Curtis, given Curtis's known predictors and different possible values of his unknown Hippocampal Volume. The thinner curves are 100 probable samples of how this probability would change with a larger learning dataset. Compare this figure with \fig~\ref{fig:marginal_pop_distributions}, p.~\pageref{fig:marginal_pop_distributions}, bottom-right.}\label{fig:curtis_prediction}\vspace{3em}\mbox{}
 \end{minipage}
 %\end{minipage}
 \end{subfigure}%
@@ -1128,7 +1132,8 @@ The plots reveal several findings, \emph{valid within the population selected fo
 
 \item The combined cognitive and demographic variates are better predictors than the joint use of Hippocampal Volume, \apoe, and demographic variates.
 
-\item \ravltimm, \ravltdel, and to a lesser degree \ravltrec\ are good predictors, both when used alone and when used jointly with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}. This last finding is also clear in Curtis's case: \fig~\ref{fig:curtis_prediction} shows that his probability of conversion to \ad, given his current predictors, would practically be the same for all values of Hippocampal Volume; and it would probably be the same even if the learning dataset contained more points.
+\item \ravltimm, \ravltdel, and to a lesser degree \ravltrec\ are good predictors, both when used alone and when used jointly with all other predictors. Hippocampal Volume is a poorer predictor than any of the \texttt{RAVLT} when used alone, and likely also when used in combination with all others \citep[contrast this with][]{ryeetal2022}. 
+This last finding is also clear in Curtis's case: \fig~\ref{fig:curtis_prediction} shows that his probability of conversion to \ad, given his current predictors, would practically be the same for all values of Hippocampal Volume; and it would probably be the same even if the learning dataset contained more points.
 \end{itemize}
 
 The \ljm\ shows that the omission of any one of the 12 predictors, except \ravltdel\ and possibly \ravltimm, does not lead to an appreciable decrease in accuracy (relative decrease of 0.3\% or less) or in mutual information (relative decrease of less than 3\%). This puts the prognostic-importance analysis of \citet{ryeetal2022} into perspective. The exact quantification of these subtle differences is computationally quite expensive, and we did not carry it out further.
