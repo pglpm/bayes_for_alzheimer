@@ -248,21 +248,19 @@ $^{4}$Department of Biomedicine, University of Bergen, Norway}
 
 %%% Leave the Abstract empty if your article does not require one, please see the Summary Table for full details.
 \section{}
-\mynotew{TO BE REWRITTEN}
+%\mynotew{TO BE REWRITTEN}
 
-\mynotew{Alexander 24.01: A first pass below. Will make another pass tomorrow (Wednesday)}
-The present work presents an assistive and statistically rigorous
+%\mynotew{Alexander 24.01: A first pass below. Will make another pass tomorrow (Wednesday)}
+The present work presents a statistically sound and rigorous algorithm 
+%rigorous
 % sound
 % principled
 % first-principled
 % theoretically optimal
 % supercalifragilisticexpialidocious
 % ...
-algorithm -- the \ljm\ -- for personalized medicine.
-This algorithm is designed to first learn from a dataset of clinical and supplementary data with relevant predictors and predictand, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. Max amount of information... We apply the \ljm\ in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We discuss some major advantages of this model-free approach for decision-making under risk, resource planning, imputation of missing values, assessing the importance of each predictor in the prognosis, and more. 
-
-
-Limitations.
+-- the \ljm\ -- for use in the context of personalized medicine.
+The \ljm\ is designed to first learn from a dataset of clinical and supplementary data with relevant predictors and predictand, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. We apply the algorithm in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We show how the algorithm is theoretically optimal and discuss some major advantages of this model-free approach for decision-making under risk, resource planning, imputation of missing values, assessing the importance of each predictor in the prognosis, and more. 
 
 % \color{yellow}{\tiny For full guidelines regarding your manuscript please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines}{Author Guidelines}.
 
@@ -275,7 +273,7 @@ Limitations.
  \keyFont{\section{Keywords:} Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-\newpage
+%\newpage
 \section{Introduction: Personalized prognosis, treatment, and computer algorithms}
 \label{sec:intro}
 
@@ -463,7 +461,7 @@ The way in which the machine assigns a probability to each \enquote{candidate} t
 
 The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This is the same methodology, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}. Further mathematical and computational details are given in appendix~\ref{sec:appendices}.
 
-We close this section emphasizing that the inferential steps of the machine, from input to output, consist, \emph{literally}, in no more than the reiterated application of just three inductive-logic rules:
+We close this section emphasizing that the inferential steps of the machine, from input to output, consist of, \emph{literally}, no more than the reiterated application of just three inductive-logic rules:
 \begin{equation*}
 \begin{gathered}
 \p(\textrm{not-}A \| X) = 1-\p(A\|X)\\
@@ -1345,10 +1343,10 @@ The first advantage of explicitly operating through utilities, probabilities, de
 
 The fact that an algorithm works according to decision theory is also an assurance of striving towards theoretical optimality. This point has very subtle consequences. Consider a non-optimal algorithm that leads to saving 85\,000 patients out of 100\,000. Given these numbers it might be deemed a success. But what if a theoretically optimal algorithm leading to 95\,000 saved patients is feasible? What shall we say to the families of the 10\,000 patients who could have been saved but weren't?
 
-<<<<<<< Updated upstream
-=======
+%<<<<<<< Updated upstream
+%=======
 The most difficult input to quantify is probably the third: translating benefits and drawbacks of different treatments into numbers. On this complex topic we refer the reader to specially dedicated textbooks on clinical decision making, for example Sox \etal`s \citeyearpar{soxetal1988_r2013} and Hunink \etal's \citeyearpar{huninketal2001_r2014}.
->>>>>>> Stashed changes
+%>>>>>>> Stashed changes
 
 
 
