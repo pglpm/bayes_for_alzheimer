@@ -483,7 +483,7 @@
   \parbox[t]{15pc}{%
     \helvetica
     \hfil
-    \flushleft \textbf{Open Science Framework} \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\mbox{}%\makebox[width=12pc][c]{}
+    \flushleft \textbf{Open Science Framework} \href{https://doi.org/10.31219/osf.io/8nr56}{\textsc{doi}:10.31219/osf.io/8nr56}\mbox{}%\makebox[width=12pc][c]{}
 
 
 }}
