@@ -1,0 +1,616 @@
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{pmetrika}[2002/03/03 v1.1 (Psychometrika)]
+\RequirePackage{indentfirst}
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+%%This file can be freely used and modified,
+%%but if you modify this file, please change the file name.
+%%
+%%The pmtitle section begins here.
+%%\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+%%\ProvidesPackage{pmtitle}[2002/02/18 v1.3 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+
+\def\received#1#2{\bgroup\parindent0pt\footnotesize\itshape#1\par#2\par\egroup}
+
+\renewcommand{\title}[1]{\vspace*{12pt}
+%    \bgroup\centering\MakeUppercase{#1\strut}\par
+    \bgroup\centering\Large\MakeUppercase{#1\strut}\par
+    \vspace{24pt}\egroup}
+\renewcommand{\author}[1]{\vspace*{12pt}
+%    \bgroup\centering\textsc{#1\strut}\par
+    \bgroup\centering\large\textsc{#1\strut}\par
+    \egroup}
+\newcommand{\affil}[1]{\vspace*{6pt}
+%    \bgroup\centering\textsc{\MakeLowercase{#1\strut}}\par
+    \bgroup\centering\large\textsc{\MakeLowercase{#1\strut}}\par 
+    \egroup}
+\newcommand{\comment}[1]{\bgroup
+    \def\thefootnote{}
+    \footnotetext{\normalsize{#1}}\egroup}
+\renewcommand{\thanks}[1]{\bgroup
+    \def\thefootnote{}
+    \footnotetext{\normalsize{#1}}\egroup}
+\newcommand{\contact}[1]{\bgroup
+    \def\thefootnote{}
+    \footnotetext{\normalsize{#1}}\egroup}
+\long\def\review#1{\bigskip\hangindent\parindent\hangafter=1\noindent#1\par
+    \bigskip}
+\def\reviewer#1#2{\medskip
+    \hbox to\hsize{\MakeUppercase{#2}\hfill\textit{#1}}}
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule height0pt %\@width120pt height.5pt
+  \kern2.6\p@}
+  
+\setcounter{secnumdepth}{0}
+
+%\newcommand{\abstracthead}{\centerline{\large{\bf Abstract}}}
+\newcommand{\abstracthead}{\centerline{\normalsize{\bf Abstract}}}
+
+\renewenvironment{abstract}{%
+        \list{}{\topsep12\p@ plus4\p@ minus2\p@
+            \leftmargin24\p@\rightmargin24\p@
+            \listparindent\parindent
+            \labelwidth0pt\labelsep0pt
+            \parsep0pt
+            \itemindent\parindent}
+            \normalsize
+            \item[\vrule height7.5pt width0pt]}
+      {\endlist}
+
+\newenvironment{keywords}{%
+        \list{}{\topsep5\p@
+            \leftmargin0\p@\rightmargin0\p@
+            \listparindent\parindent
+            \labelwidth0pt\labelsep0pt
+            \parsep0pt
+            \itemindent0pt}
+            \item[]Key words: \ignorespaces}
+      {\endlist}
+%%
+%%pmtitle section ends
+%%pmsec section begins
+%%\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+%%\ProvidesPackage{pmsec}[2002/02/18 v1.2 (Psychometrika)]
+%%\RequirePackage{indentfirst}
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+
+%%From indentfirst.sty
+%%File: indent.dtx Copyright (C) 1991-1994 David Carlisle
+%%%%%%%%and the LaTeX3 Project
+%\let\@afterindentfalse\@afterindenttrue
+%\@afterindenttrue
+%%end input from indentfirst.sty
+
+%% redefine @sect to add period after number
+\def\@seccntformat#1{\csname the#1\endcsname.\hskip .5em}
+%%
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {12\p@ \@plus 4\p@ \@minus 2\p@}%
+                                   {9\p@ plus 1\p@ minus 1\p@}%
+%                                   {\normalfont\normalsize\centering}}
+%                                   {\normalfont\large\bfseries\centering}}
+                                   {\normalfont\normalsize\bfseries\centering}}
+\newcommand\refsection{\@startsection {section}{1}{\z@}%
+                                   {12\p@ \@plus 4\p@ \@minus 2\p@}%
+                                   {9\p@ plus 1\p@ minus 1\p@}%
+%                                   {\normalfont\footnotesize\centering}}
+                                   {\normalfont\normalsize\bfseries\centering}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\itshape\centering}}
+%                                     {\normalfont\large\itshape\centering}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\itshape}}
+%                                     {\normalfont\large\itshape}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\parindent}%
+%                                       {3.25ex \@plus1ex \@minus .2ex}%
+                                       {\parsep}%
+%                                       {-0.25em}%
+                                       {-0.5em}%
+                                      {\normalfont\normalsize\itshape}}
+%%The subparagraph heading is not supported;
+%%therefore, it is identical to the paragraph heading
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+%                                       {3.25ex \@plus1ex \@minus .2ex}%
+                                       {\parsep}%
+                                       {-0.25em}%
+                                      {\normalfont\normalsize\itshape}}
+%
+%%End of pmsec section
+%%pmenvir section begins
+%%\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+%%\ProvidesPackage{pmenvir}[2001/11/12 v1.2 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+%%Most of this file was taken from the psychometrika.cls file
+%%which was developed by Integre Technical Publishing for Psychometrika
+
+\def \@shipoutsetup {%
+     \@resetactivechars
+     \let\-\@dischyph
+     \let\'\@acci\let\`\@accii\let\=\@acciii
+     \if@specialpage
+       \global\@specialpagefalse\@nameuse{ps@\@specialstyle}%
+     \fi
+     \if@twoside
+       \ifodd\count\z@ \let\@thehead\@oddhead \let\@thefoot\@oddfoot
+            \let\@themargin\oddsidemargin
+       \else \let\@thehead\@evenhead
+          \let\@thefoot\@evenfoot \let\@themargin\evensidemargin
+       \fi
+     \fi
+     \reset@font
+     \normalsize
+     \baselineskip\z@skip \lineskip\z@skip \lineskiplimit\z@
+     \let\par\@@par          %% 15 Sep 87
+}
+\def \@begindvi{%
+  \unvbox \@begindvibox
+  \global\let \@begindvi \@empty
+}
+
+\def\@begintheorem#1#2{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt\labelwidth0pt\labelsep.5em
+    \listparindent\parindent
+    \itemindent\parindent
+    \def\makelabel##1{##1}}
+   \item[\hskip \labelsep{\textit{#1\ #2.}}]}
+\def\@opargbegintheorem#1#2#3{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt\labelwidth0pt\labelsep.5em
+    \listparindent\parindent
+    \itemindent\parindent
+    \def\makelabel##1{##1}}
+      \item[\hskip \labelsep{\textit{#1\ #2.}\ (#3)}]}
+
+\def\@endtheorem{\endlist}
+
+\def\nametheorem[#1]{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt\labelwidth0pt\labelsep.5em
+    \listparindent\parindent
+    \itemindent\parindent
+    \def\makelabel##1{##1}}
+      \item[\hskip \labelsep{\textit{#1.}}]}
+
+\def\proof{\@ifnextchar [{\opargproof}{\regproof}}
+
+\def\opargproof[#1]{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt
+    \labelwidth0pt\labelsep.5em
+    \listparindent\parindent
+    \itemindent\parindent
+    \def\makelabel##1{\hskip\labelsep\textit{##1.}}}
+    \item[#1]}
+\def\regproof{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt
+    \labelwidth0pt\labelsep.5em
+    \listparindent\parindent
+    \itemindent\parindent
+    \def\makelabel##1{\hskip\labelsep\textit{##1.}}}
+    \item[Proof]}
+\let\endproof\endlist
+
+\def\pline{\centerline{\pmetrika P\kern12.5pt s\kern12.5pt y\kern12.5pt c\kern12.5pt h\kern12.5pt o\kern12.5pt m\kern12.5pt e\kern12.5pt t\kern12.5pt r\kern12.5pt i\kern12.5pt k\kern12.5pt a}
+\vskip6pt
+\hrule height.5pt
+\vskip2pt
+\hrule height.5pt
+
+\vspace*{32pt}
+}
+
+
+\def\toclist{\@ifnextchar [{\toca}{\tocb}}
+
+\def\toca[#1]{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \labelsep12pt
+    \topsep12pt plus2pt minus2pt
+    \itemsep0pt
+    \settowidth\leftmargin{#1}
+    \advance\leftmargin by\labelsep
+    \advance\leftmargin by30pt
+    \itemindent-30pt
+    \listparindent12pt
+    \def\makelabel##1{\hss\llap{##1}}}\fi}
+\def\tocb{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \topsep10pt
+    \itemsep6pt
+    \labelsep12pt
+    \settowidth\leftmargin{\tocsize 100}
+    \advance\leftmargin by\labelsep
+    \advance\leftmargin by30pt
+    \itemindent-30pt
+    \listparindent-12pt\raggedright
+    \parsep0pt
+    \def\makelabel##1{\hss\llap{##1}}}
+    \def\author##1{\vskip0pt\textit{##1}}%
+    \def\listhead##1{\item[]\MakeUppercase{##1}
+        \vspace*{-\itemsep}}%
+    \tocsize\fi}
+\let\endtoclist =\endlist
+
+
+\def\enumerate{\@ifnextchar [{\enumeratea}{\enumerateb}}
+
+\def\enumeratea[#1]{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \ifnum \@enumdepth=1
+        \topsep12pt plus2pt minus2pt
+        \else
+        \topsep0pt
+    \fi
+    \labelsep6pt
+    \itemsep0pt
+    \settowidth\leftmargin{#1}
+    \advance\leftmargin by\labelsep
+    \listparindent12pt
+    \parsep0pt
+    \def\makelabel##1{\hss\llap{##1}}}\fi}
+\def\enumerateb{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \ifcase\@enumdepth\or
+        \topsep12pt plus2pt minus2pt
+        \settowidth\leftmargin{1.}%
+        \or
+        \topsep0pt
+        \settowidth\leftmargin{(b)}%
+        \or
+        \topsep0pt
+        \settowidth\leftmargin{(ii)}%
+    \fi
+    \itemsep0pt
+    \labelsep6pt
+    \advance\leftmargin by\labelsep
+    \listparindent12pt
+    \parsep0pt
+    \def\makelabel##1{\hss\llap{##1}}}\fi}
+\let\endenumerate =\endlist
+
+\def\flenumerate{\@ifnextchar [{\flenumeratea}{\flenumerateb}}
+
+\def\flenumeratea[#1]{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \labelsep6pt
+    \topsep12pt plus2pt minus2pt
+    \itemsep0pt
+    \settowidth\leftmargin{#1}
+    \advance\leftmargin by\labelsep
+    \advance\leftmargin by\parindent
+    \listparindent12pt
+    \def\makelabel##1{\rlap{##1}\hss}}\fi}
+\def\flenumerateb{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}
+    \topsep12pt plus2pt minus2pt
+    \itemsep0pt
+    \labelsep6pt
+    \settowidth\leftmargin{1.}
+    \advance\leftmargin by\labelsep
+    \listparindent12pt
+    \def\makelabel##1{\hss\llap{##1}}}\fi}
+\let\endflenumerate =\endlist
+
+\def\itemize{%
+  \ifnum \@itemdepth >3 \@toodeep\else \advance\@itemdepth \@ne
+  \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+  \list{\csname\@itemitem\endcsname}{%
+        \topsep12pt plus2pt minus2pt
+        \leftmargin12pt
+        \labelwidth12pt
+        \labelsep0pt
+        \itemsep0pt
+        \listparindent12pt
+       \def\makelabel##1{\rlap{##1}\hss}\fi}}
+\let\enditemize =\endlist
+
+\def\unlist{%
+  \ifnum \@itemdepth >3 \@toodeep\else \advance\@itemdepth \@ne
+  %\edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+  \list{}{%
+        \topsep12pt plus2pt minus2pt
+        \leftmargin\parindent
+        \labelsep0pt
+        \itemsep\smallskipamount
+        \def\makelabel##1{\rlap{##1}\hss}\fi}}
+\let\endunlist =\endlist
+
+\def\acknowledge{\@ifnextchar [{\acknowledgments}{\acknowledgment}}
+
+\def\acknowledgments[#1]{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt\rightmargin\leftmargin
+    \labelwidth0pt\labelsep1em
+    \listparindent\parindent
+    \def\makelabel##1{\hskip\labelsep\textbf{##1}}}
+    \item[#1]}
+\def\acknowledgment{\list{}{\topsep12pt plus2pt minus2pt
+    \leftmargin0pt\rightmargin\leftmargin
+    \labelwidth0pt\labelsep1em
+    \listparindent\parindent
+    \def\makelabel##1{\hskip\labelsep\textbf{##1}}}
+    \item[Acknowledgment]}
+\let\endacknowledge\endlist
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{axiom}{Axiom}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  To Provide Correct Caption %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \footnotesize\sbox\@tempboxa{#2}%
+  \ifdim \wd\@tempboxa >\hsize
+    \hb@xt@\hsize{\hfil\textsc{#1.}\hfil}%
+    #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\textsc{#1.}\hfil}%
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%USEFUL EXAMPLE TO REMEMBER
+%%\renewcommand{\theassumption}{\arabic{assumption}$'$}
+%%For the Appendix
+%%\setcounter{equation}{0}
+%%\renewcommand{\theequation}{A\arabic{equation}}
+
+\hyphenation{Psycho-metric Psycho-metrika Table ex-ample}
+%%
+%%end of pmenvir section
+%%qedequation section begins
+%%\ProvidesFile{qedequation.sty}
+%%       [1998/10/27 v0.9 Standard LaTeX option
+%%                                   (qed boxes with equations)]
+%%
+%% NOTE:  Requires hard-coded \qed at end of environment.  If
+%% the last element in the environment is an equation, \qed should
+%% appear within the (last line of the) equation. (BUG: \qed in
+%% {equation} environment gives nothing; need error?  Want to change
+%% behavior in eqnarray also?
+%%
+%% Proof box will always appear flush right.  If last line of text
+%% nearly fills the line, proof box will be pushed to the next line.
+%% Proof boxes in equations should be moved manually (e.g., by putting
+%% the€\qed on empty last line of an eqnarray).
+%%
+%% How much space is cleared from text to proofbox is determined by
+%% \proofboxsep dimension.
+%%
+%% Should probably be modified so the last line of text is unboxed
+%% to determine width; as is, justification of last line may be
+%% affected by the proof box.
+%%
+%% A \qed on the last line of an eqnarray voids the equation number.
+%%
+%% A \qed inside of in-text math has no effect whatsoever.
+%%
+%% NOTE: All display math environments are hard-coded to wipe out
+%% preexisting \qedequationtrue.  This is preferred to using \everymath
+%% and \everydisplay on the grounds that these commands may be wanted
+%% for other things.
+%%
+%% Add compatibility with fleqn, subequation, subeqnarray
+%%
+%% If you use fleqn, fleqn must be loaded AFTER qedequation, and \qed
+%% will not work on \[...\] environments.  Works fine with eqnarrays.
+
+\newcommand\proofbox{\vbox{\hrule height.3pt
+    \hbox{\vrule width.3pt height6pt\kern5.4pt\vrule width.3pt}
+    \hrule height.3pt}}
+
+\newdimen\proofboxsep
+\setlength\proofboxsep{12pt}
+
+\def\qed{\ifmmode\global\qedequationtrue\else
+        \ifinner\global\qedequationtrue\else
+        \hskip-\lastskip
+        \hspace*{\fill}\penalty-5\hspace*{\proofboxsep}%
+        \hspace*{\fill}\proofbox\fi\fi}
+
+\newif\ifqedequation    \global\qedequationfalse
+
+\@namedef{endeqnarray*}{\ifqedequation\else\nonumber\fi\endeqnarray}
+
+\everydisplay{\global\qedequationfalse}
+\everymath{\global\qedequationfalse}
+
+\def\eqnarray{%
+\global\qedequationfalse
+\stepcounter{equation}%
+   \def\@currentlabel{\p@equation\theequation}%
+   \global\@eqnswtrue
+   \m@th
+   \global\@eqcnt\z@
+   \tabskip\@centering
+   \let\\\@eqncr
+   $$\everycr{}\halign to\displaywidth\bgroup
+       \hskip\@centering$\displaystyle\tabskip\z@skip{##}$\@eqnsel
+      &\global\@eqcnt\@ne \hfil${{}##{}}$\hfil
+      &\global\@eqcnt\tw@ 
+         $\displaystyle{##}$\hfil\tabskip\@centering
+      &\global\@eqcnt\thr@@ \hbox to\z@\bgroup\hss##\egroup
+         \tabskip\z@skip
+      \cr
+}
+
+\def\@@eqncr{\let\reserved@a\relax
+    \ifcase\@eqcnt \def\reserved@a{& & &}\or \def\reserved@a{& &}%
+     \or \def\reserved@a{&}\else
+       \let\reserved@a\@empty
+       \@latex@error{Too many columns in eqnarray environment}\@ehc\fi
+     \reserved@a \ifqedequation\global\qedequationfalse
+        \proofbox\else
+        \if@eqnsw\@eqnnum\stepcounter{equation}\fi\fi
+     \global\@eqnswtrue\global\@eqcnt\z@\cr}
+
+\def\endequation{\global\qedequationfalse
+    \eqno \hbox{\@eqnnum}$$\global\@ignoretrue}
+
+\def\[{%
+   \relax\ifmmode
+      \@badmath
+   \else
+      \ifvmode
+         \nointerlineskip
+         \makebox[.6\linewidth]%
+      \fi
+      $$\global\qedequationfalse%%$$ BRACE MATCH HACK
+   \fi
+}
+\def\]{%
+   \relax\ifmmode
+      \ifinner
+         \@badmath
+      \else
+         \ifqedequation\global\qedequationfalse
+            \eqno \hbox{\proofbox}\fi$$%%$$ BRACE MATCH HACK
+      \fi
+   \else
+      \@badmath
+   \fi
+   \ignorespaces
+}
+%%
+%%end of qedequation section
+%%ragged section begins
+%%\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+%%\ProvidesPackage{ragged}[2002/02/19 v1.0 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+%%
+%% Begin boldgreek section
+%%
+\makeatletter
+%% MathPi-FourSlanted for bold greek
+\@ifundefined{MPFourScale}{\def\MPFourScale{1.00}}{}
+\DeclareFontFamily{U}{mp4}{}%
+\DeclareFontShape{U}{mp4}{m}{n}{<->s * [\MPFourScale]cmb10}{}
+\DeclareSymbolFont{boldgreekuc}{U}{mp4}{m}{n}
+\DeclareMathSymbol{\bfAlpha}{\mathord}{boldgreekuc}{"41}
+\DeclareMathSymbol{\bfBeta}{\mathord}{boldgreekuc}{"42}
+\DeclareMathSymbol{\bfPsi}{\mathord}{boldgreekuc}{"09}
+\DeclareMathSymbol{\bfDelta}{\mathord}{boldgreekuc}{"01}
+\DeclareMathSymbol{\bfEpsilon}{\mathord}{boldgreekuc}{"45}
+\DeclareMathSymbol{\bfPhi}{\mathord}{boldgreekuc}{"08}
+\DeclareMathSymbol{\bfGamma}{\mathord}{boldgreekuc}{"00}
+\DeclareMathSymbol{\bfEta}{\mathord}{boldgreekuc}{"48}
+\DeclareMathSymbol{\bfIota}{\mathord}{boldgreekuc}{"49}
+\DeclareMathSymbol{\bfXi}{\mathord}{boldgreekuc}{"04}
+\DeclareMathSymbol{\bfKappa}{\mathord}{boldgreekuc}{"4B}
+\DeclareMathSymbol{\bfLambda}{\mathord}{boldgreekuc}{"03}
+\DeclareMathSymbol{\bfMu}{\mathord}{boldgreekuc}{"4D}
+\DeclareMathSymbol{\bfNu}{\mathord}{boldgreekuc}{"4E}
+%\DeclareMathSymbol{\bfO}{\mathord}{boldgreekuc}{"4F}
+\DeclareMathSymbol{\bfPi}{\mathord}{boldgreekuc}{"05}
+\DeclareMathSymbol{\bfTheta}{\mathord}{boldgreekuc}{"02}
+\DeclareMathSymbol{\bfRho}{\mathord}{boldgreekuc}{"52}
+\DeclareMathSymbol{\bfSigma}{\mathord}{boldgreekuc}{"06}
+\DeclareMathSymbol{\bfTau}{\mathord}{boldgreekuc}{"54}
+\DeclareMathSymbol{\bfVartheta}{\mathord}{boldgreekuc}{"02} % no Vartheta in CMB
+\DeclareMathSymbol{\bfOmega}{\mathord}{boldgreekuc}{"0A}
+\DeclareMathSymbol{\bfVarphi}{\mathord}{boldgreekuc}{"08} % no Varphi in CMB
+\DeclareMathSymbol{\bfUpsilon}{\mathord}{boldgreekuc}{"07}
+\DeclareMathSymbol{\bfZeta}{\mathord}{boldgreekuc}{"5A}
+
+
+%% MathPi-FourSlanted for bold greek
+\DeclareFontFamily{U}{mp4sl}{}%
+\DeclareFontShape{U}{mp4sl}{m}{n}{<->s * [\MPFourScale]cmmib10}{}
+\DeclareSymbolFont{boldgreek}{U}{mp4sl}{m}{n}
+\DeclareMathSymbol{\bfalpha}{\mathord}{boldgreek}{"0B}
+\DeclareMathSymbol{\bfbeta}{\mathord}{boldgreek}{"0C}
+\DeclareMathSymbol{\bfpsi}{\mathord}{boldgreek}{"20}
+\DeclareMathSymbol{\bfdelta}{\mathord}{boldgreek}{"0E}
+\DeclareMathSymbol{\bfepsilon}{\mathord}{boldgreek}{"0F}
+\DeclareMathSymbol{\bfphi}{\mathord}{boldgreek}{"1E}
+\DeclareMathSymbol{\bfgamma}{\mathord}{boldgreek}{"0D}
+\DeclareMathSymbol{\bfeta}{\mathord}{boldgreek}{"11}
+\DeclareMathSymbol{\bfiota}{\mathord}{boldgreek}{"13}
+\DeclareMathSymbol{\bfxi}{\mathord}{boldgreek}{"18}
+\DeclareMathSymbol{\bfkappa}{\mathord}{boldgreek}{"14}
+\DeclareMathSymbol{\bflambda}{\mathord}{boldgreek}{"15}
+\DeclareMathSymbol{\bfmu}{\mathord}{boldgreek}{"16}
+\DeclareMathSymbol{\bfnu}{\mathord}{boldgreek}{"17}
+%\DeclareMathSymbol{\bfo}{\mathord}{boldgreek}{"6F}
+\DeclareMathSymbol{\bfpi}{\mathord}{boldgreek}{"19}
+\DeclareMathSymbol{\bfvartheta}{\mathord}{boldgreek}{"23}
+\DeclareMathSymbol{\bfrho}{\mathord}{boldgreek}{"1A}
+\DeclareMathSymbol{\bfsigma}{\mathord}{boldgreek}{"1B}
+\DeclareMathSymbol{\bftau}{\mathord}{boldgreek}{"1C}
+\DeclareMathSymbol{\bftheta}{\mathord}{boldgreek}{"12}
+\DeclareMathSymbol{\bfomega}{\mathord}{boldgreek}{"21}
+\DeclareMathSymbol{\bfvarphi}{\mathord}{boldgreek}{"27}
+\DeclareMathSymbol{\bfchi}{\mathord}{boldgreek}{"1F}
+\DeclareMathSymbol{\bfupsilon}{\mathord}{boldgreek}{"1D}
+\DeclareMathSymbol{\bfzeta}{\mathord}{boldgreek}{"10}
+
+\makeatother
+%%end boldgreek section
+%%
+%%Figure goes about here command:
+\newcommand{\figurehere}[1]{\begin{center}%
+=========================\\%
+Insert Figure #1 about here\\%
+=========================\\%
+\end{center}}
+%%
+%%Table goes about here command
+\newcommand{\tablehere}[1]{\begin{center}%
+=========================\\%
+Insert Table #1 about here\\%
+=========================\\%
+\end{center}}
+%%
+%%longpage/shortpage: See p.100 of the LaTeX Companion
+\newcommand{\longpage}{\enlargethispage*{\baselineskip}}
+\newcommand{\shortpage}{\enlargethispage{-\baselineskip}}
+%\newcommand{\figskip}{\vskip6pt}
+\def\figskip{\vspace{\textfloatsep}}
+\newcommand{\linespacing}[1]{\renewcommand{\baselinestretch}{#1}\small\normalsize}
+%%Give the manuscript a ragged right margin
+%\raggedright\setlength{\parindent}{2em}\sloppy
+%%
+\renewcommand{\baselinestretch}{1.5}
+%\linespread{1.5}
+\addtolength{\footnotesep}{2ex}
+%%
+%%end ragged section

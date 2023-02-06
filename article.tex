@@ -1,0 +1,149 @@
+%%This article template was last updated 30 September 2003 --- Tim Null
+%%It is part of the
+%%Pmetrika LaTeX Style File Package for Psychometrika Authors
+%%This is the \LaTeX2e "article" template for the journal Psychometrika.
+%%It can be freely used and modified by anyone.
+%%
+%% ITEM 1 [See the "howto.tex" file.]
+%%
+\documentclass[titlepage,11pt]{article}
+%\documentclass[titlepage,a4paper,11pt]{article}
+
+%%ITEM 2 [See the "howto.tex" file.]
+\usepackage[dvips]{graphicx}
+%\usepackage[draft,dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[draft,pdftex]{graphicx}
+
+%% ITEM 3 [See the "howto.tex" file.]
+\usepackage[myheadings]{fullpage}
+\usepackage{pmetrika}
+\usepackage{pmbib}
+
+\usepackage{submit}
+
+%% ITEM 4 [See the "howto.tex" file.]
+%\setcounter{secnumdepth}{3}
+
+
+%% ITEM 5 [See the "howto.tex" file.]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   ENTER YOUR PERSONAL PREAMBLE ITEMS IN THIS SECTION
+%%             Some examples provided
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Begin Section  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{}
+%\usepackage{}
+%input
+\def\diag{\mathrm{diag}}
+\def\vec{\mathrm{vec}}
+\def\cov{\mathrm{cov}}
+\def\tr{\mathrm{Tr}}
+\def\pr{\mathrm{Pr}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  End Section  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+
+%% ITEM 6 [See the "howto.tex" file.]
+\begin{titlepage}
+
+\title{}
+
+%%Disable \markright for your submission,
+%%if it includes any author names.
+%%Note: The "submit" package includes a running header.
+%\markright{\MakeLowercase{\textsc{}}}
+
+\author{}
+
+\affil{}
+
+%\author{}
+%\affil{}
+
+\vspace{\fill}\centerline{\today}\vspace{\fill}
+
+%\comment{This research was funded by .}
+%\thanks{I would like to thank .}
+\linespacing{1}
+\contact{Correspondence should be sent to\\
+
+\noindent E-Mail: \break
+\noindent Phone: \break
+\noindent Fax: \break
+\noindent Website:  }
+
+\end{titlepage}
+
+%% ITEM 7 [See the "howto.tex" file.]
+\setcounter{page}{2}
+\vspace*{2\baselineskip}
+
+\RepeatTitle{Your Title Goes Here Again}\vskip3pt
+
+\linespacing{1.5}
+%% ITEM 8 [See the "howto.tex" file.]
+\abstracthead
+\begin{abstract}
+
+
+\begin{keywords}
+
+\end{keywords}
+\end{abstract}\vspace{\fill}\pagebreak
+
+%% ITEM 8 [See the "howto.tex" file.]
+\section{Introduction}
+
+
+\vspace{\fill}\pagebreak
+
+%% ITEM 9 [See the "howto.tex" file.]
+%\appendix
+%\renewcommand{\theequation}{A\arabic{equation}}
+%\setcounter{equation}{0}
+%\renewcommand{\thesection}{\Alph{subsection}}
+%\setcounter{section}{0}
+%\section*{Appendix}
+%\section*{Appendix A}
+%\section*{Appendix B}
+%\vspace{\fill}\pagebreak
+
+%% ITEM 10 [See the "howto.tex" file.]
+\begin{thebibliography}
+
+\bibitem
+
+\end{thebibliography}
+
+%% ITEM 11 [See the "howto.tex" file.]
+%%%% You can put your Figures and Tables here
+%%%% after the Reference Section.
+%%%% BE SURE TO MARK IN THE TEXT WHERE
+%%%% YOU WANT EACH FIGURE AND TABLE TO BE PLACED.
+%%%% If you prefer, you can integrate your figures and tables into the text of your paper,
+%%%% PROVIDED you will provide camera-ready copies of each figure.
+%\vspace{\fill}\pagebreak
+%\linespacing{1}
+
+%\section*{Figures}
+%
+%\begin{figure}[h]
+%\centerline{\includegraphics{figure01.eps}}
+%\caption{Your figure caption goes here.}
+%\end{figure}
+%\vskip6pt
+
+
+%\vspace{\fill}\pagebreak
+
+%\section*{Tables}
+
+%\vspace{\fill}\pagebreak
+
+\end{document}

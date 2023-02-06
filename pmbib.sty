@@ -1,0 +1,34 @@
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{pmbib}[2001/02/22 v1.1 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+
+\renewcommand\refsection{\@startsection {section}{1}{\z@}%
+                                   {12\p@ \@plus 4\p@ \@minus 2\p@}%
+                                   {9\p@ plus 1\p@ minus 1\p@}%
+                                   {\normalfont\normalsize\bfseries\centering}}
+
+\renewenvironment{thebibliography}
+     {\refsection*{\refname}%
+      \list{}%
+           {\topsep3pt
+    \leftmargin16pt
+        \itemindent-\leftmargin
+    \labelwidth0pt\labelsep0pt
+    \itemsep0pt plus.2pt
+            %\@openbib@code
+            %\usecounter{enumiv}%
+            %\let\p@enumiv\@empty
+            %\renewcommand\theenumiv{\@arabic\c@enumiv}
+    }%
+    \let\bibitem\item
+%    \footnotesize
+     \normalsize
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}

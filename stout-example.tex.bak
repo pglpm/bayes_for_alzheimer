@@ -1,0 +1,420 @@
+\documentclass[titlepage,11pt,twoside]{article}
+
+
+
+\input{boldgreek}
+
+\usepackage[dvips]{graphicx}
+
+\usepackage[myheadings]{fullpage}
+\usepackage{pmetrika}
+\usepackage{pmbib}
+
+%\usepackage{submit}
+
+\newcommand{\bfU}{\mbox{\boldmath$\mathsf{U}$}}
+\newcommand{\bfu}{\mbox{\boldmath$\mathsf{u}$}}
+
+\newcommand{\Eta}{\mbox{$\mathsf{H}$}}
+\newcommand{\subEta}{\mbox{\scriptsize $\mathsf{H}$}}
+\newcommand{\uni}{\mbox{\scriptsize $\mathsf{UNI}$}}
+
+%\raggedbottom
+\flushbottom
+
+
+%\firstpage{1}
+%\setcounter{lastpage}{999}
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+\begin{titlepage}
+
+\linespacing{1}
+
+\title{Psychometrics: From Practice to Theory and Back}
+
+\author{\textit{15 Years of Nonparametric Multidimensional IRT,\\
+DIF/Test Equity, and Skills Diagnostic Assessment}}
+
+\author{William Stout}
+
+\markboth{Psychometrika}{William Stout}
+
+\affil{Department of Statistics, University of Illinois\break and\break Educational Testing Service}
+
+\vspace{\fill}
+
+\begin{quote}
+\fontsize{8}{9}\selectfont \textit{This paper was originally
+published in the December 2002 issue of \textit{Psychometrika}
+(Volume 67, Number 4). It is republished here to demonstrate the
+appearance of a paper that is prepared using the Pmetrika LaTeX
+Style File Package for Psychometrika Authors (Version 2b1)
+published by the Psychometric Society. A publication quality copy
+of William Stout's article can be obtained online at
+http://www.psychometricsociety.org\break /ARTICLEstout2002.pdf.
+The Pmetrika LaTeX Style File Package for Psychometrika Authors
+was designed and prepared by Tim Null, and it was based on
+original work done by Don Deland of Integre Technical Publishing.
+The package can be downloaded at
+http://www.psychometricsociety.org. If you have questions about
+the package you can contact Tim Null at tim@timnull.com.}
+\end{quote}
+
+\vspace{\fill}
+
+\linespacing{1}\fontsize{8}{10}\selectfont
+
+\textit{This aricle is based on the Presidential Address William
+Stout gave on June 23, 2002 at the 67th Annual Meeting of the
+Psychometric Society held in Chapel Hill, North Carolina.
+---Editor}\vskip2pt
+
+I wish to especially thank Sarah Hartz and Louis Roussos for their
+suggestions that helped shape this paper. I wish to thank all my
+former Ph.D. students: Without their contributions, the content of
+this paper would have been vastly different and much less
+interesting!\vskip2pt
+
+Requests for reprints should be sent to William Stout, Department
+of Statistics, University of Illinois, 725 S. Wright Street,
+Champaign IL 61820. E-Mail: stout@stat.uiuc.edu\vskip2pt
+
+\textsf{Dedication: I want to dedicate this paper to my wife,
+Barbara Meihoefer, who was lost to illness in this year of my
+presidency. For, in addition to all the wonderful things she meant
+to me personally and the enormous support she gave concerning my
+career, she truly enjoyed and greatly appreciated my psychometric
+colleagues and indeed found psychometrics an important and
+fascinating intellectual endeavor, in particular finding the
+skills diagnosis area exciting and important: She often took time
+from her career as a business manager and entrepreneur to attend
+psychometric meetings with me and to discuss research projects
+with my colleagues and me. She would have enjoyed this
+paper.---William Stout}
+
+
+\end{titlepage}\vspace*{24pt}
+
+\linespacing{1}
+
+%\RepeatTitle{Psychometrics: From Practice to Theory and Back}
+
+\begin{center}\vskip3pt
+
+
+\vspace{32pt}
+
+Abstract\vskip3pt
+
+\end{center}
+
+
+\begin{abstract}
+The paper surveys 15 years of progress in three psychometric
+research areas: latent dimensionality structure, test fairness,
+and skills diagnosis of educational tests. It is proposed that one
+effective model for selecting and carrying out research is to
+chose one's research questions from practical challenges facing
+educational testing, then bring to bear sophisticated probability
+modeling and statistical analyses to solve these questions, and
+finally to make effectiveness of the research answers in meeting
+the educational testing challenges be the ultimate criterion for
+judging the value of the research. The problem-solving power and
+the joy of working with a dedicated, focused, and collegial group
+of colleagues is emphasized. Finally, it is suggested that the
+summative assessment testing paradigm that has driven test
+measurement research for over half a century is giving way to a
+new paradigm that in addition embraces skills level formative
+assessment, opening up a plethora of challenging, exciting, and
+societally important research problems for psychometricians.
+\begin{keywords}
+nonparametric IRT, NIRT, latent unidimensionality, latent
+multidimensionality, essential unidimensionality, monotone locally
+independent unidimensional IRT model, MLI1, item pair conditional
+covariances, DIMTEST, HCA/CCPROX, DETECT, CONCOV, Mokken scaling,
+generalized compensatory model, approximate simple structure, DIF,
+differential item functioning, differential bundle functioning
+DBF, valid subtest, multidimensional model for DIF, MMD, SIBTEST,
+MultiSIB, Mantel-Haenszel, PolySIB, CrossingSIB, skills diagnosis,
+formative assessment, Unified Model, reparameterized Bayes Unified
+Model, MCMC, evidence centered design, ECD, PSAT Score Report
+Plus.
+\end{keywords}
+\end{abstract}
+
+\vspace{\fill}\newpage
+
+\section{Introduction}
+
+\section{Nonparametric Latent Structure Assessment}
+
+
+\subsection{Unidimensionality from the Weak LI Conditional Covariance Perspective}
+
+
+\subsection{Foundational Issues Facilitated by Infinite Test Length Unidimensional MLI1 Modeling}
+
+\subsection{Interpreting Conditional Covariances Geometrically\break to Assess Latent Multidimensional Structure}
+
+
+\subsection{NIRT-Based Statistical Procedures, Emphasizing Conditional Covariances}
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics{figure03.eps}}
+\caption{Projection of item discrimination vectors onto $V_{\theta_T}$ hyperplance for a six item three-dimensional approximate sample structure.}
+\end{figure}
+
+
+
+\section{Test Fairness}
+
+
+
+\subsection{Multidimensional Model for DIF (MMD)}
+
+
+
+\subsection{Model-Based Parameterization of the amount of DIF in Various Settings}
+
+
+
+\subsection{MMD- Inspired DIF Statistical Procedures}
+
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics{figure04.eps}}
+\caption{Comparison of $\Theta_F$ and $\Theta_R $ distribution with $\Theta_F \vert X_V = k$ and $\Theta_R \vert X_V = k$ distributions.}
+\end{figure}
+
+\subsection{Implementation of DIF/DBF Procedures}
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics{figure05.eps}}
+\caption{Item discrimination vectors of a 22 item validity sector.}
+\end{figure}
+
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics{figure06.eps}}
+\caption{Panel index versus bundle DBF $\hat {\beta}$/item.}
+\end{figure}
+
+
+
+\section{Formative Assessment Skills Diagnosis: A New Test Paradigm}
+
+
+
+\subsection{A Brief Survey of Psychometric Skills Diagnostic Models}
+
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics[width=254pt]{/figure07.eps}}
+\caption{North Carolina End-of-Grade Math Skills Test Subscores.}
+\end{figure}
+
+
+
+\begin{figure}[h]
+%\centerline{\includegraphics{figs/fig08.eps}}
+\caption{PSAT Score Report \textit{Plus} Skills Mastery Reporting.}
+\end{figure}
+
+
+
+
+\subsection{The Unified Model and Generalizations Making it Useful}
+
+
+
+\subsection{Application of the Unified Model to PSAT Data}
+
+
+\subsection{Skills Diagnosis: The New Paradigm?}
+
+
+\section{Dimensionality, Equity, and Diagnostic Software}
+
+
+\section{Concluding Remarks}
+
+\vspace{\fill}\clearpage
+
+\begin{thebibliography}
+
+\bibitem Ackerman, T.A. (1992). A didactic explanation of item bias, item impact, and item validity from a multidimensional perspective. \textit{Journal of Educational Measurement}, \textit{29}, 67--91.
+
+\bibitem Angoff, W.H. (1993). Perspectives on differential item functioning methodology. In P.W. Holland \& H. Wainer (Eds.), \textit{Differential item functioning}(pp.~3--24). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+\bibitem Bolt, D., Froelich, A.G., Habing, B., Hartz, S., Roussos, L., \& Stout, W. (in press). \textit{An applied and foundational research project addressing DIF, impact, and equity: With applications to ETS test development} (ETS Technical Report). Princeton, NJ: ETS.
+
+Chang, H., Mazzeo, J., \& Roussos, L. (1996). Detecting DIF for polytomously scored items: an adaptation of the SIBTEST procedure. \textit{Journal of Educational Measurement}, \textit{33}, 333--353
+
+\bibitem Chang, H., \& Stout, W. (1993). The asymptotic posterior normality of the latent trait in an IRT model. \textit{Psychometrika}, \textit{58}, 37--52.
+
+
+\bibitem DiBello, L., Stout, W., \& Roussos, L. (1995). Unified cognitive/psychometric diagnostic assessment likelihood-based classification techniques. In P. Nichols, S. Chipman, \& R. Brennen (Eds.), \textit{Cognitively diagnostic assessment} (pp.~361--389). Hillsdale, NJ: Earlbaum.
+
+\bibitem Doignon, J.-P., \& Falmagne, J.-C. (in press). \textit{Knowledge spaces}. Berlin Springer-Verlag.
+
+\bibitem Dorans, N.J., \& Kulick, E. (1986). Demonstrating the utility of the standardization approach to assessing unexpected differential item performance on the Scholastic Aptitude Test. \textit{Journal of Educational Measurement}, \textit{23}, 355--368.
+
+\bibitem Douglas, J. (1997). Joint consistency of nonparametric item characteristic curve and ability estimation. \textit{Psychometrika}, \textit{62}, 7--28.
+
+\bibitem Douglas, J.A. (2001). Asymptotic identifiability of nonparametric item response models. \textit{Psychometrika}, \textit{66}, 531--540.
+
+\bibitem Douglas J.A., \& Cohen A. (2001). Nonparametric ICC estimation to assess fit of parametric models. \textit{Applied Psychological Measurement}, \textit{25}, 234--243.
+
+\bibitem Douglas, J., Kim, H.R., Habing, B., \& Gao, F. (1998) Investigating local dependence with conditional covariance functions. \textit{Journal of Educational and Behavioral Statistics}, \textit{23}, 129--151.
+
+\bibitem Douglas, J., Roussos, L., \& Stout, W., (1996). Item bundle DIF hypothesis testing: Identifying suspect bundles and assessing their DIF. \textit{Journal of Educational Measurement}, \textit{33}, 465--484.
+
+\bibitem Douglas, J., Stout, W., \& DiBello, L. (1996). A kernel smoothed version of SIBTEST with applications to local DIF inference and unction estimation. \textit{Journal of Educational and Behavioral Statistics}, \textit{21}, 333--363.
+
+\bibitem Ellis, J.L., \& Junker, B.W. (1997). Tail-measurability in monotone latent variable models. \textit{Psychometrika}, \textit{62}, 495--524.
+
+\bibitem Embretson (Whitely), S.E. (1980). Multicomponent latent trait models for ability tests \textit{Psychometrika}, \textit{45}, 479--494.
+
+\bibitem Embretson, S.E. (1984). A general latent trait model for response processes. \textit{Psychometrika}, \textit{49}, 175--186.
+
+\bibitem Embretson, S. E. (Ed.). (1985), \textit{Test design: Developments in psychology and psychometrics} (pp.~195--218, chap.~7). Orlando, FL: Academic Press.
+
+\bibitem Fischer, G.H. (1973). The linear logistic test model as an instrument in educational research. \textit{Acta Psychologica}, \textit{37}, 359--374.
+
+\bibitem Froelich, A.G., \& Habing, B. (2002, July). A study of methods for selecting the AT subtest in the DIMTEST procedure. Paper presented at the 2002 Annual Meeting of the Psychometrika Society, University of North Carolina at Chapel Hill.
+
+\bibitem Gierl, M.J., Bisanz, J., Bisanz, G., Boughton, K., \& Khaliq, S. (2001). Illustrating the utility of differential bundle functioning analyses to identify and interpret group differences on achievement tests. \textit{Educational Measurement: Issues and Practice}, \textit{20}, 26--36.
+
+\bibitem Gierl, M.J., \& Khaliq, S.N. (2001). Identifying sources of differential item and bundle functioning on translated achievement tests. \textit{Journal of Educational Measurement}, \textit{38}, 164--187.
+
+\bibitem Gierl, M.J., Bisanz, J., Bisanz, G.L., \& Boughton, K.A. (2002, April). Identifying content and cognitive skills that produce gender differences in mathematics: A demonstration of the DIF analysis framework. Paper presented at the annual meeting of the National Council on Measurement in Education, New Orleans, LA.
+
+\bibitem Haberman, S.J (1977). Maximum likelihood estimates in exponential response models. \textit{The Annals of Statistics}, \textit{5}, 815--841.
+
+\bibitem Habing, B. (2001). Nonparametric regression and the parametric bootstrap for local dependence assessment. \textit{Applied Psychological Measurement}, \textit{25}, 221--233.
+
+\bibitem Haertel, E. (1989). Using restricted latent class models to map the skill structure of achievement items. \textit{Journal of Educational Measurement}, \textit{26}, 301--321.
+
+\bibitem Hartz, S.M. (2002). \textit{A Bayesian framework for the Unified Model for assessing cognitive abilities: blending theory with practicality}. Unpublished doctoral dissertation, University of Illinois, Urbana-Champaign, Department of Statistics.
+
+\bibitem Holland, P.W. (1990a). On the sampling theory foundations of item response theory models. \textit{Psychometrika}, \textit{55}, 577--601.
+
+\bibitem Holland, P.W. (1990b). The Dutch identity: a new tool for the study of item response models. \textit{Psychometrika}, \textit{55}, 5--18.
+
+\bibitem Holland, P.W., \& Rosenbaum, P.R. (1986). Conditional association and unidimensionality in monotone latent variable models. \textit{The Annals of Statistics}, \textit{14}, 1523--1543.
+
+\bibitem Holland, W.P., \& Thayer, D.T. (1988). Differential item performance and the Mantel-Haenszel procedure. In H. Wainer \& H.I. Braun (Eds.), \textit{Test validity} (pp.~129--145). Hillsdale, NJ: Lawrence Earlbaum Associates.
+
+\bibitem Jiang, H., \& Stout, W. (1998). Improved Type I error control and reduced estimation bias for DIF detection using SIBTEST. \textit{Journal of Educational and Behavioral Statistics}, \textit{23}, 291--322.
+
+\bibitem Junker, B.W. (1993). Conditional association, essential independence, and monotone unidimensional latent variable models. \textit{Annals of Statistics}, \textit{21}, 1359--1378.
+
+\bibitem Junker, B.W. (1999). \textit{Some statistical models and computational methods that may be useful for cognitively-relevant assessment}. Prepared for the National Research Council Committee on the Foundations of Assessment. Retrieved April 2, 2001, from \mbox{http://www.stat.cmu.edu/$\sim $brian/nrc/cfa/}
+
+\bibitem Junker, B.W., \& Ellis, J.L. (1998). A characterization of monotone unidimensional latent variable models. \textit{Annals of Statistics}, \textit{25}(3), 1327--1343.
+
+\bibitem Junker, B. W. \& Sijtsma, K. (2001). Nonparametric item response theory in action: an overview of the special issue. \textit{Applied Psychological Measurement}, \textit{25}, 211--220.
+
+\bibitem Koedinger, K.R., \& MacLaren, B.A. (2002). Developing a pedagogical domain theory of early algebra problem solving (CMU-HCII Tech. Rep.~02--100). Pittsburgh, PA: Carnegie Mellon University, School of Computer Science.
+
+\bibitem Li, H. \& Stout, W. (1996). A new procedure for detecting crossing DIF. \textit{Psychometrika}, \textit{61}, 647--677.
+
+\bibitem Kok, F. (1988). Item bias and test multidimensionality. In R. Langeheine \& J. Rost (Eds.), \textit{Latent trait and latent models} (pp.~263--275). New York, NY: Plenum Press.
+
+\bibitem Linn, R.L. (1993). The use of differential item functioning statistics: A discussion of current practice and future implications. In P.W. Holland \& H. Wainer (Eds.), \textit{Differential item functioning} (pp.~349--364). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+%\newpage
+
+\bibitem Lord, F.M. (1980) \textit{Applications of item response theory to practical testing problems}. Lawrence Erlbaum Associates, Hinsdale, NJ.
+
+\bibitem McDonald, R.P. (1994). Testing for approximate dimensionality. In D. Laveault, B.D. Zumbo, M.E. Gessaroli, \& M.W. Boss (Eds.), \textit{Modern theories of measurement: Problems and issues} (pp.~63--86). Ottawa, Canada: University of Ottawa.
+
+\bibitem Maris, E. (1995). Psychometric latent response models. \textit{Psychometrika}, \textit{60}, 523--547.
+
+\bibitem Mislevy, R.J. (1994). Evidence and inference in educational assessment. \textit{Psychometrika}, \textit{59}, 439--483.
+
+\bibitem Mislevy, R.J. Almond, R.G., Yan, D., \& Steinberg, L.S. (1999). Bayes nets in educational assessment: Where do the numbers come from? In K.B. Laskey \& H. Prade (Eds.), \textit{Proceedings of the Fifteenth Conference on Uncertainty in Artificial Intelligence} (pp.~437--446). San Francisco, CA: Morgan Kaufmann.
+
+\bibitem Mislevy, R., Steinberg, L. \& Almond, R. (in press). On the structure of educational assessments. \textit{Measurement: Interdisciplinary research and perspective}. Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+\bibitem Mokken, R.J. (1971). \textit{A theory and procedure of scale analysis}. The Hague: Mouton.
+
+\bibitem Molenaar, I.W., \& Sijtsma, K. (2000). \textit{User's manual MSP5 for Windows: A program for Mokken Scale Analysis for Polytomous Items. Version 5.0} [Software manual]. Groningen: ProGAMMA.
+
+\bibitem Nandakumar, R. (1993). Simultaneous DIF amplification and cancellation: Shealy-Stout's test for DIF. \textit{Journal of Educational Measurement}, \textit{30}, 293--311.
+
+\bibitem Nandakumar, R., \& Roussos, L. (in press). Evaluation of CATSIB procedure in pretest setting. \textit{Journal of Educational and Behavioral Statistics}.
+
+\bibitem Nandakumar, R., \& Stout, W. (1993). Refinements of Stout's procedure for assessing latent trait unidimensionality. \textit{Journal of Educational Statistics}, \textit{18}, 41--68.
+
+\bibitem O'Neill, K.A., \& McPeek, W.M. (1993). Item and test characteristics that are associated with differential item functioning. In P.W. Holland \& H. Wainer (Eds.), \textit{Differential item functioning} (pp.~255--276). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+\bibitem Pellegrino, J.W., Chudowski, N., \& Glaser, R (Eds.). (2001). \textit{Knowing what students know: The science and design of educational assessment} (chap.~4, pp.~111--172) Washington, DC: National Academy Press.
+
+\bibitem Philipp, W. \& Stout, W. (1975). \textit{Almost sure convergence principles for sums of dependent random variables} (American Mathematical Society Memoir No. 161). Providence, RI: American Mathematical Society.
+
+\bibitem Ramsay, J.O. (2000). TESTGRAF: \textit{A program for the graphical analysis of multiple choice test and questionnaire data} (TESTGRAF user's guide for TESTGRAF98 software). Montreal, Quebec: Author. Versions available for Windows\textregistered, DOS, and Unix. The Windows\textregistered\ version was retreived November 11, 2002 from \mbox{ftp://ego.psych.mcgill.ca/pub/ramsay/testgraf/TestGraf98.wpd}
+
+\bibitem Ramsey, P.A. (1993). Sensitivity review: the ETS experience as a case study. In P.W. Holland \& H. Wainer (Eds.), \textit{Differential item functioning} (pp.~367--388). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+\bibitem Rossi, N., Wang, W. \& Ramsay, J.O. (in press). Nonparametric item response function estimates with the EM algorithm. \textit{Journal of Educational and Behavioral Statistics}.
+
+\bibitem Roussos, L., \& Stout, W. (1996a). DIF from the multidimensional perspective. \textit{Applied Psychological Measurement}, \textit{20}, 335--371.
+
+\bibitem Roussos, L., \& Stout, W. (1996b). Simulation studies of the effects of small sample size and studied item parameters on SIBTEST and Mantel-Haenszel Type 1 error performance. \textit{Journal of Education Measurement}, \textit{33}, 215--230.
+
+\bibitem Roussos, L.A., Stout, W.F., \& Marden, J. (1998). Using new proximity measures with hierarchical cluster analysis to detect multidimensionality. \textit{Journal of Educational Measurement}, \textit{35}, 1--30.
+
+\bibitem Roussos, L.A., Schnipke, D.A., \& Pashley, P.J. (1999). A generalized formula for the Mantel-Haenszel differential item functioning parameter. \textit{Journal of Educational and Behavioral Statistics}, \textit{24}, 293--322.
+
+\bibitem Shealy, R.T. (1989). \textit{An item response theory-based statistical procedure for detecting concurrent internal bias in ability tests}. Unpublished doctoral dissertation, Department of Statistics, University of Illinois, Urbana-Champaign.
+
+Shealy, R.,\& Stout, W. (1993a). A model-based standardization approach that separates true bias/DIF from group ability differences and detects test bias/DTF as well as item bias/DIF. \textit{Psychometrika}, \textit{58}, 159--194.
+
+\bibitem Shealy, R., \& Stout, W. (1993b). An item response theory model for test bias and differential test functioning. In P. Holland \& H. Wainer (Eds.), \textit{Differential item functioning}(pp.~197--240). Hillsdale, NJ: Lawrence Erlbaum.
+
+\bibitem Sijtsma, K. (1998). Methodology review: nonparametric IRT approaches to the analysis of dichotomous item scores. \textit{Applied Psychological Measurement}, \textit{22}, 3--32.
+
+\bibitem Sternberg, R.J. (1985). \textit{Beyond IQ: A triarchic theory of human intelligence}. New York, NY: Cambridge University Press.
+
+\bibitem Stout, W. (1987). A nonparametric approach for assessing latent trait unidimensionality. \textit{Psychometrika}, \textit{52}, 589--617.
+
+\bibitem Stout, W. (1990). A new item response theory modeling approach with applications to unidimensionality assessment and ability estimation. \textit{Psychometrika}, \textit{55}, 293--325.
+
+\bibitem Stout, W., Froelich, A.G., \& Gao, F. (2001). Using resampling to produce an improved DIMTEST procedure. In A. Boomsma, M.A.J. van Duijn, T.A.B. Snijders (Eds.), \textit{Essays on item response theory} (pp.~357--376). New York, NY: Springer-Verlag.
+
+\bibitem Stout, W., Habing, B., Douglas, J., Kim, H.R., Roussos, L., \& Zhang, J. (1996). Conditional covariance based nonparametric multidimensionality assessment. \textit{Applied Psychological Measurement}, \textit{20}, 331--354.
+
+\bibitem Stout, W., Li, H., Nandakumar, R., \& Bolt, D. (1997). MULTISIB---A procedure to investigate DIF when a test is intentionally multidimensional. \textit{Applied Psychological Measurement}, \textit{21}, 195--213.
+
+\bibitem Suppes, P., \& Zanotti, M. (1981). When are probabilistic explanations possible? \textit{Synthese}, \textit{48}, 191--199.
+
+\bibitem Tatsuoka, K. K. (1990). Toward an integration of item-response theory and cognitive error diagnosis. In N. Frederiksen, R. Glazer, A. Lesgold, \& M.G. Shafto (Eds.), \textit{Diagnostic monitoring of skill and knowledge acquisition} (pp.~453--488). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+%\newpage
+
+\bibitem Tatsuoka, K. K. (1995). Architecture of knowledge structures and cognitive diagnosis: A statistical pattern recognition and classification approach. In P. Nichols, S. Chipman, \& R. Brennen (Eds.), \textit{Cognitively diagnostic assessment}. Hillsdale, NJ: Earlbaum. 327--359.
+
+\bibitem Thissen, D., \& Wainer, H. (2001). \textit{Test scoring}. Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+\bibitem Trachtenberg, F., \& He, X. (2002). One-step joint maximum likelihood estimation for item response theory models. Submitted for publication.
+
+\bibitem Tucker, L.R., Koopman, R.F., \& Linn, R.L. (1969). Evaluation of factor analytic research procedures by means of simulated correlation matrices. \textit{Psychometrika}, \textit{34}, 421--459.
+
+\bibitem Wainer, H., \& Braun, H.I. (1988). \textit{Test validity}. Hillsdale, NJ: Lawrence Erlbaum Associates. Zhang, J., \& Stout, W. (1999a). Conditional covariance structure of generalized compensatory multidimensional items. \textit{Psychometrika}, 64, 129--152.
+
+\bibitem Whitely, S.E. (1980). (See Embretson, 1980)
+
+\bibitem Zhang, J., \& Stout, W. (1999). The theoretical DETECT index of dimensionality and its application to approximate simple structure. \textit{Psychometrika}, \textit{64}, 213--249.
+\end{thebibliography}
+\vspace{\fill}
+
+%\vfill\eject
+\end{document}

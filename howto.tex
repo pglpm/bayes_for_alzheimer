@@ -1,0 +1,958 @@
+%%This article HOWTO last updated 25 February 2002 ---TSNull
+\documentclass[titlepage,12pt]{article}
+
+%\usepackage[dvips]{graphicx}
+\usepackage[draft,dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[draft,pdftex]{graphicx}
+
+\usepackage[myheadings]{fullpage}
+\usepackage{pmetrika}
+\usepackage{pmbib}
+\usepackage{submit}
+
+\setcounter{secnumdepth}{3}
+%\flushbottom
+
+\usepackage{longtable}
+
+\begin{document}
+
+\begin{titlepage}
+
+\title{HowTo Document: Pmetrika \LaTeX2e\ Style File Package for Psychometrika Authors}
+
+
+%\markright{\textsc{Version 2 HOWTO}}
+
+\linespacing{1}
+
+\author{Tim Null}
+
+\affil{Technical Editor}
+
+\affil{Psychometrika}
+
+
+
+\vspace{36pt}\centerline{\today}\vspace{84pt}\longpage
+
+
+
+\comment{Although authors are encouraged to use either the Pmet or the Pmetrika \LaTeX\ packages, they are \textit{not} required to do so.}
+
+\comment{This document attempts to serve both (a) as an explanation of how to use Pmetrika \LaTeX2e\ Style File Package for Psychometrika Authors, and (b) as an example of its use.
+If you are anxious to get started, please skip ahead to the
+installation section (i.e., section \ref{install}).}
+
+\thanks{In the spirit of David Thissen's 2001 Presidential Address to the
+Psychometric Society, \textit{Psychometric Engineering as Art}, I
+should acknowledge that this package could not have been created
+without the \textit{prior art} of others. First there was the
+original \texttt{psychometrika.cls} file created by Don DeLand of
+Integre Technical Publishing, then the original draft of
+\texttt{pmet.cls} created by Larry Hubert, and I couldn't begin to
+list all the little pieces modeled from examples given in various
+books expounding on all the multifarious nuances of \LaTeX. To all
+those who have traveled this path before me, I give a nod and a
+tip of my hat. I have served chiefly as an editor and synthesizer,
+and I hope I have performed those tasks well.}
+
+\contact{Correspondence should be sent to Tim Null, Technical
+Editor, \textit{Psychometrika}, P.O. Box 7104, San Jose, CA
+95150-7104 U.S.A.{\ } E-Mail: tim@timnull.com}
+
+\end{titlepage}
+
+\setcounter{page}{2}
+\vspace*{2\baselineskip}
+
+\RepeatTitle{HowTo Document: Pmetrika \LaTeX2e\ Style File Package for Psychometrika Authors}\vskip6pt
+
+\abstracthead
+%\centerline{\large{\bf Abstract}}
+
+\begin{abstract}
+Guidance on installing and using Version 2 of the
+\textit{Psychometrika} \LaTeX2e\ Package for Authors.
+\begin{keywords}
+software installation, ``howto'' file, \LaTeX2e, templates,
+\textit{Psychometrika}, IRT models, LISREL, Bayes estimates.
+\end{keywords}
+\end{abstract}\vspace{\fill}\pagebreak
+
+
+\section{Introduction to Version 2 of the \LaTeX2e\ Package}
+
+Welcome to Version 2 of the \textit{Psychometrika} \LaTeX2e\
+Package for Authors. Hopefully you will find this package easy to
+use, and you will find these instructions helpful. Should you have
+any questions, suggestions, or problems, please contact me by
+e-mail (tsnull@att.net). Although I'm \textit{not} a \TeX pert,
+and I may not be able to immediately answer your question, fix
+your problem, or implement your suggestion; I will be happy and
+delighted to hear from you, and I will do what I can to help. User
+input enables future refinement and improvement of this package,
+so please don't be hesitant about contacting me.
+
+\section{What's New in Version 2}
+
+\begin{enumerate}
+
+\item With the release of Version 2 we have instituted a new version
+numbering system to help you quickly recognize when a package has
+been revised. (Note that we will continue to use and update Version 1.)
+
+\item Unlike Version 1, which replaced the normal \LaTeX2e\ article class file
+(i.e.,~\texttt{article.cls}) with its own class file
+(i.e.,~\texttt{pmet.cls}); Version 2 uses the normal \LaTeX2e\
+article class file combined with two packages specifically
+developed for \textit{Psychometrika} (i.e.,~\texttt{pmetrika.sty}
+\&~\texttt{pmbib.sty}), and several other \LaTeX2e\
+packages~(\texttt{fullpage.sty},
+\texttt{ifthen.sty},~\texttt{indentfirst.sty},
+\&~\texttt{graphicx.sty}). Template files, and all the required
+packages are supplied with the package.
+
+\end{enumerate}
+
+\subsection{The New Version Numbering System}
+
+Although we have now released Version 2 of the
+\textit{Psychometrika} \LaTeX2e\ Package for Authors, we will
+continue to offer Version 1. Both versions will be upgraded and
+revised as the need arises. In addition, to make it easy to
+recognize when a package has been modified, both versions will be
+dated to indicate the date of the latest revision, and each
+version number will be followed by a letter and a number, which
+will be ascending as each version is updated. For example, on the
+date this was written, the version number for Version 2 was 2A1.
+The numbering sequence will then go from 2A1 through 2A9, then
+from 2B1 through 2B9, and so forth. This should make it easy for
+you to determine if the package that you use has been updated.
+There will also be a~\texttt{readme.1st}~file that will outline
+the revision history, and it will list the changes made in the
+latest revision. By glancing at the revision date combined with
+the version number, you should be able to quickly determine, if
+the package you use has been updated; and by reading the
+information in the~\texttt{readme.1st}~file, you should able to
+decide if it is worth your time and trouble to download the latest
+revisions\footnote{Unless problems are discovered in Versions 1 or
+2, priority will be given to the items listed in section
+\ref{plans}, rather than to additional revisions of Versions 1 and
+2.}.
+
+%\renewcommand{\baselinestretch}{1}
+%\linespread{1}
+\linespacing{1}
+\begin{table}[h]
+\vskip1pt\caption{\normalsize{Version 2 components}}\vskip3pt
+\begin{tabular}{|l|l|}\hline
+  \raisebox{-.5ex}{\textbf{File Name}} &   \raisebox{-.5ex}{\textbf{Purpose}} \\ \hline\hline
+%  &    \\
+\raisebox{-1ex}{{\tt article.tex}} & \raisebox{-1ex}{{\small Template for an article or note.}} \\[1ex]
+  {\tt review.tex} & {\small Template for a book review.} \\[1ex]
+  {\tt pmetrika.sty$^\dag$} & {\small Defines the appearance of the title page.} \\
+   & {\small Redefines the section, subsection, subsubsection, and paragraph commands.} \\
+   & {\small Redefines several environments, such as the theorem environment.} \\
+   & {\small Sets ragged right margin and 1.5 line spacing.} \\
+   & {\small Provides the end of proof command (i.e.,~\verb=\qed=) and symbol.}  \\
+   & {\small Provides commands for bold Greek letters.} \\
+   & \footnotesize{$^\dag$Requires~\texttt{indentfirst.sty}.} \\[1ex]
+  {\tt pmbib.sty} & Redefines the reference section. (It can cause problems with Bib\TeX.)\\[1ex]
+  {\tt fullpage.sty}\footnotesize$^{\ddag}$ & Defines~\verb=\textheight=~and~\verb=\textwidth=~based on the paper size. \\
+  & {\footnotesize $^\ddag$\copyright\ 1994 P.W. Daly; see Kopka \& Daly, 1999, pp. 343--345. Requires~{\tt ifthen.sty}.}\\[1.5ex] \hline
+\end{tabular}
+\end{table}
+%\renewcommand{\baselinestretch}{1.5}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+\subsection{Version 2 Components}
+
+Table 1 lists the components that make up Version 2 of the
+\textit{Psychometrika} \LaTeX2e\ Package for Authors. Unlike
+Version 1, which used its own \LaTeX2e\ class file
+(i.e.,~\texttt{pmet.cls}), Version 2 uses the regular \LaTeX2e\
+article class file (i.e.,~\texttt{article.cls}), combined with
+several~\verb=\usepackage=~files that alter or add to the regular
+article class file. For example, the first line in a Version 1
+document is
+
+\begin{center}\verb=\documentclass{pmet}=;\end{center}
+
+\noindent whereas, the first several lines in a typical Version 2
+document could include the following commands:
+
+%\linespread{1.2}\small\normalsize
+\linespacing{1.2}
+\begin{center}
+\begin{tabular}{l}
+\verb=\documentclass[titlepage,12pt]{article}=  \\
+\verb=\usepackage[myheadings]{fullpage}=  \\
+\verb=\usepackage{pmetrika}=  \\
+\verb=\usepackage{pmbib}=  \\
+\verb=\usepackage[dvips]{graphicx}=  \\[1.75ex]
+\end{tabular}
+\end{center}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+\noindent If you use A4 paper, the first line of your file should
+be:\par
+
+\begin{center}\verb=\documentclass[titlepage,a4paper,12pt]{article}=\end{center}
+
+\noindent An explanation of what the above preamble commands mean,
+and how they effect your \LaTeX2e\ output, can be found in the
+section of using the provided template files (i.e., section
+\ref{template}).
+
+\shortpage
+
+\subsection{Why We Made The Change}
+
+Although only a few authors have indicated they have had problems
+with Version 1 of our \LaTeX\ package, it has \textit{not} been
+widely adopted by our authors who use \LaTeX; so in order to
+promote the use of our \LaTeX2e\ package among authors, I wanted
+Version 2 to have the following characteristics:
+\begin{enumerate}
+\item It should be easier to use than Version 1.
+\item It should be as flexible, modifiable\footnote{If you modify any of
+the files used in our author package, please rename the file, so
+your new file won't be confused with the original.}, and
+trouble-free as possible.
+\item It should produce an attractive looking document appropriate for
+submission to the Editor of \textit{Psychometrika}.
+\end{enumerate}
+
+\noindent It is my hope that these goals have been reached, but if
+you have suggestions on how our \LaTeX2e\ packages can be
+improved, please let me know (tsnull@att.net).
+
+\subsection{Which Version is Right for You?}
+
+You might be asking yourself, ``Which version is right for me?'' I
+would suggest that the following people might want to use or
+continue to use Version 1:
+
+\begin{enumerate}
+
+\item People who have used or attempted to use Version 1 in the past, and who were satisfied
+with the results.
+
+\item People who like the option of being able to print a manuscript in
+a format that is quite similar to the final format that will
+appear in the journal\footnote{Unfortunately this does require
+some editing of the template file.}.
+
+\end{enumerate}
+
+\shortpage
+
+The following people might want to try Version 2:
+
+\begin{enumerate}
+
+\item People who have used Version 1, and who either had
+problems or who were dissatisfied with the results.
+
+\item People who cannot resist the temptation of trying something new.
+
+\item People who believe Version 2 generates a
+more attractive manuscript than Version 1 (based on this
+document or others they have seen).
+
+\item If you have never used Version 1, I would recommend that you
+use Version 2.
+
+\end{enumerate}
+
+\subsection{What Is Planned for the Future}\label{plans}
+
+As has been mentioned, we currently offer versions 1 and 2 of our
+author package for \LaTeX2e\ users. Eventually we hope to also
+offer packages (or at least templates and ``howto'' files) for the
+following users (possibly in the following order):
+
+\begin{enumerate}
+\item Templates for MS Word and WordPerfect users.
+\item A package specifically designed to meet the special needs of Scientific Word/Scientific Workplace users.
+\item Additional tweaking of the Table and Figure environments in Version 2 of the \LaTeX2e\ package.
+\item Example files for the \LaTeX2e\ packages.
+\item Develop and provide documentation for the LyX template Krishna
+Tateneni provided.
+\item A package that will work easily with \LaTeX\ 2.09.
+\end{enumerate}
+
+\section{Installation}\label{install}
+
+Version 2 of the \LaTeX2e\ package assumes that the
+following files are included in your \LaTeX\ installation:
+
+%\linespread{1.2}\small\normalsize
+\linespacing{1.2}
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+  \textbf{File Name} &   \textbf{Purpose} \\ \hline\hline
+  \texttt{ifthen.sty} & Required by the fullpage package. \\
+  \texttt{indentfirst.sty} & Required by the pmetrika package. \\
+  \texttt{graphicx.sty} & Used to display figures. \\ \hline
+\end{tabular}
+\end{center}\vspace{0.5\baselineskip}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+These files
+(i.e.,~\texttt{ifthen.sty},~\texttt{indentfirst.sty},~and~\texttt{graphicx.sty})~are
+included with most \LaTeX\ installations, but just to make sure
+you have them, I've included them in the~``\texttt{Other
+Packages}''~subdirectory.
+
+\subsection{Quick Installation}
+
+To do a quick installation:
+
+\begin{enumerate}
+
+\item Copy the following files to your working
+directory:\ \texttt{article.tex},\ \texttt{fullpage.sty}\
+\texttt{pmetrika.sty},\ and\ \texttt{pmbib.sty}.
+
+\item Rename the~\texttt{article.tex}~file (e.g., \texttt{ishmael.tex}).
+
+\item Open the new file (i.e., the~\texttt{article.tex}~file that has been renamed) in your favorite \LaTeX\
+editor, and compile it to make sure everything is working
+(e.g.,~\texttt{latex ishmael}).
+
+\item If all is well, then \textit{commence thy tour de force}.
+
+\end{enumerate}
+
+\subsection{A More ``Permanent'' Installation}
+
+You will probably want to do the quick installation initially just
+to see if Version 2 of the package works on your system. If you
+make frequent contributions to \textit{Psychometika}, or you don't
+like to ``clutter-up'' your working directory, you will probably
+want to do the following installation, which will give you
+access to the package files from any directory. (These directions
+are applicable to MiKTeX Version 1.20e installed on
+drive~\verb=C=~of a computer
+running~\textsf{Microsoft\textsuperscript{\textregistered}~Windows},
+but the general principles apply to other installations as well.)
+
+%\longpage %The \longpage command will increase \textheight by 1 \baselineskip
+\shortpage %The \longpage command will increase \textheight by 1 \baselineskip
+
+\begin{enumerate}
+
+\item In the \verb=c:\localtexmf= directory create a directory for the
+package files; for example,~\verb=c:\localtexmf\tex\latex\pmetrika=.
+
+\item Copy the following files to the directory created in Item
+1:\ \texttt{fullpage.sty}\ \texttt{pmetrika.sty},\ and\
+\texttt{pmbib.sty}.
+
+\item Refresh the file name database for your installation of
+\LaTeX. For example, the following command could be used with
+MiKTeX 1.20e:
+\begin{verbatim}C:\texmf\miktex\bin\initexmf.exe --mkpsres --search --update-fndb\end{verbatim}
+
+\item Copy the~\texttt{article.tex}~template to your
+working directory, and rename it.
+
+\item Open the renamed file in your favorite \LaTeX\ editor, do a test compile to make
+sure everything is working, then commence to \textit{Begin the
+Beguine}.
+
+\end{enumerate}
+
+\section{Using the~\texttt{\bf article.tex}~Template}\label{template}
+
+In the article template you will find ``comment'' lines
+(i.e., lines which begin with one or more~\verb=%=~characters)
+that direct you to seek further explanation in this document. For
+example, the first such line states
+\begin{center}\verb=%%ITEM 1 [See the ``howto.tex'' file]=\end{center}
+A few lines later, you'll find
+\begin{center}\verb=%%ITEM 2 [See the ``howto.tex'' file]=\end{center}
+Throughout the template you'll find eleven such lines. Each item 1
+through 11 is followed by one or more lines of \LaTeX\ code that
+will need your attention. Explanations of the \LaTeX\ code and the
+entries that are needed will follow in the next several pages.
+
+
+\subsection{The Preamble}
+
+\longpage
+
+\noindent\texttt{\bf ITEM 1}\\[1.5ex]
+
+If you use 8.5 by 11 inch paper begin your document with
+\begin{center}\verb=\documentclass[titlepage,12pt]{article}=\end{center}
+If you're using A4 paper begin with
+\begin{center}\verb=\documentclass[titlepage,a4paper,12pt]{article}=\end{center}
+
+
+\noindent\texttt{\bf ITEM 2}\\[1.5ex]
+
+Feel free to use whatever \LaTeX\ graphics package you usually use
+(e.g., epsf, graphics, graphicx) to include graphic files in your
+\LaTeX2e\ document. I've set up the article template to use the
+graphicx package, because that's the package our composition
+company uses, and it's the one I'm most familiar with; but there's
+no requirement that you use the graphicx package. I've included
+four possible commands in the preamble of the template. Two are
+reserved for people who use pdf\TeX. When you want your figures
+included in your DVI or postscript file, you will normally use the
+following command:
+
+\begin{center}\verb=\usepackage[dvips]{graphicx}=\end{center}
+
+\noindent When viewing a dvi file, it frequently takes a long time
+for graphic files to be ``loaded'' into memory, so, while you're
+in the process of writing your manuscript, you will probably want
+to use the following command:
+
+\begin{center}\verb=\usepackage[draft,dvips]{graphicx}=\end{center}
+
+\noindent The ``draft'' option in the latter command will result
+in an outline of a box the size of the graphic being shown in the
+location where the graphic would otherwise be displayed. Your dvi
+files should then load quickly in your dvi viewer, and this will
+save a great deal of time, while you're working on the composition
+of your document. (For more information regarding the use of the
+graphicx package, and the inclusion of figures, see section
+\ref{figs} below.)\\[1.5ex]
+
+\noindent\texttt{\bf ITEM 3}\\[1.5ex]
+
+If you've properly installed the packages (see section
+\ref{install}), you probably shouldn't need to alter the following
+lines:
+
+%\linespread{1.2}\small\normalsize
+\linespacing{1.2}
+\begin{center}
+\begin{tabular}{l}
+\verb=\usepackage[myheadings]{fullpage}=  \\
+\verb=\usepackage{pmetrika}=  \\
+\verb=\usepackage{pmbib}=  \\[1.75ex]
+\end{tabular}
+\end{center}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+\noindent But if you use Bib\TeX, you may experience problems with
+the pmbib package. If that's the case, ``comment out'' the~
+\verb=\usepackage=~line calling the pmbib package with an \verb=%= symbol;
+that is,
+
+\begin{center}\verb=%\usepackage{pmbib}=\end{center}
+
+\noindent Once that has been done, your reference section will
+take on the characteristics that are specified in the normal
+article class file. You may, or may not, find that result
+aesthetically pleasing; but, if you're a Bib\TeX\ user, it's
+better than giving
+up your Bib\TeX\footnote{Someday I may figure out how to eliminate this incompatibility, and someday I may pay off my mortgage.}.\\[1.5ex]
+
+\noindent\texttt{\bf ITEM 4}\\[1.5ex]
+
+By ``default'' \textit{Psychometrika} articles do \textit{not}
+have numbered sections, but authors are free to use numbered
+sections, if they choose. If you wish to have numbered sections,
+remove the~\verb=%=~symbol in front of the~\verb=\setcounter{secnumdepth}{3}=~command.\\[1.5ex]
+
+\noindent\texttt{\bf ITEM 5}\\[1.5ex]
+
+In this section enter your own~\verb=\usepackage=,~\verb=\input=,
+and~\verb=\newcommand=~entries.
+
+\subsection{The Title Page}\label{titlepage}
+
+\noindent\texttt{\bf ITEM 6}\\[1.5ex]
+
+The commands in this section combine to form your title page. Some
+of the commands are pretty much self-evident; for example, your
+title is entered between the braces in
+the~\verb=\title{}=~command. All the letters in the title will be
+made uppercase, so it doesn't matter how they are typed.
+
+Type all of the author names between the braces in
+the
+
+\begin{center}\verb=\markright{\MakeLowercase{\textsc{}}}=\end{center}
+
+\noindent command, such as is shown below
+
+\begin{center}\verb=\markright{\MakeLowercase{\textsc{H. Melville and J.F. Cooper}}}=\end{center}
+
+\noindent This will cause ``\MakeLowercase{\textsc{H. Melville and
+J.F. Cooper}}'' to appear in the header of every page, unless you
+enter a command to change the page style
+(e.g.,~\verb=\thispagestyle{empty}=);
+therefore, the header on page 33 would look like this:\\[1.5ex]
+
+\noindent \MakeLowercase{\textsc{H. Melville and J.F. Cooper}}\hspace{\fill}33\\[1.5ex]
+
+If a manuscript has only one author, then the author's name is
+typed in the~\verb=\author{}=~field using upper and lowercase
+(e.g.,~\verb=\author{Herman Melville}=); and the author
+affiliation is entered in the~\verb=\affil{}=~field
+(e.g.,~\verb=\affil{Pequod University}=). Use separate author and
+affiliation entries, except in cases where two or more authors
+have the same affiliation; for example, if the first and second
+author have the same affiliation, but the third author has a
+different affiliation, the first and second author names would be
+entered in a single~\verb=\author{}=~followed by a
+single~\verb=\affil{}=~field, and the third author's name and
+affiliation would be entered in
+separate~\verb=\author{}=~and~\verb=\affil{}=~fields. The names
+and affiliation would appear on the title page like this:
+
+\begin{center}
+\textsc{Dorothy Parker and William Faulkner}\\
+
+\MakeLowercase{\textsc{University of Algonquin}}\\
+
+\vskip6pt
+
+\textsc{James Fenimore Cooper}\\
+
+\MakeLowercase{\textsc{Leatherstocking Institute}}\\
+
+\end{center}
+
+There are three additional commands unique to the title
+page:~\verb=\comment=,~\verb=\thanks=, and~\verb=\contact=. All
+three do the same thing; that is, they create an unnumbered
+footnote near the bottom of the title page. You could use just one
+of the commands several times, but I've created three commands
+just to make it easy to conceptually organize the footnotes on the
+title page. The ``comment'' command is for statements like:
+\textit{This research was funded by my Aunt Josephine}. The
+``thanks'' command is a modification of the
+\verb=\thanks{}=~command already present in \LaTeX, and it is used
+for statements like: \textit{I would very much like to thank my
+Aunt Josephine}. The ``contact'' command gives you a place to list
+things like your mailing and e-mail addresses. (These commands are
+similar to the~\verb=\footnotetext{}=~command, in that they should
+{\bf \textit{not}} be used within other commands, such
+as~\verb=\author{}=~or~\verb=\title{}=.)
+
+\subsection{The Abstract Page}\label{abstract}
+
+\noindent\texttt{\bf ITEM 7}\\[1.5ex]
+
+The~\verb=\abstracthead=~command gives the abstract it's heading.
+You will need to enter your abstract in the space between
+the~\verb=\begin{abstract}=, and
+the~\verb=\begin{keywords}=~commands. Then enter your key words in the
+space between the~\verb=\begin{keywords}=~and
+the~\verb=\end{keywords}=~commands. Except for items like acronyms
+and proper names, the key words should be in lowercase. (See the
+key words in this manuscript for examples.)
+
+
+\subsection{The Body of the Manuscript}\label{body}
+
+\noindent\texttt{\bf ITEM 8}\\[1.5ex]\label{floathere}
+
+The main body of your manuscript and appendices (if you have any)
+go between the abstract and reference pages. Your Tables and
+Figures should go after the reference section, but you will need
+to mark the \textit{approximate} location where you wish your
+tables and figures placed. (Since tables and figures are
+``floats'' the actual location may be slightly before or after the
+location you indicate.) Version 2 of our \LaTeX2e\ package
+provides a ``tablehere'' and ``figurehere'' command to make it
+very easy for you to mark the approximate location for your tables
+and figures. (See the next paragraph for a description of these
+commands.)
+
+\paragraph{A couple new commands.} The pmetrika package defines new commands to indicate the
+approximate location of your tables and figures. The
+command~\verb=\tablehere{}=~can be used to mark the location of a
+table. The command~\verb=\figurehere{}=~can be used to mark the
+location of a figure. For example, the
+command~\verb=\tablehere{1}=~would mark the location for Table 1
+as shown below:
+
+\tablehere{1}
+
+\noindent The command~\verb=\figurehere{5}=~would mark the
+location for Figure 5, as shown below:
+
+\figurehere{5}%\vspace{\fill}%\pagebreak
+
+\noindent \verb=\ref{}=~commands can also be used, rather than
+entering a specific figure or table number; for example, in this
+manuscript~\verb=\figurehere{\ref{textwidth}}=~would result in
+
+\figurehere{\ref{textwidth}}
+
+For additional information about figures, see section \ref{figs}.
+
+\paragraph{Section headings.} In \textit{Psychometrika} there are three types of main headings used, and a
+paragraph heading. Examples are given below:
+
+\section*{This is a Section Heading}
+
+Section headings are centered, Roman\footnote{Although I've chosen
+to use boldface for the \LaTeX2e\ section headings, in the journal
+they are Roman (i.e., normalfont, not italic or bold).}, with long
+and major words capitalized.
+
+\subsection*{This is a Subsection Heading}
+
+Subsection headings are centered, italic, with long and major
+words capitalized.
+
+\subsubsection*{This is a Subsubsection Heading}
+
+Subsubsection headings are flushleft, italic, with long and major
+words capitalized.
+
+\paragraph{This is a paragraph heading.} Paragraph headings are composed of
+a single word or a short phrase. The word or phrase is followed
+by a period. Paragraph headings are italic with only the first letter of the
+first word capitalized (except for acronyms and proper names,
+of course).\\[1.5ex]
+
+\noindent\texttt{\bf ITEM 9}\\[1.5ex]
+
+\paragraph{Appendices.} Item 9 is followed by a number of
+commands, which---if you have one or more appendices---you can
+``activate'' by removing the~\verb=%=~at the front of the line.
+If you only have one appendix, you should remove
+the~\verb=%=~character in front of the following lines:
+
+\begin{center}
+%\linespread{1.2}\small\normalsize
+\linespacing{1.2}
+\begin{tabular}{l}
+\verb=\appendix= \\
+\verb=\renewcommand{\theequation}{A\arabic{equation}}=  \\
+\verb=\setcounter{equation}{0}=  \\
+\verb=\renewcommand{\thesection}{\Alph{subsection}}= \\
+\verb=\setcounter{section}{0}= \\
+\verb=\section*{Appendix}= \\
+\verb=%\section*{Appendix A}= \\
+\verb=%\section*{Appendix B}= \\
+\end{tabular}
+\end{center}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+\noindent If you only have two appendices, you should remove
+the~\verb=%=~character in front of the following lines:
+
+
+\begin{center}
+%\linespread{1.2}\small\normalsize
+\linespacing{1.2}
+\begin{tabular}{l}
+\verb=\appendix= \\
+\verb=\renewcommand{\theequation}{A\arabic{equation}}=  \\
+\verb=\setcounter{equation}{0}=  \\
+\verb=\renewcommand{\thesection}{\Alph{subsection}}= \\
+\verb=\setcounter{section}{0}= \\
+\verb=%\section*{Appendix}= \\
+\verb=\section*{Appendix A}= \\
+\verb=\section*{Appendix B}= \\
+\end{tabular}
+\end{center}
+%\linespread{1.5}\small\normalsize
+\linespacing{1.5}
+
+\noindent (Of course the text for Appendix A and Appendix B would
+follow the respective headings.) If then you added a third and
+forth appendix, they would have the following section headings:
+
+\hspace{6em}\verb=\section*{Appendix C}=  \\[1ex]
+\hspace{6em}\verb=\section*{Appendix D}= \\
+
+
+\subsection{The Reference Section}
+
+\noindent\texttt{\bf ITEM 10}\\[1.5ex]
+
+You shouldn't have to do anything special or different in the
+reference section. Just start each item with either
+\verb*=\bibitem = or \verb*=\item = (where the ``\verb*= =''
+symbol stands for a blank space), and then enter your
+bibliographic information as you would normally. The pmbib package
+should be able to format the lines correctly for you. (If you have
+a problem with pmbib, I may be able to help; unless, of course,
+the problem is due to a conflict with Bib\TeX.) If you have
+stylistic questions, consult the \textit{APA Publication Manual}.
+
+\subsection{Figures and Tables}\label{figs}
+
+\noindent\texttt{\bf ITEM 11}\\[1.5ex]
+
+When it comes to things like figures and tables, I find examples
+more helpful than 10,000 words, so I encourage you to check out
+the examples that follow the reference section.
+
+The pmetrika package defines a new command for spacing between
+figures (i.e.,~\verb=\figskip=).
+
+\section{New Commands}
+
+\subsection{End of Proof Symbol (\/$\backslash$qed)}\label{qed}
+
+\paragraph{The bad news.} The ``qed'' command may be
+incompatible with the ``subequation'' and ``subeqnarry'' packages;
+and if you use the ``fleqn'' package, fleqn must be loaded after
+the pmetrika package. Also, the~\verb=\qed=~command cannot be used
+within \verb=\[...\]=~environments.
+
+\paragraph{The good news.} The~\verb=\qed=~command provides the end of proof symbol. To
+see how it works, please review the following
+\textit{spoof-proof}:
+
+\begin{proof}
+It's obvious.\qed
+\end{proof}
+
+\subsection{Boldface Greek Letters}
+
+\linespacing{1.2}
+\begin{longtable}{l@{\qquad}l}
+\verb=$\bfEpsilon$= &  No Varpi in Computer Modern Bold  \kill
+\textbf{Command} & \textbf{Result} \endhead\hline
+%Begin uppercase
+\verb=$\bfAlpha$= & $\bfAlpha$ \\
+\verb=$\bfBeta$= & $\bfBeta$ \\
+\verb=$\bfPsi$= & $\bfPsi$ \\
+\verb=$\bfDelta$= & $\bfDelta$ \\
+\verb=$\bfEpsilon$= & $\bfEpsilon$ \\
+\verb=$\bfPhi$= & $\bfPhi$ \\
+\verb=$\bfGamma$= & $\bfGamma$ \\
+\verb=$\bfEta$= & $\bfEta$ \\
+\verb=$\bfIota$= & $\bfIota$ \\
+\verb=$\bfXi$= & $\bfXi$ \\
+\verb=$\bfKappa$= & $\bfKappa$ \\
+\verb=$\bfLambda$= & $\bfLambda$ \\
+\verb=$\bfMu$= & $\bfMu$ \\
+\verb=$\bfNu$= & $\bfNu$ \\
+\verb=$\bfPi$= & $\bfPi$ \\
+\verb=$\bfTheta$= & $\bfTheta$ \\
+\verb=$\bfRho$= & $\bfRho$ \\
+\verb=$\bfSigma$= & $\bfSigma$ \\ \hline
+\verb=$\bfTau$= & $\bfTau$ \\
+\verb=$\bfVartheta$= & $\bfVartheta$ \\
+\verb=$\bfOmega$= & $\bfOmega$ \\
+\verb=$\bfVarpi$= & No Varpi in Computer Modern Bold \\
+\verb=$\bfUpsilon$= & $\bfUpsilon$ \\
+\verb=$\bfZeta$= & $\bfZeta$ \\
+%End uppercase
+%Begin lowercase
+\verb=$\bfalpha$= & $\bfalpha$ \\
+\verb=$\bfbeta$= & $\bfbeta$ \\
+\verb=$\bfchi$= & $\bfchi$ \\
+\verb=$\bfpsi$= & $\bfpsi$ \\
+\verb=$\bfdelta$= & $\bfdelta$ \\
+\verb=$\bfepsilon$= & $\bfepsilon$ \\
+\verb=$\bfphi$= & $\bfphi$ \\
+\verb=$\bfgamma$= & $\bfgamma$ \\
+\verb=$\bfeta$= & $\bfeta$ \\
+\verb=$\bfiota$= & $\bfiota$ \\
+\verb=$\bfxi$= & $\bfxi$ \\
+\verb=$\bfkappa$= & $\bfkappa$ \\
+\verb=$\bflambda$= & $\bflambda$ \\
+\verb=$\bfmu$= & $\bfmu$ \\
+\verb=$\bfnu$= & $\bfnu$ \\
+\verb=$\bfpi$= & $\bfpi$ \\
+\verb=$\bftheta$= & $\bftheta$ \\
+\verb=$\bfrho$= & $\bfrho$ \\
+\verb=$\bfsigma$= & $\bfsigma$ \\
+\verb=$\bftau$= & $\bftau$ \\
+\verb=$\bfvartheta$= & $\bfvartheta$ \\
+\verb=$\bfomega$= & $\bfomega$ \\
+\verb=$\bfvarpi$= & $\varpi$ \\
+\verb=$\bfvarphi$= & $\varphi$ \\
+\verb=$\bfupsilon$= & $\upsilon$ \\
+\verb=$\bfzeta$= & $\bfzeta$ \\ \hline
+%End lowercase
+\end{longtable}
+\linespacing{1.5}
+
+\vskip6pt
+
+For other boldface characters in math mode, please use the
+$\mathbf{mathbf}$ command (i.e.,~\verb=\mathbf{}=) rather than the
+$\boldmath{boldmath}$ command (i.e.,~\verb=\boldmath{}=), so that
+you don't end up combining \textit{italic} and \textbf{boldface}
+like {\bf \textit{this}}.
+
+\subsection{Miscellaneous New Commands}
+
+Below I have listed the new commands created by the pmetrika
+package in the table shown below\footnote{Please note that the
+following ``newtheorems'' have already been defined in the
+pmetrika package: assumption, axiom, corollary, definition,
+example, exercise, lemma, remark, proposition, and theorem.}.
+
+\linespacing{1.2}
+\begin{longtable}{l@{\qquad}l}
+ \verb=\shortpage= & Decrease \verb=\textheight= by 1 \verb=\baselineskip=. \kill
+\textbf{Command} & \textbf{Result} \endhead \hline
+% \verb== &  \\
+ \verb=\abstracthead= & see section \ref{abstract} \\
+ \verb=\comment= & see section \ref{titlepage}  \\
+ \verb=\contact= & see section \ref{titlepage}  \\
+ \verb=\figskip= & Vertical space between figures.  \\
+ \verb=\figurehere= & see section \ref{floathere}  \\
+ \verb=\linespacing{}= & Change baselinestretch to specified number  \\
+ \verb=\longpage= & Increase \verb=\textheight= by 1 \verb=\baselineskip=.  \\
+ \verb=\qed= & see section \ref{qed}  \\
+ \verb=\shortpage= & Decrease \verb=\textheight= by 1 \verb=\baselineskip=.  \\
+ \verb=\tablehere= & see section \ref{floathere}  \\
+ \verb=\thanks= & see section \ref{titlepage}  \\ \hline
+\end{longtable}
+\linespacing{1.5}
+
+
+\vspace{\fill}\pagebreak
+
+\begin{thebibliography}
+
+\bibitem Goossens, Michel, Mittelbach, Frank, \& Samarin,
+Alexander. (1994). \textit{The \LaTeX\ companion} (2nd ed.).
+Reading, MA: Addison-Wesley.
+
+\bibitem Griffiths, David F., \& Higham, Desmond J. (1997).
+\textit{Learning \LaTeX}. Philadelphia, PA: Society for Industrial
+and Applied Mathematics.
+
+\bibitem Kopka, Helmut, \& Daly, Patrick W. (1999). \textit{A guide to
+\LaTeX\ document preparation for beginners and advanced users}
+(3rd ed.). Harlow, England: Addison-Wesley.
+
+\bibitem Oetiker, Tobias, Partl, Hubert, Hyna, Irene, \& Schlegl,
+Elisabeth. (2000). \textit{The not so short introduction to
+\LaTeX2e: Or \LaTeX2e\ in 95 minutes} (Version 3.20). Cambridge,
+MA: Free Software Foundation.
+\mbox(http://www.ctan.org/tex-archive/info/lshort/lshort.pdf)
+
+\bibitem \textit{Publication manual of the American Psychological
+Association} (5th ed.). (2001). Washington, DC: APA.
+
+\bibitem Reckdahl, Keith. (1997). \textit{Using imported graphics in
+\LaTeX2e}. Cambridge, MA: Free Software Foundation.
+\mbox(http://www.ctan.org/tex-archive/info/epslatex.pdf)
+
+\bibitem Thissen, David. (2001). Psychometric engineering as art.
+\textit{Psychometrika}, \textit{66}, 473--485.
+
+\end{thebibliography}
+
+
+\linespacing{1.1}\vspace{\fill}\begin{quote}\textbf{\textit{Note: Include your figures and tables after the reference section, but be sure to mark in your paper the approximate location where you want your tables and figures to be placed.}}\end{quote}\vspace{\fill}\pagebreak
+%%If you choose to integrate your figures and tables into the text of your paper, be sure to provide camera-ready copies of your figures on separate sheets of paper.
+%\renewcommand{\baselinestretch}{1}\small\normalsize
+%\linespread{1}\small\normalsize
+\linespacing{1}
+\flushbottom
+
+
+%\section*{Tables}\setcounter{table}{0}
+
+%%PUT YOUR FIGURES AND TABLES AFTER THE REFERENCE SECTION
+
+\section*{Figures}
+
+\vspace{\fill}
+
+\begin{figure}[hp]
+\begin{center}
+\includegraphics{p-logo.eps}
+%\includegraphics{figs/p-logo.eps}
+%\includegraphics{figs/p-logo.pdf}
+\caption{The \textit{Psychometrika} logo. This is the same as the
+scale being equal to 1.}
+\end{center}
+\end{figure}
+
+\figskip
+
+\begin{figure}[hp]
+\begin{center}
+\includegraphics[width={\textwidth}]{p-logo.eps}
+%\includegraphics[width={\textwidth}]{figs/p-logo.pdf}
+\caption{The \textit{Psychometrika} logo with a width set to equal
+to the width of the page.} \label{textwidth}
+\end{center}
+\end{figure}
+
+\figskip
+
+\begin{figure}[hp]
+\begin{center}
+\includegraphics[scale=.5]{p-logo.eps}
+%\includegraphics[scale=.5]{figs/p-logo.pdf}
+\caption{The \textit{Psychometrika} logo with scale set equal to
+0.5.} \label{scale}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[hp]
+\begin{center}
+\rotatebox{90}{\includegraphics[width=2.5in]{p-logo.eps}}
+%\rotatebox{90}{\includegraphics[width=2.5in]{figs/p-logo.pdf}}
+\caption{The \textit{Psychometrika} logo rotated 90 degrees with
+width equal to 2.5 inches.} \label{rotate}
+\end{center}
+\end{figure}
+
+\figskip
+
+\begin{figure}[hp]
+\begin{center}
+\rotatebox{90}{\includegraphics[scale=.2]{p-logo.eps}}
+%\rotatebox{90}{\includegraphics[scale=.2]{figs/p-logo.pdf}}
+\caption{The \textit{Psychometrika} logo rotated with scale set
+equal to 0.2.} \label{scale.rotate}
+\end{center}
+\end{figure}
+
+% The following figures have both the graphic and the caption rotated.
+
+\begin{figure}[t]
+\begin{center}
+\rotatebox{90}{\begin{minipage}{2in}
+\includegraphics[width=2in]{p-logo.eps}
+%\includegraphics[width=2in]{figs/p-logo.pdf}
+\caption{A figure with both the graphic and caption rotated.}
+\end{minipage}}
+\end{center}
+\end{figure}
+
+\figskip
+
+\begin{figure}[b]
+\centerline{\rotatebox{90}{\begin{minipage}{5in}
+\includegraphics[width=5in]{p-logo.eps}
+%\includegraphics[width=5in]{figs/p-logo.pdf}
+\caption{A figure with both the graphic and caption rotated.}
+\end{minipage}}}
+\end{figure}
+
+
+\begin{figure}[b]
+\centerline{\rotatebox{90}{\begin{minipage}{\textheight}
+\includegraphics[width={\textheight}]{p-logo.eps}
+%\includegraphics[width={\textheight}]{figs/p-logo.pdf}
+\caption{A figure with both the graphic and caption rotated.}
+\end{minipage}}}
+\end{figure}
+
+
+\end{document}

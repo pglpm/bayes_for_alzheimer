@@ -1,0 +1,23 @@
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{submit}[2003/09/25 v1.1 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+%%http://www.psychometricsociety.org
+%%This file can be freely used and modified,
+%%but if you modify this file, please change the file name.
+%%
+%%The submit section begins here.
+%%\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+%%\ProvidesPackage{pmtitle}[2003/09/23 v1.0 (Psychometrika)]
+%%This is part of the Psychometrika LaTeX Package for Authors
+%%http://www.psychometrika.org
+
+\def\RepeatTitle#1{\bgroup\parindent0pt\begin{center}\normalsize\MakeUppercase{#1}\end{center}\par\egroup}
+
+\renewcommand{\markright}{\@empty}
+
+
+\global\pagestyle{myheadings}
+\markboth{\hspace{\fill}\today\hspace{\fill}\textsc{Psychometrika Submission}}{\textsc{Psychometrika Submission}\hspace{\fill}\today\hspace{\fill}}
+
+\def\RepeatTitle#1{\bgroup\parindent0pt\begin{center}\normalsize\MakeUppercase{#1}\end{center}\par\egroup}
