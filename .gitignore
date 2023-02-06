@@ -6,7 +6,6 @@ desktop.ini
 *.log
 *.bcf
 *.run.xml
-*.bbl
 *.blg
 *.synctex.gz
 *.pyc
