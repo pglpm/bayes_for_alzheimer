@@ -467,16 +467,17 @@ The way in which the machine assigns a probability to each \enquote{candidate} t
 
 The product of the two factors (i), (ii), normalized, yields the probability of each possible frequency distribution. An illustration of factors (i), (ii) at work is given in \fig~\ref{fig:inferring_distribution} for an example problem with two variates. The \ljm\ outputs the distribution of these final probabilities in the form of a large sample (the amount is decided by the user) drawn from it. In this form, all other marginal or conditional probabilities and averages of interest are calculated via Monte Carlo integration. This methodology has been successfully demonstrated for \ad\ with a smaller number of predictors \citep{antonianovillalobosetal2014}, and it is the same, but in nonparametric form, used in various inferences about the black holes M87 and Sagittarius~A\textsuperscript{*} \citep{eht2019,eht2022}. Further mathematical and computational details are given in appendix~\ref{sec:appendices}.
 
-We close this section emphasizing that the inferential steps of the machine, from input to output, consist of, \emph{literally}, no more than the reiterated application of just three inductive-logic rules:
+We close this section emphasizing that the inferential steps of the machine, from input to output, consist of, \emph{literally}, no more than the reiterated application of just four inductive-logic rules:
 \begin{equation*}
 \begin{gathered}
+\p(A \| A\mathbin{\text{and}}I) = 1\qquad
 \p(\textrm{not-}A \| I) = 1-\p(A\|I)\\
-\p(A\mathbin{\textrm{or}}B \|I) =
-\p(A \|I) + \p(B \|I) -
-\p(A\mathbin{\textrm{and}}B \|I) \\
 \p(A\mathbin{\textrm{and}}B \|I) =
 \p(A \| B\mathbin{\textrm{and}} I) \,
-\p(B \|I) \ .
+\p(B \|I) \qquad
+\p(A\mathbin{\textrm{or}}B \|I) =
+\p(A \|I) + \p(B \|I) -
+\p(A\mathbin{\textrm{and}}B \|I) \ .
 \end{gathered}
 \end{equation*}
 
