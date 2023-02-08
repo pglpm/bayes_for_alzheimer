@@ -200,7 +200,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %
 \newcommand*{\ad}{Alzheimer's Disease}
 \newcommand*{\mci}{Mild Cognitive Impairment}
-\newcommand*{\ljm}{Ledley-Jaynes machine}
+\newcommand*{\ljm}{Lusted-Jaynes machine}
 \newcommand*{\AD}{\textsc{ad}}
 \newcommand*{\MCI}{\textsc{mci}}
 \newcommand*{\adni}{\textsc{adni}}
@@ -214,7 +214,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 
 \begin{titlepage}
 
-  \title{Personalized prognosis \amp\ treatment\\ using Ledley-Jaynes machines:\\ An example study on  conversion\\ from Mild Cognitive Impairment to Alzheimer's Disease}
+  \title{Personalized prognosis \amp\ treatment\\ using Lusted-Jaynes machines:\\ An example study on  conversion\\ from Mild Cognitive Impairment to Alzheimer's Disease}
 
 %%Disable \markright for your submission,
 %%if it includes any author names.
@@ -256,7 +256,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \setcounter{page}{2}
 \vspace*{2\baselineskip}
 
-\RepeatTitle{Personalized prognosis \amp\ treatment using Ledley-Jaynes machines:\\ An example study on  conversion\\ from Mild Cognitive Impairment to Alzheimer's Disease}\vskip3pt
+\RepeatTitle{Personalized prognosis \amp\ treatment using Lusted-Jaynes machines:\\ An example study on  conversion\\ from Mild Cognitive Impairment to Alzheimer's Disease}\vskip3pt
 
 %\linespacing{1.5}
 %% ITEM 8 [See the "howto.tex" file.]
@@ -393,9 +393,9 @@ This section can be especially of interest to readers from Machine Learning and 
 The method to solve clinical decision-making problems such as the one of \sect\,\ref{sec:intro} %, taking into account individual differences among patients,
 is none other than Decision Theory: the combination of probability theory and utility theory. It integrates available clinical statistical data with each patient's unique combination of clinical results, auxiliary information, and treatment benefits, in a mathematical framework, completely determined by basic self-consistency requirements.\footnote{\citet[\chaps~13--14]{jaynes1994_r2003}; \citet{vonneumannetal1944_r1955,cox1946,savage1954_r1972,luceetal1957,raiffaetal1961_r2000,raiffa1968_r1970,lindley1971_r1988,kreps1988}.}
 
-Medicine has the distinction of having been one of the first fields to adopt Decision Theory, with the pioneering work by Ledley and Lusted \citep{ledleyetal1959,ledleyetal1959b,ledleyetal1960,lustedetal1960}, who also promoted its algorithmic implementation \citep[see especially \sect\,1-5 p.~21]{ledley1959,ledley1960}. Clinical decision-making is today explained and exemplified in brilliant textbooks for medical students and clinicians \citep{lusted1968,weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}. An outline is given in \sect\,\ref{sec:expected_utility_theory}.
+Medicine has the distinction of having been one of the first fields to adopt Decision Theory, with the pioneering work by Ledley -- who, incidentally, died of \ad\ \citep{shahetal2013} -- and Lusted \citep{ledleyetal1959,ledleyetal1959b,ledleyetal1960,lustedetal1960,lusted1967}, who also promoted its algorithmic implementation \citep[see especially \sect\,1-5 p.~21]{lusted1968,ledley1959,ledley1960}. Clinical decision-making is today explained and exemplified in brilliant textbooks for medical students and clinicians \citep{weinsteinetal1980,soxetal1988_r2013,huninketal2001_r2014}. An outline is given in \sect\,\ref{sec:expected_utility_theory}.
 
-The \enquote{\ljm} is an algorithmic implementation, as dreamed by Ledley and Lusted\footnote{\cf\ the Appendices in \citealt{lusted1968}.}, of the main calculations underlying the clinical decision-making process: from the comparison of a patient's specific predictors with the statistics offered by a clinical database, to the choice of optimal treatment. The name is a homage to Ledley -- who, incidentally, died of \ad\ \citep{shahetal2013} -- and to Jaynes \citeyearpar{jaynes1994_r2003}, who brilliantly explained the inductive logic underlying such a \enquote{robot}.
+The \enquote{\ljm} is an algorithmic implementation, as dreamed by Lusted and Ledley\footnote{\cf\ the Appendices in \citealt{lusted1968}.}, of the main calculations underlying the clinical decision-making process: from the comparison of a patient's specific predictors with the statistics offered by a clinical database, to the choice of optimal treatment. The name is a homage to Lusted  and to Jaynes \citeyearpar{jaynes1994_r2003}, who brilliantly explained the inductive logic underlying such a \enquote{robot}.
 
 
 Decision theory is also the normative foundation for the construction of an Artificial Intelligence agent capable of rational inference and decision making \citetext{\citealt[part~IV]{russelletal1995_r2022}; \citealt[\chaps~1--2, 13--14]{jaynes1994_r2003}}. The \ljm\ can therefore be seen as an \emph{ideal} machine-learning algorithm. It is \enquote{ideal} in the sense of being free from special modelling assumptions (this is why we do not call it a \enquote{model}) and from limitations of informational output which affect most common machine-learning algorithms; not \enquote{ideal} in the sense of being impracticable. Quite the opposite, the present work shows that this ideal machine-learning algorithm can today be used in a wide range of inference problems at insubstantial computational cost. % It is preferable to popular algorithms such as neural networks, random forests, support-vector machines, which are unsuited to clinical decision-making problems owing to their input and output limitations and underlying special assumptions. We discuss this matter further in \sect\,\ref{sec:discussion}.

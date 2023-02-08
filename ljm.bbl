@@ -1,4 +1,4 @@
-\begin{thebibliography}{123}
+\begin{thebibliography}{124}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -613,6 +613,14 @@ Luce, R.~D. and Raiffa, H. (1957).
 \newblock \emph{Games and Decisions: introduction and critical survey} (New
   York: Wiley)
 \bibAnnoteFile{luceetal1957}
+
+\bibitem[{Lusted(1967)}]{lusted1967}
+Lusted, L.~B. (1967).
+\newblock Logical analysis in medical diagnosis.
+\newblock \emph{Berkeley Symp.\ Math.\ Stat.\ Probab.} 5/IV, 903--923.
+\newblock
+  \url{https://projecteuclid.org/proceedings/berkeley-symposium-on-mathematical-statistics-and-probability/Proceedings-of-the-Fifth-Berkeley-Symposium-on-Mathematical-Statistics-and/Chapter/Logical-analysis-in-medical-diagnosis/bsmsp/1200513835}
+\bibAnnoteFile{lusted1967}
 
 \bibitem[{Lusted(1968)}]{lusted1968}
 Lusted, L.~B. (1968).
