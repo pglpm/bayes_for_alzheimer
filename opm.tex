@@ -270,8 +270,8 @@ The present work presents a statistically sound, rigorous, and model-free algori
 % theoretically optimal
 % supercalifragilisticexpialidocious
 % ...
--- called \enquote{\ljm} in homage to these two pioneers -- for use in personalized medicine.
-The algorithm is designed first to learn from a set of clinical data  with relevant predictors and predictands, and then to assist a clinician in the assessment of prognosis \amp\ treatment for new patients. It allows the clinician to input, for each new patient, additional patient-dependent clinical information, as well as patient-dependent information about benefits and drawbacks of available treatments. We apply the algorithm in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We show how the algorithm is theoretically optimal, and discuss some of its major advantages  for decision-making under risk, resource planning, imputation of missing values, assessing the prognostic importance of predictors, and further uses. 
+for use in personalized medicine.
+The algorithm is designed first to learn from a set of clinical data  with relevant predictors and predictands, and then to assist a clinician in the assessment of prognosis \amp\ treatment for new patients. It allows the clinician to input, for each new patient, additional patient-dependent clinical information, as well as patient-dependent information about benefits and drawbacks of available treatments. For this reason we call it an \enquote{\ljm}. We apply this machine in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We show how the algorithm is theoretically optimal, and discuss some of its major advantages  for decision-making under risk, resource planning, imputation of missing values, assessing the prognostic importance of predictors, and further uses. 
 
 
 \begin{keywords}
@@ -1073,10 +1073,10 @@ As mentioned in \sects~\ref{sec:intro_purposes} and \ref{sec:the_machine}, the \
 The imputation of missing data at prognostic time is useful for various kinds of sensitivity analysis regarding the current patient. Let us consider for instance the case of Curtis, whose value of Hippocampal Volume is missing (table~\ref{tab:patients_data}). His clinician thus wonders if the acquisition of this value would lead to a different and more beneficial treatment choice. The \ljm\ can answer this question by outputting the probability distribution of Curtis's expected utilities (table~\ref{tab:utilities_patients}) \emph{if the Hippocampal Volume had been known}. The result is that the expected utilities for the four treatments in Curtis's case must be within the following coverage intervals with 90\% probability:
 \begin{equation}
   \label{eq:possible_utilities_curtis}
-  \alpha\text{: 2.97\%--2.98\%}\qquad
-  \beta\text{: 4.78\%--4.79\%}\qquad
-  \gamma\text{: 5.89\%--5.90\%}\qquad
-  \bm{\delta}\textbf{: 7.02\%--7.03\%}
+  \alpha\text{: 2.97--2.98}\qquad
+  \beta\text{: 4.78--4.79}\qquad
+  \gamma\text{: 5.89--5.90}\qquad
+  \bm{\delta}\textbf{: 7.02--7.03}
 \end{equation}
 %          [,1]    [,2]    [,3]    [,4]
 % 0.5%  2.97225 4.78335 5.89167 7.01188
