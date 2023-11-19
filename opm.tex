@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-11-18T08:48:00+0200
-%% Last-Updated: 2023-11-18T18:51:19+0100
+%% Last-Updated: 2023-11-19T11:19:05+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -16,13 +16,13 @@
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
-\newcommand*{\firstdraft}{18 November 2023}
+\newcommand*{\firstdraft}{18 November 2022}
 \newcommand*{\firstpublished}{\firstdraft}
 \newcommand*{\updated}{\ifarxiv***\else\today\ [draft]\fi}
-\newcommand*{\propertitle}{\Large Personalized prognosis \amp\ treatment using an optimal predictor machine\\%
+\newcommand*{\propertitle}{\Large Personalized prognosis \amp\ treatment\\ using an optimal predictor machine\\%
 {\large An example study on  conversion\\ from Mild Cognitive Impairment to Alzheimer's Disease}%
 }% title uses LARGE; set Large for smaller
-\newcommand*{\pdftitle}{\propertitle}
+\newcommand*{\pdftitle}{Personalized prognosis \amp\ treatment using an optimal predictor machine: An example study on  conversion from Mild Cognitive Impairment to Alzheimer's Disease}
 \newcommand*{\headtitle}{Personalized prognosis \amp\ treatment}
 \newcommand*{\pdfauthor}{Porta Mana, Rye, Vik, Koci\'nski, Lundervold, Lundervold, Lundervold}
 \newcommand*{\headauthor}{Porta Mana \etal}
@@ -541,9 +541,9 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \counterwithout{section}{chapter}
 \setsecnumformat{\upshape\csname the#1\endcsname\quad}
 \setsecheadstyle{\large\bfseries\sffamily%
-\centering}
-\setsubsecheadstyle{\bfseries\sffamily%
 \raggedright}
+\setsubsecheadstyle{\bfseries\sffamily%
+\centering}
 %\setbeforesecskip{-1.5ex plus 1ex minus .2ex}% plus 1ex minus .2ex}
 %\setaftersecskip{1.3ex plus .2ex }% plus 1ex minus .2ex}
 %\setsubsubsecheadstyle{\bfseries\sffamily\slshape\raggedright}
@@ -684,7 +684,8 @@ Haukeland University Hospital, Norway%
 }%
 %%
 \\[1ex]%
-\hspace*{\stretch{1}}\parbox{0.3\linewidth}%\makebox[0pt][c]%
+\hspace*{\stretch{1}}%
+\parbox{0.3\linewidth}%\makebox[0pt][c]%
 {\protect\centering M. Koci\'nski  \href{https://orcid.org/0000-0001-7088-4823}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}%\\\footnotesize
 %Western Norway University of Applied Sciences%
 }%
@@ -960,7 +961,7 @@ The present work presents a statistically sound, rigorous, and model-free algori
 for use in personalized medicine.
 The algorithm is designed first to learn from a set of clinical data  with relevant predictors and predictands, and then to assist a clinician in the assessment of prognosis \amp\ treatment for new patients. It allows the clinician to input, for each new patient, additional patient-dependent clinical information, as well as patient-dependent information about benefits and drawbacks of available treatments. For this reason we call it an \enquote{\ljm}. We apply this machine in a realistic setting for clinical decision-making, incorporating clinical, environmental, imaging, and genetic data, using a data set of subjects suffering from mild cognitive impairment and \ad. We show how the algorithm is theoretically optimal, and discuss some of its major advantages  for decision-making under risk, resource planning, imputation of missing values, assessing the prognostic importance of predictors, and further uses. 
 %%
-\\\noindent\emph{\footnotesize Keywords: Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy}
+\\[\jot]\noindent\emph{\footnotesize Keywords: Clinical decision making, Utility theory, Probability theory, Artificial Intelligence, Machine Learning, Base-rate fallacy}
 % \amp\ Peer, this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
 % \noindent
@@ -991,7 +992,7 @@ The algorithm is designed first to learn from a set of clinical data  with relev
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Introduction: Personalized prognosis, treatment, and computer algorithms}
+\section{Introduction:\\Personalized prognosis, treatment, and computer algorithms}
 \label{sec:intro}
 
 \setcounter{subsection}{-1}
@@ -1022,10 +1023,10 @@ Considering the similarities and differences among these patients, which of the 
 
 In the example above, we said \enquote{in these tasks, the clinician will be helped by a computer algorithm}. The need for such computational help is clear from the vast amount of clinical statistical data and the large number of clinical predictors today available to clinicians. But how should such an assistive computer algorithm be designed in order to take fully into account patient differences?
 
-\begin{wrapfigure}{r}{0.25\linewidth}%
+\begin{wrapfigure}{r}{0.33\linewidth}%
 \vspace{-1em}%
 \includegraphics[width=\linewidth]{OABC.png}%
-\vspace{-2em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
+\vspace{-1em}% \caption{\mynotep{draft, needs better font sizes}}\label{fig:OABC}
 \end{wrapfigure}
 Although the example above concerns specifically \ad, the differences among patients
 described there apply more generally to most, if not all, clinical problems of prognosis and treatment. These differences can be broadly categorized as \enquote{difference in auxiliary or supplementary tests  and background information} (Olivia vs Ariel), \enquote{difference in benefit and availability of treatments} (Olivia vs Bianca), \enquote{difference in clinical predictors} (Olivia vs Curtis), as schematized in the side figure. Each of these difference categories can affect the clinician's final choice of optimal treatment. An assistive algorithm should therefore reflect these differences in its input, its output, or both:
@@ -1046,22 +1047,22 @@ The purpose of the present work is to present an assistive algorithm that meets 
 % This leaves us with "predictand", literally "what has to be predicted", which is exactly what AD-conversion is. This term is used in climate science and meteorology. It's good because it does not misleadingly imply that AD-conversion biologically depends or is a consequence of other variables.
 %%%%
 \footnote{literally \enquote{quantity to be predicted} or, more generally, inferred (\cf\ \emph{measurand} in metrology, \cites[2.3]{jcgm1997_r2012}). We find this term, used in meteorology and climate science, more precise and less obscure or misleading than \enquote{dependent variate}, \enquote{response variate}, \enquote{outcome variable}, or similar.}, and then assist a clinician in the assessment of prognosis \amp\ treatment for new patients. It offers these ten features:
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*.]
 \item\label{item:feat_variates} It can work with clinical predictors comprising any combination of categorical and one-dimensional (continuous, discrete ordinal, unbounded or bounded, uncensored or censored) variates. The predictand can also be any combination of categorical and one-dimensional variates.
 
 \item\label{item:feat_indifferentvariates} It treats predictor and predictand variates on equal footing, in the sense that the clinician can at any moment decide to infer some other variate given the rest.
 % at the risk of violating causality
 \item\label{item:feat_conditionalstats} It does not require that the current patient be considered in all respects as a member of the population underlying the learning dataset. The patient can be considered a member only conditionally on particular variate values.
-  
+
 \item\label{item:feat_inputs} It accepts three inputs:
-  \begin{enumerate}
+  \begin{enumerate}[label=(i\arabic*)]
   \item\label{item:input_predictors} the clinical-predictor values for the current patient;
   \item\label{item:input_aux} information about which predictand-predictor relationships learned from the dataset can be generalized to the current patient, and a prior prognostic probability representing auxiliary information;
   \item\label{item:input_treats} a set of treatment options and their benefits and losses for the current patient.
   \end{enumerate}
 
 \item\label{item:feat_outputs} It yields three basic outputs:
-  \begin{enumerate}
+  \begin{enumerate}[label=(o\arabic*)]
   \item\label{item:ouput_predictors} any prognostic probabilities or likelihoods about predictors and predictand desired by the clinician, given input~\ref{item:input_predictors};
   \item\label{item:output_aux} final prognostic probabilities, given inputs~\ref{item:input_predictors}--\ref{item:input_aux};
   \item\label{item:output_treats} optimal treatment, given inputs~\ref{item:input_predictors}--\ref{item:input_treats};
@@ -1146,28 +1147,29 @@ We consider a patient to be a member of some population of similar past, present
 
 Learning and generalization come into play because the frequency distribution for the population is unknown: we only have a sample from it, the \enquote{learning dataset}. Thus we can, at most, assign a probability to each possible frequency distribution. This is precisely what the \ljm\ does.
 
-The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is. The first factor is easily computed: it is the joint probability of the dataset if it were sampled from a population having that candidate frequency. The second factor is a prior probability expressing how reasonable that candidate is.\footnote{Some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting, given that we do not know the ground truth? (if we knew the latter we would not be making inferences.) Such judgement reveals that we have some \emph{preconceived} reasonable distributions in the back of our minds. The fit is either qualitatively compared with this reasonable reference; or it is compared with a known ground-truth, which was in turn chosen because of its similarity with the reasonable reference.} The most general natural requirement for \enquote{reasonableness} is that the candidate should have some degree of smoothness, owing to physical and biological reasons. This prior probability prevents overfitting and underfitting; in fact, it actually \emph{defines} mathematically what can be considered \enquote{overfitting} and \enquote{underfitting}. Figure~\ref{fig:prior_distribution} shows samples of what the machine has been programmed to consider \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. This choice can be altered by the clinician. Note that no frequency distributions are excluded; they are only given higher or lower probabilities.
+The way in which the machine assigns a probability to each \enquote{candidate} true frequency distribution is also intuitive. It combines two factors: (i) how well the candidate fits the sample dataset, (ii) how biologically or physically reasonable the candidate is. The first factor is easily computed: it is the joint probability of the dataset if it were sampled from a population having that candidate frequency. The second factor is a prior probability expressing how reasonable that candidate is. Some notion of \enquote{reasonable candidate} is unavoidable and clearly present in the construction or testing of any inference algorithm. How can we otherwise judge that an algorithm is over- or under-fitting, given that we do not know the ground truth? (if we knew the latter we would not be making inferences.) Such judgement reveals that we have some \emph{preconceived} reasonable distributions in the back of our minds. % The fit is either qualitatively compared with this reasonable reference; or it is compared with a known ground-truth, which was in turn chosen because of its similarity with the reasonable reference.
+A natural requirement for \enquote{reasonableness} is that the candidate should have some degree of smoothness, owing to physical and biological reasons. This prior probability prevents overfitting and underfitting; in fact, it actually \emph{defines} mathematically what can be considered \enquote{overfitting} and \enquote{underfitting}. Figure~\ref{fig:prior_distribution} shows samples of what the machine has been programmed to consider \enquote{reasonable candidates} for the population frequency distribution of a discrete variate. This choice can be altered by the clinician. Note that no frequency distributions are excluded; they are only given higher or lower probabilities.
 \begin{figure}[t]
   \centering%
     \includegraphics[width=0.75\linewidth]{priorexamples_AVDEL30MIN_neuro.pdf}
   \caption{Samples of initially probable candidates of the true population frequency distribution of an integer variate (for example \ravltdel\ or \ravltrec, to be introduced in \sect\,\ref{sec:dataset}).}\label{fig:prior_distribution}
 \end{figure}
 \begin{figure}[t]
-\makebox[0.49\linewidth]{\footnotesize dataset}%
+\makebox[0.495\linewidth]{\footnotesize dataset}%
 \hfill%
-\makebox[0.49\linewidth]{\footnotesize high-probability candidate}%
+\makebox[0.495\linewidth]{\footnotesize high-probability candidate}%
 \\[-1em]
-\includegraphics[width=0.49\linewidth]{exampledistr_sample_all.pdf}%
+\includegraphics[width=0.495\linewidth]{exampledistr_sample_all.pdf}%
 \hfill%
-\includegraphics[width=0.49\linewidth]{exampledistr_okish_all.pdf}%
+\includegraphics[width=0.495\linewidth]{exampledistr_okish_all.pdf}%
 \\
-\makebox[0.49\linewidth]{\footnotesize low-probability cand. (poor fit)}%
+\makebox[0.495\linewidth]{\footnotesize low-probability cand. (poor fit)}%
 \hfill%
-\makebox[0.49\linewidth]{\footnotesize low-probability cand. (unreasonable)}%
+\makebox[0.495\linewidth]{\footnotesize low-probability cand. (unreasonable)}%
 \\[-1em]
-  \includegraphics[width=0.49\linewidth]{exampledistr_unlikely_all.pdf}
+  \includegraphics[width=0.495\linewidth]{exampledistr_unlikely_all.pdf}
   \hfill
-  \includegraphics[width=0.49\linewidth]{exampledistr_strange_all.pdf}
+  \includegraphics[width=0.495\linewidth]{exampledistr_strange_all.pdf}
   \caption{Illustration of the two factors determining the final probability of a candidate population-frequency distribution represented as a \textcolor{bluepurple}{blue scatterplot}. \emph{Upper-left}: an example dataset (\textcolor{yellow}{yellow points}) with two variates. \emph{Upper-right}: candidate frequency distribution with high final probability; it fits the data and is reasonable. \emph{Lower-left}: candidate distribution with low final probability; it is reasonable but does not fit the data. \emph{Lower-right}: candidate distribution with low final probability; it fits the data but is not reasonable.}\label{fig:inferring_distribution}
 \end{figure}
 
@@ -1200,7 +1202,7 @@ We close this section emphasizing that the inferential steps of the machine, fro
     \begin{framed}
       \small
       \caption{Main inferential and decision-making steps}\label{tab:main_steps}
-      \begin{enumerate}[label=(\arabic*),itemsep=1ex,itemindent=3em]
+      \begin{enumerate}[para,label=(\arabic*),itemsep=1ex,itemindent=3em]
         \setcounter{enumi}{-1}
       \item\label{item:learn} Find or build an appropriate dataset of clinical cases comprising values of the predictors and predictand of interest. Datapoints with partially missing values are allowed.
 
@@ -1250,21 +1252,21 @@ The \ljm\ took less than five hours (on a 16-core Intel Core i9-12900K CPU) to c
 Some results can already be visualized after this inference. Figure~\ref{fig:marginal_pop_distributions} shows, on the left, the inferred distributions of \ravltdel, \ravltimm, \gds, and hippocampal volume for the subpopulation of patients that will convert to \ad\ (\textcolor{red}{red}) and the subpopulation that will remain with stable \mci\ (\textcolor{blue}{blue}). On the right, the inferred frequency of conversion in the full population is plotted (\textcolor{grey}{grey}), conditional on the same predictors. The thin curves are 100 samples of highly probable population-frequency distributions; the thicker lines are their means, which are also the predictive conditional probabilities.
 \begin{figure}
     \centering%
-    \includegraphics[width=0.43\linewidth]{population_distr_scat_RAVLT-del.pdf}%
-    \qquad%
-    \includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-del.pdf}%
+    \includegraphics[width=0.495\linewidth]{population_distr_scat_RAVLT-del.pdf}%
+    \hspace{\stretch{1}}%
+    \includegraphics[width=0.495\linewidth]{prob_conversion_RAVLT-del.pdf}%
     \\
-    \includegraphics[width=0.43\linewidth]{population_distr_scat_RAVLT-imm.pdf}%
-    \qquad%
-    \includegraphics[width=0.43\linewidth]{prob_conversion_RAVLT-imm.pdf}%
+    \includegraphics[width=0.495\linewidth]{population_distr_scat_RAVLT-imm.pdf}%
+    \hspace{\stretch{1}}%
+    \includegraphics[width=0.495\linewidth]{prob_conversion_RAVLT-imm.pdf}%
     \\
-    \includegraphics[width=0.43\linewidth]{population_distr_scat_GDS.pdf}%
-    \qquad%
-    \includegraphics[width=0.43\linewidth]{prob_conversion_GDS.pdf}%
+    \includegraphics[width=0.495\linewidth]{population_distr_scat_GDS.pdf}%
+    \hspace{\stretch{1}}%
+    \includegraphics[width=0.495\linewidth]{prob_conversion_GDS.pdf}%
     \\
-    \includegraphics[width=0.43\linewidth]{population_distr_scat_HV.pdf}%
-    \qquad%
-    \includegraphics[width=0.43\linewidth]{prob_conversion_HV.pdf}%
+    \includegraphics[width=0.495\linewidth]{population_distr_scat_HV.pdf}%
+    \hspace{\stretch{1}}%
+    \includegraphics[width=0.495\linewidth]{prob_conversion_HV.pdf}%
     \caption{Inferred distributions of some predictor variates, for the subpopulation of patients that will convert to \ad\ (\textcolor{redpurple}{red dashed}) and the subpopulation with stable \mci\ (\textcolor{bluepurple}{solid blue}).}\label{fig:marginal_pop_distributions}
 \end{figure}%
 %
@@ -1410,7 +1412,7 @@ There is no sharp separation between these two items. The presence of additional
 
 \vbox{\setlength{\intextsep}{0ex}% with wrapfigure
 \setlength{\columnsep}{1ex}% with wrapfigure
-\begin{wrapfigure}{r}{0.25\linewidth}% with wrapfigure
+\begin{wrapfigure}{r}{0.33\linewidth}% with wrapfigure
 %\vspace{-1ex}%
 \includegraphics[width=\linewidth]{baseratefallacy3.png}%
 % \includegraphics[width=\linewidth]{baseratetrials.png}\\[\jot]
@@ -1418,9 +1420,9 @@ There is no sharp separation between these two items. The presence of additional
 \end{wrapfigure}%
 Let us explain with a familiar example why particular associations cannot be generalized. Most students of medicine
 %medicine students 
-learn about the \emph{base-rate fallacy} \citep{barhillel1980,jennyetal2018,sprengeretal2021,matthews1996}. Consider a large set of clinical trials, illustrated in the upper table on the side, where each dot represents, say, 10\,000 patients. In this sample dataset it is found that, among patients having a particular value \enquote{+} of some predictors (left column), 71.4\% of them (or 5/7, upper square) eventually developed a disease. The fallacy lies in judging that a new real patient from the full population, who has predictor value \enquote{+}, also has a 71.4\% probability of developing that disease. In fact, \emph{this probability will in general be different}. In our example, it is 33.3\% (5/15), as can be seen in the lower table illustrating the full population. This difference would be noticed as soon as the inappropriate probability was used to make prognoses in the full population. A similar situation happens for the predictor value \enquote{$-$}.
+learn about the \emph{base-rate fallacy} \citep{barhillel1980,jennyetal2018,sprengeretal2021,matthews1996}. Consider a large set of clinical trials, illustrated in the upper table on the side, where each dot represents, say, 10\,000 trial patients. In this sample dataset it is found that, among patients having a particular value \enquote{+} of some predictors (left column), $5/7 = 71.4\%$ of them (upper square) eventually developed a disease. The fallacy lies in judging that a new patient from the full population, who also has predictor value \enquote{+}, also has a 71.4\% probability of developing that disease. In fact, \emph{this probability will in general be different}. In our example, it is $5/15=33.3\%$, as can be seen in the lower table illustrating the full population. This difference would be noticed as soon as the inappropriate probability was used to make prognoses in the full population. A similar situation happens for the other predictor value \enquote{$-$}.
 
-There is a discrepancy in the conditional frequencies of predictand given predictors, between the sample dataset and the full population, because the proportion of positive vs negative disease cases in the latter has some value, 16.7\%/83.3\% in our example, whereas the samples for the trials (dashed line in the lower table) were hand-chosen so as to have a 50\%/50\% proportion. This sampling procedure is called \enquote{class balancing} in machine learning \citep{provost2000,drummondetal2005,weissetal2003}. More generally this discrepancy can appear whenever a population and a sample dataset from it do not have the same frequency distribution for the predictand. In this case, we cannot rely on the probabilities of \enquote{predictand given predictors} obtained from the sample dataset, which we symbolically write as}
+The discrepancy in the conditional frequencies of predictand given predictors, between the sample dataset and the full population, arises because the proportion of positive vs negative disease cases in the latter has some value, 16.7\%/83.3\% in our example, whereas the samples for the trials (dashed line in the lower table) were hand-chosen so as to have a 50\%/50\% proportion. This sampling procedure is called \enquote{class balancing} in machine learning \citep{provost2000,drummondetal2005,weissetal2003}. More generally this discrepancy can appear whenever a population and a sample dataset from it do not have the same frequency distribution for the predictand. In this case we cannot rely on the probabilities of \enquote{predictand given predictors} obtained from the sample dataset, which we symbolically write as}
 \begin{equation}
   \p(\predictand \| \predictors, \dataset)
 \end{equation}
@@ -1429,7 +1431,7 @@ There is a discrepancy in the conditional frequencies of predictand given predic
 % \mynotew{I (Alexander) suggest keeping it as it is here but introducing X,Y,D before the equations below.}\\
 % \mynotew{[Luca]: agreed! :)}
 
-A little counting in the side figure reveals, however, that other frequencies may be relied upon. Consider the full population. Among all patients who developed the disease, 83.3\% of them (or 5/6, upper row) had the predictor value \enquote{+}, while among those who did not develop the disease, 33.3\% (or 1/3, lower row) had the predictor value \enquote{$-$}. \emph{And these frequencies are the same in the sample dataset}. These frequencies from the clinical trials can therefore be used to make a prognosis using Bayes's theorem. For brevity, denote the predictors by $X$, the predictand by $Y$, the dataset or trials by $D$, and the full-population base rate by $B$. Bayes's theorem yields
+A little counting in the side figure reveals, however, that other frequencies may be relied upon. Consider the full population. Among all patients who developed the disease, $5/6=83.3\%$ of them (upper row) had predictor value \enquote{+}, while among those who did not develop the disease, $1/3=33.3\%$ (lower row) had predictor value \enquote{$-$}. \emph{And these frequencies are the same in the sample dataset}. These frequencies from the clinical trials can therefore be used to make a prognosis about the full population, using Bayes's theorem. For brevity, denote the predictors by $X$, the predictand by $Y$, the dataset or trials by $D$, and the full-population base rate by $B$. Bayes's theorem yields
 \begin{equation}
   \label{eq:base-rate_correction}
   \p(Y \| X, D, B) =
@@ -1466,12 +1468,10 @@ which is indeed the correct full-population frequency.
 If the samples of the clinical trials had been chosen with the same frequencies as the full population (no \enquote{class balancing}), then the probability $\p(\predictand \| \predictors, \dataset)$ from the dataset would be the appropriate one to use. But the probabilities $\p(\predictors \| \predictand, \dataset)$ together with Bayes's theorem as in \eqn~\eqref{eq:base-rate_correction} would also lead to exactly the same probability. We thus see that \emph{using the probabilities}
 \[\p(\predictors \| \predictand, \dataset)\]
 \emph{from the dataset is preferable to using} $\p(\predictand \| \predictors, \dataset)$. The former yield the same results as the latter when use of the latter is appropriate, and allow us to apply corrections when use of the latter is inappropriate. The superiority of using $\p(\predictors \| \predictand, \dataset)$ probabilities (called \enquote{generative} in machine learning, see \eg\ \autocites[\sect\,8.6]{murphy2012}) is illustrated with a toy example in table~\ref{tab:superiority_predictors_given_predictand}.
-\begin{table}
+\begin{table}\small
   \begin{framed}
-  \small
   \caption{superiority of the \enquote{predictors$\pmb{\|}$predictand} (or \enquote{generative}) approach}
   \label{tab:superiority_predictors_given_predictand}
-  \mbox{}\\
   We split our learning dataset into two subsets:
     \begin{itemize}[itemindent=3em]
     \item One with 361 subjects and a ratio of 29.9\%/70.1\% of subjects with $\cad\mo\yes$ vs $\cad\mo\no$.
@@ -1526,18 +1526,18 @@ The final probabilities of conversion to \ad\ for our four patients are reported
 \medskip
 \begin{table}
   \centering
-  \begin{tabular}{lcccc}
+  \begin{tabularx}{\linewidth}{Xcccc}
     \hline\\[-1.5\jot]
     &{\small Olivia} &{\small Ariel} &{\small Bianca} &{\small Curtis}
     \\[\jot]
-    {\small initial probability\; $\p(\cad\mo\yes \| \auxinfo)$}&
+    \parbox{7em}{\small initial probability\\$\scriptstyle\p(\cad\mo\yes \| \auxinfo)$}&
     0.463&0.65&0.463&0.463
-    \\[\jot]
-    {\small final probability\; $\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$}&
+    \\[3\jot]
+    \parbox{7em}{\small final probability\\$\scriptstyle\p(\cad\mo\yes \| \predictors, \dataset, \auxinfo)$}&
     0.302&0.47&0.302&0.703
     \\[\jot]
     \hline
-  \end{tabular}
+  \end{tabularx}
     \caption{Final probabilities of conversion computed from dataset and auxiliary information}\label{tab:posterior_patients}
 \end{table}
 
@@ -1677,12 +1677,13 @@ $
   \caption{Utility matrices, expected utilities, and optimal treatments for our four patients}\label{tab:utilities_patients}
 \end{table}
 
-The probabilities for the two medical conditions are those found in the previous subsection, table~\ref{tab:posterior_patients}. For brevity, we denote just by $\p(\cad)$ the probability of conversion given a patient's predictor values, and by $\p(\smci)\equiv 1- \p(\cad)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For example, for Olivia the expected utility of treatment $\beta$ is
+The probabilities for the two medical conditions are those found in the previous subsection, table~\ref{tab:posterior_patients}. For brevity, we denote just by $\p(\cad)$ the probability of conversion given a patient's predictor values, and by $\p(\smci)\equiv 1- \p(\cad)$ the complementary probability of stable \mci, given the same predictor values. The expected utilities of each treatment for each patient can then be easily computed. For instance, for Olivia the expected utility of treatment $\beta$ is
 \begin{equation}
   \label{eq:utility_olivia_example}
   \begin{split}
   \eU_{\beta} &=
-  9 \cdot \p(\cad\mo\no \| \predictors,\dataset,\auxinfo) +
+  9 \cdot \p(\cad\mo\no \| \predictors,\dataset,\auxinfo) +{}
+  \\&\qquad
   3 \cdot \p(\cad\mo\yes \| \predictors,\dataset,\auxinfo)
   \\&=  9 \cdot (1-0.463) + 3 \cdot 0.463 = 7.19
 \end{split}
@@ -1751,7 +1752,7 @@ As discussed in \sect\,\ref{sec:the_machine}, the output of the \ljm\ concerns t
 
 Let us ask the following question: if the learning dataset were representative of the full population, then how often, in the long run, would a clinician prognose a conversion to \ad\ with probability between 0\%--2\%, or 2\%--4\%, and so on, with 50 bins up to 98\%--100\%?
 
-The \ljm\ can answer this question probabilistically; the answer is plotted in \fig~\ref{fig:progn_probs}. Note that the calculation assumes that the \ljm\ will not be regularly updated with new patients' data (the calculation could also be made with the opposite assumption). The \textcolor{blue}{light-blue bands} are 95\% uncertainty coverage intervals \footnote{for terminology see \cites[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \autocites[pp.~165--166]{pratt1961}{jaynes1976}[\sect\,37.3]{mackay1995_r2005}}; this uncertainty comes from the fact that we are not certain about the full-population frequencies. We see that it is very improbable that many patients will be prognosed with probabilities around 30\%, smaller than 5\%, or larger than 75\%. The full population is likely to be grouped into three to five \enquote{conversion-probability clusters}, as evident from the peaks. %Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
+The \ljm\ can answer this question probabilistically; the answer is plotted in \fig~\ref{fig:progn_probs}. Note that the calculation assumes that the \ljm\ will not be regularly updated with new patients' data (the calculation could also be made with the opposite assumption). The \textcolor{blue}{light-blue bands} are 95\% uncertainty coverage intervals \footnote{for terminology see \cites[C.2.30]{jcgm1993_r2008}. A $p$\% coverage interval or credible interval is an interval containing the true value with $p$\% probability. Note that it is different from a \enquote{confidence interval}, which cannot be interpreted in such a simple way \autocites[pp.~165--166]{pratt1961}{jaynes1976}[\sect\,37.3]{mackay1995_r2005}.}; this uncertainty comes from the fact that we are not certain about the full-population frequencies. We see that it is very improbable that many patients will be prognosed with probabilities around 30\%, smaller than 5\%, or larger than 75\%. The full population is likely to be grouped into three to five \enquote{conversion-probability clusters}, as evident from the peaks. %Note that there are correlations, which cannot be shown in this kind of plot, between the fractions at different bins.
 \begin{figure}
   \centering%
 %  \includegraphics[width=0.5\linewidth]{distribution_prognostic_probs.pdf}%
@@ -1840,20 +1841,21 @@ The answers to these questions are reported in \fig~\ref{fig:mutual_info}, order
 \begin{figure}
 %\begin{subfigure}[t]\setcounter{subfigure}{0}%
   \centering%
-\begin{minipage}[c]{\linewidth}
-\includegraphics[width=0.494\linewidth]{accuracy_ranks.pdf}%
+\includegraphics[width=0.495\linewidth]{accuracy_ranks.pdf}%
 \hfill%
-\includegraphics[width=0.494\linewidth]{MI_ranks.pdf}%
+\includegraphics[width=0.495\linewidth]{MI_ranks.pdf}%
 \caption{Expected accuracy for the next new patient (left), and mutual information (right), of several sets of predictors for the prognosis of conversion to \ad. Each graph has been vertically ordered according to increasing values; the two rankings agree within the respective uncertainties. The \texttt{all} predictor set is mathematically guaranteed to be optimal according to both metrics and has therefore been ranked first. Bars show the uncertainty interval ($\pm$~two standard deviations).}\label{fig:mutual_info}
-\end{minipage}\\
+\end{figure}%
 %\begin{minipage}[t]{\linewidth}
 %  \centering%
-\includegraphics[width=0.49\linewidth]{curtis_prob_conversion_HV.pdf}%
-\begin{minipage}[b]{0.49\linewidth}\caption{Probability of $\cad\mo\yes$ for Curtis, given Curtis's known predictors and different possible values of his unknown Hippocampal Volume. The thinner curves are 100 probable samples of how this probability would change with a larger learning dataset. Compare this figure with \fig~\ref{fig:marginal_pop_distributions}, p.~\pageref{fig:marginal_pop_distributions}, bottom-right.}\label{fig:curtis_prediction}\vspace{3em}\mbox{}
-\end{minipage}
+\begin{figure}\centering
+\includegraphics[width=0.75\linewidth]{curtis_prob_conversion_HV.pdf}%
+%\begin{minipage}[b]{0.49\linewidth}
+  \caption{Probability of $\cad\mo\yes$ for Curtis, given Curtis's known predictors and different possible values of his unknown Hippocampal Volume. The thinner curves are 100 probable samples of how this probability would change with a larger learning dataset. Compare this figure with \fig~\ref{fig:marginal_pop_distributions}, p.~\pageref{fig:marginal_pop_distributions}, bottom-right.}\label{fig:curtis_prediction}\vspace{3em}\mbox{}
 %\end{minipage}
+\end{figure}
+% \end{minipage}
 %\end{subfigure}%
-\end{figure}%
 
 
 The plots reveal several findings, \emph{valid within the population selected for the dataset}, which can be compared with the analysis in \autocites[see especially Fig.~3 and Table~3]{ryeetal2022}:
