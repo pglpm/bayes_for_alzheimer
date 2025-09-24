@@ -308,7 +308,7 @@
       \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
       \field{note}{\doi{10.1093/acprof:oso/9780199694587.001.0001}}
-      \field{title}{Bayesian Statistics 9\subtitleproc{: Proceedings of the Ninth Valencia International Meeting, June 3--8, 2010}}
+      \field{title}{Bayesian Statistics~9\subtitleproc{: Proceedings of the Ninth Valencia International Meeting, June 3--8, 2010}}
       \field{year}{2011}
       \keyw{Dirichlet-process mixture,Bayesian nonparametrics}
     \endentry
@@ -460,6 +460,41 @@
       \field{pages}{167\bibrangedash 174}
       \range{pages}{8}
       \keyw{Markov-chain Monte Carlo,Bayesian probability theory}
+    \endentry
+    \entry{charlesworthetal2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=db5fc3c5276b82c2a3e2d346c02b05a7}{%
+           family={Charlesworth},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=05ee8459f6eaae483be3e54783194099}{%
+           family={Pandit},
+           familyi={P\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{fullhash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{bibnamehash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{authorbibnamehash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{authornamehash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{authorfullhash}{682621c5c200c0ba26af9c630bbc6629}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Anaesthesia}
+      \field{note}{\doi{10.1111/anae.15028}}
+      \field{number}{10}
+      \field{title}{Negative outcomes in critical care trials: applying the wrong statistics -- or asking the wrong questions?}
+      \field{volume}{75}
+      \field{year}{2020}
+      \field{pages}{1284\bibrangedash 1288}
+      \range{pages}{5}
+      \keyw{p-values,null-hypothesis significance testing,Bayesian probability theory}
     \endentry
     \entry{cherry1961}{book}{}
       \name{editor}{1}{}{%
@@ -703,6 +738,36 @@
       \field{title}{Bayesian Theory and Applications}
       \field{year}{2013}
       \keyw{Bayesian probability theory,exchangeability,induction}
+    \endentry
+    \entry{davidoff1999}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a88b04f4bfb0113a9ab9049dab7f4c36}{%
+           family={Davidoff},
+           familyi={D\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{fullhash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{bibnamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{authorbibnamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{authornamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{authorfullhash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ann.\ Intern.\ Med.}
+      \field{note}{\url{http://www.perfendo.org/docs/bayesprobability/5.3_goodmanannintmed99all.pdf}. See \citebi{goodman1999,sulmasyetal2000}}
+      \field{number}{12}
+      \field{title}{Standing Statistics Right Side Up}
+      \field{volume}{130}
+      \field{year}{1999}
+      \field{pages}{1019\bibrangedash 1021}
+      \range{pages}{3}
+      \keyw{Bayes factor,model comparison,Bayesian probability theory}
     \endentry
     \entry{dawid2013}{incollection}{}
       \name{author}{1}{}{%
@@ -1165,7 +1230,7 @@
       \field{note}{\osfeprint{7rz8t}, \arxiveprint{2302.12006}}
       \field{title}{Does the evaluation stand up to evaluation?: {A} first-principle approach to the evaluation of classifiers}
       \field{year}{2022}
-      \keyw{Bayesian probability theory,machine learning,decision theory}
+      \keyw{Bayesian probability theory,machine learning,decision theory,area under the curve}
     \endentry
     \entry{dyrlandetal2022b}{misc}{}
       \name{author}{3}{}{%
@@ -1644,6 +1709,36 @@
       \field{pages}{94\bibrangedash 105}
       \range{pages}{12}
       \keyw{information theory,Shannon entropy,Bayes factor,Bayesian probability theory,random coding}
+    \endentry
+    \entry{goodman1999}{article}{}
+      \name{author}{1}{}{%
+        {{hash=942e9fae4198598f9ad5d703ebd0f333}{%
+           family={Goodman},
+           familyi={G\bibinitperiod},
+           given={Steven\bibnamedelima N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{fullhash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{bibnamehash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{authorbibnamehash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{authornamehash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{authorfullhash}{942e9fae4198598f9ad5d703ebd0f333}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ann.\ Intern.\ Med.}
+      \field{note}{\doi{10.7326/0003-4819-130-12-199906150-00008}, \doi{10.7326/0003-4819-130-12-199906150-00019}. \url{http://www.perfendo.org/docs/bayesprobability/5.3_goodmanannintmed99all.pdf}. See also comments and reply in \citebi{davidoff1999,sulmasyetal2000}}
+      \field{number}{12}
+      \field{title}{Toward Evidence-Based Medical Statistics. 1: {The} {$P$} Value Fallacy. 2: {The} {Bayes} factor}
+      \field{volume}{130}
+      \field{year}{1999}
+      \field{pages}{995\bibrangedash 1013}
+      \range{pages}{19}
+      \keyw{Bayes factor,model comparison,Bayesian probability theory}
     \endentry
     \entry{greenlandetal2016}{article}{}
       \name{author}{30}{}{%
@@ -2189,8 +2284,10 @@
       \field{labeltitlesource}{title}
       \field{edition}{repr.}
       \field{note}{Edited by R. D. Rosenkrantz. First publ.\ 1983}
+      \field{origyear}{1983}
       \field{title}{E. T. Jaynes: Papers on Probability, Statistics and Statistical Physics}
       \field{year}{1989}
+      \field{origdateera}{ce}
     \endentry
     \entry{jaynes1994_r2003}{book}{}
       \name{author}{1}{}{%
@@ -2927,6 +3024,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{\url{https://archive.org/details/img-1907_202109}}
       \field{title}{Games and Decisions: introduction and critical survey}
       \field{year}{1957}
       \keyw{game theory,decision theory}
@@ -4086,8 +4184,8 @@
            familyi={V\bibinitperiod},
            given={Alexandra},
            giveni={A\bibinitperiod}}}%
-        {{hash=7ffc7bdc82fbb443bb8fa8bd2ae5dccc}{%
-           family={Kocinski},
+        {{hash=066f01884eae2d3cba29e785261f9bcd}{%
+           family={Kociński},
            familyi={K\bibinitperiod},
            given={Marek},
            giveni={M\bibinitperiod}}}%
@@ -4103,11 +4201,11 @@
            giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
       \strng{namehash}{6969320503ac8e72d9932fee49a7eea1}
-      \strng{fullhash}{77348485d12e7c2b7fed74f3d7b1589e}
-      \strng{bibnamehash}{77348485d12e7c2b7fed74f3d7b1589e}
-      \strng{authorbibnamehash}{77348485d12e7c2b7fed74f3d7b1589e}
+      \strng{fullhash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
+      \strng{bibnamehash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
+      \strng{authorbibnamehash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \strng{authornamehash}{6969320503ac8e72d9932fee49a7eea1}
-      \strng{authorfullhash}{77348485d12e7c2b7fed74f3d7b1589e}
+      \strng{authorfullhash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4343,6 +4441,36 @@
       \range{pages}{79}
       \keyw{Shannon entropy,mutual information}
     \endentry
+    \entry{sidebotham2020}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5d48fa920114f3ee4ae3ba67c4bc41b0}{%
+           family={Sidebotham},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{fullhash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{bibnamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{authorbibnamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{authornamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{authorfullhash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Anaesthesia}
+      \field{note}{\doi{10.1111/anae.15029}. See also accompanying editorial \citebi{charlesworthetal2020}}
+      \field{number}{10}
+      \field{title}{Are most randomised trials in anaesthesia and critical care wrong? An analysis using {Bayes'} theorem}
+      \field{volume}{75}
+      \field{year}{2020}
+      \field{pages}{1386\bibrangedash 1393}
+      \range{pages}{8}
+      \keyw{p-values,null-hypothesis significance testing,Bayesian probability theory}
+    \endentry
     \entry{smithetal2006}{article}{}
       \name{author}{2}{}{%
         {{hash=8b47eb5ad45408b648d676ed21620290}{%
@@ -4512,6 +4640,51 @@
       \field{title}{Simpson's Paradox}
       \field{year}{2021}
       \keyw{base-rate fallacy,probability theory,exchangeability,confounders}
+    \endentry
+    \entry{sulmasyetal2000}{article}{}
+      \name{author}{4}{}{%
+        {{hash=32a80c8e58ef9299b73609bb6b754987}{%
+           family={Sulmasy},
+           familyi={S\bibinitperiod},
+           given={Daniel\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=78c922f6dd22e16bb1adfe467c75eafc}{%
+           family={Morgan},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=39252f7cef39b183906efd07af9911de}{%
+           family={Caubet},
+           familyi={C\bibinitperiod},
+           given={Jean-Francois},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+        {{hash=623964142dd26e1ec71c514873923658}{%
+           family={Goodman},
+           familyi={G\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b428df618403dfa2de16e47a7268314d}
+      \strng{fullhash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \strng{bibnamehash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \strng{authorbibnamehash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \strng{authornamehash}{b428df618403dfa2de16e47a7268314d}
+      \strng{authorfullhash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ann.\ Intern.\ Med.}
+      \field{note}{See \citebi{goodman1999,davidoff1999}}
+      \field{number}{6}
+      \field{title}{Toward Evidence-Based Statistics {[}comments and response{]}}
+      \field{volume}{132}
+      \field{year}{2000}
+      \field{pages}{507\bibrangedash 508}
+      \range{pages}{2}
+      \keyw{Bayes factor,model comparison,Bayesian probability theory}
     \endentry
     \entry{tempetal2021}{article}{}
       \name{author}{7}{}{%
