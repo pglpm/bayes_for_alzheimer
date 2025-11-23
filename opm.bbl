@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{ny/global//global/global}
-    \entry{alvarezmelisetal2015}{misc}{}
+  \datalist[entry]{ny/global//global/global/global}
+    \entry{alvarezmelisetal2015}{misc}{}{}
       \name{author}{2}{}{%
         {{hash=a3427bc5741ffeca269dd9c3288d7ee2}{%
            family={Alvarez-Melis},
@@ -34,22 +34,24 @@
       }
       \strng{namehash}{7e5eeb5f078e9d39988669db3892ca22}
       \strng{fullhash}{7e5eeb5f078e9d39988669db3892ca22}
+      \strng{fullhashraw}{7e5eeb5f078e9d39988669db3892ca22}
       \strng{bibnamehash}{7e5eeb5f078e9d39988669db3892ca22}
       \strng{authorbibnamehash}{7e5eeb5f078e9d39988669db3892ca22}
       \strng{authornamehash}{7e5eeb5f078e9d39988669db3892ca22}
       \strng{authorfullhash}{7e5eeb5f078e9d39988669db3892ca22}
+      \strng{authorfullhashraw}{7e5eeb5f078e9d39988669db3892ca22}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{\arxiveprint{1512.01229}. Transl.\ of \citebi{definetti1929}}
+      \field{note}{\arxivdoi{10.48550/arXiv.1512.01229}. Transl.\ of \citebi{definetti1929}}
       \field{title}{A translation of ``{The} characteristic function of a random phenomenon'' by {Bruno de Finetti}}
       \field{year}{2015}
       \keyw{characteristic function of a probabilistic phenomenon,probability theory,exchangeability}
     \endentry
-    \entry{antonianovillalobosetal2014}{article}{}
+    \entry{antonianovillalobosetal2014}{article}{}{}
       \name{author}{3}{}{%
         {{hash=5bfc6ff8632a3718185636549759039f}{%
            family={Antoniano-Villalobos},
@@ -69,10 +71,12 @@
       }
       \strng{namehash}{65d1b3af914aab09c39b04dd6b1fcb6c}
       \strng{fullhash}{fddb5dedee7822ddafb9dd5ad7a056ca}
+      \strng{fullhashraw}{fddb5dedee7822ddafb9dd5ad7a056ca}
       \strng{bibnamehash}{fddb5dedee7822ddafb9dd5ad7a056ca}
       \strng{authorbibnamehash}{fddb5dedee7822ddafb9dd5ad7a056ca}
       \strng{authornamehash}{65d1b3af914aab09c39b04dd6b1fcb6c}
       \strng{authorfullhash}{fddb5dedee7822ddafb9dd5ad7a056ca}
+      \strng{authorfullhashraw}{fddb5dedee7822ddafb9dd5ad7a056ca}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -87,9 +91,9 @@
       \field{year}{2014}
       \field{pages}{477\bibrangedash 490}
       \range{pages}{14}
-      \keyw{nonparametric Bayesian probability theory,dependent Dirichlet-process}
+      \keyw{nonparametric Bayes,dependent Dirichlet-process}
     \endentry
-    \entry{arnborgetal2001}{article}{}
+    \entry{arnborgetal2001}{article}{}{}
       \name{author}{2}{}{%
         {{hash=ee024373913b97d9e0a1f07883a4dd56}{%
            family={Arnborg},
@@ -104,10 +108,12 @@
       }
       \strng{namehash}{4cf7c0044e0284d5fd4df3857fa03248}
       \strng{fullhash}{4cf7c0044e0284d5fd4df3857fa03248}
+      \strng{fullhashraw}{4cf7c0044e0284d5fd4df3857fa03248}
       \strng{bibnamehash}{4cf7c0044e0284d5fd4df3857fa03248}
       \strng{authorbibnamehash}{4cf7c0044e0284d5fd4df3857fa03248}
       \strng{authornamehash}{4cf7c0044e0284d5fd4df3857fa03248}
       \strng{authorfullhash}{4cf7c0044e0284d5fd4df3857fa03248}
+      \strng{authorfullhashraw}{4cf7c0044e0284d5fd4df3857fa03248}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -121,9 +127,9 @@
       \field{year}{2001}
       \field{pages}{61\bibrangedash 71}
       \range{pages}{11}
-      \keyw{Bayesian probability theory,Cox's theorem,probability logic}
+      \keyw{Bayes,Cox's theorem,probability logic}
     \endentry
-    \entry{asa2016}{article}{}
+    \entry{asa2016}{article}{}{}
       \name{author}{1}{}{%
         {{hash=b43846cc94ed98208f2bdaafb9c7dbd3}{%
            family={{\textsc{asa}}},
@@ -131,10 +137,12 @@
       }
       \strng{namehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{fullhash}{b43846cc94ed98208f2bdaafb9c7dbd3}
+      \strng{fullhashraw}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{bibnamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authorbibnamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authornamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authorfullhash}{b43846cc94ed98208f2bdaafb9c7dbd3}
+      \strng{authorfullhashraw}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \field{extraname}{1}
       \field{sortinit}{a}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
@@ -150,9 +158,9 @@
       \field{year}{2016}
       \field{pages}{131\bibrangedash 133}
       \range{pages}{3}
-      \keyw{Bayesian probability theory,fallacies of frequentist statistics}
+      \keyw{Bayes,fallacies of frequentist statistics}
     \endentry
-    \entry{asa2019}{article}{}
+    \entry{asa2019}{article}{}{}
       \name{author}{1}{}{%
         {{hash=b43846cc94ed98208f2bdaafb9c7dbd3}{%
            family={{\textsc{asa}}},
@@ -160,10 +168,12 @@
       }
       \strng{namehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{fullhash}{b43846cc94ed98208f2bdaafb9c7dbd3}
+      \strng{fullhashraw}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{bibnamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authorbibnamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authornamehash}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \strng{authorfullhash}{b43846cc94ed98208f2bdaafb9c7dbd3}
+      \strng{authorfullhashraw}{b43846cc94ed98208f2bdaafb9c7dbd3}
       \field{extraname}{2}
       \field{sortinit}{a}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
@@ -181,7 +191,7 @@
       \range{pages}{19}
       \keyw{$p$-values,null-hypothesis testing}
     \endentry
-    \entry{atkinsonetal1964}{article}{}
+    \entry{atkinsonetal1964}{article}{}{}
       \name{author}{3}{}{%
         {{hash=45196b3783ea0af1bfabbb081cdb7885}{%
            family={Atkinson},
@@ -201,10 +211,12 @@
       }
       \strng{namehash}{08b13f0491f8a702cee71770d1053b2e}
       \strng{fullhash}{4e6b630c73e8b703031955e54021aa44}
+      \strng{fullhashraw}{4e6b630c73e8b703031955e54021aa44}
       \strng{bibnamehash}{4e6b630c73e8b703031955e54021aa44}
       \strng{authorbibnamehash}{4e6b630c73e8b703031955e54021aa44}
       \strng{authornamehash}{08b13f0491f8a702cee71770d1053b2e}
       \strng{authorfullhash}{4e6b630c73e8b703031955e54021aa44}
+      \strng{authorfullhashraw}{4e6b630c73e8b703031955e54021aa44}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -221,7 +233,7 @@
       \range{pages}{12}
       \keyw{probability theory,probability intervals,convex polyhedra}
     \endentry
-    \entry{barhillel1980}{article}{}
+    \entry{barhillel1980}{article}{}{}
       \name{author}{1}{}{%
         {{hash=9bc39949ae0b5543589e22f972b27937}{%
            family={Bar-Hillel},
@@ -231,10 +243,12 @@
       }
       \strng{namehash}{9bc39949ae0b5543589e22f972b27937}
       \strng{fullhash}{9bc39949ae0b5543589e22f972b27937}
+      \strng{fullhashraw}{9bc39949ae0b5543589e22f972b27937}
       \strng{bibnamehash}{9bc39949ae0b5543589e22f972b27937}
       \strng{authorbibnamehash}{9bc39949ae0b5543589e22f972b27937}
       \strng{authornamehash}{9bc39949ae0b5543589e22f972b27937}
       \strng{authorfullhash}{9bc39949ae0b5543589e22f972b27937}
+      \strng{authorfullhashraw}{9bc39949ae0b5543589e22f972b27937}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
@@ -249,9 +263,9 @@
       \field{year}{1980}
       \field{pages}{211\bibrangedash 233}
       \range{pages}{23}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{bernardoetal2011}{book}{}
+    \entry{bernardoetal2011}{book}{}{}
       \name{editor}{7}{}{%
         {{hash=b3fec93cef51e24aa936f7f49589e779}{%
            family={Bernardo},
@@ -297,10 +311,12 @@
       }
       \strng{namehash}{128fc1393e84b1cfff6f24b26609ae75}
       \strng{fullhash}{298974b0123d21e3e5228d6c804b3929}
+      \strng{fullhashraw}{298974b0123d21e3e5228d6c804b3929}
       \strng{bibnamehash}{298974b0123d21e3e5228d6c804b3929}
       \strng{editorbibnamehash}{298974b0123d21e3e5228d6c804b3929}
       \strng{editornamehash}{128fc1393e84b1cfff6f24b26609ae75}
       \strng{editorfullhash}{298974b0123d21e3e5228d6c804b3929}
+      \strng{editorfullhashraw}{298974b0123d21e3e5228d6c804b3929}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
@@ -312,7 +328,7 @@
       \field{year}{2011}
       \keyw{Dirichlet-process mixture,Bayesian nonparametrics}
     \endentry
-    \entry{bernardoetal1994_r2000}{book}{}
+    \entry{bernardoetal1994_r2000}{book}{}{}
       \name{author}{2}{}{%
         {{hash=0741a5a716c098b0e7ca1d754f94380d}{%
            family={Bernardo},
@@ -333,10 +349,12 @@
       }
       \strng{namehash}{65ee0f293fbc4fa069b71fab883f6a0a}
       \strng{fullhash}{65ee0f293fbc4fa069b71fab883f6a0a}
+      \strng{fullhashraw}{65ee0f293fbc4fa069b71fab883f6a0a}
       \strng{bibnamehash}{65ee0f293fbc4fa069b71fab883f6a0a}
       \strng{authorbibnamehash}{65ee0f293fbc4fa069b71fab883f6a0a}
       \strng{authornamehash}{65ee0f293fbc4fa069b71fab883f6a0a}
       \strng{authorfullhash}{65ee0f293fbc4fa069b71fab883f6a0a}
+      \strng{authorfullhashraw}{65ee0f293fbc4fa069b71fab883f6a0a}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
@@ -352,7 +370,7 @@
       \field{origdateera}{ce}
       \keyw{probability theory,decision theory,model comparison,partial exchangeability,cross-validation,log-scores,entropy,de~Finetti's theorem}
     \endentry
-    \entry{bhattacharyaetal2010}{article}{}
+    \entry{bhattacharyaetal2010}{article}{}{}
       \name{author}{2}{}{%
         {{hash=4e9df0bf70cd74f7d839e1a6b90d50bd}{%
            family={Bhattacharya},
@@ -367,10 +385,12 @@
       }
       \strng{namehash}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \strng{fullhash}{e32cd6ee56f2e30e56684d99ea94aaa2}
+      \strng{fullhashraw}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \strng{bibnamehash}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \strng{authorbibnamehash}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \strng{authornamehash}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \strng{authorfullhash}{e32cd6ee56f2e30e56684d99ea94aaa2}
+      \strng{authorfullhashraw}{e32cd6ee56f2e30e56684d99ea94aaa2}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
@@ -387,7 +407,7 @@
       \range{pages}{15}
       \keyw{Dirichlet-process mixture}
     \endentry
-    \entry{booneetal2014}{article}{}
+    \entry{booneetal2014}{article}{}{}
       \name{author}{3}{}{%
         {{hash=8ad1aa768bff970e6dd6b9837a3833de}{%
            family={Boone},
@@ -407,10 +427,12 @@
       }
       \strng{namehash}{42aa6d8e5e699b85254768cc7a7ed729}
       \strng{fullhash}{413b13b84ad28512bdc29d39f479642c}
+      \strng{fullhashraw}{413b13b84ad28512bdc29d39f479642c}
       \strng{bibnamehash}{413b13b84ad28512bdc29d39f479642c}
       \strng{authorbibnamehash}{413b13b84ad28512bdc29d39f479642c}
       \strng{authornamehash}{42aa6d8e5e699b85254768cc7a7ed729}
       \strng{authorfullhash}{413b13b84ad28512bdc29d39f479642c}
+      \strng{authorfullhashraw}{413b13b84ad28512bdc29d39f479642c}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{extradatescope}{labelyear}
@@ -426,7 +448,7 @@
       \range{pages}{17}
       \keyw{Markov-chain Monte Carlo,probability theory}
     \endentry
-    \entry{casellaetal1992}{article}{}
+    \entry{casellaetal1992}{article}{}{}
       \name{author}{2}{}{%
         {{hash=c7abc90e14f2761d9325ee092fda0de7}{%
            family={Casella},
@@ -441,10 +463,12 @@
       }
       \strng{namehash}{ea9e9d52806ff59457cc724db96e5b3f}
       \strng{fullhash}{ea9e9d52806ff59457cc724db96e5b3f}
+      \strng{fullhashraw}{ea9e9d52806ff59457cc724db96e5b3f}
       \strng{bibnamehash}{ea9e9d52806ff59457cc724db96e5b3f}
       \strng{authorbibnamehash}{ea9e9d52806ff59457cc724db96e5b3f}
       \strng{authornamehash}{ea9e9d52806ff59457cc724db96e5b3f}
       \strng{authorfullhash}{ea9e9d52806ff59457cc724db96e5b3f}
+      \strng{authorfullhashraw}{ea9e9d52806ff59457cc724db96e5b3f}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -459,9 +483,9 @@
       \field{year}{1992}
       \field{pages}{167\bibrangedash 174}
       \range{pages}{8}
-      \keyw{Markov-chain Monte Carlo,Bayesian probability theory}
+      \keyw{Markov-chain Monte Carlo,Bayes}
     \endentry
-    \entry{charlesworthetal2020}{article}{}
+    \entry{charlesworthetal2020}{article}{}{}
       \name{author}{2}{}{%
         {{hash=db5fc3c5276b82c2a3e2d346c02b05a7}{%
            family={Charlesworth},
@@ -476,10 +500,12 @@
       }
       \strng{namehash}{682621c5c200c0ba26af9c630bbc6629}
       \strng{fullhash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{fullhashraw}{682621c5c200c0ba26af9c630bbc6629}
       \strng{bibnamehash}{682621c5c200c0ba26af9c630bbc6629}
       \strng{authorbibnamehash}{682621c5c200c0ba26af9c630bbc6629}
       \strng{authornamehash}{682621c5c200c0ba26af9c630bbc6629}
       \strng{authorfullhash}{682621c5c200c0ba26af9c630bbc6629}
+      \strng{authorfullhashraw}{682621c5c200c0ba26af9c630bbc6629}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -494,9 +520,9 @@
       \field{year}{2020}
       \field{pages}{1284\bibrangedash 1288}
       \range{pages}{5}
-      \keyw{p-values,null-hypothesis significance testing,Bayesian probability theory}
+      \keyw{p-values,null-hypothesis significance testing,Bayes}
     \endentry
-    \entry{cherry1961}{book}{}
+    \entry{cherry1961}{book}{}{}
       \name{editor}{1}{}{%
         {{hash=6bedc55dbfcf712a4fadde05b625f83a}{%
            family={Cherry},
@@ -512,10 +538,12 @@
       }
       \strng{namehash}{6bedc55dbfcf712a4fadde05b625f83a}
       \strng{fullhash}{6bedc55dbfcf712a4fadde05b625f83a}
+      \strng{fullhashraw}{6bedc55dbfcf712a4fadde05b625f83a}
       \strng{bibnamehash}{6bedc55dbfcf712a4fadde05b625f83a}
       \strng{editorbibnamehash}{6bedc55dbfcf712a4fadde05b625f83a}
       \strng{editornamehash}{6bedc55dbfcf712a4fadde05b625f83a}
       \strng{editorfullhash}{6bedc55dbfcf712a4fadde05b625f83a}
+      \strng{editorfullhashraw}{6bedc55dbfcf712a4fadde05b625f83a}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -524,9 +552,9 @@
       \field{labeltitlesource}{title}
       \field{title}{Information Theory\subtitleproc{: Papers read at a Symposium on `Information Theory' held at the Royal Institution, London, August 29th to September 2nd 1960}}
       \field{year}{1961}
-      \keyw{Bayesian probability theory,communication theory,weight of evidence}
+      \keyw{Bayes,communication theory,weight of evidence}
     \endentry
-    \entry{christenetal2010}{article}{}
+    \entry{christenetal2010}{article}{}{}
       \name{author}{2}{}{%
         {{hash=d1ead7d6baf893dc67179e987d409715}{%
            family={Christen},
@@ -541,10 +569,12 @@
       }
       \strng{namehash}{dfbab60fdda07ee1049d5606c8bad323}
       \strng{fullhash}{dfbab60fdda07ee1049d5606c8bad323}
+      \strng{fullhashraw}{dfbab60fdda07ee1049d5606c8bad323}
       \strng{bibnamehash}{dfbab60fdda07ee1049d5606c8bad323}
       \strng{authorbibnamehash}{dfbab60fdda07ee1049d5606c8bad323}
       \strng{authornamehash}{dfbab60fdda07ee1049d5606c8bad323}
       \strng{authorfullhash}{dfbab60fdda07ee1049d5606c8bad323}
+      \strng{authorfullhashraw}{dfbab60fdda07ee1049d5606c8bad323}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -560,7 +590,7 @@
       \range{pages}{19}
       \keyw{Markov-chain Monte Carlo,local invariance}
     \endentry
-    \entry{claytonetal2017}{article}{}
+    \entry{claytonetal2017}{article}{}{}
       \name{author}{2}{}{%
         {{hash=a52c420bb4be13f1a64590545597399e}{%
            family={Clayton},
@@ -575,10 +605,12 @@
       }
       \strng{namehash}{d6f05660d7eb98a42809129646233ab7}
       \strng{fullhash}{d6f05660d7eb98a42809129646233ab7}
+      \strng{fullhashraw}{d6f05660d7eb98a42809129646233ab7}
       \strng{bibnamehash}{d6f05660d7eb98a42809129646233ab7}
       \strng{authorbibnamehash}{d6f05660d7eb98a42809129646233ab7}
       \strng{authornamehash}{d6f05660d7eb98a42809129646233ab7}
       \strng{authorfullhash}{d6f05660d7eb98a42809129646233ab7}
+      \strng{authorfullhashraw}{d6f05660d7eb98a42809129646233ab7}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -592,9 +624,9 @@
       \field{year}{2017}
       \field{pages}{36\bibrangedash 51}
       \range{pages}{16}
-      \keyw{Bayesian probability theory,Cox's theorem}
+      \keyw{Bayes,Cox's theorem}
     \endentry
-    \entry{coveretal1991_r2006}{book}{}
+    \entry{coveretal1991_r2006}{book}{}{}
       \name{author}{2}{}{%
         {{hash=fe5b7bbda12c7502f55ddb9eeded8622}{%
            family={Cover},
@@ -615,10 +647,12 @@
       }
       \strng{namehash}{e427ba6c0eda5292558c30c786236c01}
       \strng{fullhash}{e427ba6c0eda5292558c30c786236c01}
+      \strng{fullhashraw}{e427ba6c0eda5292558c30c786236c01}
       \strng{bibnamehash}{e427ba6c0eda5292558c30c786236c01}
       \strng{authorbibnamehash}{e427ba6c0eda5292558c30c786236c01}
       \strng{authornamehash}{e427ba6c0eda5292558c30c786236c01}
       \strng{authorfullhash}{e427ba6c0eda5292558c30c786236c01}
+      \strng{authorfullhashraw}{e427ba6c0eda5292558c30c786236c01}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -632,7 +666,7 @@
       \field{year}{2006}
       \field{origdateera}{ce}
     \endentry
-    \entry{cox1946}{article}{}
+    \entry{cox1946}{article}{}{}
       \name{author}{1}{}{%
         {{hash=04d3c47cdd477735b2a922d71794f54b}{%
            family={Cox},
@@ -642,10 +676,12 @@
       }
       \strng{namehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{fullhash}{04d3c47cdd477735b2a922d71794f54b}
+      \strng{fullhashraw}{04d3c47cdd477735b2a922d71794f54b}
       \strng{bibnamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authorbibnamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authornamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authorfullhash}{04d3c47cdd477735b2a922d71794f54b}
+      \strng{authorfullhashraw}{04d3c47cdd477735b2a922d71794f54b}
       \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
@@ -656,14 +692,14 @@
       \field{journaltitle}{Am.\ J. Phys.}
       \field{note}{\doi{10.1119/1.1990764}}
       \field{number}{1}
-      \field{title}{Probability, Frequency, and Reasonable Expectation}
+      \field{title}{Probability, Frequency and Reasonable Expectation}
       \field{volume}{14}
       \field{year}{1946}
       \field{pages}{1\bibrangedash 13}
       \range{pages}{13}
-      \keyw{Bayesian probability theory,logic}
+      \keyw{Bayes,logic}
     \endentry
-    \entry{cox1961}{book}{}
+    \entry{cox1961}{book}{}{}
       \name{author}{1}{}{%
         {{hash=04d3c47cdd477735b2a922d71794f54b}{%
            family={Cox},
@@ -679,10 +715,12 @@
       }
       \strng{namehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{fullhash}{04d3c47cdd477735b2a922d71794f54b}
+      \strng{fullhashraw}{04d3c47cdd477735b2a922d71794f54b}
       \strng{bibnamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authorbibnamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authornamehash}{04d3c47cdd477735b2a922d71794f54b}
       \strng{authorfullhash}{04d3c47cdd477735b2a922d71794f54b}
+      \strng{authorfullhashraw}{04d3c47cdd477735b2a922d71794f54b}
       \field{extraname}{2}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
@@ -693,7 +731,7 @@
       \field{title}{The Algebra of Probable Inference}
       \field{year}{1961}
     \endentry
-    \entry{damienetal2013}{book}{}
+    \entry{damienetal2013}{book}{}{}
       \name{editor}{4}{}{%
         {{hash=15b8963950a4ba47c6d4d8e60a4484b0}{%
            family={Damien},
@@ -724,10 +762,12 @@
       }
       \strng{namehash}{3a5058e811dc09a63f0720035b93d42e}
       \strng{fullhash}{53459c2674459cf1c21971686ac01b89}
+      \strng{fullhashraw}{53459c2674459cf1c21971686ac01b89}
       \strng{bibnamehash}{53459c2674459cf1c21971686ac01b89}
       \strng{editorbibnamehash}{53459c2674459cf1c21971686ac01b89}
       \strng{editornamehash}{3a5058e811dc09a63f0720035b93d42e}
       \strng{editorfullhash}{53459c2674459cf1c21971686ac01b89}
+      \strng{editorfullhashraw}{53459c2674459cf1c21971686ac01b89}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
@@ -737,9 +777,9 @@
       \field{note}{\doi{10.1093/acprof:oso/9780199695607.001.0001}}
       \field{title}{Bayesian Theory and Applications}
       \field{year}{2013}
-      \keyw{Bayesian probability theory,exchangeability,induction}
+      \keyw{Bayes,exchangeability,induction}
     \endentry
-    \entry{davidoff1999}{article}{}
+    \entry{davidoff1999}{article}{}{}
       \name{author}{1}{}{%
         {{hash=a88b04f4bfb0113a9ab9049dab7f4c36}{%
            family={Davidoff},
@@ -749,10 +789,12 @@
       }
       \strng{namehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \strng{fullhash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{fullhashraw}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \strng{bibnamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \strng{authorbibnamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \strng{authornamehash}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \strng{authorfullhash}{a88b04f4bfb0113a9ab9049dab7f4c36}
+      \strng{authorfullhashraw}{a88b04f4bfb0113a9ab9049dab7f4c36}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
@@ -767,9 +809,9 @@
       \field{year}{1999}
       \field{pages}{1019\bibrangedash 1021}
       \range{pages}{3}
-      \keyw{Bayes factor,model comparison,Bayesian probability theory}
+      \keyw{Bayes factor,model comparison,Bayes}
     \endentry
-    \entry{dawid2013}{incollection}{}
+    \entry{dawid2013}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=e5f549a6f6f1613a464f18ea3ee6c8fa}{%
            family={Dawid},
@@ -779,10 +821,12 @@
       }
       \strng{namehash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \strng{fullhash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
+      \strng{fullhashraw}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \strng{bibnamehash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \strng{authorbibnamehash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \strng{authornamehash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \strng{authorfullhash}{e5f549a6f6f1613a464f18ea3ee6c8fa}
+      \strng{authorfullhashraw}{e5f549a6f6f1613a464f18ea3ee6c8fa}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
@@ -796,57 +840,15 @@
       \field{year}{2013}
       \field{pages}{19\bibrangedash 29}
       \range{pages}{11}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{delacruzmesiaetal2007}{article}{}
-      \name{author}{3}{}{%
-        {{hash=4a98a4ebb85f7cfae79cd55649c29a53}{%
-           family={De\bibnamedelima la\bibnamedelima Cruz-Mesía},
-           familyi={D\bibinitperiod\bibinitdelim l\bibinitperiod\bibinitdelim C\bibinithyphendelim M\bibinitperiod},
-           given={Rolando},
-           giveni={R\bibinitperiod}}}%
-        {{hash=292c8b9d570a8886bb30f93021d2657b}{%
-           family={Quintana},
-           familyi={Q\bibinitperiod},
-           given={Fernando\bibnamedelima A.},
-           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=57f66066d804db9a6a0f631aa4beba38}{%
-           family={Müller},
-           familyi={M\bibinitperiod},
-           given={Peter},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{39f75b4eeed24ba45f6eb8ee8329919f}
-      \strng{fullhash}{0f38dcf778d1c4d1363c914aa3b520d0}
-      \strng{bibnamehash}{0f38dcf778d1c4d1363c914aa3b520d0}
-      \strng{authorbibnamehash}{0f38dcf778d1c4d1363c914aa3b520d0}
-      \strng{authornamehash}{39f75b4eeed24ba45f6eb8ee8329919f}
-      \strng{authorfullhash}{0f38dcf778d1c4d1363c914aa3b520d0}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{J. R. Stat.\ Soc. C}
-      \field{note}{\doi{10.1111/j.1467-9876.2007.00569.x}}
-      \field{number}{2}
-      \field{title}{Semiparametric {Bayesian} classification with longitudinal markers}
-      \field{volume}{56}
-      \field{year}{2007}
-      \field{pages}{119\bibrangedash 137}
-      \range{pages}{19}
-      \keyw{probability theory,Dirichlet-process mixture}
-    \endentry
-    \entry{definetti1929}{incollection}{}
+    \entry{definetti1929}{incollection}{}{}
       \name{author}{1}{}{%
-        {{hash=c03545eea8ee4a8a057ffa44476a7056}{%
-           family={Finetti},
-           familyi={F\bibinitperiod},
+        {{hash=b29f2bfeb0be6b730a5d23e119103854}{%
+           family={{de Finetti}},
+           familyi={d\bibinitperiod},
            given={Bruno},
-           giveni={B\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
       \name{editor}{1}{}{%
         {{hash=d8320b51695bad1906b8dd35d6847f91}{%
@@ -861,15 +863,18 @@
       \list{publisher}{1}{%
         {Zanichelli}%
       }
-      \strng{namehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{fullhash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{bibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorbibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authornamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorfullhash}{c03545eea8ee4a8a057ffa44476a7056}
+      \strng{namehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{bibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorbibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authornamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
       \strng{editorbibnamehash}{d8320b51695bad1906b8dd35d6847f91}
       \strng{editornamehash}{d8320b51695bad1906b8dd35d6847f91}
       \strng{editorfullhash}{d8320b51695bad1906b8dd35d6847f91}
+      \strng{editorfullhashraw}{d8320b51695bad1906b8dd35d6847f91}
       \field{extraname}{1}
       \field{sortinit}{d}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -886,22 +891,22 @@
       \range{pages}{12}
       \keyw{characteristic function of a probabilistic phenomenon,probability theory,exchangeability}
     \endentry
-    \entry{definetti1930}{article}{}
+    \entry{definetti1930}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=c03545eea8ee4a8a057ffa44476a7056}{%
-           family={Finetti},
-           familyi={F\bibinitperiod},
+        {{hash=b29f2bfeb0be6b730a5d23e119103854}{%
+           family={{de Finetti}},
+           familyi={d\bibinitperiod},
            given={Bruno},
-           giveni={B\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
-      \strng{namehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{fullhash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{bibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorbibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authornamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorfullhash}{c03545eea8ee4a8a057ffa44476a7056}
+      \strng{namehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{bibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorbibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authornamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
       \field{extraname}{2}
       \field{sortinit}{d}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -919,22 +924,22 @@
       \range{pages}{48}
       \keyw{characteristic function of a probabilistic phenomenon,probability theory,exchangeability}
     \endentry
-    \entry{definetti1937}{article}{}
+    \entry{definetti1937}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=c03545eea8ee4a8a057ffa44476a7056}{%
-           family={Finetti},
-           familyi={F\bibinitperiod},
+        {{hash=b29f2bfeb0be6b730a5d23e119103854}{%
+           family={{de Finetti}},
+           familyi={d\bibinitperiod},
            given={Bruno},
-           giveni={B\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
-      \strng{namehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{fullhash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{bibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorbibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authornamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorfullhash}{c03545eea8ee4a8a057ffa44476a7056}
+      \strng{namehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{bibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorbibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authornamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
       \field{extraname}{3}
       \field{sortinit}{d}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -943,7 +948,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ann.\ Inst.\ Henri Poincaré}
-      \field{note}{\url{http://www.numdam.org/item/AIHP_1937__7_1_1_0}. Transl.\ as \citebi{definetti1937_t1980}}
+      \field{note}{\url{https://www.numdam.org/item/AIHP_1937__7_1_1_0}. Transl.\ as \citebi{definetti1937_t1980}}
       \field{number}{1}
       \field{title}{\langnohyph{{La} prévision: ses lois logiques, ses sources subjectives}}
       \field{volume}{7}
@@ -952,22 +957,22 @@
       \range{pages}{68}
       \keyw{Foresight: Its logical laws,its subjective sources,de Finetti's theorem,exchangeability}
     \endentry
-    \entry{definetti1937_t1980}{incollection}{}
+    \entry{definetti1937_t1980}{incollection}{}{}
       \name{author}{1}{}{%
-        {{hash=c03545eea8ee4a8a057ffa44476a7056}{%
-           family={Finetti},
-           familyi={F\bibinitperiod},
+        {{hash=b29f2bfeb0be6b730a5d23e119103854}{%
+           family={{de Finetti}},
+           familyi={d\bibinitperiod},
            given={Bruno},
-           giveni={B\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
+           giveni={B\bibinitperiod}}}%
       }
-      \strng{namehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{fullhash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{bibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorbibnamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authornamehash}{c03545eea8ee4a8a057ffa44476a7056}
-      \strng{authorfullhash}{c03545eea8ee4a8a057ffa44476a7056}
+      \strng{namehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{fullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{bibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorbibnamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authornamehash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhash}{b29f2bfeb0be6b730a5d23e119103854}
+      \strng{authorfullhashraw}{b29f2bfeb0be6b730a5d23e119103854}
       \field{extraname}{4}
       \field{sortinit}{d}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -986,11 +991,141 @@
       \range{pages}{66}
       \keyw{de Finetti's theorem,exchangeability}
     \endentry
-    \entry{delpozzoetal2018}{article}{}
+    \entry{delacruzmesiaetal2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=4a98a4ebb85f7cfae79cd55649c29a53}{%
+           family={{De la Cruz-Mesía}},
+           familyi={D\bibinitperiod},
+           given={Rolando},
+           giveni={R\bibinitperiod}}}%
+        {{hash=292c8b9d570a8886bb30f93021d2657b}{%
+           family={Quintana},
+           familyi={Q\bibinitperiod},
+           given={Fernando\bibnamedelima A.},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=57f66066d804db9a6a0f631aa4beba38}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{39f75b4eeed24ba45f6eb8ee8329919f}
+      \strng{fullhash}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \strng{fullhashraw}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \strng{bibnamehash}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \strng{authorbibnamehash}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \strng{authornamehash}{39f75b4eeed24ba45f6eb8ee8329919f}
+      \strng{authorfullhash}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \strng{authorfullhashraw}{0f38dcf778d1c4d1363c914aa3b520d0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. R. Stat.\ Soc. C}
+      \field{note}{\doi{10.1111/j.1467-9876.2007.00569.x}}
+      \field{number}{2}
+      \field{title}{Semiparametric {Bayesian} classification with longitudinal markers}
+      \field{volume}{56}
+      \field{year}{2007}
+      \field{pages}{119\bibrangedash 137}
+      \range{pages}{19}
+      \keyw{probability theory,Dirichlet-process mixture}
+    \endentry
+    \entry{nimble2016_r2021}{misc}{}{}
+      \name{author}{11}{}{%
+        {{hash=4a93fffe643ec958fa44f4748b94de9e}{%
+           family={{de Valpine}},
+           familyi={d\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9423d8e2d58f7ca96a7dd5a5edf1ef5d}{%
+           family={Paciorek},
+           familyi={P\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=79841ca3153c92ee16077f8b2499302e}{%
+           family={Turek},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1642b2fbe53bbdcb2b634cc94c1b071b}{%
+           family={Michaud},
+           familyi={M\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=8d11ce9dac4bb08742a9584ebf1e8aaa}{%
+           family={Anderson-Bergman},
+           familyi={A\bibinithyphendelim B\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=65b4b463634fb3c32e745d7d182adc0b}{%
+           family={Obermeyer},
+           familyi={O\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f9398269beada98372bb0b4915ffba6e}{%
+           family={{Wehrhahn Cortes}},
+           familyi={W\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5141203eacc386ff9e0d3f6a63f02b71}{%
+           family={Rodríguez},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=09bf72e4f57e1e4d323f0ae0bd8d8ae3}{%
+           family={{Temple Lang}},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2de7aaf01f857fab07f7c33dfc6369e9}{%
+           family={Paganin},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fbf9db02dd93acac0f7cc6b110eaa3bd}{%
+           family={Hug},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{shortauthor}{1}{}{%
+        {{hash=3ad7ac98b1b88af513400790f54fb72a}{%
+           family={\textsc{nimble}},
+           familyi={n\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ad7ac98b1b88af513400790f54fb72a}
+      \strng{fullhash}{637c38e42d1c567335aa488768ee39a9}
+      \strng{fullhashraw}{637c38e42d1c567335aa488768ee39a9}
+      \strng{bibnamehash}{3ad7ac98b1b88af513400790f54fb72a}
+      \strng{authorbibnamehash}{41affa6154279d25d981d236b25acba5}
+      \strng{authornamehash}{2410fd188f6c5de9d731e595708a64b0}
+      \strng{authorfullhash}{637c38e42d1c567335aa488768ee39a9}
+      \strng{authorfullhashraw}{637c38e42d1c567335aa488768ee39a9}
+      \strng{shortauthorbibnamehash}{3ad7ac98b1b88af513400790f54fb72a}
+      \strng{shortauthornamehash}{3ad7ac98b1b88af513400790f54fb72a}
+      \strng{shortauthorfullhash}{3ad7ac98b1b88af513400790f54fb72a}
+      \strng{shortauthorfullhashraw}{3ad7ac98b1b88af513400790f54fb72a}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{shortauthor}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://cran.r-project.org/package=nimble}, \zenododoi{10.5281/zenodo.1211190}, \url{https://r-nimble.org}. First publ.\ 2016}
+      \field{origyear}{2016}
+      \field{title}{{\textsc{NIMBLE}}: {MCMC}, Particle Filtering, and Programmable Hierarchical Modeling}
+      \field{year}{2021}
+      \field{origdateera}{ce}
+      \keyw{Bayesian nonparametric probability theory,Markov-chain Monte Carlo,Gibbs sampling}
+    \endentry
+    \entry{delpozzoetal2018}{article}{}{}
       \name{author}{6}{}{%
         {{hash=6c180a9afe32550b041adfa1cf921bbf}{%
-           family={Del\bibnamedelima Pozzo},
-           familyi={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           family={{Del Pozzo}},
+           familyi={D\bibinitperiod},
            given={W.},
            giveni={W\bibinitperiod}}}%
         {{hash=5123a239b1200becda70786412637de5}{%
@@ -1021,17 +1156,19 @@
       }
       \strng{namehash}{0525c7aac792510d1e401330ab268a7b}
       \strng{fullhash}{466e012e2e8a64739678f34a13e2120c}
+      \strng{fullhashraw}{466e012e2e8a64739678f34a13e2120c}
       \strng{bibnamehash}{466e012e2e8a64739678f34a13e2120c}
       \strng{authorbibnamehash}{466e012e2e8a64739678f34a13e2120c}
       \strng{authornamehash}{0525c7aac792510d1e401330ab268a7b}
       \strng{authorfullhash}{466e012e2e8a64739678f34a13e2120c}
+      \strng{authorfullhashraw}{466e012e2e8a64739678f34a13e2120c}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Mon.\ Not.\ R.\ Astron.\ Soc.}
+      \field{journaltitle}{Mon.\ Not.\ R. Astron.\ Soc.}
       \field{note}{\doi{10.1093/mnras/sty1485}}
       \field{number}{1}
       \field{title}{Dirichlet process {Gaussian}-mixture model: An application to localizing coalescing binary neutron stars with gravitational-wave observations}
@@ -1039,96 +1176,9 @@
       \field{year}{2018}
       \field{pages}{601\bibrangedash 614}
       \range{pages}{14}
-      \keyw{non-parametric Bayesian probability theory}
+      \keyw{non-parametric Bayes}
     \endentry
-    \entry{nimble2016_r2021}{misc}{}
-      \name{author}{11}{}{%
-        {{hash=858210df1a2e293560913c7cf03c13bf}{%
-           family={Valpine},
-           familyi={V\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
-        {{hash=9423d8e2d58f7ca96a7dd5a5edf1ef5d}{%
-           family={Paciorek},
-           familyi={P\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod}}}%
-        {{hash=79841ca3153c92ee16077f8b2499302e}{%
-           family={Turek},
-           familyi={T\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod}}}%
-        {{hash=1642b2fbe53bbdcb2b634cc94c1b071b}{%
-           family={Michaud},
-           familyi={M\bibinitperiod},
-           given={N.},
-           giveni={N\bibinitperiod}}}%
-        {{hash=8d11ce9dac4bb08742a9584ebf1e8aaa}{%
-           family={Anderson-Bergman},
-           familyi={A\bibinithyphendelim B\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod}}}%
-        {{hash=65b4b463634fb3c32e745d7d182adc0b}{%
-           family={Obermeyer},
-           familyi={O\bibinitperiod},
-           given={F.},
-           giveni={F\bibinitperiod}}}%
-        {{hash=f9398269beada98372bb0b4915ffba6e}{%
-           family={Wehrhahn\bibnamedelima Cortes},
-           familyi={W\bibinitperiod\bibinitdelim C\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod}}}%
-        {{hash=5141203eacc386ff9e0d3f6a63f02b71}{%
-           family={Rodríguez},
-           familyi={R\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=09bf72e4f57e1e4d323f0ae0bd8d8ae3}{%
-           family={Temple\bibnamedelima Lang},
-           familyi={T\bibinitperiod\bibinitdelim L\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod}}}%
-        {{hash=2de7aaf01f857fab07f7c33dfc6369e9}{%
-           family={Paganin},
-           familyi={P\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-        {{hash=fbf9db02dd93acac0f7cc6b110eaa3bd}{%
-           family={Hug},
-           familyi={H\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \name{shortauthor}{1}{}{%
-        {{hash=3ad7ac98b1b88af513400790f54fb72a}{%
-           family={\textsc{nimble}},
-           familyi={n\bibinitperiod}}}%
-      }
-      \strng{namehash}{3ad7ac98b1b88af513400790f54fb72a}
-      \strng{fullhash}{465a9b43a6d179fa20eb6aba7fe6ddf0}
-      \strng{bibnamehash}{3ad7ac98b1b88af513400790f54fb72a}
-      \strng{authorbibnamehash}{957acdfa73f1c8fb1ca5a23ea9f66cf3}
-      \strng{authornamehash}{5ee63093a4f002e920ce40f90b89875c}
-      \strng{authorfullhash}{465a9b43a6d179fa20eb6aba7fe6ddf0}
-      \strng{shortauthorbibnamehash}{3ad7ac98b1b88af513400790f54fb72a}
-      \strng{shortauthornamehash}{3ad7ac98b1b88af513400790f54fb72a}
-      \strng{shortauthorfullhash}{3ad7ac98b1b88af513400790f54fb72a}
-      \field{sortinit}{d}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{shortauthor}
-      \field{labeltitlesource}{title}
-      \field{note}{\url{https://cran.r-project.org/package=nimble}, \doi{10.5281/zenodo.1211190}, \url{https://r-nimble.org}. First publ.\ 2016}
-      \field{origyear}{2016}
-      \field{title}{{\textsc{NIMBLE}}: {MCMC}, Particle Filtering, and Programmable Hierarchical Modeling}
-      \field{year}{2021}
-      \field{origdateera}{ce}
-      \keyw{Bayesian nonparametric probability theory,Markov-chain Monte Carlo,Gibbs sampling}
-    \endentry
-    \entry{drummondetal2005}{article}{}
+    \entry{drummondetal2005}{article}{}{}
       \name{author}{2}{}{%
         {{hash=cfe90807bb047011818affb278de6f61}{%
            family={Drummond},
@@ -1143,10 +1193,12 @@
       }
       \strng{namehash}{5a79990e3700890d3c859f94ceefe710}
       \strng{fullhash}{5a79990e3700890d3c859f94ceefe710}
+      \strng{fullhashraw}{5a79990e3700890d3c859f94ceefe710}
       \strng{bibnamehash}{5a79990e3700890d3c859f94ceefe710}
       \strng{authorbibnamehash}{5a79990e3700890d3c859f94ceefe710}
       \strng{authornamehash}{5a79990e3700890d3c859f94ceefe710}
       \strng{authorfullhash}{5a79990e3700890d3c859f94ceefe710}
+      \strng{authorfullhashraw}{5a79990e3700890d3c859f94ceefe710}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
@@ -1160,9 +1212,9 @@
       \field{year}{2005}
       \field{pages}{539\bibrangedash 546}
       \range{pages}{8}
-      \keyw{decision theory,utility matrix,machine learning,Bayesian probability theory,class balance}
+      \keyw{decision theory,utility matrix,machine learning,Bayes,class balance}
     \endentry
-    \entry{dunsonetal2011}{incollection}{}
+    \entry{dunsonetal2011}{incollection}{}{}
       \name{author}{2}{}{%
         {{hash=84545b54e408a7eba6bf9280fd2eaae7}{%
            family={Dunson},
@@ -1177,10 +1229,12 @@
       }
       \strng{namehash}{03a83b96613806029abea5f908b4841d}
       \strng{fullhash}{03a83b96613806029abea5f908b4841d}
+      \strng{fullhashraw}{03a83b96613806029abea5f908b4841d}
       \strng{bibnamehash}{03a83b96613806029abea5f908b4841d}
       \strng{authorbibnamehash}{03a83b96613806029abea5f908b4841d}
       \strng{authornamehash}{03a83b96613806029abea5f908b4841d}
       \strng{authorfullhash}{03a83b96613806029abea5f908b4841d}
+      \strng{authorfullhashraw}{03a83b96613806029abea5f908b4841d}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
@@ -1188,14 +1242,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{\NoCaseChange{\citein{bernardoetal2011}}}
-      \field{note}{\doi{10.1093/acprof:oso/9780199694587.003.0005}, older version at \url{https://www.researchgate.net/publication/228447342_Nonparametric_Bayes_Regression_and_Classification_Through_Mixtures_of_Product_Kernels}}
+      \field{note}{\doi{10.1093/acprof:oso/9780199694587.003.0005}}
       \field{title}{Nonparametric {Bayes} regression and classification through mixtures of product kernels}
       \field{year}{2011}
       \field{pages}{145\bibrangedash 158}
       \range{pages}{14}
       \keyw{Dirichlet-process mixture}
     \endentry
-    \entry{dyrlandetal2022}{misc}{}
+    \entry{dyrlandetal2022}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=cecb924b8c84a8c0e0998feb0c9fb77a}{%
            family={Dyrland},
@@ -1208,17 +1262,19 @@
            given={Alexander\bibnamedelima Selvikv{å}g},
            giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
         {{hash=ffacf9a7da9ab093bc67eb966258efe6}{%
-           family={Porta\bibnamedelima Mana},
-           familyi={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           family={{Porta Mana}},
+           familyi={P\bibinitperiod},
            given={Piero\bibnamedelimb Giovanni\bibnamedelima Luca},
            giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
       \strng{namehash}{77b010fccba5426cc6a0fb4553afc202}
       \strng{fullhash}{5853b1dc599b7288f1d39c0ca876e093}
+      \strng{fullhashraw}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{bibnamehash}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{authorbibnamehash}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{authornamehash}{77b010fccba5426cc6a0fb4553afc202}
       \strng{authorfullhash}{5853b1dc599b7288f1d39c0ca876e093}
+      \strng{authorfullhashraw}{5853b1dc599b7288f1d39c0ca876e093}
       \field{extraname}{1}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -1227,12 +1283,12 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{\osfeprint{7rz8t}, \arxiveprint{2302.12006}}
+      \field{note}{\osfdoi{10.31219/osf.io/7rz8t}, \arxivdoi{10.48550/arXiv.2302.12006}}
       \field{title}{Does the evaluation stand up to evaluation?: {A} first-principle approach to the evaluation of classifiers}
       \field{year}{2022}
-      \keyw{Bayesian probability theory,machine learning,decision theory,area under the curve}
+      \keyw{Bayes,machine learning,decision theory,area under the curve}
     \endentry
-    \entry{dyrlandetal2022b}{misc}{}
+    \entry{dyrlandetal2022b}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=cecb924b8c84a8c0e0998feb0c9fb77a}{%
            family={Dyrland},
@@ -1245,17 +1301,19 @@
            given={Alexander\bibnamedelima Selvikv{å}g},
            giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
         {{hash=ffacf9a7da9ab093bc67eb966258efe6}{%
-           family={Porta\bibnamedelima Mana},
-           familyi={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           family={{Porta Mana}},
+           familyi={P\bibinitperiod},
            given={Piero\bibnamedelimb Giovanni\bibnamedelima Luca},
            giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
       \strng{namehash}{77b010fccba5426cc6a0fb4553afc202}
       \strng{fullhash}{5853b1dc599b7288f1d39c0ca876e093}
+      \strng{fullhashraw}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{bibnamehash}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{authorbibnamehash}{5853b1dc599b7288f1d39c0ca876e093}
       \strng{authornamehash}{77b010fccba5426cc6a0fb4553afc202}
       \strng{authorfullhash}{5853b1dc599b7288f1d39c0ca876e093}
+      \strng{authorfullhashraw}{5853b1dc599b7288f1d39c0ca876e093}
       \field{extraname}{2}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -1264,12 +1322,12 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{\osfeprint{vct9y}, \arxiveprint{2302.10578}}
-      \field{title}{Don't guess what's true: choose what's optimal. A probability transducer for machine-learning classifiers}
+      \field{note}{\osfdoi{10.31219/osf.io/vct9y}, \arxivdoi{10.48550/arXiv.2302.10578}}
+      \field{title}{Don't guess what's true: choose what's optimal. {A} probability transducer for machine-learning classifiers}
       \field{year}{2022}
-      \keyw{Bayesian probability theory,machine learning,decision theory}
+      \keyw{Bayes,machine learning,decision theory}
     \endentry
-    \entry{edmondsetal2015}{article}{}
+    \entry{edmondsetal2015}{article}{}{}
       \name{author}{11}{}{%
         {{hash=33ae59d644702b40a20de31e6eca5048}{%
            family={Edmonds},
@@ -1329,10 +1387,12 @@
       }
       \strng{namehash}{83c7dcfc5b965b3a899bfd650744ccef}
       \strng{fullhash}{0fa4eb21f09df796ba686c160119fd0b}
+      \strng{fullhashraw}{0fa4eb21f09df796ba686c160119fd0b}
       \strng{bibnamehash}{0c4a9050023395e3853f9532b1353087}
       \strng{authorbibnamehash}{0c4a9050023395e3853f9532b1353087}
       \strng{authornamehash}{83c7dcfc5b965b3a899bfd650744ccef}
       \strng{authorfullhash}{0fa4eb21f09df796ba686c160119fd0b}
+      \strng{authorfullhashraw}{0fa4eb21f09df796ba686c160119fd0b}
       \field{extraname}{1}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
@@ -1350,7 +1410,7 @@
       \range{pages}{10}
       \keyw{Alzheimer's disease}
     \endentry
-    \entry{edmondsetal2020}{article}{}
+    \entry{edmondsetal2020}{article}{}{}
       \name{author}{8}{}{%
         {{hash=33ae59d644702b40a20de31e6eca5048}{%
            family={Edmonds},
@@ -1395,10 +1455,12 @@
       }
       \strng{namehash}{83c7dcfc5b965b3a899bfd650744ccef}
       \strng{fullhash}{98044b2d1359cc0f098694fcf20fd223}
+      \strng{fullhashraw}{98044b2d1359cc0f098694fcf20fd223}
       \strng{bibnamehash}{98044b2d1359cc0f098694fcf20fd223}
       \strng{authorbibnamehash}{98044b2d1359cc0f098694fcf20fd223}
       \strng{authornamehash}{83c7dcfc5b965b3a899bfd650744ccef}
       \strng{authorfullhash}{98044b2d1359cc0f098694fcf20fd223}
+      \strng{authorfullhashraw}{98044b2d1359cc0f098694fcf20fd223}
       \field{extraname}{2}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
@@ -1416,7 +1478,7 @@
       \range{pages}{-1}
       \keyw{Alzheimer's disease}
     \endentry
-    \entry{eht2019}{article}{}
+    \entry{eht2019}{article}{}{}
       \name{author}{1}{}{%
         {{hash=081ffab4078d19c032062787670d4f72}{%
            family={{Event Horizon Telescope Collaboration}},
@@ -1424,10 +1486,12 @@
       }
       \strng{namehash}{081ffab4078d19c032062787670d4f72}
       \strng{fullhash}{081ffab4078d19c032062787670d4f72}
+      \strng{fullhashraw}{081ffab4078d19c032062787670d4f72}
       \strng{bibnamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authorbibnamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authornamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authorfullhash}{081ffab4078d19c032062787670d4f72}
+      \strng{authorfullhashraw}{081ffab4078d19c032062787670d4f72}
       \field{extraname}{1}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
@@ -1444,7 +1508,7 @@
       \field{pages}{L1\bibrangedash L6}
       \range{pages}{-1}
     \endentry
-    \entry{eht2022}{article}{}
+    \entry{eht2022}{article}{}{}
       \name{author}{1}{}{%
         {{hash=081ffab4078d19c032062787670d4f72}{%
            family={{Event Horizon Telescope Collaboration}},
@@ -1452,10 +1516,12 @@
       }
       \strng{namehash}{081ffab4078d19c032062787670d4f72}
       \strng{fullhash}{081ffab4078d19c032062787670d4f72}
+      \strng{fullhashraw}{081ffab4078d19c032062787670d4f72}
       \strng{bibnamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authorbibnamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authornamehash}{081ffab4078d19c032062787670d4f72}
       \strng{authorfullhash}{081ffab4078d19c032062787670d4f72}
+      \strng{authorfullhashraw}{081ffab4078d19c032062787670d4f72}
       \field{extraname}{2}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
@@ -1472,7 +1538,7 @@
       \field{pages}{L12\bibrangedash L17}
       \range{pages}{-1}
     \endentry
-    \entry{ferguson1967}{book}{}
+    \entry{ferguson1967}{book}{}{}
       \name{author}{1}{}{%
         {{hash=36c485d639dfe86fe882f8b9e5dbec12}{%
            family={Ferguson},
@@ -1488,10 +1554,12 @@
       }
       \strng{namehash}{36c485d639dfe86fe882f8b9e5dbec12}
       \strng{fullhash}{36c485d639dfe86fe882f8b9e5dbec12}
+      \strng{fullhashraw}{36c485d639dfe86fe882f8b9e5dbec12}
       \strng{bibnamehash}{36c485d639dfe86fe882f8b9e5dbec12}
       \strng{authorbibnamehash}{36c485d639dfe86fe882f8b9e5dbec12}
       \strng{authornamehash}{36c485d639dfe86fe882f8b9e5dbec12}
       \strng{authorfullhash}{36c485d639dfe86fe882f8b9e5dbec12}
+      \strng{authorfullhashraw}{36c485d639dfe86fe882f8b9e5dbec12}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -1503,9 +1571,9 @@
       \field{title}{Mathematical Statistics: A Decision Theoretic Approach}
       \field{volume}{1}
       \field{year}{1967}
-      \keyw{decision theory,game theory,Bayesian probability theory}
+      \keyw{decision theory,game theory,Bayes}
     \endentry
-    \entry{fine1973}{book}{}
+    \entry{fine1973}{book}{}{}
       \name{author}{1}{}{%
         {{hash=a75b7dfdd16c53e5fd4b5b55eaae1cc4}{%
            family={Fine},
@@ -1521,10 +1589,12 @@
       }
       \strng{namehash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \strng{fullhash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
+      \strng{fullhashraw}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \strng{bibnamehash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \strng{authorbibnamehash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \strng{authornamehash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \strng{authorfullhash}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
+      \strng{authorfullhashraw}{a75b7dfdd16c53e5fd4b5b55eaae1cc4}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -1534,9 +1604,9 @@
       \field{note}{\doi{10.1016/C2013-0-10655-1}}
       \field{title}{Theories of Probability: An Examination of Foundations}
       \field{year}{1973}
-      \keyw{Bayesian probability theory,frequency}
+      \keyw{Bayes,frequency}
     \endentry
-    \entry{fongetal2020}{article}{}
+    \entry{fongetal2020}{article}{}{}
       \name{author}{2}{}{%
         {{hash=18d7a668af1e42d580b6422d355b8dce}{%
            family={Fong},
@@ -1551,10 +1621,12 @@
       }
       \strng{namehash}{b75505984262ef6a7e8c90154e40f25c}
       \strng{fullhash}{b75505984262ef6a7e8c90154e40f25c}
+      \strng{fullhashraw}{b75505984262ef6a7e8c90154e40f25c}
       \strng{bibnamehash}{b75505984262ef6a7e8c90154e40f25c}
       \strng{authorbibnamehash}{b75505984262ef6a7e8c90154e40f25c}
       \strng{authornamehash}{b75505984262ef6a7e8c90154e40f25c}
       \strng{authorfullhash}{b75505984262ef6a7e8c90154e40f25c}
+      \strng{authorfullhashraw}{b75505984262ef6a7e8c90154e40f25c}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -1569,9 +1641,9 @@
       \field{year}{2020}
       \field{pages}{489\bibrangedash 496}
       \range{pages}{8}
-      \keyw{Bayesian probability theory,log-score,evidence}
+      \keyw{Bayes,log-score,evidence}
     \endentry
-    \entry{gilksetal1998}{book}{}
+    \entry{gilksetal1998}{book}{}{}
       \name{editor}{3}{}{%
         {{hash=f8c8acff92e9f6de308a6a4681fe59d0}{%
            family={Gilks},
@@ -1597,10 +1669,12 @@
       }
       \strng{namehash}{6d565110451f20caa37871dbeb230d5b}
       \strng{fullhash}{8bb62d6a7b1e4113a69df8b30df227ff}
+      \strng{fullhashraw}{8bb62d6a7b1e4113a69df8b30df227ff}
       \strng{bibnamehash}{8bb62d6a7b1e4113a69df8b30df227ff}
       \strng{editorbibnamehash}{8bb62d6a7b1e4113a69df8b30df227ff}
       \strng{editornamehash}{6d565110451f20caa37871dbeb230d5b}
       \strng{editorfullhash}{8bb62d6a7b1e4113a69df8b30df227ff}
+      \strng{editorfullhashraw}{8bb62d6a7b1e4113a69df8b30df227ff}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -1614,7 +1688,7 @@
       \field{year}{1998}
       \field{origdateera}{ce}
     \endentry
-    \entry{good1950}{book}{}
+    \entry{good1950}{book}{}{}
       \name{author}{1}{}{%
         {{hash=b7ebd9405a7875d8dc25976e1f281c14}{%
            family={Good},
@@ -1630,10 +1704,12 @@
       }
       \strng{namehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{fullhash}{b7ebd9405a7875d8dc25976e1f281c14}
+      \strng{fullhashraw}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{bibnamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authorbibnamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authornamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authorfullhash}{b7ebd9405a7875d8dc25976e1f281c14}
+      \strng{authorfullhashraw}{b7ebd9405a7875d8dc25976e1f281c14}
       \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -1641,11 +1717,12 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{\url{https://gwern.net/doc/statistics/bayes/1950-good-probabilityandtheweighingofevidence.pdf}}
       \field{title}{Probability and the Weighing of Evidence}
       \field{year}{1950}
-      \keyw{Bayesian probability theory,Bayes factors,weight of evidence,composite hypotheses hierarchical model (\sect~6.5)}
+      \keyw{Bayes,Bayes factors,weight of evidence,composite hypotheses hierarchical model (\sect~6.5)}
     \endentry
-    \entry{good1961b}{incollection}{}
+    \entry{good1961b}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=b7ebd9405a7875d8dc25976e1f281c14}{%
            family={Good},
@@ -1655,10 +1732,12 @@
       }
       \strng{namehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{fullhash}{b7ebd9405a7875d8dc25976e1f281c14}
+      \strng{fullhashraw}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{bibnamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authorbibnamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authornamehash}{b7ebd9405a7875d8dc25976e1f281c14}
       \strng{authorfullhash}{b7ebd9405a7875d8dc25976e1f281c14}
+      \strng{authorfullhashraw}{b7ebd9405a7875d8dc25976e1f281c14}
       \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -1673,9 +1752,9 @@
       \field{year}{1961}
       \field{pages}{125\bibrangedash 136}
       \range{pages}{12}
-      \keyw{Bayesian probability theory,information theory,communication theory}
+      \keyw{Bayes,information theory,communication theory}
     \endentry
-    \entry{goodetal1968}{article}{}
+    \entry{goodetal1968}{article}{}{}
       \name{author}{2}{}{%
         {{hash=b7ebd9405a7875d8dc25976e1f281c14}{%
            family={Good},
@@ -1690,10 +1769,12 @@
       }
       \strng{namehash}{0bce828a205106d456a3d150443990ed}
       \strng{fullhash}{0bce828a205106d456a3d150443990ed}
+      \strng{fullhashraw}{0bce828a205106d456a3d150443990ed}
       \strng{bibnamehash}{0bce828a205106d456a3d150443990ed}
       \strng{authorbibnamehash}{0bce828a205106d456a3d150443990ed}
       \strng{authornamehash}{0bce828a205106d456a3d150443990ed}
       \strng{authorfullhash}{0bce828a205106d456a3d150443990ed}
+      \strng{authorfullhashraw}{0bce828a205106d456a3d150443990ed}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -1708,9 +1789,9 @@
       \field{year}{1968}
       \field{pages}{94\bibrangedash 105}
       \range{pages}{12}
-      \keyw{information theory,Shannon entropy,Bayes factor,Bayesian probability theory,random coding}
+      \keyw{information theory,Shannon entropy,Bayes factor,Bayes,random coding}
     \endentry
-    \entry{goodman1999}{article}{}
+    \entry{goodman1999}{article}{}{}
       \name{author}{1}{}{%
         {{hash=942e9fae4198598f9ad5d703ebd0f333}{%
            family={Goodman},
@@ -1720,10 +1801,12 @@
       }
       \strng{namehash}{942e9fae4198598f9ad5d703ebd0f333}
       \strng{fullhash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{fullhashraw}{942e9fae4198598f9ad5d703ebd0f333}
       \strng{bibnamehash}{942e9fae4198598f9ad5d703ebd0f333}
       \strng{authorbibnamehash}{942e9fae4198598f9ad5d703ebd0f333}
       \strng{authornamehash}{942e9fae4198598f9ad5d703ebd0f333}
       \strng{authorfullhash}{942e9fae4198598f9ad5d703ebd0f333}
+      \strng{authorfullhashraw}{942e9fae4198598f9ad5d703ebd0f333}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -1738,9 +1821,9 @@
       \field{year}{1999}
       \field{pages}{995\bibrangedash 1013}
       \range{pages}{19}
-      \keyw{Bayes factor,model comparison,Bayesian probability theory}
+      \keyw{Bayes factor,model comparison,Bayes}
     \endentry
-    \entry{greenlandetal2016}{article}{}
+    \entry{greenlandetal2016}{article}{}{}
       \name{author}{30}{}{%
         {{hash=c5b4c7113701e4de7900f78e0f2fd1fd}{%
            family={Greenland},
@@ -1895,10 +1978,12 @@
       }
       \strng{namehash}{b825a78368fc89b30b758edc176111a0}
       \strng{fullhash}{5de28b5d6d2cdc22eafc572b3ed86d45}
+      \strng{fullhashraw}{5de28b5d6d2cdc22eafc572b3ed86d45}
       \strng{bibnamehash}{9d7667f75dbdd745a30e4efff4b19698}
       \strng{authorbibnamehash}{9d7667f75dbdd745a30e4efff4b19698}
       \strng{authornamehash}{b825a78368fc89b30b758edc176111a0}
       \strng{authorfullhash}{5de28b5d6d2cdc22eafc572b3ed86d45}
+      \strng{authorfullhashraw}{5de28b5d6d2cdc22eafc572b3ed86d45}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -1914,7 +1999,7 @@
       \field{pages}{129}
       \range{pages}{1}
     \endentry
-    \entry{hailperin1996}{book}{}
+    \entry{hailperin1996}{book}{}{}
       \name{author}{1}{}{%
         {{hash=e3fe4418aa30ff62ebec4882e1e914b1}{%
            family={Hailperin},
@@ -1930,21 +2015,24 @@
       }
       \strng{namehash}{e3fe4418aa30ff62ebec4882e1e914b1}
       \strng{fullhash}{e3fe4418aa30ff62ebec4882e1e914b1}
+      \strng{fullhashraw}{e3fe4418aa30ff62ebec4882e1e914b1}
       \strng{bibnamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
       \strng{authorbibnamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
       \strng{authornamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
       \strng{authorfullhash}{e3fe4418aa30ff62ebec4882e1e914b1}
+      \strng{authorfullhashraw}{e3fe4418aa30ff62ebec4882e1e914b1}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{\url{https://archive.org/details/hailperin1996-Sentential_probability_logic}}
       \field{title}{Sentential Probability Logic: Origins, Development, Current Status, and Technical Applications}
       \field{year}{1996}
       \keyw{probability theory}
     \endentry
-    \entry{halpern1999b}{article}{}
+    \entry{halpern1999b}{article}{}{}
       \name{author}{1}{}{%
         {{hash=610a5aa55255d24fd3b5bfdd80bcc4e2}{%
            family={Halpern},
@@ -1954,10 +2042,12 @@
       }
       \strng{namehash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \strng{fullhash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
+      \strng{fullhashraw}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \strng{bibnamehash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \strng{authorbibnamehash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \strng{authornamehash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \strng{authorfullhash}{610a5aa55255d24fd3b5bfdd80bcc4e2}
+      \strng{authorfullhashraw}{610a5aa55255d24fd3b5bfdd80bcc4e2}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -1971,9 +2061,9 @@
       \field{year}{1999}
       \field{pages}{429\bibrangedash 435}
       \range{pages}{7}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{harperetal1976b}{book}{}
+    \entry{harperetal1976b}{book}{}{}
       \name{editor}{2}{}{%
         {{hash=01355eca206ab50921874970966d2502}{%
            family={Harper},
@@ -1994,10 +2084,12 @@
       }
       \strng{namehash}{7071888e28e9ae114e6797141c694d1f}
       \strng{fullhash}{7071888e28e9ae114e6797141c694d1f}
+      \strng{fullhashraw}{7071888e28e9ae114e6797141c694d1f}
       \strng{bibnamehash}{7071888e28e9ae114e6797141c694d1f}
       \strng{editorbibnamehash}{7071888e28e9ae114e6797141c694d1f}
       \strng{editornamehash}{7071888e28e9ae114e6797141c694d1f}
       \strng{editorfullhash}{7071888e28e9ae114e6797141c694d1f}
+      \strng{editorfullhashraw}{7071888e28e9ae114e6797141c694d1f}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -2008,9 +2100,9 @@
       \field{title}{Foundations of Probability Theory, Statistical Inference, and Statistical Theories of Science. Vol.~II: Foundations and Philosophy of Statistical Inference}
       \field{volume}{6}
       \field{year}{1976}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{hjortetal2010}{book}{}
+    \entry{hjortetal2010}{book}{}{}
       \name{editor}{4}{}{%
         {{hash=1143d3f0663aa08115b3cec18ff9a94a}{%
            family={Hjort},
@@ -2041,10 +2133,12 @@
       }
       \strng{namehash}{b2c30dac481218bd97c92b63be790cda}
       \strng{fullhash}{8fc0df9058bc7477ed25b33b8a76d69d}
+      \strng{fullhashraw}{8fc0df9058bc7477ed25b33b8a76d69d}
       \strng{bibnamehash}{8fc0df9058bc7477ed25b33b8a76d69d}
       \strng{editorbibnamehash}{8fc0df9058bc7477ed25b33b8a76d69d}
       \strng{editornamehash}{b2c30dac481218bd97c92b63be790cda}
       \strng{editorfullhash}{8fc0df9058bc7477ed25b33b8a76d69d}
+      \strng{editorfullhashraw}{8fc0df9058bc7477ed25b33b8a76d69d}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -2055,9 +2149,9 @@
       \field{series}{Cambridge series in statistical and probabilistic mathematics}
       \field{title}{Bayesian Nonparametrics}
       \field{year}{2010}
-      \keyw{exchangeability,Bayesian probability theory,Dirichlet process}
+      \keyw{exchangeability,Bayes,Dirichlet process}
     \endentry
-    \entry{huninketal2001_r2014}{book}{}
+    \entry{huninketal2001_r2014}{book}{}{}
       \name{author}{7}{}{%
         {{hash=91d17d4401519a0ca0e4312383e21bc8}{%
            family={Hunink},
@@ -2103,10 +2197,12 @@
       }
       \strng{namehash}{71ecc97dff40f7fc018dd14143c50187}
       \strng{fullhash}{e29e1c3ceb4efe60b1238dead80b88e2}
+      \strng{fullhashraw}{e29e1c3ceb4efe60b1238dead80b88e2}
       \strng{bibnamehash}{e29e1c3ceb4efe60b1238dead80b88e2}
       \strng{authorbibnamehash}{e29e1c3ceb4efe60b1238dead80b88e2}
       \strng{authornamehash}{71ecc97dff40f7fc018dd14143c50187}
       \strng{authorfullhash}{e29e1c3ceb4efe60b1238dead80b88e2}
+      \strng{authorfullhashraw}{e29e1c3ceb4efe60b1238dead80b88e2}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -2121,7 +2217,7 @@
       \field{origdateera}{ce}
       \keyw{clinical decision theory,probability theory}
     \endentry
-    \entry{ishwaranetal2002b}{article}{}
+    \entry{ishwaranetal2002b}{article}{}{}
       \name{author}{2}{}{%
         {{hash=87b2e79f8f2ab0a4040e84b52fbe2710}{%
            family={Ishwaran},
@@ -2136,10 +2232,12 @@
       }
       \strng{namehash}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \strng{fullhash}{d4c90f9f0b0a194fdd855c16791e3cfe}
+      \strng{fullhashraw}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \strng{bibnamehash}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \strng{authorbibnamehash}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \strng{authornamehash}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \strng{authorfullhash}{d4c90f9f0b0a194fdd855c16791e3cfe}
+      \strng{authorfullhashraw}{d4c90f9f0b0a194fdd855c16791e3cfe}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradatescope}{labelyear}
@@ -2156,7 +2254,7 @@
       \range{pages}{23}
       \keyw{Dirichlet-process mixture,Bayesian nonparametric regression}
     \endentry
-    \entry{iso2008c}{manual}{}
+    \entry{iso2008c}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=aa74a0fe44e5d5811290411d1b09ff29}{%
            family={{\textsc{iso}}},
@@ -2175,13 +2273,16 @@
       }
       \strng{namehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{fullhash}{aa74a0fe44e5d5811290411d1b09ff29}
+      \strng{fullhashraw}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{bibnamehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{authorbibnamehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{authornamehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{authorfullhash}{aa74a0fe44e5d5811290411d1b09ff29}
+      \strng{authorfullhashraw}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{shortauthorbibnamehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{shortauthornamehash}{aa74a0fe44e5d5811290411d1b09ff29}
       \strng{shortauthorfullhash}{aa74a0fe44e5d5811290411d1b09ff29}
+      \strng{shortauthorfullhashraw}{aa74a0fe44e5d5811290411d1b09ff29}
       \field{sortinit}{i}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradatescope}{labelyear}
@@ -2192,7 +2293,7 @@
       \field{year}{2008}
       \keyw{standard,probability theory,terminology,mechanics,mathematics}
     \endentry
-    \entry{jawaetal2023}{article}{}
+    \entry{jawaetal2023}{article}{}{}
       \name{author}{2}{}{%
         {{hash=f8f3524c0a1a91c481f2ac27a733f1b8}{%
            family={Jawa},
@@ -2207,10 +2308,12 @@
       }
       \strng{namehash}{1affe816584fbbbd377f5027e3a1f063}
       \strng{fullhash}{1affe816584fbbbd377f5027e3a1f063}
+      \strng{fullhashraw}{1affe816584fbbbd377f5027e3a1f063}
       \strng{bibnamehash}{1affe816584fbbbd377f5027e3a1f063}
       \strng{authorbibnamehash}{1affe816584fbbbd377f5027e3a1f063}
       \strng{authornamehash}{1affe816584fbbbd377f5027e3a1f063}
       \strng{authorfullhash}{1affe816584fbbbd377f5027e3a1f063}
+      \strng{authorfullhashraw}{1affe816584fbbbd377f5027e3a1f063}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{extradatescope}{labelyear}
@@ -2224,9 +2327,9 @@
       \field{year}{2023}
       \field{pages}{1}
       \range{pages}{1}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{jaynes1976}{incollection}{}
+    \entry{jaynes1976}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=c772915032de769769eaab2e0ad29eec}{%
            family={Jaynes},
@@ -2236,10 +2339,12 @@
       }
       \strng{namehash}{c772915032de769769eaab2e0ad29eec}
       \strng{fullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{fullhashraw}{c772915032de769769eaab2e0ad29eec}
       \strng{bibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorbibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authornamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorfullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{authorfullhashraw}{c772915032de769769eaab2e0ad29eec}
       \field{extraname}{1}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2248,14 +2353,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{\NoCaseChange{\citein{harperetal1976b}}}
-      \field{note}{With discussion, comments by M. Maxfield and O. Kempthorne, and reply. Repr.\ with an introduction in \citebi[149--209]{jaynes1983_r1989}; \url{https://bayes.wustl.edu/etj/node1.html}}
+      \field{note}{With discussion, comments by M. Maxfield and O. Kempthorne, and reply. Repr.\ with an introduction in \citebi{jaynes1983_r1989} pp.~149--209; \url{https://bayes.wustl.edu/etj/node1.html}}
       \field{title}{Confidence intervals vs {Bayesian} intervals}
       \field{year}{1976}
       \field{pages}{175\bibrangedash 257}
       \range{pages}{83}
       \keyw{sampling theory}
     \endentry
-    \entry{jaynes1983_r1989}{book}{}
+    \entry{jaynes1983_r1989}{book}{}{}
       \name{author}{1}{}{%
         {{hash=c772915032de769769eaab2e0ad29eec}{%
            family={Jaynes},
@@ -2271,10 +2376,12 @@
       }
       \strng{namehash}{c772915032de769769eaab2e0ad29eec}
       \strng{fullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{fullhashraw}{c772915032de769769eaab2e0ad29eec}
       \strng{bibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorbibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authornamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorfullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{authorfullhashraw}{c772915032de769769eaab2e0ad29eec}
       \field{extraname}{2}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2285,11 +2392,11 @@
       \field{edition}{repr.}
       \field{note}{Edited by R. D. Rosenkrantz. First publ.\ 1983}
       \field{origyear}{1983}
-      \field{title}{E. T. Jaynes: Papers on Probability, Statistics and Statistical Physics}
+      \field{title}{Papers on Probability, Statistics and Statistical Physics}
       \field{year}{1989}
       \field{origdateera}{ce}
     \endentry
-    \entry{jaynes1994_r2003}{book}{}
+    \entry{jaynes1994_r2003}{book}{}{}
       \name{author}{1}{}{%
         {{hash=c772915032de769769eaab2e0ad29eec}{%
            family={Jaynes},
@@ -2305,10 +2412,12 @@
       }
       \strng{namehash}{c772915032de769769eaab2e0ad29eec}
       \strng{fullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{fullhashraw}{c772915032de769769eaab2e0ad29eec}
       \strng{bibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorbibnamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authornamehash}{c772915032de769769eaab2e0ad29eec}
       \strng{authorfullhash}{c772915032de769769eaab2e0ad29eec}
+      \strng{authorfullhashraw}{c772915032de769769eaab2e0ad29eec}
       \field{extraname}{3}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2323,7 +2432,7 @@
       \field{origdateera}{ce}
       \keyw{decision theory}
     \endentry
-    \entry{jcgm1993_r2008}{manual}{}
+    \entry{jcgm1993_r2008}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=2df8e9c16e27d1c472567809ac6e5694}{%
            family={{\textsc{jcgm}}},
@@ -2339,13 +2448,16 @@
       }
       \strng{namehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{fullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{fullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{bibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authorbibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authornamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authorfullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{authorfullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthorbibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthornamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthorfullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{shortauthorfullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \field{extraname}{1}
       \field{sortinit}{j}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2359,9 +2471,9 @@
       \field{title}{{JCGM} 100:2008: {Evaluation} of measurement data -- {Guide} to the Expression of Uncertainty in Measurement}
       \field{year}{2008}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,Bayes theorem,Monte Carlo sampling,t-student distribution,statistics,terminology,\enquote{GUM 1995 with minor corrections}}
+      \keyw{Bayes,Bayes theorem,Monte Carlo sampling,t-student distribution,statistics,terminology,\enquote{GUM 1995 with minor corrections}}
     \endentry
-    \entry{jcgm1997_r2012}{manual}{}
+    \entry{jcgm1997_r2012}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=2df8e9c16e27d1c472567809ac6e5694}{%
            family={{\textsc{jcgm}}},
@@ -2377,13 +2489,16 @@
       }
       \strng{namehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{fullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{fullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{bibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authorbibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authornamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{authorfullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{authorfullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthorbibnamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthornamehash}{2df8e9c16e27d1c472567809ac6e5694}
       \strng{shortauthorfullhash}{2df8e9c16e27d1c472567809ac6e5694}
+      \strng{shortauthorfullhashraw}{2df8e9c16e27d1c472567809ac6e5694}
       \field{extraname}{2}
       \field{sortinit}{j}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2399,7 +2514,7 @@
       \field{origdateera}{ce}
       \keyw{dimensional analysis}
     \endentry
-    \entry{jennyetal2018}{article}{}
+    \entry{jennyetal2018}{article}{}{}
       \name{author}{3}{}{%
         {{hash=f36d93d99f94a0a99bdb61f1f7282dcd}{%
            family={Jenny},
@@ -2419,10 +2534,12 @@
       }
       \strng{namehash}{ee45177b4cf083912894dfda28816b57}
       \strng{fullhash}{e18a197772f1e22773666fb925eaf93a}
+      \strng{fullhashraw}{e18a197772f1e22773666fb925eaf93a}
       \strng{bibnamehash}{e18a197772f1e22773666fb925eaf93a}
       \strng{authorbibnamehash}{e18a197772f1e22773666fb925eaf93a}
       \strng{authornamehash}{ee45177b4cf083912894dfda28816b57}
       \strng{authorfullhash}{e18a197772f1e22773666fb925eaf93a}
+      \strng{authorfullhashraw}{e18a197772f1e22773666fb925eaf93a}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{extradatescope}{labelyear}
@@ -2438,7 +2555,7 @@
       \range{pages}{-1}
       \keyw{probability theory,base-rate fallacy,decision theory,prior probability}
     \endentry
-    \entry{johnson1924}{book}{}
+    \entry{johnson1924}{book}{}{}
       \name{author}{1}{}{%
         {{hash=8fc6fe199d86bec1a323b71dc325de4f}{%
            family={Johnson},
@@ -2454,10 +2571,12 @@
       }
       \strng{namehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{fullhash}{8fc6fe199d86bec1a323b71dc325de4f}
+      \strng{fullhashraw}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{bibnamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authorbibnamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authornamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authorfullhash}{8fc6fe199d86bec1a323b71dc325de4f}
+      \strng{authorfullhashraw}{8fc6fe199d86bec1a323b71dc325de4f}
       \field{extraname}{1}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2470,7 +2589,7 @@
       \field{year}{1924}
       \keyw{exchangeability}
     \endentry
-    \entry{johnson1932c}{article}{}
+    \entry{johnson1932c}{article}{}{}
       \name{author}{1}{}{%
         {{hash=8fc6fe199d86bec1a323b71dc325de4f}{%
            family={Johnson},
@@ -2480,10 +2599,12 @@
       }
       \strng{namehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{fullhash}{8fc6fe199d86bec1a323b71dc325de4f}
+      \strng{fullhashraw}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{bibnamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authorbibnamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authornamehash}{8fc6fe199d86bec1a323b71dc325de4f}
       \strng{authorfullhash}{8fc6fe199d86bec1a323b71dc325de4f}
+      \strng{authorfullhashraw}{8fc6fe199d86bec1a323b71dc325de4f}
       \field{extraname}{2}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -2499,9 +2620,9 @@
       \field{year}{1932}
       \field{pages}{409\bibrangedash 423}
       \range{pages}{15}
-      \keyw{Johnson-Dirichlet model,exchangeability,Bayesian probability theory}
+      \keyw{Johnson-Dirichlet model,exchangeability,Bayes}
     \endentry
-    \entry{kelly1956}{article}{}
+    \entry{kelly1956}{article}{}{}
       \name{author}{1}{}{%
         {{hash=6e12eb062eba0e32116d6569cef11388}{%
            family={Kelly},
@@ -2513,10 +2634,12 @@
       }
       \strng{namehash}{6e12eb062eba0e32116d6569cef11388}
       \strng{fullhash}{6e12eb062eba0e32116d6569cef11388}
+      \strng{fullhashraw}{6e12eb062eba0e32116d6569cef11388}
       \strng{bibnamehash}{6e12eb062eba0e32116d6569cef11388}
       \strng{authorbibnamehash}{6e12eb062eba0e32116d6569cef11388}
       \strng{authornamehash}{6e12eb062eba0e32116d6569cef11388}
       \strng{authorfullhash}{6e12eb062eba0e32116d6569cef11388}
+      \strng{authorfullhashraw}{6e12eb062eba0e32116d6569cef11388}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -2533,7 +2656,7 @@
       \range{pages}{10}
       \keyw{Shannon entropy,mutual information}
     \endentry
-    \entry{kreps1988}{book}{}
+    \entry{kreps1988}{book}{}{}
       \name{author}{1}{}{%
         {{hash=380cfc247ceb399e06f30dbfc7176dd5}{%
            family={Kreps},
@@ -2549,10 +2672,12 @@
       }
       \strng{namehash}{380cfc247ceb399e06f30dbfc7176dd5}
       \strng{fullhash}{380cfc247ceb399e06f30dbfc7176dd5}
+      \strng{fullhashraw}{380cfc247ceb399e06f30dbfc7176dd5}
       \strng{bibnamehash}{380cfc247ceb399e06f30dbfc7176dd5}
       \strng{authorbibnamehash}{380cfc247ceb399e06f30dbfc7176dd5}
       \strng{authornamehash}{380cfc247ceb399e06f30dbfc7176dd5}
       \strng{authorfullhash}{380cfc247ceb399e06f30dbfc7176dd5}
+      \strng{authorfullhashraw}{380cfc247ceb399e06f30dbfc7176dd5}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -2565,7 +2690,7 @@
       \field{year}{1988}
       \keyw{decision theory,utility,probability theory}
     \endentry
-    \entry{kullback1959_r1978}{book}{}
+    \entry{kullback1959_r1978}{book}{}{}
       \name{author}{1}{}{%
         {{hash=34c5bbf9876c37127c3abe4e7d7a7198}{%
            family={Kullback},
@@ -2581,10 +2706,12 @@
       }
       \strng{namehash}{34c5bbf9876c37127c3abe4e7d7a7198}
       \strng{fullhash}{34c5bbf9876c37127c3abe4e7d7a7198}
+      \strng{fullhashraw}{34c5bbf9876c37127c3abe4e7d7a7198}
       \strng{bibnamehash}{34c5bbf9876c37127c3abe4e7d7a7198}
       \strng{authorbibnamehash}{34c5bbf9876c37127c3abe4e7d7a7198}
       \strng{authornamehash}{34c5bbf9876c37127c3abe4e7d7a7198}
       \strng{authorfullhash}{34c5bbf9876c37127c3abe4e7d7a7198}
+      \strng{authorfullhashraw}{34c5bbf9876c37127c3abe4e7d7a7198}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -2597,7 +2724,7 @@
       \field{year}{1978}
       \field{origdateera}{ce}
     \endentry
-    \entry{kyburgetal1964_r1980}{book}{}
+    \entry{kyburgetal1964_r1980}{book}{}{}
       \name{editor}{2}{}{%
         {{hash=ce322bc4c1eb20c5ce78f684523855dc}{%
            family={Kyburg},
@@ -2620,10 +2747,12 @@
       }
       \strng{namehash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \strng{fullhash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
+      \strng{fullhashraw}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \strng{bibnamehash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \strng{editorbibnamehash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \strng{editornamehash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \strng{editorfullhash}{b50d93530f54e0a2a82f5a56fd4bdbaa}
+      \strng{editorfullhashraw}{b50d93530f54e0a2a82f5a56fd4bdbaa}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -2637,7 +2766,7 @@
       \field{year}{1980}
       \field{origdateera}{ce}
     \endentry
-    \entry{ledley1959}{article}{}
+    \entry{ledley1959}{article}{}{}
       \name{author}{1}{}{%
         {{hash=4f1df2093e91785fbb8b43becec4700a}{%
            family={Ledley},
@@ -2647,10 +2776,12 @@
       }
       \strng{namehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{fullhash}{4f1df2093e91785fbb8b43becec4700a}
+      \strng{fullhashraw}{4f1df2093e91785fbb8b43becec4700a}
       \strng{bibnamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authorbibnamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authornamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authorfullhash}{4f1df2093e91785fbb8b43becec4700a}
+      \strng{authorfullhashraw}{4f1df2093e91785fbb8b43becec4700a}
       \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2668,7 +2799,7 @@
       \range{pages}{10}
       \keyw{medicine,probability theory,decision theory}
     \endentry
-    \entry{ledley1960}{book}{}
+    \entry{ledley1960}{book}{}{}
       \name{author}{1}{}{%
         {{hash=4f1df2093e91785fbb8b43becec4700a}{%
            family={Ledley},
@@ -2684,10 +2815,12 @@
       }
       \strng{namehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{fullhash}{4f1df2093e91785fbb8b43becec4700a}
+      \strng{fullhashraw}{4f1df2093e91785fbb8b43becec4700a}
       \strng{bibnamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authorbibnamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authornamehash}{4f1df2093e91785fbb8b43becec4700a}
       \strng{authorfullhash}{4f1df2093e91785fbb8b43becec4700a}
+      \strng{authorfullhashraw}{4f1df2093e91785fbb8b43becec4700a}
       \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2701,7 +2834,7 @@
       \field{year}{1960}
       \keyw{probability theory,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{ledleyetal1959}{article}{}
+    \entry{ledleyetal1959}{article}{}{}
       \name{author}{2}{}{%
         {{hash=4f1df2093e91785fbb8b43becec4700a}{%
            family={Ledley},
@@ -2716,10 +2849,12 @@
       }
       \strng{namehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{fullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{fullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \strng{bibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorbibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authornamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorfullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{authorfullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2738,7 +2873,7 @@
       \range{pages}{13}
       \keyw{probability theory,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{ledleyetal1959b}{article}{}
+    \entry{ledleyetal1959b}{article}{}{}
       \name{author}{2}{}{%
         {{hash=4f1df2093e91785fbb8b43becec4700a}{%
            family={Ledley},
@@ -2753,10 +2888,12 @@
       }
       \strng{namehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{fullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{fullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \strng{bibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorbibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authornamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorfullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{authorfullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2775,7 +2912,7 @@
       \range{pages}{8}
       \keyw{probability theory,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{ledleyetal1960}{article}{}
+    \entry{ledleyetal1960}{article}{}{}
       \name{author}{2}{}{%
         {{hash=4f1df2093e91785fbb8b43becec4700a}{%
            family={Ledley},
@@ -2790,10 +2927,12 @@
       }
       \strng{namehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{fullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{fullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \strng{bibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorbibnamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authornamehash}{53c5ac068b6ccf840649543a4a39457b}
       \strng{authorfullhash}{53c5ac068b6ccf840649543a4a39457b}
+      \strng{authorfullhashraw}{53c5ac068b6ccf840649543a4a39457b}
       \field{extraname}{3}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2811,7 +2950,7 @@
       \range{pages}{12}
       \keyw{probability theory,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{lindley1977}{article}{}
+    \entry{lindley1977}{article}{}{}
       \name{author}{1}{}{%
         {{hash=70df82c27f4613305feddad6705b1e48}{%
            family={Lindley},
@@ -2821,10 +2960,12 @@
       }
       \strng{namehash}{70df82c27f4613305feddad6705b1e48}
       \strng{fullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{fullhashraw}{70df82c27f4613305feddad6705b1e48}
       \strng{bibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorbibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authornamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorfullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{authorfullhashraw}{70df82c27f4613305feddad6705b1e48}
       \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2840,9 +2981,9 @@
       \field{year}{1977}
       \field{pages}{51\bibrangedash 58}
       \range{pages}{8}
-      \keyw{Bayesian probability theory,decision theory,coherence,prior,p-values}
+      \keyw{Bayes,decision theory,coherence,prior,p-values}
     \endentry
-    \entry{lindley1971_r1988}{book}{}
+    \entry{lindley1971_r1988}{book}{}{}
       \name{author}{1}{}{%
         {{hash=70df82c27f4613305feddad6705b1e48}{%
            family={Lindley},
@@ -2858,10 +2999,12 @@
       }
       \strng{namehash}{70df82c27f4613305feddad6705b1e48}
       \strng{fullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{fullhashraw}{70df82c27f4613305feddad6705b1e48}
       \strng{bibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorbibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authornamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorfullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{authorfullhashraw}{70df82c27f4613305feddad6705b1e48}
       \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2875,9 +3018,9 @@
       \field{title}{Making Decisions}
       \field{year}{1988}
       \field{origdateera}{ce}
-      \keyw{decision theory,Bayesian probability theory}
+      \keyw{decision theory,Bayes}
     \endentry
-    \entry{lindley2006_r2014}{book}{}
+    \entry{lindley2006_r2014}{book}{}{}
       \name{author}{1}{}{%
         {{hash=70df82c27f4613305feddad6705b1e48}{%
            family={Lindley},
@@ -2893,10 +3036,12 @@
       }
       \strng{namehash}{70df82c27f4613305feddad6705b1e48}
       \strng{fullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{fullhashraw}{70df82c27f4613305feddad6705b1e48}
       \strng{bibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorbibnamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authornamehash}{70df82c27f4613305feddad6705b1e48}
       \strng{authorfullhash}{70df82c27f4613305feddad6705b1e48}
+      \strng{authorfullhashraw}{70df82c27f4613305feddad6705b1e48}
       \field{extraname}{3}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -2911,9 +3056,9 @@
       \field{title}{Understanding Uncertainty}
       \field{year}{2014}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{lindleyetal1981}{article}{}
+    \entry{lindleyetal1981}{article}{}{}
       \name{author}{2}{}{%
         {{hash=70df82c27f4613305feddad6705b1e48}{%
            family={Lindley},
@@ -2928,10 +3073,12 @@
       }
       \strng{namehash}{f410fac052b8bff95096e0065e645b2d}
       \strng{fullhash}{f410fac052b8bff95096e0065e645b2d}
+      \strng{fullhashraw}{f410fac052b8bff95096e0065e645b2d}
       \strng{bibnamehash}{f410fac052b8bff95096e0065e645b2d}
       \strng{authorbibnamehash}{f410fac052b8bff95096e0065e645b2d}
       \strng{authornamehash}{f410fac052b8bff95096e0065e645b2d}
       \strng{authorfullhash}{f410fac052b8bff95096e0065e645b2d}
+      \strng{authorfullhashraw}{f410fac052b8bff95096e0065e645b2d}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -2946,9 +3093,9 @@
       \field{year}{1981}
       \field{pages}{45\bibrangedash 58}
       \range{pages}{14}
-      \keyw{Bayesian probability theory,causation,causality,partial exchangeability,conditional exchangeability,decision theory,spurious correlation}
+      \keyw{Bayes,causation,causality,partial exchangeability,conditional exchangeability,decision theory,spurious correlation}
     \endentry
-    \entry{liuetal2013}{article}{}
+    \entry{liuetal2013}{article}{}{}
       \name{author}{4}{}{%
         {{hash=1fdad1226e33f595d285612f4393e66a}{%
            family={Liu},
@@ -2973,10 +3120,12 @@
       }
       \strng{namehash}{9a27abfb5f77c8269ca16b49002acc9f}
       \strng{fullhash}{12777de628789463a03a0cd04e0368c8}
+      \strng{fullhashraw}{12777de628789463a03a0cd04e0368c8}
       \strng{bibnamehash}{12777de628789463a03a0cd04e0368c8}
       \strng{authorbibnamehash}{12777de628789463a03a0cd04e0368c8}
       \strng{authornamehash}{9a27abfb5f77c8269ca16b49002acc9f}
       \strng{authorfullhash}{12777de628789463a03a0cd04e0368c8}
+      \strng{authorfullhashraw}{12777de628789463a03a0cd04e0368c8}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -2993,7 +3142,7 @@
       \range{pages}{14}
       \keyw{APOE}
     \endentry
-    \entry{luceetal1957}{book}{}
+    \entry{luceetal1957}{book}{}{}
       \name{author}{2}{}{%
         {{hash=9dd9e779e2a247fb49248955ba369e52}{%
            family={Luce},
@@ -3014,10 +3163,12 @@
       }
       \strng{namehash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \strng{fullhash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
+      \strng{fullhashraw}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \strng{bibnamehash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \strng{authorbibnamehash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \strng{authornamehash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \strng{authorfullhash}{edad4c7a31bcfb4e4400b9b86f73c0c0}
+      \strng{authorfullhashraw}{edad4c7a31bcfb4e4400b9b86f73c0c0}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -3029,7 +3180,7 @@
       \field{year}{1957}
       \keyw{game theory,decision theory}
     \endentry
-    \entry{lusted1967}{article}{}
+    \entry{lusted1967}{article}{}{}
       \name{author}{1}{}{%
         {{hash=c60e43c2b6e5aa18ca43d10a613d99e9}{%
            family={Lusted},
@@ -3039,10 +3190,12 @@
       }
       \strng{namehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{fullhash}{c60e43c2b6e5aa18ca43d10a613d99e9}
+      \strng{fullhashraw}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{bibnamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authorbibnamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authornamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authorfullhash}{c60e43c2b6e5aa18ca43d10a613d99e9}
+      \strng{authorfullhashraw}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -3057,9 +3210,9 @@
       \field{year}{1967}
       \field{pages}{903\bibrangedash 923}
       \range{pages}{21}
-      \keyw{Bayesian probability theory,decision theory,medicine,Bayes's theorem}
+      \keyw{Bayes,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{lusted1968}{book}{}
+    \entry{lusted1968}{book}{}{}
       \name{author}{1}{}{%
         {{hash=c60e43c2b6e5aa18ca43d10a613d99e9}{%
            family={Lusted},
@@ -3075,10 +3228,12 @@
       }
       \strng{namehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{fullhash}{c60e43c2b6e5aa18ca43d10a613d99e9}
+      \strng{fullhashraw}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{bibnamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authorbibnamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authornamehash}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \strng{authorfullhash}{c60e43c2b6e5aa18ca43d10a613d99e9}
+      \strng{authorfullhashraw}{c60e43c2b6e5aa18ca43d10a613d99e9}
       \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -3089,7 +3244,7 @@
       \field{title}{Introduction to Medical Decision Making}
       \field{year}{1968}
     \endentry
-    \entry{lustedetal1960}{article}{}
+    \entry{lustedetal1960}{article}{}{}
       \name{author}{2}{}{%
         {{hash=c60e43c2b6e5aa18ca43d10a613d99e9}{%
            family={Lusted},
@@ -3104,10 +3259,12 @@
       }
       \strng{namehash}{50b2ad3a8d611c4d6aea87c322419189}
       \strng{fullhash}{50b2ad3a8d611c4d6aea87c322419189}
+      \strng{fullhashraw}{50b2ad3a8d611c4d6aea87c322419189}
       \strng{bibnamehash}{50b2ad3a8d611c4d6aea87c322419189}
       \strng{authorbibnamehash}{50b2ad3a8d611c4d6aea87c322419189}
       \strng{authornamehash}{50b2ad3a8d611c4d6aea87c322419189}
       \strng{authorfullhash}{50b2ad3a8d611c4d6aea87c322419189}
+      \strng{authorfullhashraw}{50b2ad3a8d611c4d6aea87c322419189}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -3124,20 +3281,22 @@
       \range{pages}{9}
       \keyw{probability theory,decision theory,medicine,Bayes's theorem}
     \endentry
-    \entry{mackay1992}{article}{}
+    \entry{mackay1992}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=99e8c42965ec01aec3921af3e8ecd658}{%
+        {{hash=11d4a0a1265c9730ff1c2e750315f319}{%
            family={MacKay},
            familyi={M\bibinitperiod},
-           given={David\bibnamedelimb J.\bibnamedelimi C.},
+           given={David\bibnamedelimb John\bibnamedelima Cameron},
            giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{namehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{fullhash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{bibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorbibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authornamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorfullhash}{99e8c42965ec01aec3921af3e8ecd658}
+      \strng{namehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{bibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorbibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authornamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
       \field{extraname}{1}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
@@ -3147,29 +3306,31 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Neural Comput.}
-      \field{note}{\url{http://www.inference.phy.cam.ac.uk/mackay/PhD.html}, \doi{10.1162/neco.1992.4.3.415}}
+      \field{note}{\url{https://www.inference.org.uk/mackay/PhD.html}, \doi{10.1162/neco.1992.4.3.415}}
       \field{number}{3}
       \field{title}{Bayesian Interpolation}
       \field{volume}{4}
       \field{year}{1992}
       \field{pages}{415\bibrangedash 447}
       \range{pages}{33}
-      \keyw{Bayesian probability theory,neural networks,deep learning,Ockam factor,hypothesis testing,model comparison}
+      \keyw{Bayes,neural networks,deep learning,Ockam factor,hypothesis testing,model comparison}
     \endentry
-    \entry{mackay1992b}{article}{}
+    \entry{mackay1992b}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=99e8c42965ec01aec3921af3e8ecd658}{%
+        {{hash=11d4a0a1265c9730ff1c2e750315f319}{%
            family={MacKay},
            familyi={M\bibinitperiod},
-           given={David\bibnamedelimb J.\bibnamedelimi C.},
+           given={David\bibnamedelimb John\bibnamedelima Cameron},
            giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{namehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{fullhash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{bibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorbibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authornamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorfullhash}{99e8c42965ec01aec3921af3e8ecd658}
+      \strng{namehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{bibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorbibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authornamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
       \field{extraname}{2}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
@@ -3179,21 +3340,21 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Neural Comput.}
-      \field{note}{\url{http://www.inference.phy.cam.ac.uk/mackay/PhD.html}, \doi{10.1162/neco.1992.4.3.448}}
+      \field{note}{\url{https://www.inference.org.uk/mackay/PhD.html}, \doi{10.1162/neco.1992.4.3.448}}
       \field{number}{3}
       \field{title}{A Practical {Bayesian} Framework for Backpropagation Networks}
       \field{volume}{4}
       \field{year}{1992}
       \field{pages}{448\bibrangedash 472}
       \range{pages}{25}
-      \keyw{Bayesian probability theory,Ockam factor,hypothesis testing}
+      \keyw{Bayes,Ockam factor,hypothesis testing}
     \endentry
-    \entry{mackay1995_r2005}{book}{}
+    \entry{mackay1995_r2005}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=99e8c42965ec01aec3921af3e8ecd658}{%
+        {{hash=11d4a0a1265c9730ff1c2e750315f319}{%
            family={MacKay},
            familyi={M\bibinitperiod},
-           given={David\bibnamedelimb J.\bibnamedelimi C.},
+           given={David\bibnamedelimb John\bibnamedelima Cameron},
            giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
       \list{location}{1}{%
@@ -3202,12 +3363,14 @@
       \list{publisher}{1}{%
         {Cambridge University Press}%
       }
-      \strng{namehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{fullhash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{bibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorbibnamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authornamehash}{99e8c42965ec01aec3921af3e8ecd658}
-      \strng{authorfullhash}{99e8c42965ec01aec3921af3e8ecd658}
+      \strng{namehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{fullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{bibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorbibnamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authornamehash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhash}{11d4a0a1265c9730ff1c2e750315f319}
+      \strng{authorfullhashraw}{11d4a0a1265c9730ff1c2e750315f319}
       \field{extraname}{3}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
@@ -3215,15 +3378,15 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{Version~7.2 (4th pr.)}
-      \field{note}{\url{https://www.inference.org.uk/itila/book.html}. First publ.\ 1995}
+      \field{edition}{version~7.2 (4th pr.)}
+      \field{note}{\url{https://www.inference.org.uk/itila/book.html}. First publ.\ 1995. See also video lectures at \url{https://videolectures.net/events/course_information_theory_pattern_recognition}}
       \field{origyear}{1995}
       \field{title}{Information Theory, Inference, and Learning Algorithms}
       \field{year}{2005}
       \field{origdateera}{ce}
       \keyw{probability theory,communication theory,maximum entropy,decision theory}
     \endentry
-    \entry{malinasetal2004_r2016}{incollection}{}
+    \entry{malinasetal2004_r2016}{incollection}{}{}
       \name{author}{2}{}{%
         {{hash=ca2a42809e5ab215b7c559e2a0a72c1b}{%
            family={Malinas},
@@ -3238,10 +3401,12 @@
       }
       \strng{namehash}{6268e415de50fabeeccd79527406dde5}
       \strng{fullhash}{6268e415de50fabeeccd79527406dde5}
+      \strng{fullhashraw}{6268e415de50fabeeccd79527406dde5}
       \strng{bibnamehash}{6268e415de50fabeeccd79527406dde5}
       \strng{authorbibnamehash}{6268e415de50fabeeccd79527406dde5}
       \strng{authornamehash}{6268e415de50fabeeccd79527406dde5}
       \strng{authorfullhash}{6268e415de50fabeeccd79527406dde5}
+      \strng{authorfullhashraw}{6268e415de50fabeeccd79527406dde5}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3256,7 +3421,7 @@
       \field{origdateera}{ce}
       \keyw{probability theory,exchangeability,confounders}
     \endentry
-    \entry{matthews1996}{article}{}
+    \entry{matthews1996}{article}{}{}
       \name{author}{1}{}{%
         {{hash=f01bc68ba0ea684f8cd4c5661bb00159}{%
            family={Matthews},
@@ -3266,10 +3431,12 @@
       }
       \strng{namehash}{f01bc68ba0ea684f8cd4c5661bb00159}
       \strng{fullhash}{f01bc68ba0ea684f8cd4c5661bb00159}
+      \strng{fullhashraw}{f01bc68ba0ea684f8cd4c5661bb00159}
       \strng{bibnamehash}{f01bc68ba0ea684f8cd4c5661bb00159}
       \strng{authorbibnamehash}{f01bc68ba0ea684f8cd4c5661bb00159}
       \strng{authornamehash}{f01bc68ba0ea684f8cd4c5661bb00159}
       \strng{authorfullhash}{f01bc68ba0ea684f8cd4c5661bb00159}
+      \strng{authorfullhashraw}{f01bc68ba0ea684f8cd4c5661bb00159}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3284,9 +3451,9 @@
       \field{year}{1996}
       \field{pages}{766}
       \range{pages}{1}
-      \keyw{base-rate fallacy,Bayesian probability theory}
+      \keyw{base-rate fallacy,Bayes}
     \endentry
-    \entry{mckhannetal1984}{article}{}
+    \entry{mckhannetal1984}{article}{}{}
       \name{author}{6}{}{%
         {{hash=8cf0f46625e011a9e4d04fea784b94f4}{%
            family={McKhann},
@@ -3321,10 +3488,12 @@
       }
       \strng{namehash}{9d7f3e35be26830c2d3302ff3d54fac0}
       \strng{fullhash}{2a63288dc060c08ca4a7d0e303076687}
+      \strng{fullhashraw}{2a63288dc060c08ca4a7d0e303076687}
       \strng{bibnamehash}{2a63288dc060c08ca4a7d0e303076687}
       \strng{authorbibnamehash}{2a63288dc060c08ca4a7d0e303076687}
       \strng{authornamehash}{9d7f3e35be26830c2d3302ff3d54fac0}
       \strng{authorfullhash}{2a63288dc060c08ca4a7d0e303076687}
+      \strng{authorfullhashraw}{2a63288dc060c08ca4a7d0e303076687}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3340,7 +3509,7 @@
       \field{pages}{939\bibrangedash 944}
       \range{pages}{6}
     \endentry
-    \entry{minka1998d_r2003}{report}{}
+    \entry{minka1998d_r2003}{report}{}{}
       \name{author}{1}{}{%
         {{hash=9076037ea01f5720a220ce315554e70a}{%
            family={Minka},
@@ -3356,10 +3525,12 @@
       }
       \strng{namehash}{9076037ea01f5720a220ce315554e70a}
       \strng{fullhash}{9076037ea01f5720a220ce315554e70a}
+      \strng{fullhashraw}{9076037ea01f5720a220ce315554e70a}
       \strng{bibnamehash}{9076037ea01f5720a220ce315554e70a}
       \strng{authorbibnamehash}{9076037ea01f5720a220ce315554e70a}
       \strng{authornamehash}{9076037ea01f5720a220ce315554e70a}
       \strng{authorfullhash}{9076037ea01f5720a220ce315554e70a}
+      \strng{authorfullhashraw}{9076037ea01f5720a220ce315554e70a}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3372,9 +3543,9 @@
       \field{type}{techreport}
       \field{year}{2003}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,Markov chains,memory,non-exchangeability,Dirichlet distribution,entropy,mutual information}
+      \keyw{Bayes,Markov chains,memory,non-exchangeability,Dirichlet distribution,entropy,mutual information}
     \endentry
-    \entry{murphy2012}{book}{}
+    \entry{murphy2012}{book}{}{}
       \name{author}{1}{}{%
         {{hash=99413be56c82adf72b6474dcdf8d3023}{%
            family={Murphy},
@@ -3390,23 +3561,24 @@
       }
       \strng{namehash}{99413be56c82adf72b6474dcdf8d3023}
       \strng{fullhash}{99413be56c82adf72b6474dcdf8d3023}
+      \strng{fullhashraw}{99413be56c82adf72b6474dcdf8d3023}
       \strng{bibnamehash}{99413be56c82adf72b6474dcdf8d3023}
       \strng{authorbibnamehash}{99413be56c82adf72b6474dcdf8d3023}
       \strng{authornamehash}{99413be56c82adf72b6474dcdf8d3023}
       \strng{authorfullhash}{99413be56c82adf72b6474dcdf8d3023}
+      \strng{authorfullhashraw}{99413be56c82adf72b6474dcdf8d3023}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{\url{https://probml.github.io/pml-book/book0.html}}
       \field{series}{Adaptive computation and machine learning}
       \field{title}{Machine Learning: A Probabilistic Perspective}
       \field{year}{2012}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{neal1993}{report}{}
+    \entry{neal1993}{report}{}{}
       \name{author}{1}{}{%
         {{hash=f366a77ba01bf711161e56bcc244e7f2}{%
            family={Neal},
@@ -3422,10 +3594,12 @@
       }
       \strng{namehash}{f366a77ba01bf711161e56bcc244e7f2}
       \strng{fullhash}{f366a77ba01bf711161e56bcc244e7f2}
+      \strng{fullhashraw}{f366a77ba01bf711161e56bcc244e7f2}
       \strng{bibnamehash}{f366a77ba01bf711161e56bcc244e7f2}
       \strng{authorbibnamehash}{f366a77ba01bf711161e56bcc244e7f2}
       \strng{authornamehash}{f366a77ba01bf711161e56bcc244e7f2}
       \strng{authorfullhash}{f366a77ba01bf711161e56bcc244e7f2}
+      \strng{authorfullhashraw}{f366a77ba01bf711161e56bcc244e7f2}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extradatescope}{labelyear}
@@ -3437,9 +3611,9 @@
       \field{title}{Probabilistic Inference using {Markov} Chain {Monte Carlo} Methods}
       \field{type}{techreport}
       \field{year}{1993}
-      \keyw{Bayesian probability theory,sampling}
+      \keyw{Bayes,sampling}
     \endentry
-    \entry{ohaganetal2006}{book}{}
+    \entry{ohaganetal2006}{book}{}{}
       \name{author}{8}{}{%
         {{hash=935aaa4e5b6ba896fee7931280eab28c}{%
            family={O'Hagan},
@@ -3490,10 +3664,12 @@
       }
       \strng{namehash}{e555ed17eb956d5ce4142aa7a0e7fed6}
       \strng{fullhash}{7fc05e5a95b18717ff42a0cb097d04ce}
+      \strng{fullhashraw}{7fc05e5a95b18717ff42a0cb097d04ce}
       \strng{bibnamehash}{7fc05e5a95b18717ff42a0cb097d04ce}
       \strng{authorbibnamehash}{7fc05e5a95b18717ff42a0cb097d04ce}
       \strng{authornamehash}{e555ed17eb956d5ce4142aa7a0e7fed6}
       \strng{authorfullhash}{7fc05e5a95b18717ff42a0cb097d04ce}
+      \strng{authorfullhashraw}{7fc05e5a95b18717ff42a0cb097d04ce}
       \field{sortinit}{O}
       \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
       \field{extradatescope}{labelyear}
@@ -3504,9 +3680,9 @@
       \field{series}{Statistics in practice}
       \field{title}{Uncertain Judgements: Eliciting Experts' Probabilities}
       \field{year}{2006}
-      \keyw{Bayesian probability theory,prior probability}
+      \keyw{Bayes,prior probability}
     \endentry
-    \entry{paris1994_r2006}{book}{}
+    \entry{paris1994_r2006}{book}{}{}
       \name{author}{1}{}{%
         {{hash=fc32aa9c5d7659f973ae2d2a48225078}{%
            family={Paris},
@@ -3522,10 +3698,12 @@
       }
       \strng{namehash}{fc32aa9c5d7659f973ae2d2a48225078}
       \strng{fullhash}{fc32aa9c5d7659f973ae2d2a48225078}
+      \strng{fullhashraw}{fc32aa9c5d7659f973ae2d2a48225078}
       \strng{bibnamehash}{fc32aa9c5d7659f973ae2d2a48225078}
       \strng{authorbibnamehash}{fc32aa9c5d7659f973ae2d2a48225078}
       \strng{authornamehash}{fc32aa9c5d7659f973ae2d2a48225078}
       \strng{authorfullhash}{fc32aa9c5d7659f973ae2d2a48225078}
+      \strng{authorfullhashraw}{fc32aa9c5d7659f973ae2d2a48225078}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3540,9 +3718,9 @@
       \field{title}{The Uncertain Reasoner's Companion: A Mathematical Perspective}
       \field{year}{2006}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,Cox's theorem}
+      \keyw{Bayes,Cox's theorem}
     \endentry
-    \entry{petersenetal2010}{article}{}
+    \entry{petersenetal2010}{article}{}{}
       \name{author}{12}{}{%
         {{hash=de35d7845118fd8fc3b46a720cbda2b8}{%
            family={Petersen},
@@ -3607,10 +3785,12 @@
       }
       \strng{namehash}{d1e18c82092ff82ee6e7ce0878203f02}
       \strng{fullhash}{957b69e91360a14a5b45f47c80646606}
+      \strng{fullhashraw}{957b69e91360a14a5b45f47c80646606}
       \strng{bibnamehash}{6056b64f2743a2447cddfcbaaa4fbd29}
       \strng{authorbibnamehash}{6056b64f2743a2447cddfcbaaa4fbd29}
       \strng{authornamehash}{d1e18c82092ff82ee6e7ce0878203f02}
       \strng{authorfullhash}{957b69e91360a14a5b45f47c80646606}
+      \strng{authorfullhashraw}{957b69e91360a14a5b45f47c80646606}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3626,7 +3806,7 @@
       \field{pages}{201\bibrangedash 209}
       \range{pages}{9}
     \endentry
-    \entry{pettigrew2011_r2019}{incollection}{}
+    \entry{pettigrew2011_r2019}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=398bfd31f121dcaac0807e35cca44797}{%
            family={Pettigrew},
@@ -3636,10 +3816,12 @@
       }
       \strng{namehash}{398bfd31f121dcaac0807e35cca44797}
       \strng{fullhash}{398bfd31f121dcaac0807e35cca44797}
+      \strng{fullhashraw}{398bfd31f121dcaac0807e35cca44797}
       \strng{bibnamehash}{398bfd31f121dcaac0807e35cca44797}
       \strng{authorbibnamehash}{398bfd31f121dcaac0807e35cca44797}
       \strng{authornamehash}{398bfd31f121dcaac0807e35cca44797}
       \strng{authorfullhash}{398bfd31f121dcaac0807e35cca44797}
+      \strng{authorfullhashraw}{398bfd31f121dcaac0807e35cca44797}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3652,9 +3834,9 @@
       \field{title}{Epistemic Utility Arguments for Probabilism}
       \field{year}{2019}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,decision theory}
+      \keyw{Bayes,decision theory}
     \endentry
-    \entry{polya1954}{book}{}
+    \entry{polya1954}{book}{}{}
       \name{author}{1}{}{%
         {{hash=5e81307c3c82bf0c48a54f6da67e4d89}{%
            family={Pólya},
@@ -3670,10 +3852,12 @@
       }
       \strng{namehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{fullhash}{5e81307c3c82bf0c48a54f6da67e4d89}
+      \strng{fullhashraw}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{bibnamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authorbibnamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authornamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authorfullhash}{5e81307c3c82bf0c48a54f6da67e4d89}
+      \strng{authorfullhashraw}{5e81307c3c82bf0c48a54f6da67e4d89}
       \field{extraname}{1}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
@@ -3684,9 +3868,9 @@
       \field{note}{\url{https://archive.org/details/Induction_And_Analogy_In_Mathematics_1_}, \doi{10.1515/9780691218304}}
       \field{title}{Mathematics and Plausible Reasoning: Vol.~I: Induction and Analogy in Mathematics}
       \field{year}{1954}
-      \keyw{Bayesian probability theory,Cox's theorem}
+      \keyw{Bayes,Cox's theorem}
     \endentry
-    \entry{polya1954b_r1968}{book}{}
+    \entry{polya1954b_r1968}{book}{}{}
       \name{author}{1}{}{%
         {{hash=5e81307c3c82bf0c48a54f6da67e4d89}{%
            family={Pólya},
@@ -3702,10 +3886,12 @@
       }
       \strng{namehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{fullhash}{5e81307c3c82bf0c48a54f6da67e4d89}
+      \strng{fullhashraw}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{bibnamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authorbibnamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authornamehash}{5e81307c3c82bf0c48a54f6da67e4d89}
       \strng{authorfullhash}{5e81307c3c82bf0c48a54f6da67e4d89}
+      \strng{authorfullhashraw}{5e81307c3c82bf0c48a54f6da67e4d89}
       \field{extraname}{2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
@@ -3721,32 +3907,34 @@
       \field{origdateera}{ce}
       \keyw{plausible reasoning}
     \endentry
-    \entry{portamana2019b}{misc}{}
+    \entry{portamana2019b}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=ffacf9a7da9ab093bc67eb966258efe6}{%
-           family={Porta\bibnamedelima Mana},
-           familyi={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           family={{Porta Mana}},
+           familyi={P\bibinitperiod},
            given={Piero\bibnamedelimb Giovanni\bibnamedelima Luca},
            giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
       \strng{namehash}{ffacf9a7da9ab093bc67eb966258efe6}
       \strng{fullhash}{ffacf9a7da9ab093bc67eb966258efe6}
+      \strng{fullhashraw}{ffacf9a7da9ab093bc67eb966258efe6}
       \strng{bibnamehash}{ffacf9a7da9ab093bc67eb966258efe6}
       \strng{authorbibnamehash}{ffacf9a7da9ab093bc67eb966258efe6}
       \strng{authornamehash}{ffacf9a7da9ab093bc67eb966258efe6}
       \strng{authorfullhash}{ffacf9a7da9ab093bc67eb966258efe6}
+      \strng{authorfullhashraw}{ffacf9a7da9ab093bc67eb966258efe6}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{\osfeprint{k8mj3}, \haleprint{hal-02267943}, \arxiveprint{1908.08741}}
+      \field{note}{\osfdoi{10.31219/osf.io/k8mj3}, \halurl{hal.science/hal-02267943}, \arxivdoi{10.48550/arXiv.1908.08741}}
       \field{title}{A relation between log-likelihood and cross-validation log-scores}
       \field{year}{2019}
-      \keyw{Bayes factors,model comparison,Bayesian probability theory}
+      \keyw{Bayes factors,model comparison,Bayes}
     \endentry
-    \entry{pratt1961}{article}{}
+    \entry{pratt1961}{article}{}{}
       \name{author}{1}{}{%
         {{hash=78442321e2ccf9f5f204df6e3239f7c0}{%
            family={Pratt},
@@ -3756,10 +3944,12 @@
       }
       \strng{namehash}{78442321e2ccf9f5f204df6e3239f7c0}
       \strng{fullhash}{78442321e2ccf9f5f204df6e3239f7c0}
+      \strng{fullhashraw}{78442321e2ccf9f5f204df6e3239f7c0}
       \strng{bibnamehash}{78442321e2ccf9f5f204df6e3239f7c0}
       \strng{authorbibnamehash}{78442321e2ccf9f5f204df6e3239f7c0}
       \strng{authornamehash}{78442321e2ccf9f5f204df6e3239f7c0}
       \strng{authorfullhash}{78442321e2ccf9f5f204df6e3239f7c0}
+      \strng{authorfullhashraw}{78442321e2ccf9f5f204df6e3239f7c0}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3774,9 +3964,9 @@
       \field{year}{1961}
       \field{pages}{163\bibrangedash 167}
       \range{pages}{5}
-      \keyw{Bayesian probability theory,frequentist theory,p-values,confidence intervals}
+      \keyw{Bayes,frequentist theory,p-values,confidence intervals}
     \endentry
-    \entry{prattetal1995_r1996}{book}{}
+    \entry{prattetal1995_r1996}{book}{}{}
       \name{author}{3}{}{%
         {{hash=78442321e2ccf9f5f204df6e3239f7c0}{%
            family={Pratt},
@@ -3802,10 +3992,12 @@
       }
       \strng{namehash}{77029f089caec5b368083bd3c45e5652}
       \strng{fullhash}{4d7438dce7afd95981e7df9bdcd1a6eb}
+      \strng{fullhashraw}{4d7438dce7afd95981e7df9bdcd1a6eb}
       \strng{bibnamehash}{4d7438dce7afd95981e7df9bdcd1a6eb}
       \strng{authorbibnamehash}{4d7438dce7afd95981e7df9bdcd1a6eb}
       \strng{authornamehash}{77029f089caec5b368083bd3c45e5652}
       \strng{authorfullhash}{4d7438dce7afd95981e7df9bdcd1a6eb}
+      \strng{authorfullhashraw}{4d7438dce7afd95981e7df9bdcd1a6eb}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3818,9 +4010,9 @@
       \field{title}{Introduction to Statistical Decision Theory}
       \field{year}{1996}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,decision theory,utility,estimators}
+      \keyw{Bayes,decision theory,utility,estimators}
     \endentry
-    \entry{provost2000}{report}{}
+    \entry{provost2000}{report}{}{}
       \name{author}{1}{}{%
         {{hash=79fae1f3d670f588a9b7148774f77abf}{%
            family={Provost},
@@ -3836,10 +4028,12 @@
       }
       \strng{namehash}{79fae1f3d670f588a9b7148774f77abf}
       \strng{fullhash}{79fae1f3d670f588a9b7148774f77abf}
+      \strng{fullhashraw}{79fae1f3d670f588a9b7148774f77abf}
       \strng{bibnamehash}{79fae1f3d670f588a9b7148774f77abf}
       \strng{authorbibnamehash}{79fae1f3d670f588a9b7148774f77abf}
       \strng{authornamehash}{79fae1f3d670f588a9b7148774f77abf}
       \strng{authorfullhash}{79fae1f3d670f588a9b7148774f77abf}
+      \strng{authorfullhashraw}{79fae1f3d670f588a9b7148774f77abf}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
@@ -3851,9 +4045,9 @@
       \field{title}{Machine Learning from Imbalanced Data Sets 101}
       \field{type}{techreport}
       \field{year}{2000}
-      \keyw{decision theory,utility matrix,Bayesian probability theory,class balance}
+      \keyw{decision theory,utility matrix,Bayes,class balance}
     \endentry
-    \entry{quintanaetal2017}{article}{}
+    \entry{quintanaetal2017}{article}{}{}
       \name{author}{3}{}{%
         {{hash=da4675999a0f88f95a4bee368db23c42}{%
            family={Quintana},
@@ -3873,10 +4067,12 @@
       }
       \strng{namehash}{ddd1351e0261264fa4813ae7e505bc12}
       \strng{fullhash}{003f193249e84e21f5f6d5dd67e82285}
+      \strng{fullhashraw}{003f193249e84e21f5f6d5dd67e82285}
       \strng{bibnamehash}{003f193249e84e21f5f6d5dd67e82285}
       \strng{authorbibnamehash}{003f193249e84e21f5f6d5dd67e82285}
       \strng{authornamehash}{ddd1351e0261264fa4813ae7e505bc12}
       \strng{authorfullhash}{003f193249e84e21f5f6d5dd67e82285}
+      \strng{authorfullhashraw}{003f193249e84e21f5f6d5dd67e82285}
       \field{sortinit}{Q}
       \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
       \field{extradatescope}{labelyear}
@@ -3893,7 +4089,7 @@
       \range{pages}{2}
       \keyw{probability theory}
     \endentry
-    \entry{rcoreteam1995_r2023}{manual}{}
+    \entry{rcoreteam1995_r2023}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=dcdebb6b35bff7c0568bf8c50ef8626d}{%
            family={{R Core Team}},
@@ -3907,10 +4103,12 @@
       }
       \strng{namehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{fullhash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{fullhashraw}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{bibnamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{authorbibnamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{authornamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{authorfullhash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{authorfullhashraw}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -3924,7 +4122,7 @@
       \field{origdateera}{ce}
       \keyw{programming language,cran}
     \endentry
-    \entry{raiffa1968_r1970}{book}{}
+    \entry{raiffa1968_r1970}{book}{}{}
       \name{author}{1}{}{%
         {{hash=e8f68770a8e3721b1b66f492a5dd88ff}{%
            family={Raiffa},
@@ -3940,10 +4138,12 @@
       }
       \strng{namehash}{e8f68770a8e3721b1b66f492a5dd88ff}
       \strng{fullhash}{e8f68770a8e3721b1b66f492a5dd88ff}
+      \strng{fullhashraw}{e8f68770a8e3721b1b66f492a5dd88ff}
       \strng{bibnamehash}{e8f68770a8e3721b1b66f492a5dd88ff}
       \strng{authorbibnamehash}{e8f68770a8e3721b1b66f492a5dd88ff}
       \strng{authornamehash}{e8f68770a8e3721b1b66f492a5dd88ff}
       \strng{authorfullhash}{e8f68770a8e3721b1b66f492a5dd88ff}
+      \strng{authorfullhashraw}{e8f68770a8e3721b1b66f492a5dd88ff}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -3957,9 +4157,9 @@
       \field{title}{Decision Analysis: Introductory Lectures on Choices under Uncertainty}
       \field{year}{1970}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,decision theory,expected utility}
+      \keyw{Bayes,decision theory,expected utility}
     \endentry
-    \entry{raiffaetal1961_r2000}{book}{}
+    \entry{raiffaetal1961_r2000}{book}{}{}
       \name{author}{2}{}{%
         {{hash=e8f68770a8e3721b1b66f492a5dd88ff}{%
            family={Raiffa},
@@ -3980,10 +4180,12 @@
       }
       \strng{namehash}{e83cec80f46e8464cafa7f339e6079c9}
       \strng{fullhash}{e83cec80f46e8464cafa7f339e6079c9}
+      \strng{fullhashraw}{e83cec80f46e8464cafa7f339e6079c9}
       \strng{bibnamehash}{e83cec80f46e8464cafa7f339e6079c9}
       \strng{authorbibnamehash}{e83cec80f46e8464cafa7f339e6079c9}
       \strng{authornamehash}{e83cec80f46e8464cafa7f339e6079c9}
       \strng{authorfullhash}{e83cec80f46e8464cafa7f339e6079c9}
+      \strng{authorfullhashraw}{e83cec80f46e8464cafa7f339e6079c9}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -3997,9 +4199,9 @@
       \field{title}{Applied Statistical Decision Theory}
       \field{year}{2000}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,models by sufficiency}
+      \keyw{Bayes,models by sufficiency}
     \endentry
-    \entry{rasmussen1999}{article}{}
+    \entry{rasmussen1999}{article}{}{}
       \name{author}{1}{}{%
         {{hash=58d90ed7b7348c7a5a9b4a2a8f46df7b}{%
            family={Rasmussen},
@@ -4009,10 +4211,12 @@
       }
       \strng{namehash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \strng{fullhash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
+      \strng{fullhashraw}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \strng{bibnamehash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \strng{authorbibnamehash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \strng{authornamehash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \strng{authorfullhash}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
+      \strng{authorfullhashraw}{58d90ed7b7348c7a5a9b4a2a8f46df7b}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4028,7 +4232,7 @@
       \range{pages}{7}
       \keyw{Dirichlet process,Bayesian non-parametrics,normal mixture}
     \endentry
-    \entry{rodriguezetal2009}{article}{}
+    \entry{rodriguezetal2009}{article}{}{}
       \name{author}{3}{}{%
         {{hash=d8edafc22987223b5d495bdc5d471fa6}{%
            family={Rodríguez},
@@ -4048,10 +4252,12 @@
       }
       \strng{namehash}{da4ff2601d050d24a8cb4b0c3285ae10}
       \strng{fullhash}{79a7b70dbbb75ba09687a7f7139c2bb1}
+      \strng{fullhashraw}{79a7b70dbbb75ba09687a7f7139c2bb1}
       \strng{bibnamehash}{79a7b70dbbb75ba09687a7f7139c2bb1}
       \strng{authorbibnamehash}{79a7b70dbbb75ba09687a7f7139c2bb1}
       \strng{authornamehash}{da4ff2601d050d24a8cb4b0c3285ae10}
       \strng{authorfullhash}{79a7b70dbbb75ba09687a7f7139c2bb1}
+      \strng{authorfullhashraw}{79a7b70dbbb75ba09687a7f7139c2bb1}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4068,7 +4274,7 @@
       \range{pages}{14}
       \keyw{Dirichlet-process mixture,regression}
     \endentry
-    \entry{rosenkrantz1977}{book}{}
+    \entry{rosenkrantz1977}{book}{}{}
       \name{author}{1}{}{%
         {{hash=64e3195f9e0937c767dfaf481aca9b11}{%
            family={Rosenkrantz},
@@ -4084,10 +4290,12 @@
       }
       \strng{namehash}{64e3195f9e0937c767dfaf481aca9b11}
       \strng{fullhash}{64e3195f9e0937c767dfaf481aca9b11}
+      \strng{fullhashraw}{64e3195f9e0937c767dfaf481aca9b11}
       \strng{bibnamehash}{64e3195f9e0937c767dfaf481aca9b11}
       \strng{authorbibnamehash}{64e3195f9e0937c767dfaf481aca9b11}
       \strng{authornamehash}{64e3195f9e0937c767dfaf481aca9b11}
       \strng{authorfullhash}{64e3195f9e0937c767dfaf481aca9b11}
+      \strng{authorfullhashraw}{64e3195f9e0937c767dfaf481aca9b11}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4098,9 +4306,9 @@
       \field{title}{Inference, Method and Decision: Towards a Bayesian Philosophy of Science}
       \field{volume}{115}
       \field{year}{1977}
-      \keyw{Cox's theorem,Bayesian probability theory}
+      \keyw{Cox's theorem,Bayes}
     \endentry
-    \entry{rossi2014}{book}{}
+    \entry{rossi2014}{book}{}{}
       \name{author}{1}{}{%
         {{hash=9bdc2f19b35316454a6edea6d8e70ec4}{%
            family={Rossi},
@@ -4116,10 +4324,12 @@
       }
       \strng{namehash}{9bdc2f19b35316454a6edea6d8e70ec4}
       \strng{fullhash}{9bdc2f19b35316454a6edea6d8e70ec4}
+      \strng{fullhashraw}{9bdc2f19b35316454a6edea6d8e70ec4}
       \strng{bibnamehash}{9bdc2f19b35316454a6edea6d8e70ec4}
       \strng{authorbibnamehash}{9bdc2f19b35316454a6edea6d8e70ec4}
       \strng{authornamehash}{9bdc2f19b35316454a6edea6d8e70ec4}
       \strng{authorfullhash}{9bdc2f19b35316454a6edea6d8e70ec4}
+      \strng{authorfullhashraw}{9bdc2f19b35316454a6edea6d8e70ec4}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4130,9 +4340,9 @@
       \field{series}{The Econometric and Tinbergen Institutes lectures}
       \field{title}{Bayesian Non- and Semi-parametric Methods and Applications}
       \field{year}{2014}
-      \keyw{Dirichlet process,non-parametric Bayesian probability theory}
+      \keyw{Dirichlet process,non-parametric Bayes}
     \endentry
-    \entry{russelletal1995_r2022}{book}{}
+    \entry{russelletal1995_r2022}{book}{}{}
       \name{author}{2}{}{%
         {{hash=18ee0a7bfc995f40254c9d425c977a49}{%
            family={Russell},
@@ -4153,18 +4363,20 @@
       }
       \strng{namehash}{a4f50258a14156905c8d2b1b4704be30}
       \strng{fullhash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{fullhashraw}{a4f50258a14156905c8d2b1b4704be30}
       \strng{bibnamehash}{a4f50258a14156905c8d2b1b4704be30}
       \strng{authorbibnamehash}{a4f50258a14156905c8d2b1b4704be30}
       \strng{authornamehash}{a4f50258a14156905c8d2b1b4704be30}
       \strng{authorfullhash}{a4f50258a14156905c8d2b1b4704be30}
+      \strng{authorfullhashraw}{a4f50258a14156905c8d2b1b4704be30}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{Fourth Global ed.}
-      \field{note}{\url{http://aima.cs.berkeley.edu/global-index.html}, \url{https://archive.org/details/artificial-intelligence-a-modern-approach-4th-edition}. First publ.\ 1995}
+      \field{edition}{4th global ed.}
+      \field{note}{\url{http://aima.cs.berkeley.edu/global-index.html}. First publ.\ 1995}
       \field{origyear}{1995}
       \field{series}{Pearson series in artificial intelligence}
       \field{title}{Artificial Intelligence: A Modern Approach}
@@ -4172,7 +4384,7 @@
       \field{origdateera}{ce}
       \keyw{probability theory,decision theory,utility matrix}
     \endentry
-    \entry{ryeetal2022}{article}{}
+    \entry{ryeetal2022}{article}{}{}
       \name{author}{5}{}{%
         {{hash=c0142675665f865176cfb7505c1ac16a}{%
            family={Rye},
@@ -4202,10 +4414,12 @@
       }
       \strng{namehash}{6969320503ac8e72d9932fee49a7eea1}
       \strng{fullhash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
+      \strng{fullhashraw}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \strng{bibnamehash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \strng{authorbibnamehash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \strng{authornamehash}{6969320503ac8e72d9932fee49a7eea1}
       \strng{authorfullhash}{68ab187f4e2fe142f35ac61f3aa4f3ef}
+      \strng{authorfullhashraw}{68ab187f4e2fe142f35ac61f3aa4f3ef}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
@@ -4221,7 +4435,7 @@
       \range{pages}{1}
       \keyw{machine learning}
     \endentry
-    \entry{savage1954_r1972}{book}{}
+    \entry{savage1954_r1972}{book}{}{}
       \name{author}{1}{}{%
         {{hash=4c0baad1638fc0e232b6285b4cb38eef}{%
            family={Savage},
@@ -4237,10 +4451,12 @@
       }
       \strng{namehash}{4c0baad1638fc0e232b6285b4cb38eef}
       \strng{fullhash}{4c0baad1638fc0e232b6285b4cb38eef}
+      \strng{fullhashraw}{4c0baad1638fc0e232b6285b4cb38eef}
       \strng{bibnamehash}{4c0baad1638fc0e232b6285b4cb38eef}
       \strng{authorbibnamehash}{4c0baad1638fc0e232b6285b4cb38eef}
       \strng{authornamehash}{4c0baad1638fc0e232b6285b4cb38eef}
       \strng{authorfullhash}{4c0baad1638fc0e232b6285b4cb38eef}
+      \strng{authorfullhashraw}{4c0baad1638fc0e232b6285b4cb38eef}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4253,9 +4469,9 @@
       \field{title}{The Foundations of Statistics}
       \field{year}{1972}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,p-values,decision theory}
+      \keyw{Bayes,p-values,decision theory}
     \endentry
-    \entry{savageetal1962}{book}{}
+    \entry{savageetal1962}{book}{}{}
       \name{author}{6}{}{%
         {{hash=4c0baad1638fc0e232b6285b4cb38eef}{%
            family={Savage},
@@ -4296,10 +4512,12 @@
       }
       \strng{namehash}{67c5ec2c6ffddb710af66c90fa8c3ebb}
       \strng{fullhash}{4a913b0ef6d73f3947413d78182b5edf}
+      \strng{fullhashraw}{4a913b0ef6d73f3947413d78182b5edf}
       \strng{bibnamehash}{4a913b0ef6d73f3947413d78182b5edf}
       \strng{authorbibnamehash}{4a913b0ef6d73f3947413d78182b5edf}
       \strng{authornamehash}{67c5ec2c6ffddb710af66c90fa8c3ebb}
       \strng{authorfullhash}{4a913b0ef6d73f3947413d78182b5edf}
+      \strng{authorfullhashraw}{4a913b0ef6d73f3947413d78182b5edf}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4310,9 +4528,9 @@
       \field{series}{Methuen's monographs on applied probability and statistics}
       \field{title}{The Foundations of Statistical Inference: A Discussion\subtitleproc{. Opened hy Professor L. J. Savage at a meeting of the Joint Statistics Seminar, Birbeck and Imperial Colleges, in the University of London}}
       \field{year}{1962}
-      \keyw{$p$-values,Bayesian probability theory}
+      \keyw{$p$-values,Bayes}
     \endentry
-    \entry{selfetal1987}{incollection}{}
+    \entry{selfetal1987}{incollection}{}{}
       \name{author}{2}{}{%
         {{hash=3e868c50778d923037f510b9b351f21e}{%
            family={Self},
@@ -4350,13 +4568,16 @@
       }
       \strng{namehash}{91a47414b70759520a62320353ca7ac7}
       \strng{fullhash}{91a47414b70759520a62320353ca7ac7}
+      \strng{fullhashraw}{91a47414b70759520a62320353ca7ac7}
       \strng{bibnamehash}{91a47414b70759520a62320353ca7ac7}
       \strng{authorbibnamehash}{91a47414b70759520a62320353ca7ac7}
       \strng{authornamehash}{91a47414b70759520a62320353ca7ac7}
       \strng{authorfullhash}{91a47414b70759520a62320353ca7ac7}
+      \strng{authorfullhashraw}{91a47414b70759520a62320353ca7ac7}
       \strng{editorbibnamehash}{ca6ddab37c5cdedb3e516e67d90e917c}
       \strng{editornamehash}{f6adb5ec805a0b8487d8aaafc23729f6}
       \strng{editorfullhash}{ca6ddab37c5cdedb3e516e67d90e917c}
+      \strng{editorfullhashraw}{ca6ddab37c5cdedb3e516e67d90e917c}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4364,14 +4585,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the Third Conference on Uncertainty in Artificial Intelligence (UAI'87)}
-      \field{note}{Repr.\ in \arxiveprint{1304.2717}}
+      \field{note}{Repr.\ in \arxivdoi{10.48550/arXiv.1304.2717}}
       \field{title}{Bayesian prediction for artificial intelligence}
       \field{year}{1987}
       \field{pages}{61\bibrangedash 69}
       \range{pages}{9}
-      \keyw{Bayesian probability theory,machine learning}
+      \keyw{Bayes,machine learning}
     \endentry
-    \entry{shahetal2013}{article}{}
+    \entry{shahetal2013}{article}{}{}
       \name{author}{3}{}{%
         {{hash=b562dfaa741bd536638e4a4ed9c6cc3e}{%
            family={Shah},
@@ -4391,10 +4612,12 @@
       }
       \strng{namehash}{5f5404dbc8cdb8e6be659f064e14575d}
       \strng{fullhash}{0622821293ddff246b5afacc2d9b74c6}
+      \strng{fullhashraw}{0622821293ddff246b5afacc2d9b74c6}
       \strng{bibnamehash}{0622821293ddff246b5afacc2d9b74c6}
       \strng{authorbibnamehash}{0622821293ddff246b5afacc2d9b74c6}
       \strng{authornamehash}{5f5404dbc8cdb8e6be659f064e14575d}
       \strng{authorfullhash}{0622821293ddff246b5afacc2d9b74c6}
+      \strng{authorfullhashraw}{0622821293ddff246b5afacc2d9b74c6}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4411,7 +4634,7 @@
       \range{pages}{3}
       \keyw{medicine,probability theory,decision theory}
     \endentry
-    \entry{shannon1948}{article}{}
+    \entry{shannon1948}{article}{}{}
       \name{author}{1}{}{%
         {{hash=e930d560748b00dab7e3d19806c848ba}{%
            family={Shannon},
@@ -4421,10 +4644,12 @@
       }
       \strng{namehash}{e930d560748b00dab7e3d19806c848ba}
       \strng{fullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhashraw}{e930d560748b00dab7e3d19806c848ba}
       \strng{bibnamehash}{e930d560748b00dab7e3d19806c848ba}
       \strng{authorbibnamehash}{e930d560748b00dab7e3d19806c848ba}
       \strng{authornamehash}{e930d560748b00dab7e3d19806c848ba}
       \strng{authorfullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhashraw}{e930d560748b00dab7e3d19806c848ba}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4441,7 +4666,7 @@
       \range{pages}{79}
       \keyw{Shannon entropy,mutual information}
     \endentry
-    \entry{sidebotham2020}{article}{}
+    \entry{sidebotham2020}{article}{}{}
       \name{author}{1}{}{%
         {{hash=5d48fa920114f3ee4ae3ba67c4bc41b0}{%
            family={Sidebotham},
@@ -4451,10 +4676,12 @@
       }
       \strng{namehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \strng{fullhash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{fullhashraw}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \strng{bibnamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \strng{authorbibnamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \strng{authornamehash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \strng{authorfullhash}{5d48fa920114f3ee4ae3ba67c4bc41b0}
+      \strng{authorfullhashraw}{5d48fa920114f3ee4ae3ba67c4bc41b0}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4469,9 +4696,9 @@
       \field{year}{2020}
       \field{pages}{1386\bibrangedash 1393}
       \range{pages}{8}
-      \keyw{p-values,null-hypothesis significance testing,Bayesian probability theory}
+      \keyw{p-values,null-hypothesis significance testing,Bayes}
     \endentry
-    \entry{smithetal2006}{article}{}
+    \entry{smithetal2006}{article}{}{}
       \name{author}{2}{}{%
         {{hash=8b47eb5ad45408b648d676ed21620290}{%
            family={Smith},
@@ -4486,10 +4713,12 @@
       }
       \strng{namehash}{8c6319730d7fae67f0aff59b79801079}
       \strng{fullhash}{8c6319730d7fae67f0aff59b79801079}
+      \strng{fullhashraw}{8c6319730d7fae67f0aff59b79801079}
       \strng{bibnamehash}{8c6319730d7fae67f0aff59b79801079}
       \strng{authorbibnamehash}{8c6319730d7fae67f0aff59b79801079}
       \strng{authornamehash}{8c6319730d7fae67f0aff59b79801079}
       \strng{authorfullhash}{8c6319730d7fae67f0aff59b79801079}
+      \strng{authorfullhashraw}{8c6319730d7fae67f0aff59b79801079}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4502,9 +4731,11 @@
       \field{title}{The Optimizer's Curse: Skepticism and Postdecision Surprise in Decision Analysis}
       \field{volume}{52}
       \field{year}{2006}
-      \keyw{decision theory,expected utility,Bayesian probability theory}
+      \field{pages}{311\bibrangedash 322}
+      \range{pages}{12}
+      \keyw{decision theory,expected utility,Bayes}
     \endentry
-    \entry{snow1998}{article}{}
+    \entry{snow1998}{article}{}{}
       \name{author}{1}{}{%
         {{hash=977e0ea9ec36fab89cb1bec6dcd51b4b}{%
            family={Snow},
@@ -4514,10 +4745,12 @@
       }
       \strng{namehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{fullhash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
+      \strng{fullhashraw}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{bibnamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authorbibnamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authornamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authorfullhash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
+      \strng{authorfullhashraw}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \field{extraname}{1}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -4533,9 +4766,9 @@
       \field{year}{1998}
       \field{pages}{452\bibrangedash 459}
       \range{pages}{8}
-      \keyw{Bayesian probability theory,Cox's theorem}
+      \keyw{Bayes,Cox's theorem}
     \endentry
-    \entry{snow2001}{article}{}
+    \entry{snow2001}{article}{}{}
       \name{author}{1}{}{%
         {{hash=977e0ea9ec36fab89cb1bec6dcd51b4b}{%
            family={Snow},
@@ -4545,10 +4778,12 @@
       }
       \strng{namehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{fullhash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
+      \strng{fullhashraw}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{bibnamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authorbibnamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authornamehash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \strng{authorfullhash}{977e0ea9ec36fab89cb1bec6dcd51b4b}
+      \strng{authorfullhashraw}{977e0ea9ec36fab89cb1bec6dcd51b4b}
       \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -4564,9 +4799,9 @@
       \field{year}{2001}
       \field{pages}{178\bibrangedash 192}
       \range{pages}{15}
-      \keyw{Bayesian probability theory,Cox's theorem}
+      \keyw{Bayes,Cox's theorem}
     \endentry
-    \entry{soxetal1988_r2013}{book}{}
+    \entry{soxetal1988_r2013}{book}{}{}
       \name{author}{3}{}{%
         {{hash=a60b31f93d9a7e2675c1af977cd6be52}{%
            family={Sox},
@@ -4592,10 +4827,13 @@
       }
       \strng{namehash}{01155ebf309819110b3c84515a06c8fa}
       \strng{fullhash}{1b50101aa0b0c3d862346819634b6f72}
+      \strng{fullhashraw}{1b50101aa0b0c3d862346819634b6f72}
       \strng{bibnamehash}{1b50101aa0b0c3d862346819634b6f72}
       \strng{authorbibnamehash}{1b50101aa0b0c3d862346819634b6f72}
       \strng{authornamehash}{01155ebf309819110b3c84515a06c8fa}
       \strng{authorfullhash}{1b50101aa0b0c3d862346819634b6f72}
+      \strng{authorfullhashraw}{1b50101aa0b0c3d862346819634b6f72}
+      \field{extraname}{1}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4603,14 +4841,66 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
-      \field{note}{\doi{10.1002/9781118341544}. First publ.\ 1988}
+      \field{note}{\doi{10.1002/9781118341544}. First publ.\ 1988. 3rd ed.\ \citebi{soxetal1988_r2024}}
       \field{origyear}{1988}
       \field{title}{Medical Decision Making}
       \field{year}{2013}
       \field{origdateera}{ce}
-      \keyw{Bayesian probability theory,decision theory}
+      \keyw{Bayes,decision theory}
     \endentry
-    \entry{sprengeretal2021}{incollection}{}
+    \entry{soxetal1988_r2024}{book}{}{}
+      \name{author}{4}{}{%
+        {{hash=a60b31f93d9a7e2675c1af977cd6be52}{%
+           family={Sox},
+           familyi={S\bibinitperiod},
+           given={Harold\bibnamedelima C.},
+           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=1040824295a83d3484dd2d4cf1cd1bdb}{%
+           family={Higgins},
+           familyi={H\bibinitperiod},
+           given={Michael\bibnamedelima Clark},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=01c454d119dbb12d892d7ad75ac43ef0}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={Douglas\bibnamedelima K.},
+           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=596f795dde021096dd61c5a9e657e4a4}{%
+           family={Schmidler},
+           familyi={S\bibinitperiod},
+           given={Gillian\bibnamedelima Sanders},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{01155ebf309819110b3c84515a06c8fa}
+      \strng{fullhash}{b5cb4c80039742a901983d20658f2c1c}
+      \strng{fullhashraw}{b5cb4c80039742a901983d20658f2c1c}
+      \strng{bibnamehash}{b5cb4c80039742a901983d20658f2c1c}
+      \strng{authorbibnamehash}{b5cb4c80039742a901983d20658f2c1c}
+      \strng{authornamehash}{01155ebf309819110b3c84515a06c8fa}
+      \strng{authorfullhash}{b5cb4c80039742a901983d20658f2c1c}
+      \strng{authorfullhashraw}{b5cb4c80039742a901983d20658f2c1c}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{note}{\doi{10.1002/9781119627876}. First publ.\ 1988}
+      \field{origyear}{1988}
+      \field{title}{Medical Decision Making}
+      \field{year}{2024}
+      \field{origdateera}{ce}
+      \keyw{Bayes,decision theory}
+    \endentry
+    \entry{sprengeretal2021}{incollection}{}{}
       \name{author}{2}{}{%
         {{hash=3a642734b0e7c209c51d85238dc64c0a}{%
            family={Sprenger},
@@ -4625,10 +4915,12 @@
       }
       \strng{namehash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \strng{fullhash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
+      \strng{fullhashraw}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \strng{bibnamehash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \strng{authorbibnamehash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \strng{authornamehash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \strng{authorfullhash}{c33c4ac8e7abd4c4e1d927cee2957ae9}
+      \strng{authorfullhashraw}{c33c4ac8e7abd4c4e1d927cee2957ae9}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4641,7 +4933,7 @@
       \field{year}{2021}
       \keyw{base-rate fallacy,probability theory,exchangeability,confounders}
     \endentry
-    \entry{sulmasyetal2000}{article}{}
+    \entry{sulmasyetal2000}{article}{}{}
       \name{author}{4}{}{%
         {{hash=32a80c8e58ef9299b73609bb6b754987}{%
            family={Sulmasy},
@@ -4666,10 +4958,12 @@
       }
       \strng{namehash}{b428df618403dfa2de16e47a7268314d}
       \strng{fullhash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \strng{fullhashraw}{4ab209e34f0b5483d6dfecb1e6206192}
       \strng{bibnamehash}{4ab209e34f0b5483d6dfecb1e6206192}
       \strng{authorbibnamehash}{4ab209e34f0b5483d6dfecb1e6206192}
       \strng{authornamehash}{b428df618403dfa2de16e47a7268314d}
       \strng{authorfullhash}{4ab209e34f0b5483d6dfecb1e6206192}
+      \strng{authorfullhashraw}{4ab209e34f0b5483d6dfecb1e6206192}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -4684,9 +4978,9 @@
       \field{year}{2000}
       \field{pages}{507\bibrangedash 508}
       \range{pages}{2}
-      \keyw{Bayes factor,model comparison,Bayesian probability theory}
+      \keyw{Bayes factor,model comparison,Bayes}
     \endentry
-    \entry{tempetal2021}{article}{}
+    \entry{tempetal2021}{article}{}{}
       \name{author}{7}{}{%
         {{hash=6edd657493783acc7c7d87da970b76a9}{%
            family={Temp},
@@ -4726,10 +5020,12 @@
       }
       \strng{namehash}{06803cd52d7dd794203bef56855118ae}
       \strng{fullhash}{fb858982b4786fc5ac903f6d7908bf9f}
+      \strng{fullhashraw}{fb858982b4786fc5ac903f6d7908bf9f}
       \strng{bibnamehash}{fb858982b4786fc5ac903f6d7908bf9f}
       \strng{authorbibnamehash}{fb858982b4786fc5ac903f6d7908bf9f}
       \strng{authornamehash}{06803cd52d7dd794203bef56855118ae}
       \strng{authorfullhash}{fb858982b4786fc5ac903f6d7908bf9f}
+      \strng{authorfullhashraw}{fb858982b4786fc5ac903f6d7908bf9f}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
@@ -4744,9 +5040,9 @@
       \field{year}{2021}
       \field{pages}{917\bibrangedash 919}
       \range{pages}{3}
-      \keyw{Bayesian probability theory}
+      \keyw{Bayes}
     \endentry
-    \entry{tribus1969}{book}{}
+    \entry{tribus1969}{book}{}{}
       \name{author}{1}{}{%
         {{hash=3fe1b20a18fef245574a3325f7f1fd95}{%
            family={Tribus},
@@ -4762,10 +5058,12 @@
       }
       \strng{namehash}{3fe1b20a18fef245574a3325f7f1fd95}
       \strng{fullhash}{3fe1b20a18fef245574a3325f7f1fd95}
+      \strng{fullhashraw}{3fe1b20a18fef245574a3325f7f1fd95}
       \strng{bibnamehash}{3fe1b20a18fef245574a3325f7f1fd95}
       \strng{authorbibnamehash}{3fe1b20a18fef245574a3325f7f1fd95}
       \strng{authornamehash}{3fe1b20a18fef245574a3325f7f1fd95}
       \strng{authorfullhash}{3fe1b20a18fef245574a3325f7f1fd95}
+      \strng{authorfullhashraw}{3fe1b20a18fef245574a3325f7f1fd95}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
@@ -4776,22 +5074,24 @@
       \field{series}{Unified engineering series}
       \field{title}{Rational Descriptions, Decisions and Designs}
       \field{year}{1969}
-      \keyw{Cox's theorem,Bayesian probability theory,decision theory}
+      \keyw{Cox's theorem,Bayes,decision theory}
     \endentry
-    \entry{vanhorn2003}{article}{}
+    \entry{vanhorn2003}{article}{}{}
       \name{author}{1}{}{%
         {{hash=505cf1d9e5a1b837fda0af6082892433}{%
-           family={Van\bibnamedelima Horn},
-           familyi={V\bibinitperiod\bibinitdelim H\bibinitperiod},
+           family={{Van Horn}},
+           familyi={V\bibinitperiod},
            given={Kevin\bibnamedelima S.},
            giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
       }
       \strng{namehash}{505cf1d9e5a1b837fda0af6082892433}
       \strng{fullhash}{505cf1d9e5a1b837fda0af6082892433}
+      \strng{fullhashraw}{505cf1d9e5a1b837fda0af6082892433}
       \strng{bibnamehash}{505cf1d9e5a1b837fda0af6082892433}
       \strng{authorbibnamehash}{505cf1d9e5a1b837fda0af6082892433}
       \strng{authornamehash}{505cf1d9e5a1b837fda0af6082892433}
       \strng{authorfullhash}{505cf1d9e5a1b837fda0af6082892433}
+      \strng{authorfullhashraw}{505cf1d9e5a1b837fda0af6082892433}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
@@ -4808,15 +5108,13 @@
       \range{pages}{22}
       \keyw{Bayesian probability logic}
     \endentry
-    \entry{vonneumannetal1944_r1955}{book}{}
+    \entry{vonneumannetal1944_r1955}{book}{}{}
       \name{author}{2}{}{%
-        {{hash=f8744afb2b8eb53c5804cbac615dbad1}{%
-           family={Neumann},
-           familyi={N\bibinitperiod},
+        {{hash=5df83b1766fc20a18dc734f278672b6c}{%
+           family={{von Neumann}},
+           familyi={v\bibinitperiod},
            given={John},
-           giveni={J\bibinitperiod},
-           prefix={von},
-           prefixi={v\bibinitperiod}}}%
+           giveni={J\bibinitperiod}}}%
         {{hash=9a5e5068a8192ce97865c96f1dc9be3b}{%
            family={Morgenstern},
            familyi={M\bibinitperiod},
@@ -4829,12 +5127,14 @@
       \list{publisher}{1}{%
         {Princeton University Press}%
       }
-      \strng{namehash}{60b9741f66d2319fdadf5a8582536594}
-      \strng{fullhash}{60b9741f66d2319fdadf5a8582536594}
-      \strng{bibnamehash}{60b9741f66d2319fdadf5a8582536594}
-      \strng{authorbibnamehash}{60b9741f66d2319fdadf5a8582536594}
-      \strng{authornamehash}{60b9741f66d2319fdadf5a8582536594}
-      \strng{authorfullhash}{60b9741f66d2319fdadf5a8582536594}
+      \strng{namehash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{fullhash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{fullhashraw}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{bibnamehash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{authorbibnamehash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{authornamehash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{authorfullhash}{f9002da871109c216fc6bb30ce94b6d9}
+      \strng{authorfullhashraw}{f9002da871109c216fc6bb30ce94b6d9}
       \field{sortinit}{v}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
@@ -4849,7 +5149,7 @@
       \field{origdateera}{ce}
       \keyw{decision theory,utility matrix}
     \endentry
-    \entry{walker2010}{incollection}{}
+    \entry{walker2010}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=60d1ecb6eacbe89083d161ac22ed1063}{%
            family={Walker},
@@ -4859,10 +5159,12 @@
       }
       \strng{namehash}{60d1ecb6eacbe89083d161ac22ed1063}
       \strng{fullhash}{60d1ecb6eacbe89083d161ac22ed1063}
+      \strng{fullhashraw}{60d1ecb6eacbe89083d161ac22ed1063}
       \strng{bibnamehash}{60d1ecb6eacbe89083d161ac22ed1063}
       \strng{authorbibnamehash}{60d1ecb6eacbe89083d161ac22ed1063}
       \strng{authornamehash}{60d1ecb6eacbe89083d161ac22ed1063}
       \strng{authorfullhash}{60d1ecb6eacbe89083d161ac22ed1063}
+      \strng{authorfullhashraw}{60d1ecb6eacbe89083d161ac22ed1063}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
@@ -4871,13 +5173,14 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{\NoCaseChange{\citein{hjortetal2010}}}
       \field{chapter}{\chapb~1}
+      \field{note}{\doi{10.1017/CBO9780511802478.002}}
       \field{title}{Bayesian nonparametric methods: motivation and ideas}
       \field{year}{2010}
       \field{pages}{22\bibrangedash 34}
       \range{pages}{13}
-      \keyw{exchangeability,Bayesian probability theory,Dirichlet-process mixture}
+      \keyw{exchangeability,Bayes,Dirichlet-process mixture}
     \endentry
-    \entry{wassersteinetal2016}{article}{}
+    \entry{wassersteinetal2016}{article}{}{}
       \name{author}{2}{}{%
         {{hash=ff3dadfd84ad3ad7395c0dbe5f46314c}{%
            family={Wasserstein},
@@ -4892,10 +5195,12 @@
       }
       \strng{namehash}{79ddc9c61fc9805ed2457c43ccb5f736}
       \strng{fullhash}{79ddc9c61fc9805ed2457c43ccb5f736}
+      \strng{fullhashraw}{79ddc9c61fc9805ed2457c43ccb5f736}
       \strng{bibnamehash}{79ddc9c61fc9805ed2457c43ccb5f736}
       \strng{authorbibnamehash}{79ddc9c61fc9805ed2457c43ccb5f736}
       \strng{authornamehash}{79ddc9c61fc9805ed2457c43ccb5f736}
       \strng{authorfullhash}{79ddc9c61fc9805ed2457c43ccb5f736}
+      \strng{authorfullhashraw}{79ddc9c61fc9805ed2457c43ccb5f736}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
@@ -4910,9 +5215,9 @@
       \field{year}{2016}
       \field{pages}{129\bibrangedash 133}
       \range{pages}{5}
-      \keyw{Bayesian probability theory,fallacies of frequentist statistics}
+      \keyw{Bayes,fallacies of frequentist statistics}
     \endentry
-    \entry{weinsteinetal1980}{book}{}
+    \entry{weinsteinetal1980}{book}{}{}
       \name{author}{2}{}{%
         {{hash=60d46bdfdd8cf20424d886af189ef973}{%
            family={Weinstein},
@@ -4933,10 +5238,12 @@
       }
       \strng{namehash}{8db5bc1e9c63aa10aafde8b755b14773}
       \strng{fullhash}{8db5bc1e9c63aa10aafde8b755b14773}
+      \strng{fullhashraw}{8db5bc1e9c63aa10aafde8b755b14773}
       \strng{bibnamehash}{8db5bc1e9c63aa10aafde8b755b14773}
       \strng{authorbibnamehash}{8db5bc1e9c63aa10aafde8b755b14773}
       \strng{authornamehash}{8db5bc1e9c63aa10aafde8b755b14773}
       \strng{authorfullhash}{8db5bc1e9c63aa10aafde8b755b14773}
+      \strng{authorfullhashraw}{8db5bc1e9c63aa10aafde8b755b14773}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
@@ -4947,7 +5254,7 @@
       \field{year}{1980}
       \keyw{decision theory,probability theory}
     \endentry
-    \entry{weissetal2003}{article}{}
+    \entry{weissetal2003}{article}{}{}
       \name{author}{2}{}{%
         {{hash=147614b41970ea30bd5640e98195be84}{%
            family={Weiss},
@@ -4962,10 +5269,12 @@
       }
       \strng{namehash}{b4d56fecc4611189c333a99d678df068}
       \strng{fullhash}{b4d56fecc4611189c333a99d678df068}
+      \strng{fullhashraw}{b4d56fecc4611189c333a99d678df068}
       \strng{bibnamehash}{b4d56fecc4611189c333a99d678df068}
       \strng{authorbibnamehash}{b4d56fecc4611189c333a99d678df068}
       \strng{authornamehash}{b4d56fecc4611189c333a99d678df068}
       \strng{authorfullhash}{b4d56fecc4611189c333a99d678df068}
+      \strng{authorfullhashraw}{b4d56fecc4611189c333a99d678df068}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
@@ -4979,9 +5288,9 @@
       \field{year}{2003}
       \field{pages}{315\bibrangedash 354}
       \range{pages}{40}
-      \keyw{machine learning,decision theory,utility matrix,Bayesian probability theory,class balance}
+      \keyw{machine learning,decision theory,utility matrix,Bayes,class balance}
     \endentry
-    \entry{woodward1953_r1964}{book}{}
+    \entry{woodward1953_r1964}{book}{}{}
       \name{author}{1}{}{%
         {{hash=21952057b5b8b884cb11076189a05d9e}{%
            family={Woodward},
@@ -4997,10 +5306,12 @@
       }
       \strng{namehash}{21952057b5b8b884cb11076189a05d9e}
       \strng{fullhash}{21952057b5b8b884cb11076189a05d9e}
+      \strng{fullhashraw}{21952057b5b8b884cb11076189a05d9e}
       \strng{bibnamehash}{21952057b5b8b884cb11076189a05d9e}
       \strng{authorbibnamehash}{21952057b5b8b884cb11076189a05d9e}
       \strng{authornamehash}{21952057b5b8b884cb11076189a05d9e}
       \strng{authorfullhash}{21952057b5b8b884cb11076189a05d9e}
+      \strng{authorfullhashraw}{21952057b5b8b884cb11076189a05d9e}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
@@ -5016,7 +5327,7 @@
       \field{year}{1964}
       \field{origdateera}{ce}
     \endentry
-    \entry{zalta1995_r2023}{book}{}
+    \entry{zalta1995_r2023}{book}{}{}
       \name{editor}{1}{}{%
         {{hash=5ff1c29ff1cc8f6336533b0ffd842a79}{%
            family={Zalta},
@@ -5029,10 +5340,12 @@
       }
       \strng{namehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \strng{fullhash}{5ff1c29ff1cc8f6336533b0ffd842a79}
+      \strng{fullhashraw}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \strng{bibnamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \strng{editorbibnamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \strng{editornamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \strng{editorfullhash}{5ff1c29ff1cc8f6336533b0ffd842a79}
+      \strng{editorfullhashraw}{5ff1c29ff1cc8f6336533b0ffd842a79}
       \field{sortinit}{Z}
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
